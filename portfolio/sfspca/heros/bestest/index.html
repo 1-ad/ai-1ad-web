@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=UTF-8>
+<title></title>
+<style>#container{width:300px;height:250px;position:absolute;left:0;top:0;cursor:pointer}</style>
+<script src=https://onecreative.aol.com/ads/jsapi/ADTECH.js></script>
+<script src=https://code.createjs.com/createjs-2015.11.26.min.js></script>
+<script src=main.js></script>
+<script>var canvas,stage,exportRoot;function init(){canvas=document.getElementById("canvas");images=images||{};var b=new createjs.LoadQueue(false);b.addEventListener("fileload",handleFileLoad);b.addEventListener("complete",handleComplete);b.loadManifest(lib.properties.manifest);document.querySelector("#canvas").addEventListener("mouseover",onBannerOver);document.querySelector("#canvas").addEventListener("mouseout",onBannerOut);document.querySelector("#container").addEventListener("click",onBannerClick)}function onBannerOver(a){exportRoot.cta.over.visible=true}function onBannerOut(a){exportRoot.cta.over.visible=false}function onBannerClick(a){ADTECH.click("Banner","https://www.sfspca.org/")}function handleFileLoad(b){if(b.item.type=="image"){images[b.item.id]=b.result}}function handleComplete(d){var e=d.target;var f=lib.ssMetadata;for(i=0;i<f.length;i++){ss[f[i].name]=new createjs.SpriteSheet({images:[e.getResult(f[i].name)],frames:f[i].frames})}exportRoot=new lib.main();stage=new createjs.Stage(canvas);stage.addChild(exportRoot);stage.enableMouseOver();createjs.Ticker.setFPS(lib.properties.fps);createjs.Ticker.addEventListener("tick",stage);(function(a,b,q,n){var c,o,p=1;window.addEventListener("resize",m);m();function m(){var w=lib.properties.width,k=lib.properties.height;var u=window.innerWidth,j=window.innerHeight;var g=window.devicePixelRatio,l=u/w,v=j/k,h=1;if(a){if((b=="width"&&c==u)||(b=="height"&&o==j)){h=p}else{if(!q){if(u<w||j<k){h=Math.min(l,v)}}else{if(n==1){h=Math.min(l,v)}else{if(n==2){h=Math.max(l,v)}}}}}canvas.width=w*g*h;canvas.height=k*g*h;canvas.style.width=w*h+"px";canvas.style.height=k*h+"px";stage.scaleX=g*h;stage.scaleY=g*h;c=u;o=j;p=h}})(false,"both",false,1);onBannerOut()};</script>
+</head>
+<body onload=init() style=margin:0px>
+<div id=container>
+<canvas id=canvas width=300 height=250 style=display:block;background-color:rgba(255,255,255,1.00)></canvas>
+</div>
+</body>
+</html>

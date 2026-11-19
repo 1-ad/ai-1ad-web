@@ -1,0 +1,412 @@
+{
+    "projectId": "3mscience_wonderwithus",
+    "creativeId": "3M_Commute_30sec_brandedslate",
+    "buildId": "",
+    "format": "VPAID",
+    "templateId": "str_brandedslate",
+    "ctx": "",
+    "adDuration": 30,
+    "impType": "video",
+    "skipOffset": 5,
+    "mutedOnStart": false,
+    "features": [],
+    "patches": {
+        "tmAdElement": true
+    },
+    "tracking": {
+        "actionPixelSrc": "",
+        "googleAnalytics": {
+            "propertyId": "",
+            "testPropertyId": "",
+            "prependProjectId": false,
+            "prependCreativeId": true
+        },
+        "macros": [
+            "%timestamp%",
+            "[[random]]",
+            "[[timestamp]]",
+            "[timestamp]"
+        ],
+        "clickThrus": [{
+            "name": "video/clickthru/Commute",
+            "url": "https://wonder.3m.com/",
+            "googleEvent": "video/clickthru/Commute",
+            "actionPixelName": "Click Thru Video Commute",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/Home",
+            "url": "https://wonder.3m.com/",
+            "googleEvent": "video/clickthru/Home",
+            "actionPixelName": "Click Thru Video Home",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/Mountain",
+            "url": "https://wonder.3m.com/",
+            "googleEvent": "video/clickthru/Mountain",
+            "actionPixelName": "Click Thru Video Mountain",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/Skate",
+            "url": "https://wonder.3m.com/",
+            "googleEvent": "video/clickthru/Skate",
+            "actionPixelName": "Click Thru Video Skate",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/bkgrnd",
+            "url": "https://wonder.3m.com/",
+            "googleEvent": "slate/clickthru/bkgrnd",
+            "actionPixelName": "Click Thru Background",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/ctabtn",
+            "url": "https://wonder.3m.com/",
+            "googleEvent": "slate/clickthru/ctabtn",
+            "actionPixelName": "Click Thru CTA Button",
+            "thirdPartyPixels": []
+        }],
+        "events": [{
+            "name": "slate/viewed",
+            "googleEvent": "slate/viewed",
+            "actionPixelName": "Branded Slate Impression",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/Commute",
+            "googleEvent": "slate/click/Commute",
+            "actionPixelName": "Click Thumb Commute",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/Home",
+            "googleEvent": "slate/click/Home",
+            "actionPixelName": "Click Thumb Home",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/Mountain",
+            "googleEvent": "slate/click/Mountain",
+            "actionPixelName": "Click Thumb Mountain",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/Skate",
+            "googleEvent": "slate/click/Skate",
+            "actionPixelName": "Click Thumb Skate",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/close",
+            "googleEvent": "slate/click/close",
+            "actionPixelName": "Ad Closed",
+            "thirdPartyPixels": []
+        }]
+    },
+    "assets": {
+        "videos": [{
+            "primary": true,
+            "initByCreative": true,
+            "name": "Commute",
+            "view": "template_default",
+            "src": "vid_Commute_30sec.mp4",
+            "poster": "vid_Commute_30sec.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "tracking": {
+                "clickThruName": "video/clickthru/Commute",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "slate/Commute/quartiles/0",
+                            "actionPixelName": "Video Commute Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "slate/Commute/quartiles/25",
+                            "actionPixelName": "Video Commute Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "slate/Commute/quartiles/50",
+                            "actionPixelName": "Video Commute Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "slate/Commute/quartiles/75",
+                            "actionPixelName": "Video Commute Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "slate/Commute/quartiles/100",
+                            "actionPixelName": "Video Commute Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "Home",
+            "initByCreative": true,
+            "src": "vid_Home_30sec.mp4",
+            "poster": "vid_Home_30sec.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/Home",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "slate/Home/quartiles/0",
+                            "actionPixelName": "Video Home Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "slate/Home/quartiles/25",
+                            "actionPixelName": "Video Home Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "slate/Home/quartiles/50",
+                            "actionPixelName": "Video Home Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "slate/Home/quartiles/75",
+                            "actionPixelName": "Video Home Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "slate/Home/quartiles/100",
+                            "actionPixelName": "Video Home Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "Mountain",
+            "initByCreative": true,
+            "src": "vid_Mountain_15sec.mp4",
+            "poster": "vid_Mountain_15sec.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/Mountain",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "slate/Mountain/quartiles/0",
+                            "actionPixelName": "Video Mountain Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "slate/Mountain/quartiles/25",
+                            "actionPixelName": "Video Mountain Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "slate/Mountain/quartiles/50",
+                            "actionPixelName": "Video Mountain Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "slate/Mountain/quartiles/75",
+                            "actionPixelName": "Video Mountain Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "slate/Mountain/quartiles/100",
+                            "actionPixelName": "Video Mountain Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "Skate",
+            "initByCreative": true,
+            "src": "vid_Skate_15sec.mp4",
+            "poster": "vid_Skate_15sec.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/Skate",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "slate/Skate/quartiles/0",
+                            "actionPixelName": "Video Skate Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "slate/Skate/quartiles/25",
+                            "actionPixelName": "Video Skate Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "slate/Skate/quartiles/50",
+                            "actionPixelName": "Video Skate Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "slate/Skate/quartiles/75",
+                            "actionPixelName": "Video Skate Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "slate/Skate/quartiles/100",
+                            "actionPixelName": "Video Skate Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": true,
+            "initByCreative": false,
+            "name": "primary",
+            "view": "mobile_video_only",
+            "src": "vid_Commute_30sec.mp4",
+            "poster": "vid_Commute_30sec.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": true,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/Commute",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }],
+        "views": [{
+            "name": "template_default",
+            "role": "default",
+            "format": "VPAID",
+            "elements": {
+                "tag": "div",
+                "id": "creative-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                },
+                "children": [{
+                    "tag": "iframe",
+                    "id": "creative-overlay",
+                    "src": "index.html",
+                    "width": "100%",
+                    "height": "100%",
+                    "scrolling": "NO",
+                    "frameborder": "0",
+                    "marginwidth": "0",
+                    "marginheight": "0",
+                    "style": {
+                        "position": "absolute",
+                        "left": "0",
+                        "top": "0",
+                        "margin": "0",
+                        "padding": "0",
+                        "border": "0",
+                        "visibility": "visible"
+                    }
+                }]
+            }
+        }, {
+            "name": "mobile_video_only",
+            "role": "alternate",
+            "format": "VPAID",
+            "trigger": {
+                "type": "device",
+                "condition": "equal",
+                "value": "mobile"
+            },
+            "elements": {
+                "tag": "div",
+                "id": "creative-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                },
+                "children": [{
+                    "tag": "div",
+                    "id": "primary-video-hotspot",
+                    "style": {
+                        "position": "absolute",
+                        "left": "0",
+                        "top": "0",
+                        "width": "100%",
+                        "height": "100%",
+                        "margin": "0",
+                        "padding": "0",
+                        "border": "0",
+                        "overflow": "hidden",
+                        "backgroundColor": "lime",
+                        "opacity": "0",
+                        "pointer-events": "auto",
+                        "cursor": "pointer"
+                    }
+                }, {
+                    "tag": "div",
+                    "id": "ad-playbutton-container",
+                    "style": {
+                        "position": "absolute",
+                        "left": "0",
+                        "top": "0",
+                        "width": "100%",
+                        "height": "100%",
+                        "margin": "0",
+                        "padding": "0",
+                        "border": "0",
+                        "visibility": "hidden",
+                        "cursor": "pointer"
+                    }
+                }]
+            }
+        }],
+        "companions": [{
+            "width": "",
+            "height": "",
+            "src": null,
+            "clickThruName": "companionClickThru1"
+        }]
+    }
+}

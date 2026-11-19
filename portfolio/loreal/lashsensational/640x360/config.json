@@ -1,0 +1,135 @@
+{
+    "projectId": "loreal_lashsensational_flower",
+    "creativeId": "vlogger_brandedslate",
+    "buildId": "",
+    "format": "vpaid",
+    "templateId": "str_brandedslate",
+    "ctx": "",
+    "adDuration": 15,
+    "skipOffset": 5,
+    "mutedOnStart": false,
+    "features": [],
+    "patches": {
+        "tmAdElement": true
+    },
+    "tracking": {
+        "actionPixelSrc": 0,
+        "googleAnalytics": {
+            "propertyId": "",
+            "prependProjectId": false,
+            "prependCreativeId": true
+        },
+        "clickThrus": [{
+            "name": "clickthru/bkgrnd",
+            "url": "https://www.maybelline.com/eye-makeup/mascara/lash-sensational-washable-mascara",
+            "actionPixelName": "Background Click Thru",
+            "googleEvent": "clickthru/background",
+            "thirdPartyPixels": []
+        }, {
+            "name": "clickthru/shopnow",
+            "url": "https://www.maybelline.com/eye-makeup/mascara/lash-sensational-washable-mascara",
+            "actionPixelName": "Shop Now Click Thru",
+            "googleEvent": "clickthru/shopnow",
+            "thirdPartyPixels": []
+        }, {
+            "name": "clickthru/preroll",
+            "url": "https://www.maybelline.com/eye-makeup/mascara/lash-sensational-washable-mascara",
+            "actionPixelName": "Click Thru Preroll",
+            "googleEvent": "clickthru/preroll",
+            "thirdPartyPixels": []
+        }],
+        "events": []
+    },
+    "assets": {
+        "videos": [{
+            "primary": true,
+            "initByCreative": true,
+            "name": "primary",
+            "src": "vlogger.mp4",
+            "poster": "vlogger.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": true,
+            "usePlayButton": true,
+            "tracking": {
+                "clickThruName": "clickthru/preroll",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "actionPixelName": ""
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "actionPixelName": ""
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "actionPixelName": ""
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "actionPixelName": ""
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "actionPixelName": ""
+                        }
+                    }
+                }
+            }
+        }],
+        "view": {
+            "tag": "div",
+            "id": "creative-container",
+            "style": {
+                "position": "absolute",
+                "left": "0",
+                "top": "0",
+                "width": "100%",
+                "height": "100%",
+                "margin": "0",
+                "padding": "0",
+                "border": "0",
+                "visibility": "visible"
+            },
+            "children": [{
+                "tag": "iframe",
+                "id": "creative-overlay",
+                "src": "index.html",
+                "width": "100%",
+                "height": "100%",
+                "scrolling": "NO",
+                "frameborder": "0",
+                "marginwidth": "0",
+                "marginheight": "0",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                }
+            }, {
+                "tag": "div",
+                "id": "ad-playbutton-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "hidden"
+                }
+            }]
+        },
+        "actions": [{
+            "type": "ct",
+            "name": "clickThru1"
+        }]
+    }
+}

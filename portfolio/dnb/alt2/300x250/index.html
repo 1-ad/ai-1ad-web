@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.dnb.com";window.onload=function(){resetBanner();initMouseEvents();resetReveal();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick);bindEvent(gEL("#cta"),"mouseover",onCTAOver);bindEvent(gEL("#cta"),"mouseout",onCTAOut);}
+function onBannerClick(e){window.open(clickTag);}
+function onCTAOver(e){gEL("#cta").style.backgroundColor="#fff";gEL("#cta").style.backgroundPosition="0px -26px";}
+function onCTAOut(e){gEL("#cta").style.backgroundColor="#e6a65d";gEL("#cta").style.backgroundPosition="0px 0px";}
+function resetBanner(){resetStuck();resetWalk();TweenLite.set("#box1",{y:0});TweenLite.set("#box2",{y:125});TweenLite.set("#txt2",{autoAlpha:0});TweenLite.set("#cta",{x:144});TweenLite.set("#cta",{backgroundPosition:"0px 26px"});}
+function startAnimation(){var delay=0.5;TweenLite.to("#box1",0.5,{y:-116,rotation:4,delay:delay,ease:Power1.easeInOut});TweenLite.to("#box2",0.5,{y:252,rotation:-13,delay:delay,ease:Power1.easeInOut});delay+=0.25;TweenLite.delayedCall(delay,function(){playWalk();});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);});delay+=3;TweenLite.to("#txt2",0.5,{autoAlpha:1,delay:delay});delay+=0.5;TweenLite.to("#cta",0.5,{x:0,y:0,delay:delay,ease:Quad.easeOut});delay+=0.3;TweenLite.to("#cta",0.5,{backgroundPosition:"0px 0px",delay:delay,ease:Quad.easeOut});delay+=0.5;console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var canvasScale=2;var msgWidth=300;var msgHeight=250;var canvasWidth=msgWidth*canvasScale;var canvasHeight=msgHeight*canvasScale;var txtAR;function resetReveal(){txtAR=[];txtAR[1]=initText("txt1");txtAR[1].boxes=[[19,40,203,21],[19,64,203,26]];}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*canvasScale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.5,{y:imgOb.srcRect[1],ease:Power3.easeOut,delay});delay+=0.3;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+function hideText(txtOb){var delay=0;for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1]+imgOb.srcRect[3],ease:Power3.easeOut,delay});}
+TweenLite.to(this,0.3+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb],onComplete:rEL,onCompleteParams:[txtOb.canvas]});}
+var manWalk;function resetWalk(){manWalk=[[{id:"arm2",x:-48,y:163,r:15},{id:"rope3",x:-142,y:187,r:-9},{id:"leg2b",x:-45,y:221,r:43},{id:"leg2a",x:-48,y:190,r:35},{id:"leg1b",x:-38,y:220,r:-31},{id:"leg1a",x:-54,y:200,r:-32},{id:"body",x:-61,y:148,r:0},{id:"rope1",x:-124,y:240,r:-2},{id:"rope2",x:-142,y:209,r:-7},{id:"arm1",x:-81,y:174,r:-3},],[{id:"arm2",x:-25,y:156,r:27},{id:"rope3",x:-125,y:173,r:-7},{id:"leg2b",x:-4,y:209,r:62},{id:"leg2a",x:-31,y:189,r:-7},{id:"leg1b",x:-24,y:213,r:-8},{id:"leg1a",x:-32,y:187,r:-9},{id:"body",x:-39,y:139,r:-1},{id:"rope1",x:-118,y:230,r:0},{id:"rope2",x:-121,y:196,r:-5},{id:"arm1",x:-57,y:170,r:-19},],[{id:"arm2",x:-4,y:151,r:38},{id:"rope3",x:-103,y:171,r:-7},{id:"leg2b",x:10,y:207,r:-2},{id:"leg2a",x:-9,y:183,r:4},{id:"leg1b",x:-9,y:209,r:15},{id:"leg1a",x:-10,y:181,r:8},{id:"body",x:-21,y:135,r:-3},{id:"rope1",x:-82,y:224,r:0},{id:"rope2",x:-100,y:192,r:-5},{id:"arm1",x:-39,y:165,r:-13},],[{id:"arm2",x:12,y:146,r:30},{id:"rope3",x:-88,y:166,r:-7},{id:"leg2b",x:19,y:204,r:13},{id:"leg2a",x:7,y:176,r:18},{id:"leg1b",x:33,y:198,r:37},{id:"leg1a",x:0,y:188,r:-45},{id:"body",x:-3,y:131,r:1},{id:"rope1",x:-79,y:221,r:0},{id:"rope2",x:-86,y:188,r:-5},{id:"arm1",x:-22,y:161,r:-15},],[{id:"arm2",x:33,y:144,r:14},{id:"rope3",x:-62,y:159,r:-4},{id:"leg2b",x:39,y:202,r:42},{id:"leg2a",x:35,y:172,r:35},{id:"leg1b",x:45,y:201,r:-31},{id:"leg1a",x:25,y:180,r:-36},{id:"body",x:20,y:127,r:-1},{id:"rope1",x:-41,y:211,r:2},{id:"rope2",x:-60,y:181,r:-3},{id:"arm1",x:1,y:154,r:-4},],[{id:"arm2",x:57,y:134,r:31},{id:"rope3",x:-41,y:155,r:-7},{id:"leg2b",x:78,y:190,r:59},{id:"leg2a",x:54,y:167,r:1},{id:"leg1b",x:59,y:194,r:-9},{id:"leg1a",x:51,y:168,r:-10},{id:"body",x:43,y:120,r:-1},{id:"rope1",x:-34,y:211,r:0},{id:"rope2",x:-36,y:177,r:-5},{id:"arm1",x:24,y:148,r:-11},],[{id:"arm2",x:67,y:135,r:0},{id:"rope3",x:-25,y:151,r:-7},{id:"leg2b",x:85,y:190,r:0},{id:"leg2a",x:64,y:167,r:0},{id:"leg1b",x:65,y:192,r:0},{id:"leg1a",x:62,y:162,r:0},{id:"body",x:54,y:117,r:0},{id:"rope1",x:-9,y:205,r:0},{id:"rope2",x:-27,y:174,r:-5},{id:"arm1",x:35,y:141,r:0},],];for(var a in manWalk[0]){TweenLite.set("#"+manWalk[0][a].id,{x:manWalk[0][a].x,y:manWalk[0][a].y,rotation:manWalk[0][a].r});}}
+function playWalk(){var aniTime=0.4;var delay=0;var ease=Power0.easeInOut;var lastFrameNum=manWalk.length-1;for(var a=0;a<=lastFrameNum;a++){if(a===lastFrameNum){ease=Quad.easeOut;aniTime=0.8;}
+var manFrame=manWalk[a];for(var b in manFrame){TweenLite.to("#"+manFrame[b].id,aniTime,{x:manFrame[b].x,y:manFrame[b].y,rotation:manFrame[b].r,ease:ease,delay:delay});}
+delay+=aniTime;}
+TweenLite.delayedCall(delay-0.2,playStuck);}
+var manStuck1;var manStuck2;var stuckLoopsTotal=3;var stuckLoopsCurrent=0;function resetStuck(){manStuck1=[{id:"leg2b",w:23,h:38,x:85,y:189,r:0},{id:"leg2a",w:27,h:31,x:64,y:167,r:0},{id:"leg1b",w:11,h:42,x:65,y:192,r:0},{id:"leg1a",w:16,h:40,x:62,y:162,r:0},{id:"arm2",w:39,h:34,x:67,y:135,r:0},{id:"rope3",w:111,h:27,x:-25,y:151,r:-7},{id:"rope1",w:111,h:27,x:-9,y:205,r:0},{id:"body",w:25,h:61,x:54,y:117,r:0},{id:"rope2",w:111,h:27,x:-27,y:174,r:-5},{id:"arm1",w:29,h:63,x:35,y:141,r:0},];manStuck2=[{id:"leg2b",x:89,y:188,r:6},{id:"leg2a",x:65,y:169,r:-7},{id:"leg1b",x:69,y:191,r:6},{id:"leg1a",x:61,y:163,r:-7},{id:"arm2",x:72,y:132,r:10},{id:"rope3",x:-22,y:150,r:-6},{id:"rope1",x:-7,y:204,r:0},{id:"body",x:62,y:114,r:9},{id:"rope2",x:-26,y:171,r:-4},{id:"arm1",x:39,y:140,r:-2},];for(var a in manStuck1){TweenLite.set("#"+manStuck1[a].id,{width:manStuck1[a].w+"px",height:manStuck1[a].h+"px"});}}
+function playStuck(){stuckLoopsCurrent++;if(stuckLoopsCurrent<=stuckLoopsTotal){var playTime=randRange(5,6)/10;for(var a in manStuck2){if(manStuck2[a].id==="arm1"){TweenLite.to("#"+manStuck2[a].id,playTime,{x:manStuck2[a].x,y:manStuck2[a].y,rotation:manStuck2[a].r,ease:Power0.easeInOut,onComplete:reverseTween,onReverseComplete:playStuck,});}else{TweenLite.to("#"+manStuck2[a].id,playTime,{x:manStuck2[a].x,y:manStuck2[a].y,rotation:manStuck2[a].r,ease:Power0.easeInOut,onComplete:reverseTween});}}}}
+function gEL(id){return document.querySelector(id);}
+function bindEvent(el,eventName,eventHandler){if(el.addEventListener){el.addEventListener(eventName,eventHandler,false);}else if(el.attachEvent){el.attachEvent("on"+eventName,eventHandler);}}
+function rEL(el){el.parentElement.removeChild(el);}
+function randRange(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+function reverseTween(){this.reverse();}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{overflow:hidden;background-color:#4298b5;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:250px;left:0;top:0}.box{width:330px;height:125px;left:-5px;top:0;background-color:#004f71;transform-origin:0 0}#txt1{background-image:url("img_txt1.png")}#txt2{background-image:url("img_txt2.png")}.man{width:10px;height:10px;left:0;top:0;transform-origin:0 0}#leg2b{background-image:url("img_man_leg2b.png")}#leg2a{background-image:url("img_man_leg2a.png")}#leg1b{background-image:url("img_man_leg1b.png")}#leg1a{background-image:url("img_man_leg1a.png")}#arm2{background-image:url("img_man_arm2.png")}#body{background-image:url("img_man_body.png")}#arm1{background-image:url("img_man_arm1.png");transform-origin:24px 4px}.rope{width:111px;height:27px;left:0;top:0;background-image:url("img_rope.png");transform-origin:0 0}#cta{width:124px;height:26px;left:160px;top:144px;border-radius:50px;background-color:#e6a65d;background-image:url("img_cta.png");background-position:0 0;transform-origin:0 100%;pointer-events:all;cursor:pointer}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=man class=adsize>
+<div id=arm2 class=man></div>
+<div id=leg2b class=man></div>
+<div id=leg2a class=man></div>
+<div id=leg1b class=man></div>
+<div id=leg1a class=man></div>
+<div id=rope3 class="rope man"></div>
+<div id=rope1 class="rope man"></div>
+<div id=body class=man></div>
+<div id=rope2 class="rope man"></div>
+<div id=arm1 class=man></div>
+</div>
+<div id=box1 class=box></div>
+<div id=box2 class=box></div>
+<div id=txt1 class=adsize></div>
+<div id=txt2 class=adsize></div>
+<div id=logo class=adsize>
+<svg width=300 height=250>
+<path fill=#fff stroke=none d="M189.25 224.7h-1v5.35q-.75-1.3-2.35-1.3-1.25 0-2.05.85-.85.9-.85 2.2 0 1.3.85 2.2.85.85 2.1.85 1.65 0 2.3-1.15v1.05h1V224.7m-4.65 5.55q.6-.65 1.55-.65.95 0 1.55.65.6.6.6 1.55 0 .95-.6 1.6-.6.6-1.55.6-.95 0-1.55-.6-.55-.65-.55-1.6 0-.95.55-1.55m12.25-1.4h-1v3.25q0 .85-.55 1.35-.5.5-1.35.5-1.5 0-1.5-1.6v-3.5h-1v3.65q0 1.1.65 1.75.6.65 1.6.65 1.55 0 2.15-1.15v1h1v-5.9m37.5 1.05l.4-.85q-.4-.3-1.05-.3-1.25 0-1.75 1.05v-.95h-1v5.9h1v-3.1q0-1 .45-1.5.4-.45 1.1-.45.5 0 .85.2m1.3 3.2q0 .85.65 1.35.55.4 1.6.4 1.35 0 1.95-.8v.7h.95v-3.6q0-1.2-.65-1.8-.6-.6-1.65-.6-1.6 0-2.5 1.1l.65.55q.65-.85 1.75-.85 1.45 0 1.45 1.6v.15h-1.9q-1 0-1.6.45-.7.45-.7 1.35m3.7.6q-.5.35-1.25.35-1.45 0-1.45-1 0-1 1.35-1h1.85v.75q0 .55-.5.9m-35.7-2.4v3.45h1.05v-3.6q0-1.1-.65-1.8-.6-.6-1.6-.6-1.55 0-2.15 1.1v-1h-1.05v5.9h1.05v-3.25q0-.85.5-1.35.5-.5 1.35-.5 1.5 0 1.5 1.65m18.9-6.6v10.05h.95v-1.05q.65 1.15 2.35 1.15 1.25 0 2.1-.85.85-.9.85-2.2 0-1.3-.85-2.2-.85-.85-2.1-.85-1.65 0-2.35 1.15v-5.2h-.95m4.6 5.55q.55.6.55 1.55 0 .95-.55 1.6-.55.6-1.5.6-.95 0-1.55-.6-.6-.65-.6-1.6 0-.95.6-1.55.6-.65 1.55-.65.95 0 1.5.65m-12 3.05l-1.6 1.55q-.8.7-1.75.65-1.05 0-1.7-.7-.7-.7-.7-1.7.05-1 .75-1.65l1.1-1.05-1.1-1.05-1.05 1q-1.2 1.1-1.25 2.75 0 1.55 1.15 2.7 1.1 1.15 2.75 1.2 1.65.05 2.85-1.1l1.65-1.5 1.65 1.65 1.05-1.05-10.45-10.55v2.15l6.65 6.7m.95-5.65q.45.2.85.6.75.7.7 1.65-.05 1-.75 1.7l-.15.15 1.1 1.05.1-.15q1.2-1.1 1.2-2.7.05-1.6-1.1-2.75-.8-.85-1.95-1.1v1.55m-.9-2.3q0-1.35-.95-2.35-.95-.95-2.35-1-1.4 0-2.4.95l-.75.7 1.05 1.05.75-.7q.55-.5 1.3-.5.8 0 1.3.55.55.5.5 1.25 0 .75-.55 1.25l-.75.7 1.05 1.1.75-.7q1-.95 1.05-2.3m49.45 3.5h-1v5.9h1v-3.1q0-1 .45-1.5.4-.45 1.1-.45.5 0 .85.2l.4-.85q-.45-.3-1.05-.3-1.25 0-1.75 1.05v-.95m9.8 3.3q0-1.5-.8-2.45-.85-.95-2.25-.95-1.35 0-2.25.85-.9.9-.9 2.2 0 1.35.9 2.2.95.85 2.4.85 1.6 0 2.5-1l-.6-.6q-.7.8-1.9.8-1 0-1.6-.55-.55-.5-.65-1.35h5.15m-4.5-2.1q.55-.5 1.45-.5.9 0 1.45.55.45.5.55 1.3h-4.1q.1-.85.65-1.35m7.1-.45q-.9.9-.9 2.2 0 1.35.9 2.2.9.85 2.35.85 1.65 0 2.55-1l-.6-.6q-.75.8-1.95.8-.95 0-1.55-.55-.6-.5-.7-1.35h5.15q.1-1.5-.75-2.45-.8-.95-2.25-.95-1.35 0-2.25.85m.15 1.8q.1-.85.65-1.35.6-.5 1.45-.5.9 0 1.45.55.45.5.55 1.3h-4.1m-31.45 3.45q1.65 0 2.3-1.15v1.05h1V224.7h-1v5.2q-.7-1.15-2.3-1.15-1.25 0-2.1.85-.85.9-.85 2.2 0 1.3.85 2.2.85.85 2.1.85m.2-5.25q.95 0 1.55.65.6.6.6 1.55 0 .95-.6 1.6-.6.6-1.55.6-.95 0-1.5-.6-.6-.65-.6-1.6 0-.95.6-1.55.55-.65 1.5-.65m9.3 2.3q-.45-.35-1.4-.6-.85-.2-1.1-.4-.3-.2-.3-.6 0-.35.25-.55.3-.2.75-.2.85 0 1.35.65l.7-.5q-.7-.95-2.05-.95-.85 0-1.4.4-.55.45-.55 1.2 0 .75.55 1.2.4.3 1.25.55.95.25 1.2.4.4.25.4.7 0 .4-.35.6-.35.25-.95.25-1.15 0-1.75-1l-.8.45q.35.6.95.95.7.4 1.65.4 1.1 0 1.65-.5.55-.45.55-1.25 0-.75-.6-1.2m4.15-7.2h-1v4.15h-.95v.85h.95v3.25q0 1 .45 1.5.45.45 1.15.45.9 0 1.5-.6l-.55-.6q-.4.3-.8.3-.75 0-.75-1v-3.3h1.7v-.85h-1.7v-4.15m26.5 0h-1v4.15h-.95v.85h.95v3.25q0 1 .45 1.5.4.45 1.15.45.9 0 1.5-.6l-.6-.6q-.35.3-.8.3-.7 0-.7-1v-3.3h1.7v-.85h-1.7v-4.15z" />
+</svg>
+</div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

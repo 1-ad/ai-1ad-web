@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=../../js/shared.js></script>
+<script src=particle.js></script>
+<script src=particleShatter.js></script>
+<script src=particleBuild.js></script>
+<script>var adMaxTime=6000;var canvasWidth=300*2;var canvasHeight=250*2;var pixelOB;var particleBuildFX;var particleShatterFX;var mouseIsOver;var FXisPlaying;window.onload=function(){gEL("#banner").addEventListener("click",onBannerClick);gEL("#banner").addEventListener("mouseover",onBannerOver);gEL("#banner").addEventListener("mouseout",onBannerOut);var a={};a.canvasWidth=canvasWidth;a.canvasHeight=canvasHeight;a.renderCanvas="#effectCanvas";a.imageAR=["logo.png"];a.onReady=onPixelReady;a.sourceRect=rect(143,170,318,166);pixelOB=pixelFX(a)};function onPixelReady(){FXisPlaying=true;requestTimeout(bannerStart,250)}function bannerStart(){var a=0;requestTimeout(function(){gEL("#banner").className="adsize fadein trans250"},a);a+=250;requestTimeout(function(){bannerReady()},a)}function onBannerOver(a){mouseIsOver=true;playFX()}function onBannerOut(a){mouseIsOver=false}function onBannerClick(a){mouseIsOver=true;playFX();mouseIsOver=false}function bannerReady(){FXisPlaying=false;playFX()}function playFX(){if(FXisPlaying!=true&&mouseIsOver==true){FXisPlaying=true;var a={};a.onComplete=onExplodeDone;a.pixelOB=pixelOB;particleShatterFX=particleShatter(a);particleShatterFX.startFX()}}function onExplodeDone(){FXisPlaying=true;var a={};a.onComplete=onSlideDone;a.pixelOB=pixelOB;particleBuildFX=particleBuild(a);particleBuildFX.startFX()}function onSlideDone(){bannerReady()};</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,img,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important;-webkit-tap-highlight-color:rgba(0,0,0,0)!important;-webkit-touch-callout:none!important}#banner{background-color:#ccc;overflow:hidden;pointer-events:all;cursor:pointer}.adsize{left:0;top:0;width:300px;height:250px}#bkgrnd{background-image:url("bkgrnd.jpg")}.fadein{opacity:1;visibility:visible}.fadeout{opacity:0;visibility:hidden}.trans250{-webkit-transition:all 250ms ease-in-out;-moz-transition:all 250ms ease-in-out;-o-transition:all 250ms ease-in-out;transition:all 250ms ease-in-out}</style>
+</head>
+<body>
+<img src=logo.png alt style=display:none />
+<div id=banner class="adsize fadeout">
+<div id=bkgrnd class=adsize></div>
+<canvas id=effectCanvas class=adsize width=600 height=500></canvas>
+</div>
+</body>
+</html>

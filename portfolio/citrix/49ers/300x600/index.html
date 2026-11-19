@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x600</title>
+<meta name=ad.size content="width=300,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.citrix.com";var debug=false;window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(clickTag);}
+var f1titleH=34;var f2titleH=25;var f3titleH=25;var lastRingNum=4;function resetBanner(){resetRings();TweenLite.set("#bkgrnd",{scale:0.83});TweenLite.set("#logo1",{autoAlpha:1});TweenLite.set("#logo2",{autoAlpha:0});TweenLite.set("#f1_title1",{y:30});TweenLite.set("#f1_title1_txt",{y:f1titleH});TweenLite.set("#f1_title2_txt",{y:f1titleH});TweenLite.set("#f1_title1_shadow",{y:f1titleH+30,autoAlpha:0});TweenLite.set("#f1_title2_shadow",{y:f1titleH,autoAlpha:0});TweenLite.set("#f2_title1_txt",{y:f2titleH});TweenLite.set("#f2_title2_txt",{y:f2titleH});TweenLite.set("#f2_title3_txt",{y:f2titleH});TweenLite.set("#f3_title1_txt",{y:f3titleH});TweenLite.set("#f3_title2_txt",{y:f3titleH});TweenLite.set("#shape",{y:"100%"});TweenLite.set("#cta",{x:-132});}
+function resetRings(){for(var a=0;a<=4;a++){var el=gEL("#ring"+a);var pathLength=1156;el.style.strokeDasharray=pathLength;el.style.strokeDashoffset=pathLength;}}
+function startAnimation(){var delay=0;TweenLite.to("#bkgrnd",8,{scale:1,delay:delay,ease:Power1.easeOut});delay+=0.5;TweenLite.to("#f1_title1_txt",0.25,{y:0,delay:delay,ease:Power1.easeOut});TweenLite.to("#f1_title1_shadow",0.25,{y:30,autoAlpha:1,delay:delay,ease:Power1.easeOut});delay+=1;TweenLite.to("#f1_title1",0.25,{y:0,delay:delay,ease:Power1.easeOut});TweenLite.to("#f1_title1_shadow",0.25,{y:0,delay:delay,ease:Power1.easeOut});TweenLite.to("#f1_title2_txt",0.25,{y:"0%",delay:delay,ease:Power1.easeOut});TweenLite.to("#f1_title2_shadow",0.25,{y:"0%",autoAlpha:1,delay:delay,ease:Power1.easeOut});delay+=2;TweenLite.to("#f1_title1_txt",0.25,{y:"-100%",delay:delay,ease:Power1.easeIn});TweenLite.to("#f1_title1_shadow",0.25,{y:"-100%",autoAlpha:0,delay:delay,ease:Power1.easeIn});TweenLite.to("#f1_title2_txt",0.25,{y:"-100%",delay:delay,ease:Power1.easeIn});TweenLite.to("#f1_title2_shadow",0.25,{y:"-100%",autoAlpha:0,delay:delay,ease:Power1.easeIn});TweenLite.to("#bkgrnd_tint",0.25,{autoAlpha:0,delay:delay});var ringDelay=delay-0.25;for(var a=0;a<=4;a++){TweenLite.to("#ring"+a,2,{css:{"stroke-dashoffset":0},delay:ringDelay,ease:Power2.easeInOut});ringDelay+=0.2;}
+delay+=2;TweenLite.to("#shape",0.5,{y:"0%",delay:delay,ease:Power1.easeInOut});TweenLite.to("#bkgrnd",0.5,{y:-65,delay:delay,ease:Power1.easeInOut});TweenLite.to("#logo2",0.5,{autoAlpha:1,delay:delay});delay+=0.5;TweenLite.to("#f2_title1_txt",0.25,{y:0,delay:delay,ease:Power1.easeOut});delay+=0.1;TweenLite.to("#f2_title2_txt",0.25,{y:0,delay:delay,ease:Power1.easeOut});delay+=0.1;TweenLite.to("#f2_title3_txt",0.25,{y:0,delay:delay,ease:Power1.easeOut});delay+=3;TweenLite.to("#f2_title1_txt",0.25,{y:"-100%",delay:delay,ease:Power1.easeIn});TweenLite.to("#f2_title2_txt",0.25,{y:"-100%",delay:delay,ease:Power1.easeIn});TweenLite.to("#f2_title3_txt",0.25,{y:"-100%",delay:delay,ease:Power1.easeIn});delay+=0.25;TweenLite.to("#f3_title1_txt",0.25,{y:0,delay:delay,ease:Power1.easeOut});delay+=0.1;TweenLite.to("#f3_title2_txt",0.25,{y:0,delay:delay,ease:Power1.easeOut});delay+=0.5;TweenLite.to("#cta",0.5,{x:0,delay,ease:Quad.easeOut});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+function gEL(id){return document.querySelector(id);}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important;font-family:"Citrix New Sans";text-rendering:optimizeLegibility}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#fff;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:600px;left:0;top:0}@font-face{font-family:"Citrix New Sans";src:url("subset-CitrixNewSans-Bold.woff") format("woff")}#logo1{background-image:url("img_logo1.svg")}#logo2{background-image:url("img_logo2.svg")}.bkgrnd{width:360px;height:720px;left:0;top:0}#bkgrnd{left:-30px;top:-60px;transform-origin:50% 50%;background-image:url("img_bkgrnd.jpg")}#bkgrnd_tint{background-color:rgba(0,0,0,0.2)}.ring{fill:none;stroke-width:3}#ring0{stroke:#23aae2}#ring1{stroke:#ff9e1b}#ring2{stroke:#df1995}#ring3{stroke:#b7db00}#ring4{stroke:#ff5f14}.mask{-webkit-mask-image:url("img_mask.png");mask-image:url("img_mask.png");-webkit-mask-size:360px 720px;mask-size:360px 720px}.f1_title{width:300px;height:34px;overflow:hidden}.f1_title_txt{width:300px;height:34px;left:0;top:0;font-size:30px;text-align:center}.f1_title_letters{color:#fff}.f1_title_shadow{color:rgba(255,255,255,0);text-shadow:0 4px 20px rgba(0,0,0,1)}.f1_title1{top:255px}.f1_title2{top:295px}.f2_title{width:260px;height:25px;left:18px;overflow:hidden}.f2_title_txt{width:260px;height:25px;left:0;top:0;font-size:20px;color:#000;text-align:left}#f2_title1{top:460px}#f2_title2{top:490px}#f2_title3{top:520px}.f3_title{width:260px;height:25px;left:18px;overflow:hidden}.f3_title_txt{width:260px;height:25px;left:0;top:0;font-size:21px;color:#000;text-align:left}#f3_title1{top:464px}#f3_title2{top:494px}.shape{width:300px;height:176px;left:0;top:0;fill:#fff}#shape{top:424px}#cta{width:112px;height:26px;left:18px;top:540px;border-radius:50px;background-color:#df1995;background-image:url("img_cta.png");pointer-events:all;cursor:pointer}#cta:hover{background-color:#000}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=bkgrnd class=bkgrnd>
+<div id=bkgrnd_tint class=bkgrnd></div>
+<div id=bkgrnd_rings class=bkgrnd>
+<svg version=1.1 class="bkgrnd mask" viewBox="0 0 360 720">
+<circle id=ring0 class=ring cx=181 cy=340 r=184 />
+<circle id=ring1 class=ring cx=176 cy=333 r=184 />
+<circle id=ring2 class=ring cx=168 cy=355 r=184 />
+<circle id=ring3 class=ring cx=209 cy=355 r=184 />
+<circle id=ring4 class=ring cx=203 cy=337 r=184 />
+</svg>
+</div>
+</div>
+<div id=logo1 class=adsize></div>
+<div id=shape class=shape>
+<svg version=1.1 class=shape viewBox="0 0 300 178">
+<path d=M300,176l-0.5-153.5L0,0v176H300z />
+</svg>
+</div>
+<div id=logo2 class=adsize></div>
+<div id=f1_title1_shadow class="f1_title_txt f1_title_shadow f1_title1">We help teams</div>
+<div id=f1_title2_shadow class="f1_title_txt f1_title_shadow f1_title2">up their game</div>
+<div id=f1_title1 class="f1_title f1_title1"><div id=f1_title1_txt class="f1_title_txt f1_title_letters">We help teams</div></div>
+<div id=f1_title2 class="f1_title f1_title2"><div id=f1_title2_txt class="f1_title_txt f1_title_letters">up their game</div></div>
+<div id=f2_title1 class=f2_title><div id=f2_title1_txt class=f2_title_txt>With built-in intelligence,</div></div>
+<div id=f2_title2 class=f2_title><div id=f2_title2_txt class=f2_title_txt>contextual security and</div></div>
+<div id=f2_title3 class=f2_title><div id=f2_title3_txt class=f2_title_txt>consistent UX.</div></div>
+<div id=f3_title1 class=f3_title><div id=f3_title1_txt class=f3_title_txt>Up your game with the</div></div>
+<div id=f3_title2 class=f3_title><div id=f3_title2_txt class=f3_title_txt>new Citrix Workspace.</div></div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

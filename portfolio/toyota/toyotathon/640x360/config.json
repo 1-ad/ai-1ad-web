@@ -1,0 +1,162 @@
+{
+    "projectId": "toyota",
+    "creativeId": "toyotathon",
+    "buildId": "",
+    "format": "VPAID",
+    "templateId": "str_brandedslate",
+    "ctx": "",
+    "adDuration": 30,
+    "skipOffset": 5,
+    "mutedOnStart": false,
+    "features": [],
+    "patches": {
+        "tmAdElement": true
+    },
+    "tracking": {
+        "googleAnalytics": {
+            "propertyId": "",
+            "testPropertyId": "",
+            "prependProjectId": false,
+            "prependCreativeId": true
+        },
+        "clickThrus": [{
+            "name": "video/clickthru/primary",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "video/clickthru/primary",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/bkgrnd",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "slate/clickthru/bkgrnd",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/cta_btn",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "slate/clickthru/cta_btn",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/corolla",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "slate/clickthru/corolla",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/camry",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "slate/clickthru/camry",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/rav4",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "slate/clickthru/rav4",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/highlander",
+            "url": "https://www.toyota.com/",
+            "googleEvent": "slate/clickthru/highlander",
+            "thirdPartyPixels": []
+        }],
+        "events": [{
+            "name": "slate/impression",
+            "googleEvent": "slate/impression",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/viewed",
+            "googleEvent": "slate/viewed",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/close",
+            "googleEvent": "slate/click/close",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/rollover/camry",
+            "googleEvent": "slate/rollover/camry",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/rollover/corolla",
+            "googleEvent": "slate/rollover/corolla",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/rollover/rav4",
+            "googleEvent": "slate/rollover/rav4",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/rollover/highlander",
+            "googleEvent": "slate/rollover/highlander",
+            "thirdPartyPixels": []
+        }]
+    },
+    "assets": {
+        "videos": [{
+            "primary": true,
+            "initByCreative": true,
+            "name": "primary",
+            "src": "TYFD7364H_HD226_201711142151.mp4",
+            "poster": "TYFD7364H_HD226_201711142151.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "tracking": {
+                "clickThruName": "video/clickthru/primary",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }],
+        "view": {
+            "tag": "div",
+            "id": "creative-container",
+            "style": {
+                "position": "absolute",
+                "left": "0",
+                "top": "0",
+                "width": "100%",
+                "height": "100%",
+                "margin": "0",
+                "padding": "0",
+                "border": "0",
+                "visibility": "visible"
+            },
+            "children": [{
+                "tag": "iframe",
+                "id": "creative-overlay",
+                "src": "index.html",
+                "width": "100%",
+                "height": "100%",
+                "scrolling": "NO",
+                "frameborder": "0",
+                "marginwidth": "0",
+                "marginheight": "0",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                }
+            }]
+        }
+    }
+}

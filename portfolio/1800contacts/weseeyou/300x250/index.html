@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.1800contacts.com/";window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.set("#banner",{autoAlpha:1});TweenLite.delayedCall(0.25,startAnimation);}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);gEL("#replay").addEventListener("click",onReplayClick);}
+function onBannerClick(e){window.open(window.clickTag,"_blank");}
+function onReplayClick(e){TweenLite.to("#replay",0.25,{autoAlpha:0});TweenLite.to("#banner",0.25,{autoAlpha:0});TweenLite.delayedCall(0.25,function(){resetBanner();adVisible();});}
+function resetBanner(){resetReveal();resetLines();for(var a=1;a<=9;a++){TweenLite.set("#f"+a+"_ani",{autoAlpha:0});TweenLite.set("#f"+a+"_bkgrnd",{scaleY:0});}
+TweenLite.set("#f2_check",{width:"0px"});TweenLite.set("#f6_txt1",{x:"0",y:"0"});TweenLite.set("#f6_txt2",{x:"0",y:"0"});TweenLite.set("#f8_ani",{y:0,autoAlpha:0});TweenLite.set("#f9_ani",{autoAlpha:0});gEL("#f9_ani").style.backgroundImage="url('img_seymour.gif?a="+Math.random()+"')";TweenLite.set("#cta",{width:"112px",height:"28px",left:"162px",top:"204px"});TweenLite.set("#replay",{autoAlpha:0});}
+var lineAR=[];function resetLines(){var lineElements=document.getElementsByClassName("line");for(var i=0;i<lineElements.length;i++){var lineOb={};var el=lineElements.item(i);var pathLength=Math.ceil(el.getTotalLength());el.style.strokeDasharray=pathLength;el.style.strokeDashoffset=pathLength;}}
+function startAnimation(){revealText(txtAR[10],false);var delay=0;TweenLite.to("#f1_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);});delay+=2;TweenLite.delayedCall(delay,function(){hideText(txtAR[1]);});delay+=0;TweenLite.to("#f2_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f2_ani",{autoAlpha:1,delay});TweenLite.to("#f2_check",0.5,{width:"29px",delay,ease:Quad.easeInOut});TweenLite.to("#f2_ani_svg1",0.2,{css:{"stroke-dashoffset":0},delay,ease:Power1.easeInOut});TweenLite.to("#f2_ani_svg2",0.4,{css:{"stroke-dashoffset":0},delay:delay+0.2,ease:Power1.easeInOut});TweenLite.to("#f2_ani_svg3",0.2,{css:{"stroke-dashoffset":0},delay:delay+0.5,ease:Power1.easeInOut});TweenLite.delayedCall(delay,function(){revealText(txtAR[2]);});delay+=1.5;TweenLite.to("#f2_ani",0.25,{autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[2]);});delay+=0;TweenLite.to("#f3_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f3_ani",{autoAlpha:1,delay});TweenLite.to("#f3_ani_svg",0.75,{css:{"stroke-dashoffset":0},delay,ease:Power1.easeInOut});TweenLite.delayedCall(delay,function(){revealText(txtAR[3]);});delay+=1.5;TweenLite.to("#f3_ani",0.25,{autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[3]);});delay+=0;TweenLite.to("#f4_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f4_ani",{autoAlpha:1,delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[4]);});var sDelay=delay;for(var a=1;a<=7;a++){TweenLite.to("#f4_ani_svg"+a+"_1",0.2,{css:{"stroke-dashoffset":0},delay:sDelay,ease:Power1.easeInOut});TweenLite.to("#f4_ani_svg"+a+"_2",0.2,{css:{"stroke-dashoffset":0},delay:sDelay+0.1,ease:Power1.easeInOut});TweenLite.to("#f4_ani_svg"+a+"_3",0.2,{css:{"stroke-dashoffset":0},delay:sDelay+0.2,ease:Power1.easeInOut});TweenLite.to("#f4_ani_svg"+a+"_4",0.2,{css:{"stroke-dashoffset":0},delay:sDelay+0.3,ease:Power1.easeInOut});sDelay+=0.15;}
+delay+=1.5;TweenLite.to("#f4_ani",0.25,{autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[4]);});delay+=0;TweenLite.to("#f5_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f5_ani",{autoAlpha:1,delay});TweenLite.to(".f5_ani_svg1",0.1,{css:{"stroke-dashoffset":0},delay,ease:Power1.easeInOut});TweenLite.to(".f5_ani_svg2",0.1,{css:{"stroke-dashoffset":0},delay:delay+0.1,ease:Power1.easeInOut});TweenLite.to(".f5_ani_svg3",0.1,{css:{"stroke-dashoffset":0},delay:delay+0.2,ease:Power1.easeInOut});TweenLite.to(".f5_ani_svg4",0.8,{css:{"stroke-dashoffset":0},delay:delay+0.3,ease:Quad.easeInOut});TweenLite.delayedCall(delay,function(){revealText(txtAR[5]);});delay+=1.5;TweenLite.to("#f5_ani",0.25,{autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[5]);});delay+=0;TweenLite.to("#f6_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f6_ani",{autoAlpha:1,delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[6]);revealText(txtAR[11]);});delay+=0.25;var dashDelay=delay;for(var a6=1;a6<=9;a6++){TweenLite.to("#f6_ani"+a6,0.2,{css:{"stroke-dashoffset":0},delay:dashDelay,ease:Quad.easeInOut});dashDelay+=0.1;}
+delay+=0.25;TweenLite.to("#f6_txt1",0.25,{x:"1",y:"-10",delay});TweenLite.to("#f6_txt2",0.25,{x:"-1",y:"6",delay});delay+=1.5;TweenLite.to("#f6_ani",0.25,{autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[6]);hideText(txtAR[11]);});delay+=0;TweenLite.to("#f7_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f7_ani",{autoAlpha:1,delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[7]);});TweenLite.to("#f7_ani_star1",0.8,{css:{"stroke-dashoffset":0},delay,ease:Power1.easeInOut});TweenLite.to("#f7_ani_star2",0.8,{css:{"stroke-dashoffset":0},delay:delay+0.4,ease:Power1.easeInOut});TweenLite.to("#f7_ani_star3",0.8,{css:{"stroke-dashoffset":0},delay:delay+0.8,ease:Power1.easeInOut});var typeDelay=delay+1.2;for(var a=1;a<=7;a++){TweenLite.to(".f7_ani_type"+a,0.2,{css:{"stroke-dashoffset":0},delay:typeDelay,ease:Power1.easeInOut});typeDelay+=0.1;}
+delay+=2.5;TweenLite.to("#f7_ani",0.25,{autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[7]);});delay+=0;TweenLite.to("#f8_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f8_ani",{autoAlpha:1,delay});TweenLite.to("#f8_ani_svg",0.75,{css:{"stroke-dashoffset":0},delay,ease:Power1.easeInOut});TweenLite.delayedCall(delay,function(){revealText(txtAR[8]);});delay+=1.5;TweenLite.to("#f8_ani",0.25,{y:29,autoAlpha:0,delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[8]);hideText(txtAR[10]);});delay+=0;TweenLite.to("#f9_bkgrnd",0.25,{scaleY:1,delay});delay+=0.15;TweenLite.set("#f9_ani",{autoAlpha:1,delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[9]);});TweenLite.to("#cta",0.5,{width:"128px",height:"32px",left:"25px",top:"200px",ease:Quad.easeInOut,delay});TweenLite.to("#replay",0.5,{autoAlpha:1,delay});delay+=0.5;console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var scale=2;var msgWidth=300;var msgHeight=250;var canvasWidth=msgWidth*scale;var canvasHeight=msgHeight*scale;var tempCanvas=document.createElement("canvas");tempCanvas.width=canvasWidth;tempCanvas.height=canvasHeight;var tempContext=tempCanvas.getContext("2d");var txtAR;function resetReveal(){txtAR=[];for(var a=1;a<=9;a++){txtAR[a]=initText("f"+a+"_txt1");}
+txtAR[1].boxes=[[15,31,270,34],[15,71,270,34],[15,111,270,34]];txtAR[7].boxes=[[15,46,280,38],[15,95,270,34],[15,147,270,34]];txtAR[8].boxes=[[15,96,270,40]];txtAR[9].boxes=[[26,18,179,22],[20,55,180,29],[20,88,180,29],[20,122,180,29],[20,155,180,29]];txtAR[10]=initText("logo");txtAR[10].boxes=[[26,215,112,15]];txtAR[11]=initText("f6_txt2");}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,boxes:[[15,102,270,40]],};var el=gEL(txtOb.id);el.innerHTML="";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*scale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1],ease:Power3.easeOut,delay});delay+=0.15;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+function hideText(txtOb){var delay=0;for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1]+imgOb.srcRect[3],ease:Power3.easeOut,delay});}
+TweenLite.to(this,0.3+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb],onComplete:rEL,onCompleteParams:[txtOb.canvas]});}
+function gEL(id){return document.querySelector(id);}
+function rEL(el){el.parentElement.removeChild(el);}
+function randRange(min,max){return Math.floor(window.Math.seedRandom()*(max-min+1))+min;}
+window.Math.seed=6;window.Math.seedRandom=function(max,min){max=max||1;min=min||0;Math.seed=(Math.seed*9301+49297)%233280;var rnd=Math.seed/233280;return min+rnd*(max-min);};</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none}#banner{overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer;background-color:#fff}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:250px;left:0;top:0;transform-origin:50% 0}#f1_bkgrnd{background-color:#6ba3da}#f2_bkgrnd{background-color:#6ba3da}#f3_bkgrnd{background-color:#001d9b}#f4_bkgrnd{background-color:#e75750}#f5_bkgrnd{background-color:#fcbe2d}#f6_bkgrnd{background-color:#52c5b7}#f7_bkgrnd{background-color:#f77b30}#f8_bkgrnd{background-color:#6ba3da}#f9_bkgrnd{background-color:#6ba3da}#f2_check{width:29px;height:28px;left:134px;top:42px;background-image:url("img_f2_check.png")}.line{stroke:#fff;stroke-width:2;stroke-linejoin:round;stroke-linecap:round;stroke-miterlimit:10;fill:none}#replay{width:20px;height:20px;left:2px;top:2px;stroke:none;fill:#fff;pointer-events:all;cursor:pointer}#replay:hover{fill:#001d9b}.cta{border-radius:50px;border:1px solid #fff;border-radius:50px;background-image:url("img_cta.png");transform-origin:0 0;pointer-events:all;cursor:pointer}.cta:hover{background-position:0 -100%}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=f1_bkgrnd class=adsize></div>
+<div id=f1_txt1 class=adsize></div>
+<div id=f2_bkgrnd class=adsize></div>
+<div id=f2_check></div>
+<div id=f2_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<g>
+<path id=f2_ani_svg1 class=line d="
+	M 0 68.15
+	Q 3 68.15 16.75 68.75
+	L 37.65 69.4
+	Q 40.5 69.5 48.6 69.15 56.6 68.8 58.9 68.5 60.4 68.35 69.25 67.25 77.75 66.15 79.9 65.75 82.85 65.2 92.65 63.2 103 61.05 104.65 60.65 105.8 60.35 111.9 59 117.55 57.75 117.9 57.65" />
+</g>
+<g>
+<path id=f2_ani_svg2 class=line d="
+	M 161.15 31.15
+	Q 158.9 30.75 156.95 30.45 153.2 29.9 149.9 29.8 139.7 29.55 132.5 33.65 125.3 37.75 122.05 43.75 121 45.7 120.35 47.9 120.05 49.05 119.75 50.4 118.5 55.15 118.8 60.65 119.4 70.8 125.65 77.5 131.85 84.2 142.45 84.4 147.85 84.5 152.25 83.15 152.4 83.1 155.05 82.45 158.3 81.55 161.1 80.4 170.2 76.6 173.4 70.5 177.85 62.05 178.05 55.4 178.3 47.05 172 40.15 165.9 33.4 158.7 31.45 153.6 30.05 147.15 31 142.4 31.7 136.95 34.85 131.2 38.15 128.25 42.15 123.75 48.25 122.05 52.7 119.25 59.95 120.55 68.15" />
+</g>
+<g>
+<path id=f2_ani_svg3 class=line d="
+	M 165.75 78.8
+	Q 167.95 78.45 188.2 74.4 207.6 70.5 212.75 69.8 219.45 68.85 230.85 68.05 242.2 67.3 248.95 67.3 254.1 67.3 265.8 67.9 277.5 68.55 278.7 68.55
+	L 299.45 68.55" />
+</g>
+</svg>
+</div>
+<div id=f2_txt1 class=adsize></div>
+<div id=f3_bkgrnd class=adsize></div>
+<div id=f3_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<g>
+<path id=f3_ani_svg class=line d="
+				M 0.25 63.25
+				Q 3.95 63.25 12.6 63.5 21.2 63.75 22.25 63.75 23.9 63.75 30.9 64 37.9 64.25 38.75 64.25 53.25 64.25 56.25 63.75 57.95 63.5 67.4 62.5 77.85 61.45 79.25 61.25 82.1 60.9 94.7 58.2 106.95 55.55 109.75 54.75 112.45 54 128.85 50.9 145.3 47.75 146.75 47.75 147.85 47.75 153.95 46.5 160.1 45.25 160.75 45.25 163.35 45.25 163.65 45.45 164.8 46.25 161.25 49.75 158.1 52.95 148.95 61.1 139.85 69.2 139.25 69.75 137.25 71.75 137.65 73.25 138.1 75.1 142.75 73.75 147.6 72.4 165.2 67.95 182.1 63.7 184.25 63.25 185.5 63 188.9 62.35 191.8 61.75 192.75 61.75 195.25 61.75 195.9 62.35 197.3 63.6 193.75 67.75 190.9 71.15 186.6 75.9 183.25 79.55 182.75 80.25 182.15 81.1 181.8 81.5 181.25 82.3 181.2 82.75 181.1 84.1 185.25 83.75 189.4 83.45 206.95 80.7 218.2 78.95 228.25 77.25 232.45 76.55 249.75 74.1 266.35 71.7 269.75 71.25 273.35 70.8 285.5 69.6 298.4 68.25 299.75 68.25" />
+</g>
+</svg>
+</div>
+<div id=f3_txt1 class=adsize></div>
+<div id=f4_bkgrnd class=adsize></div>
+<div id=f4_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<g>
+<path id=f4_ani_svg1_1 class="line f4_ani_svg" d=M90.69,98.75c-0.29,0.1-0.59,0.2-0.88,0.31c0.01-1.04,0.02-2.08,0.03-3.13 />
+<path id=f4_ani_svg1_2 class="line f4_ani_svg" d=M90.97,134.45c-0.01,2.68-0.02,5.37-0.04,8.05c0,0.24,0.04,0.54,0.26,0.62c0.23,0.08,0.37-0.4,0.14-0.36 />
+<path id=f4_ani_svg1_4 class="line f4_ani_svg" d=M94.71,134.13c0.54,1.92,0.87,3.9,0.99,5.9 />
+<path id=f4_ani_svg1_3 class="line f4_ani_svg" d=M94.88,95.94c-0.34,1.52-0.62,3.04-0.85,4.58 />
+</g>
+<g>
+<path id=f4_ani_svg2_1 class="line f4_ani_svg" d="M93.75,27.62c-2.56-0.37-5.02,1-7.24,2.31c-0.89,0.53-1.8,1.07-2.47,1.85s-1.07,1.88-0.78,2.87
+						c0.34,1.16,1.48,1.86,2.5,2.5c2.17,1.37,4.19,2.96,6.03,4.75c0.59,0.57,1.18,1.2,1.37,2c0.45,1.87-1.4,3.45-3.11,4.31
+						c-3.68,1.85-7.8,2.8-11.92,2.75" />
+<path id=f4_ani_svg2_2 class="line f4_ani_svg" d=M87.48,22.92c-2.64,6.06-2.6,12.9-3.26,19.48c-0.57,5.69-1.69,11.32-3.34,16.79 />
+<path id=f4_ani_svg2_3 class="line f4_ani_svg" d=M90.3,23.94c-3.59,11.53-5.4,23.62-5.35,35.69 />
+</g>
+<g>
+<path id=f4_ani_svg3_1 class="line f4_ani_svg" d="M193.28,46.15c-4.02-0.33-8.12,0.21-11.91,1.59c-1.45,0.53-3.11,1.57-2.94,3.1c0.06,0.56,0.37,1.07,0.72,1.51
+						c1.71,2.2,4.36,3.4,6.68,4.96s4.51,3.89,4.4,6.67c-0.03,0.6-0.17,1.22-0.55,1.68c-0.41,0.51-1.03,0.78-1.64,1.01
+						c-3.93,1.54-8.14,2.36-12.36,2.41" />
+<path id=f4_ani_svg3_2 class="line f4_ani_svg" d=M183.56,37.65c-0.65,12.19-1.29,24.45,0.2,36.57 />
+<path id=f4_ani_svg3_3 class="line f4_ani_svg" d="M186.76,38.22c-0.2,5.73-0.21,11.46-0.03,17.19c0.08,2.59,0.2,5.18,0.64,7.73c0.33,1.91,0.83,3.79,1.33,5.66
+						c0.42,1.58,0.85,3.15,1.27,4.73" />
+</g>
+<g>
+<path id=f4_ani_svg4_1 class="line f4_ani_svg" d="M255.8,70.41c-3-2.32-7.56-2.33-10.57-0.04c-1.41,1.08-2.53,3.02-1.69,4.59c0.57,1.07,1.82,1.54,2.94,2.01
+						c1.49,0.63,2.92,1.4,4.26,2.3c0.93,0.63,1.84,1.34,2.47,2.27c0.63,0.93,0.94,2.13,0.6,3.21c-0.38,1.19-1.45,2-2.46,2.73
+						c-2.67,1.93-5.48,3.91-8.73,4.39c0.12-0.08,0.24-0.16,0.35-0.24" />
+<path id=f4_ani_svg4_2 class="line f4_ani_svg" d=M245.64,63.36c0.26,12.72,0.75,25.44,1.47,38.14 />
+<path id=f4_ani_svg4_3 class="line f4_ani_svg" d=M251.18,62.43c-1.02,11.83-0.91,23.75,0.32,35.56 />
+</g>
+<g>
+<path id=f4_ani_svg5_1 class="line f4_ani_svg" d="M62.97,139.57c-3.34-0.62-6.75-0.79-10.13-0.52c-1.73,0.14-3.54,0.43-4.93,1.47c-0.52,0.39-1,0.99-0.88,1.62
+						c0.05,0.27,0.2,0.5,0.37,0.72c1,1.31,2.51,2.15,4.07,2.67c1.56,0.53,3.2,0.78,4.8,1.17c1.33,0.32,2.63,0.73,3.91,1.22
+						c0.86,0.34,1.79,0.79,2.14,1.65c0.28,0.7,0.09,1.52-0.34,2.14s-1.07,1.06-1.73,1.42c-3.88,2.14-8.58,1.89-13.01,1.6" />
+<path id=f4_ani_svg5_2 class="line f4_ani_svg" d=M54.74,131.55c-1.45,9.7-2.9,19.41-4.35,29.11c-0.28,1.84-0.55,3.68-0.83,5.53c0.03-0.2,0.06-0.4,0.09-0.6 />
+<path id=f4_ani_svg5_3 class="line f4_ani_svg" d=M60.45,131.49c-2.42,10.05-4.35,20.21-5.77,30.45 />
+</g>
+<g>
+<path id=f4_ani_svg6_1 class="line f4_ani_svg" d="M159.88,160.18c-1.87,0.11-3.73,0.21-5.6,0.32c-1.61,0.09-3.29,0.2-4.7,0.98c-1.41,0.78-2.47,2.46-2,4
+						c0.4,1.34,1.76,2.15,3.07,2.63c1.31,0.49,2.74,0.81,3.8,1.72c0.6,0.51,1.04,1.18,1.47,1.84c0.99,1.51,1.98,3.53,0.93,4.99
+						c-0.6,0.83-1.67,1.15-2.68,1.37c-3.14,0.67-6.38,0.84-9.57,0.49c0.53-0.15,1.12-0.09,1.62,0.16" />
+<path id=f4_ani_svg6_2 class="line f4_ani_svg" d=M151.71,153.58c-0.01,10.09,0.08,20.19,0.28,30.28 />
+<path id=f4_ani_svg6_3 class="line f4_ani_svg" d=M154.59,153.65c-1.32,9.52-0.97,19.27,1.01,28.68 />
+</g>
+<g>
+<path id=f4_ani_svg7_1 class="line f4_ani_svg" d="M221,165.02c-2.13,0.31-4.65-0.62-6.24,0.84c-1.06,0.97-1.14,2.7-0.48,3.98s1.89,2.16,3.18,2.8
+						c1.29,0.63,2.67,1.06,3.95,1.72c1.06,0.54,2.03,1.24,2.89,2.06c0.73,0.7,1.38,1.52,1.61,2.5c0.38,1.63-0.57,3.35-1.93,4.32
+						c-1.36,0.97-3.07,1.32-4.73,1.51c-1.9,0.22-3.83,0.26-5.74,0.11c0.17-0.19,0.34-0.38,0.51-0.58" />
+<path id=f4_ani_svg7_2 class="line f4_ani_svg" d=M215.46,161.41c0.2,1.97,0.5,3.93,0.81,5.89c1.39,8.86,2.79,17.72,4.18,26.58c0.04-0.32,0.09-0.63,0.13-0.95 />
+<path id=f4_ani_svg7_3 class="line f4_ani_svg" d=M218.27,160.57c0.2,2.65,0.54,5.29,0.88,7.92c0.8,6.21,1.61,12.41,2.41,18.62c0.17,1.28,0.34,2.59,0.89,3.77 />
+</g>
+</svg>
+</div>
+<div id=f4_txt1 class=adsize></div>
+<div id=f5_bkgrnd class=adsize></div>
+<div id=f5_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<g>
+<path class="line f5_ani_svg f5_ani_svg1" d="M94.43,87.96c-0.5,0.26-0.99,0.52-1.49,0.79c-0.41,0.21-0.82,0.43-1.16,0.73c-0.57,0.49-0.93,1.18-1.16,1.89
+						c-0.24,0.73-0.35,1.5-0.34,2.26c0,0.21,0.02,0.42,0.1,0.61c0.13,0.32,0.41,0.56,0.71,0.73c1.47,0.85,3.57,0.32,4.46-1.13
+						s0.41-3.56-1.01-4.49" />
+<path class="line f5_ani_svg f5_ani_svg1" d="M166.65,84.09c-0.25,0.83-0.47,1.68-0.65,2.53c-0.05,0.24-0.1,0.49-0.03,0.73c0.13,0.47,0.64,0.72,1.09,0.9
+						c0.74,0.3,1.6,0.6,2.29,0.21c0.5-0.28,0.76-0.85,0.92-1.39c0.15-0.53,0.24-1.11,0.07-1.63c-0.21-0.63-0.74-1.07-1.16-1.58
+						s-0.74-1.23-0.43-1.81" />
+</g>
+<g>
+<path class="line f5_ani_svg f5_ani_svg2" d="M85.77,78.94c0.71,0.37,1.39,0.81,2.04,1.29c1.01,0.77,1.98,1.78,2.12,3.04c0.13,1.19-0.6,2.41-1.71,2.86
+						c-0.5,0.2-1.04,0.26-1.58,0.3c-0.31,0.03-0.65,0.04-0.91-0.13c-0.43-0.27-0.45-0.88-0.43-1.39c0.02-0.57,0.05-1.15,0.22-1.69
+						c0.17-0.54,0.51-1.06,1.01-1.33c0.49-0.26,1.07-0.25,1.62-0.24" />
+<path class="line f5_ani_svg f5_ani_svg2" d=M176.49,83.64c1.64,1.74,4.1-1.87,2.29-3.29C176.94,78.9,175.29,82.36,176.49,83.64z />
+</g>
+<g>
+<path class="line f5_ani_svg f5_ani_svg3" d="M78.35,71.79c-0.75,0.32-1.06,1.31-0.78,2.08c0.12,0.31,0.31,0.59,0.54,0.82c0.35,0.33,0.79,0.58,1.25,0.72
+						C85.44,77.25,81.28,70.56,78.35,71.79z" />
+<path class="line f5_ani_svg f5_ani_svg3" d="M187.83,73.25c0.35,0.46,0.87,0.76,1.3,1.15c1.03,0.92,1.56,2.37,1.36,3.74c-0.08,0.54-0.33,1.14-0.86,1.29
+						c-0.19,0.05-0.39,0.04-0.58,0.01c-0.96-0.19-1.67-1.11-1.8-2.07s0.24-1.95,0.84-2.72" />
+</g>
+<g>
+<path class="line f5_ani_svg f5_ani_svg4" d="M202.23,36.44c-3.1-2.32-7.39-2.94-11.01-1.58c-3.62,1.36-6.46,4.64-7.27,8.42c-0.26,1.23-0.32,2.53,0.01,3.74
+						c1.06,3.9,5.56,5.68,9.56,6.24c-2.98,2.88-4.97,7.41-3.28,11.19c1.4,3.14,4.84,4.79,8.11,5.84c2.28,0.73,4.64,1.3,7.03,1.37
+						c5.55,0.17,11.11-2.48,14.48-6.9c5.59,9.12,16.37,14.8,27.06,14.26c2.75-0.14,5.78-0.84,7.32-3.12c1.18-1.75,1.2-4.09,0.56-6.1
+						c-0.65-2.01-1.88-3.78-3.09-5.5c2.7,1.14,4.68,3.61,7.4,4.71c3.48,1.4,7.42,0.3,11.01-0.81c6.39-1.98,11.35-7.54,14.4-13.49
+						c1.71-3.32,2.69-7.44,0.92-10.73c-1.19-2.21-3.41-3.65-5.63-4.81c-2.44-1.27-5.08-2.34-7.83-2.33c-2.75,0.01-5.63,1.31-6.89,3.75
+						c0.27-1.38-1.05-2.5-2.24-3.26c-2.49-1.58-5.1-3.08-7.97-3.74c-3.88-0.9-7.99-0.2-11.69,1.24c-3.71,1.44-7.09,3.61-10.44,5.76
+						c-0.72-4.17-3.19-8.02-6.69-10.4c-3.17-2.16-7.01-3.09-10.81-3.58c-3.33-0.43-6.87-0.02-9.86,1.5" />
+<path class="line f5_ani_svg f5_ani_svg4" d="M66.21,63.39c-1.46,3.05-4.45,5.4-7.81,5.74c-3.36,0.34-6.93-1.55-8.23-4.67c-2.91,1.88-7.09,0.7-9.27-2
+						c-2.17-2.7-2.61-6.46-2.02-9.87c-3.31,0.55-6.66,1.1-10.02,0.88s-6.76-1.28-9.21-3.58c-1.37-1.29-2.41-2.96-2.78-4.8
+						c-0.09-0.44-0.17-0.94-0.55-1.17c-0.31-0.19-0.72-0.13-1.06-0.27c-0.42-0.17-1.16-1.6-1.33-2.02c-0.98-2.43-0.52-4.18,0.11-6.73
+						c0.45-1.82,1.5-3.64,2.35-5.31c1.83-3.6,5.12-6.43,8.95-7.71c3.83-1.28,7.65-0.5,11.29,1.26c0.08-3.28,2.38-6.54,5.24-8.15
+						s6.2-2.12,9.47-2.43c4.24-0.39,6-0.47,10.25-0.24c1.78,0.1,5.6,2.19,7.24,2.89c1.7,0.73,4.3,2.52,6.43,5.55
+						c1.32,1.88,3.2,3.92,3.19,6.22c3.96-3.04,8.47-7.59,13.01-9.65s9.72-3.09,14.57-1.9s10.23,6.38,11.36,11.24
+						c3.66-2.61,8.9-2.76,12.7-0.38c0.95,0.6,1.83,1.35,2.43,2.29c1.16,1.81,1.72,4.08,1.73,6.23c0,2.96-1.07,6.37-3.63,9.25
+						c-2.41,2.71-5.61,5.55-8.82,7.25c-3.21,1.7-4.82,2.5-8.42,2.92c-7.23,0.83-13.12,0.15-20.07-1.97c0.2,2.78,0.37,5.73-0.94,8.19
+						c-1.57,2.95-4.91,4.49-8.13,5.39c-1.83,0.51-3.72,0.88-5.62,0.86c-3.88-0.05-7.7-1.85-10.22-4.81,M205.49,27.88c-3.33,2.35-4.5,5.49-4.96,9.54" />
+</g>
+</svg>
+</div>
+<div id=f5_txt1 class=adsize></div>
+<div id=f6_bkgrnd class=adsize></div>
+<div id=f6_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<path id=f6_ani1 class="line f6_ani_svg" d=M2.63,123.2c4.41,1.17,9.06,1.46,13.58,0.82 />
+<path id=f6_ani2 class="line f6_ani_svg" d=M34.56,122.57c5.37,0.21,10.73,0.42,16.1,0.63 />
+<path id=f6_ani3 class="line f6_ani_svg" d=M69.82,121.7c4.15,0.46,8.34,0.6,12.51,0.45 />
+<path id=f6_ani4 class="line f6_ani_svg" d=M102.89,120.28c5.12-0.29,10.22-0.88,15.27-1.76 />
+<path id=f6_ani5 class="line f6_ani_svg" d=M132.05,120.87c5.24,0.4,10.55-0.18,15.58-1.69 />
+<path id=f6_ani6 class="line f6_ani_svg" d=M168.18,119.28c5.15,0.64,10.36,0.83,15.55,0.57 />
+<path id=f6_ani7 class="line f6_ani_svg" d=M204.82,120.91c5.62,0.66,11.3,0.88,16.96,0.66 />
+<path id=f6_ani8 class="line f6_ani_svg" d=M245.39,122.7c4.44,0.16,8.9,0.06,13.33-0.29 />
+<path id=f6_ani9 class="line f6_ani_svg" d=M277.31,123.44c3.68,0.4,7.38,0.63,11.07,0.69c2.57,0.04,5.24-0.02,7.52-1.2 />
+</svg>
+</div>
+<div id=f6_txt1 class=adsize></div>
+<div id=f6_txt2 class=adsize></div>
+<div id=f7_bkgrnd class=adsize></div>
+<div id=f7_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<g>
+<path id=f7_ani_star1 class="line f7_ani_star" d="M93.34,37.51c0.56-5.94,1.12-11.88,1.68-17.82c3.29,7.21,5.9,14.72,7.79,22.42
+						c-3.76-4.4-8.48-7.98-13.74-10.41c7.54-2.1,15.07-4.21,22.61-6.31c-3.3,1.86-6.3,4.19-9.29,6.51c-2.42,1.88-4.85,3.76-7.27,5.63
+						c-1.37,1.06-2.74,2.13-3.98,3.33c-1.4,1.37-2.62,2.91-3.72,4.53" />
+</g>
+<g>
+<path id=f7_ani_star2 class="line f7_ani_star" d="M247.92,37.12c-0.37-0.07-0.73-0.14-1.1-0.2c0.05-4.96,0.25-9.92,0.6-14.87c3.48,4.73,6.57,9.76,9.22,15
+						c-5.69-2.43-11.74-3.87-17.75-5.31c6.38-3,12.76-6,19.14-9c-6.13,5.26-11.24,11.7-14.97,18.87" />
+</g>
+<g>
+<path id=f7_ani_star3 class="line f7_ani_star" d="M261.82,172.52c-0.66,0.07-0.91-0.84-0.91-1.51c0.03-7.54,0.29-15.08,0.78-22.6c2.46,2.94,4.94,5.9,6.87,9.23
+						c2.59,4.46,4.13,9.5,7.04,13.76c-8.56-3.66-17.26-7.36-26.5-8.5c10.76-3.71,21.02-8.86,30.41-15.27
+						c-9.75,9.7-18.42,20.48-25.81,32.07" />
+</g>
+<g>
+<path class="line f7_ani_type f7_ani_type1" d="M177.2,151.83c-0.96-0.14-1.98,0.15-2.72,0.78c-0.9,0.76-1.34,1.91-1.75,3.01c-1.08,2.88-2.15,6.1-0.96,8.93
+						c0.56,1.35,1.59,2.44,2.59,3.5c0.81,0.86,1.69,1.76,2.84,2.02" />
+<path class="line f7_ani_type f7_ani_type2" d="M177.92,175.07c0.01-2.52,0.15-5.05,0.42-7.55c0.14-1.24,0.31-2.49,0.82-3.62s1.41-2.15,2.6-2.53
+						c0.36-0.11,0.75-0.16,1.1-0.02c0.71,0.3,0.86,1.27,0.69,2.02c-0.49,2.11-2.84,3.59-4.95,3.11c0.14,0.31,0.49,0.51,0.83,0.47" />
+<path class="line f7_ani_type f7_ani_type3" d="M186.69,154c-0.29,4.14,0.11,8.38-1.05,12.36c0.9-1.51,1.81-3.01,2.71-4.52c0.29-0.49,0.65-1.03,1.22-1.12
+						c0.15-0.02,0.31-0.01,0.43,0.08c0.09,0.07,0.15,0.17,0.2,0.27c0.93,1.81,1.35,3.88,1.19,5.91" />
+<path class="line f7_ani_type f7_ani_type4" d="M194.61,163.89c0.66-0.42,1.45-0.61,2.11-1.02c0.66-0.42,1.2-1.23,0.92-1.96c-0.54-0.32-1.25-0.23-1.78,0.09
+						c-0.53,0.33-0.91,0.85-1.22,1.39c-0.55,0.98-0.9,2.07-1.03,3.18c-0.02,0.17-0.03,0.36,0.05,0.51c0.11,0.21,0.35,0.3,0.58,0.36
+						c1.66,0.45,3.54-0.02,4.79-1.2" />
+<path class="line f7_ani_type f7_ani_type5" d="M200.25,162.25c-0.33,1.15-0.42,2.37-0.26,3.56c0.08,0.55,0.29,1.18,0.82,1.33c0.37,0.1,0.77-0.09,1.01-0.38
+						s0.36-0.67,0.45-1.04c0.17-0.71,0.25-1.44,0.25-2.16c0.19,0.8,0.48,1.62,1.08,2.18c0.61,0.56,1.61,0.75,2.26,0.25
+						c0.45-0.35,0.63-0.94,0.72-1.5c0.21-1.39-0.07-2.85-0.76-4.08" />
+<path class="line f7_ani_type f7_ani_type6" d=M211.46,152.47c0.3,3.34,0.37,6.69,0.23,10.04 />
+<path class="line f7_ani_type f7_ani_type6" d=M210.96,166.16c-0.24,0.15-0.42,0.39-0.49,0.67 />
+<path class="line f7_ani_type f7_ani_type7" d="M216.05,151.99c1.2,0.87,1.98,2.22,2.38,3.64c0.4,1.42,0.46,2.91,0.43,4.39c-0.04,1.81-0.2,3.64-0.78,5.36
+						c-0.58,1.72-1.6,3.33-3.09,4.36" />
+</g>
+</svg>
+</div>
+<div id=f7_txt1 class=adsize></div>
+<div id=f8_bkgrnd class=adsize></div>
+<div id=f8_ani class=adsize>
+<svg version=1.1 class=adsize viewBox="0 0 300 250">
+<path id=f8_ani_svg class=line d="M221.19,134.42c1.12,1.3,1.21,1.58-0.6,1.72c-1.81,0.14-44.09,4.88-49.12,4.88c-9.35,0.01-0.79-1.02-0.79-1.02
+	s28.43-1.34,40.19,1.03c3.63,0.73,6.7,1.29,7.44,2.03c0.74,0.74-0.09,1.3-32.09,1.95c-17.77,0.01-7.53-1.21-4.84-1.12
+	c2.7,0.09,22.23-0.09,30.23,1.77c8,1.86,5,2.2,4.47,2.27c-6.7,0.8-31.16,3.13-34.05,3.5c-2.88,0.37-7.16,0.19-1.4-1.02
+	c5.77-1.21,28.56-0.09,32.74,1.77c4.19,1.86,0.84,2.33,0.09,2.7c-0.74,0.37-18.79,4.28-17.49,4.93c0.65,1.4,7.81-0.09,15.07,1.86
+	c4.19,1.02,0.93,3.16,0.56,3.44c-0.37,0.28-5.12,3.35-5.12,4.28s-0.56,1.4,2.98,2.79c3.53,1.4,11.28,5.4,12.53,6.6" />
+</svg>
+</div>
+<div id=f8_txt1 class=adsize></div>
+<div id=f9_bkgrnd class=adsize></div>
+<div id=f9_ani class=adsize></div>
+<div id=f9_txt1 class=adsize></div>
+<div id=logo class=adsize></div>
+<div id=cta class=cta></div>
+</div>
+<div id=replay>
+<svg x=0px y=0px width=20px height=20px viewBox="0 0 20 20">
+<path id=replay_svg d="M 13.5 6.5
+					Q 15 7.95 15 10 15 12.05 13.5 13.55 12.05 15 10 15 7.9 15 6.4 13.55 5 12.05 5 10
+					L 3 10
+					Q 3 12.9 5.05 14.95 7.1 17 10 17 12.85 17 14.95 14.95 17 12.9 17 10 17 7.15 14.95 5.05 12.85 3 10 3
+					L 10 1 5 4 10 7 10 5
+					Q 12.05 5 13.5 6.5 Z" />
+</svg>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

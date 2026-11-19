@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.citrix.com";var debug=false;var img1=new Image();img1.src="img_txt1.png";var img2=new Image();img2.src="img_txt2.png";var img3=new Image();img3.src="img_txt3.png";window.onload=function(){dEL("#preload");initMouseEvents();resetBanner();adVisible();};function adVisible(){var blurOb={el:"#hero1",a:10};TweenLite.to(blurOb,1,{a:0,ease:Power1.easeInOut,onUpdate:applyBlur,onUpdateParams:[blurOb]});TweenLite.to("#hero1",1,{scale:1,ease:Quad.easeOut});TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(clickTag);}
+var lastRingNum=4;function resetBanner(){TweenLite.set("#hero1",{scale:1.2});TweenLite.set("#hero2",{scale:1.5,autoAlpha:0});TweenLite.set("#cta",{x:-124,autoAlpha:0});}
+function startAnimation(){var delay=0;TweenLite.delayedCall(delay,function(){var txtOb={id:"#txt1",img:img1,w:[98,92],h:[26,26],x:18,y:22,};showText(txtOb);});delay+=2;TweenLite.to("#txt1",0.25,{autoAlpha:0,delay});delay+=0.25;TweenLite.delayedCall(delay,function(){var txtOb={id:"#txt2",img:img2,w:[114,96,94,102],h:[26,26,26,26],x:18,y:22,};showText(txtOb);});for(let a=0;a<=lastRingNum;a++){TweenLite.to("#ring_shape"+a,2,{css:{"stroke-dashoffset":0},delay,ease:Power2.easeInOut});delay+=0.2;}
+delay+=2.5;TweenLite.to("#txt2",0.25,{autoAlpha:0,delay});TweenLite.to("#hero1",0.75,{scale:0.5,autoAlpha:0,delay,ease:Quad.easeInOut});var blurOb2={el:"#hero1",a:0};TweenLite.to(blurOb2,1,{a:10,delay,ease:Power1.easeInOut,onUpdate:applyBlur,onUpdateParams:[blurOb2]});var blurOb3={el:"#hero2",a:10};TweenLite.to(blurOb3,1,{a:0,delay,ease:Power1.easeInOut,onUpdate:applyBlur,onUpdateParams:[blurOb3]});TweenLite.to("#hero2",0.75,{scale:1,autoAlpha:1,delay,ease:Quad.easeInOut});delay+=0.5;TweenLite.delayedCall(delay,function(){var txtOb={id:"#txt3",img:img3,w:[124,154,116,110],h:[26,26,26,26,26],x:18,y:22,};showText(txtOb);});delay+=0.5;TweenLite.to("#cta",0.5,{x:0,autoAlpha:1,delay,ease:Quad.easeInOut});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var scale=2;var msgWidth=300;var msgHeight=250;var canvasWidth=msgWidth*scale;var canvasHeight=msgHeight*scale;var tempCanvas=document.createElement("canvas");tempCanvas.width=canvasWidth;tempCanvas.height=canvasHeight;var tempContext=tempCanvas.getContext("2d");function showText(txtOb){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var numOfLines=txtOb.w.length;var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);var renderAR=[];var totalWidth=txtOb.w.reduce(add);var totalTime=(totalWidth/100)*0.3;var startY=txtOb.y;var delay=0;for(let a=0;a<numOfLines;a++){var num=parseInt(a);var imgOb={};var w=txtOb.w[a];var h=txtOb.h[a];if(!debug){w*=2;}
+imgOb.img=txtOb.img;imgOb.startX=txtOb.x-w*scale;imgOb.endX=txtOb.x*scale;imgOb.w=w*scale;imgOb.h=h*scale;if(debug){imgOb.x=imgOb.endX;}else{imgOb.x=imgOb.startX;}
+imgOb.y=startY*scale;renderAR.push(imgOb);var aniTime=totalTime*(w/totalWidth);if(!debug){TweenLite.to(imgOb,aniTime,{x:imgOb.endX,delay});delay+=aniTime*0.5;}
+startY+=h;}
+TweenLite.to(this,1+delay,{onUpdate:onRender});function onRender(){renderContext.clearRect(0,0,canvasWidth,canvasHeight);for(var a in renderAR){var imgOb=renderAR[a];var linearGradient=renderContext.createLinearGradient(imgOb.x,imgOb.y,imgOb.x+imgOb.w,imgOb.y+imgOb.h);if(debug){var color=isEven(a)?"255,0,255":"0,255,0";linearGradient.addColorStop(0,"rgba("+color+", .5)");linearGradient.addColorStop(1,"rgba("+color+", .5)");}else{linearGradient.addColorStop(0,"rgba(0, 0, 0, 1)");linearGradient.addColorStop(0.5,"rgba(0, 0, 0, 1)");linearGradient.addColorStop(1,"rgba(0, 0, 0, 0)");}
+tempContext.clearRect(0,0,canvasWidth,canvasHeight);tempContext.drawImage(imgOb.img,0,0,canvasWidth,canvasHeight);tempContext.save();if(!debug){tempContext.globalCompositeOperation="destination-in";}
+tempContext.fillStyle=linearGradient;tempContext.fillRect(imgOb.x,imgOb.y,imgOb.w,imgOb.h);tempContext.restore();renderContext.drawImage(tempCanvas,0,0,canvasWidth,canvasHeight);if(debug){renderContext.drawImage(imgOb.img,0,0,canvasWidth,canvasHeight);}}}}
+function gEL(id){return document.querySelector(id);}
+function dEL(id){var el=gEL(id);el.parentElement.removeChild(el);}
+function add(accumulator,a){return accumulator+a;}
+function applyBlur(blurOb){TweenLite.set(blurOb.el,{webkitFilter:"blur("+blurOb.a+"px)",filter:"blur("+blurOb.a+"px)"});}
+function isEven(n){return n==parseFloat(n)?!(n%2):void 0;}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#fff;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:250px;left:0;top:0}#bkgrnd{background-image:url("img_bkgrnd.jpg")}#citrix{background-image:url("img_citrix.png")}.hero{transform-origin:100% 50%}#hero1a{background-image:url("img_hero1a.png")}#hero1b{background-image:url("img_hero1b.png")}#hero2{background-image:url("img_hero2.png")}#rings{width:188px;height:185px;left:99px;top:27px}.ring{fill:none;stroke-dasharray:2020;stroke-dashoffset:2020;stroke-width:4}#ring_shape0{stroke:#b6d333}#ring_shape1{stroke:#23a8e0}#ring_shape2{stroke:#da258f}#ring_shape3{stroke:#f06022}#ring_shape4{stroke:#f89c22}#cta{width:100px;height:26px;left:20px;top:142px;border-radius:15px;background-color:#df1995;background-image:url("img_cta.png");background-position:0 0;pointer-events:all;cursor:pointer}#cta:hover{background-position:0 -26px;background-color:#fff}</style>
+</head>
+<body>
+<div id=preload style=opacity:0>
+<img src=img_txt1.png />
+<img src=img_txt2.png />
+<img src=img_txt3.png />
+</div>
+<div id=banner class=adsize>
+<div id=bkgrnd class=adsize></div>
+<div id=hero1 class="adsize hero">
+<div id=hero1b class=adsize></div>
+<div id=rings>
+<?xml version=1.0 encoding="utf-8"?>
+<svg version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink x=0px y=0px viewBox="0 0 704 692" style="enable-background:new 0 0 704 692" xml:space=preserve>
+<ellipse class=ring id=ring_shape0 cx=388 cy=368.5 rx=313 ry=322 />
+<path class=ring id=ring_shape1 d="M227.48,37.96C65.63,101.66-15.2,287.86,46.94,453.83c62.15,165.99,243.73,248.91,405.58,185.22
+					s242.67-249.9,180.53-415.89C570.91,57.18,389.33-25.74,227.48,37.96z" />
+<path class=ring id=ring_shape2 d="M30.23,234.59C-40.3,397.02,30.91,587.3,189.3,659.6c158.37,72.3,343.94-0.76,414.47-163.2
+					S603.09,143.7,444.72,71.4C286.33-0.9,100.76,72.16,30.23,234.59z" />
+<ellipse transform="matrix(0.8885 -0.4589 0.4589 0.8885 -108.0345 212.3691)" class=ring id=ring_shape3 cx=383 cy=328.5 rx=318.82 ry=324 />
+<ellipse class=ring id=ring_shape4 cx=322 cy=333.5 rx=314 ry=328 />
+</svg>
+</div>
+<div id=hero1a class=adsize></div>
+</div>
+<div id=hero2 class="adsize hero"></div>
+<div id=txt1 class=adsize></div>
+<div id=txt2 class=adsize></div>
+<div id=txt3 class=adsize></div>
+<div id=cta></div>
+<div id=citrix class=adsize></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

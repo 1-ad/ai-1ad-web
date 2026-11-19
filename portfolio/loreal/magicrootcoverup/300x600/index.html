@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x600</title>
+<meta name=ad.size content="width=300,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.lorealparisusa.com/products/hair-color/products/root-touch-up/magic-root-cover-up.aspx";window.onload=function(){initMouseEvents();initProducts();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
+function initMouseEvents(){gEL("#banner").addEventListener("mouseover",onBannerOver);gEL("#banner").addEventListener("mouseout",onBannerOut);gEL("#banner").addEventListener("mousemove",onBannerMove);gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(clickTag);}
+var adWidth=300;var f2_ctaWidth=140;var f2_ctaHeight=38;var f2_ctaLeft=80;function resetBanner(){TweenLite.set("#f1",{autoAlpha:1});TweenLite.set("#f1_txt1",{scale:2,autoAlpha:0});TweenLite.set("#f1_txt2",{scale:2,autoAlpha:0});TweenLite.set("#f1_txt3",{scale:2,autoAlpha:0});TweenLite.set("#f1_txt4",{scale:2,autoAlpha:0});TweenLite.set("#f1_txt5",{width:"0%"});TweenLite.set("#f2",{autoAlpha:0});TweenLite.set("#f2_carousel",{scale:0,autoAlpha:0});TweenLite.set("#f2_logo",{autoAlpha:0});TweenLite.set("#f2_title",{scale:2,autoAlpha:0});TweenLite.set("#f2_tag",{width:"0%"});TweenLite.set("#f2_title2",{scale:2,autoAlpha:0});TweenLite.set("#f2_cta1",{left:adWidth+"px"});TweenLite.set("#f2_cta2",{left:adWidth+"px",width:f2_ctaWidth*10+"px"});}
+function startAnimation(){startBannerTimer();var delay=0;TweenLite.to("#f1_txt1",0.5,{scale:1,autoAlpha:1,delay,ease:Back.easeOut});delay+=0.15;TweenLite.to("#f1_txt2",0.5,{scale:1,autoAlpha:1,delay,ease:Back.easeOut});delay+=0.15;TweenLite.to("#f1_txt3",0.5,{scale:1,autoAlpha:1,delay,ease:Back.easeOut});delay+=0.15;TweenLite.to("#f1_txt4",0.5,{scale:1,autoAlpha:1,delay,ease:Back.easeOut});delay+=0.5;TweenLite.to("#f1_txt5",0.5,{width:"100%",delay});delay+=1.5;TweenLite.delayedCall(delay,startCarousel);TweenLite.to("#f2",0.5,{autoAlpha:1,delay});TweenLite.to("#f2_carousel",0.5,{scale:1,autoAlpha:1,delay});delay+=0.25;TweenLite.to("#f2_title",0.5,{scale:1,autoAlpha:1,delay,ease:Back.easeOut});delay+=0.5;TweenLite.to("#f2_tag",0.5,{width:"100%",delay});delay+=0.5;TweenLite.to("#f2_logo",0.5,{autoAlpha:1,delay});delay+=0.5;TweenLite.to("#f2_cta1",0.5,{left:f2_ctaLeft+"px",delay});TweenLite.to("#f2_cta2",0.5,{left:f2_ctaLeft+f2_ctaWidth-f2_ctaHeight+"px",delay,ease:Quad.easeOut});TweenLite.to("#f2_cta2",0.75,{width:f2_ctaHeight+"px",delay,ease:Quad.easeOut});delay+=2;TweenLite.delayedCall(delay,function(){gEL("#f2_cta1").classList="f2_cta btnPulse";});delay+=1;TweenLite.to("#f2_title",0.25,{autoAlpha:0,delay});TweenLite.to("#f2_tag",0.25,{autoAlpha:0,delay});delay+=0.25;TweenLite.to("#f2_title2",0.5,{scale:1,autoAlpha:1,delay,ease:Back.easeOut});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var canvasScale=2;var canvasWidth=300*canvasScale;var canvasHeight=300*canvasScale;var canvasContext;var frameRate=1/24;var frameDelay=Math.round(frameRate*1000);var renderInterval;var renderAR=[];var imagesTotal=8;var imagesLoaded=0;function initProducts(){gEL("#f2_canvas").width=canvasWidth;gEL("#f2_canvas").height=canvasHeight;gEL("#f2_canvas").style.width=canvasWidth/canvasScale+"px";gEL("#f2_canvas").style.height=canvasHeight/canvasScale+"px";canvasContext=gEL("#f2_canvas").getContext("2d");canvasContext.imageSmoothingQuality="high";imagesLoaded=0;renderAR=[];var imgSpace=(Math.PI*2)/imagesTotal;var imgOB;for(let a=1;a<=imagesTotal;a++){imgOB={};imgOB.src="img_product"+a+".png";imgOB=loadImage(imgOB);imgOB.angle=a*imgSpace;}}
+function loadImage(imgOB){var initalScale=0.4;imgOB.x=0;imgOB.y=0;imgOB.width=196*canvasScale*initalScale;imgOB.height=720*canvasScale*initalScale;imgOB.scale=1;var img=new Image();img.onload=function(){imageLoaded();};img.src=imgOB.src;imgOB.img=img;renderAR.push(imgOB);return imgOB;}
+function imageLoaded(){imagesLoaded++;if(imagesLoaded==renderAR.length){dEL("#preload");}}
+var carouselCenterX=canvasWidth/2;var carouselCenterY=canvasHeight*0.61;var carouselRadiusX=98*canvasScale;var carouselRadiusY=20*canvasScale;var carouselPerspective=100;var carouselSpeed=0.03;var carouselCurrentSpeed=0.03;function moveCarousel(){var imgOB;for(var a in renderAR){imgOB=renderAR[a];imgOB.angle+=carouselCurrentSpeed;imgOB.x=Math.cos(imgOB.angle)*carouselRadiusX+carouselCenterX;imgOB.y=Math.sin(imgOB.angle)*carouselRadiusY+carouselCenterY;imgOB.angle%=Math.PI*2;imgOB.angle=Number(imgOB.angle.toFixed(3));var imgScale=(imgOB.y-carouselPerspective)/(carouselCenterY+carouselRadiusY-carouselPerspective);imgOB.scale=imgScale;if(renderEnded===true&&imgOB.angle>1.56&&imgOB.angle<1.62){stopRender();}}
+renderAR.sort(productSize);}
+function productSize(a,b){if(a.scale<b.scale)return-1;if(a.scale>b.scale)return 1;return 0;}
+var renderEnded=false;function startRender(){renderEnded=false;onRender();stopRender();renderInterval=setInterval(onRender,frameDelay);}
+function endRender(){renderEnded=true;}
+function stopRender(){clearInterval(renderInterval);}
+function onRender(){moveCarousel();canvasContext.clearRect(0,0,canvasWidth,canvasHeight);var imgOB,imgWidth,imgHeight,imgX,imgY;for(var a in renderAR){imgOB=renderAR[a];imgWidth=imgOB.width*imgOB.scale;imgHeight=imgOB.height*imgOB.scale;imgX=imgOB.x-imgWidth/2;imgY=imgOB.y-imgHeight+90*canvasScale;canvasContext.drawImage(imgOB.img,imgX,imgY,imgWidth,imgHeight);}}
+var isPlaying;var isMouseOver;var isStarted;var bannerTimerTO;var bannerTime=15;function startCarousel(){isStarted=true;startRender();}
+function startBannerTimer(){if(isStarted===true&&isPlaying!==true){isPlaying=true;renderEnded=false;startRender();}
+stopBannerTimer();bannerTimerTO=TweenLite.delayedCall(bannerTime,doBannerTimer);}
+function stopBannerTimer(){if(bannerTimerTO){bannerTimerTO.kill();}
+bannerTimerTO=null;}
+function doBannerTimer(){stopBannerTimer();if(isMouseOver!=true){isPlaying=false;endRender();}}
+function onBannerOver(e){isMouseOver=true;startBannerTimer();}
+function onBannerOut(e){isMouseOver=false;startBannerTimer();}
+function onBannerMove(e){isMouseOver=true;}
+function gEL(id){return document.querySelector(id);}
+function dEL(id){var el=gEL(id);el.parentElement.removeChild(el);}
+function getMousePos(canvas,evt){var rect=canvas.getBoundingClientRect();return{x:evt.clientX-rect.left,y:evt.clientY-rect.top,};}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:50%}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#fff;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:600px;left:0;top:0}#f1{background-color:#73cac6}#f1_txt1{background-image:url("img_f1_txt1.png")}#f1_txt2{background-image:url("img_f1_txt2.png")}#f1_txt3{background-image:url("img_f1_txt3.png")}#f1_txt4{background-image:url("img_f1_txt4.png")}#f1_txt5{background-image:url("img_f1_txt5.png")}#f2{background-image:url("img_f2_bkgrnd.png")}#f2_logo{background-image:url("img_f2_logo.png")}#f2_title{transform-origin:50% 100px;background-image:url("img_f2_title.png")}#f2_tag{background-image:url("img_f2_tag.png")}#f2_title2{transform-origin:50% 132px;background-image:url("img_f2_title2.png")}#f2_carousel{width:300px;height:300px;left:0;top:194px}#f2_canvas{width:300px;height:300px;left:0;top:0}.f2_cta{width:140px;height:38px;left:80px;top:526px}#f2_cta1{background-color:#000;background-image:url("img_f2_cta.png");pointer-events:all;cursor:pointer}#f2_cta1:hover{background-color:rgba(222,29,0,1)}#f2_cta2{background:#000;background:linear-gradient(90deg,rgba(0,0,0,0.8) 0,rgba(0,0,0,0) 100%)}.btnPulse{animation:btnPulse 1000ms 9}@keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(222,29,0,0.6)}100%{box-shadow:0 0 0 10px rgba(222,29,0,0)}}</style>
+</head>
+<body>
+<div id=preload style=opacity:0>
+<img src=img_product1.png alt />
+<img src=img_product2.png alt />
+<img src=img_product3.png alt />
+<img src=img_product4.png alt />
+<img src=img_product5.png alt />
+<img src=img_product6.png alt />
+<img src=img_product7.png alt />
+<img src=img_product8.png alt />
+</div>
+<div id=banner class=adsize>
+<div id=f1 class=adsize>
+<div id=f1_txt1 class=adsize></div>
+<div id=f1_txt2 class=adsize></div>
+<div id=f1_txt3 class=adsize></div>
+<div id=f1_txt4 class=adsize></div>
+<div id=f1_txt5 class=adsize></div>
+</div>
+<div id=f2 class=adsize>
+<div id=f2_logo class=adsize></div>
+<div id=f2_title class=adsize></div>
+<div id=f2_tag class=adsize></div>
+<div id=f2_title2 class=adsize></div>
+<div id=f2_carousel class=adsize>
+<canvas id=f2_canvas width=600 height=600></canvas>
+</div>
+<div id=f2_cta2 class=f2_cta></div>
+<div id=f2_cta1 class=f2_cta></div>
+</div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>160x600</title>
+<meta name=ad.size content="width=160,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src=Ad.js></script>
+<script>var clickTag="https://aws.amazon.com";window.onload=function(){initMouseEvents();initParticles();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(clickTag);}
+function resetBanner(){TweenLite.set("#txt1",{autoAlpha:0});TweenLite.set("#txt2a",{autoAlpha:0});TweenLite.set("#txt2b",{autoAlpha:0});TweenLite.set("#txt2c",{autoAlpha:0});TweenLite.set("#txt3a",{autoAlpha:0});TweenLite.set("#txt3b",{autoAlpha:0});TweenLite.set("#cta",{autoAlpha:0});}
+function startAnimation(){resetBanner();var delay=0;delay+=0.25;TweenLite.to("#txt1",0.5,{autoAlpha:1,delay});delay+=0.5;TweenLite.fromTo("#txt2a",0.5,{x:"-20%"},{x:"0%",autoAlpha:1,delay,ease:Quad.easeOut});delay+=0.5;TweenLite.to("#txt3a",0.5,{autoAlpha:1,delay});delay+=0.5;TweenLite.to("#cta",0.5,{autoAlpha:1,delay});delay+=0.5;TweenLite.fromTo("#cta_shine",0.5,{x:"-50px"},{x:"155px",delay});delay+=1.5;TweenLite.to("#txt2a",0.5,{x:"10%",autoAlpha:0,delay,ease:Quad.easeIn});delay+=0.5;TweenLite.fromTo("#txt2b",0.5,{x:"-20%"},{x:"0%",autoAlpha:1,delay,ease:Quad.easeOut});delay+=1.5;TweenLite.to("#txt2b",0.5,{x:"10%",autoAlpha:0,delay,ease:Quad.easeIn});delay+=0.5;TweenLite.fromTo("#txt2c",0.5,{x:"-20%"},{x:"0%",autoAlpha:1,delay,ease:Quad.easeOut});delay+=1;TweenLite.to("#txt3b",0.5,{autoAlpha:1,delay});TweenLite.to("#txt3a",0.5,{autoAlpha:0,delay,ease:Quad.easeIn});delay+=1;TweenLite.fromTo("#cta_shine",0.5,{x:"-50px"},{x:"155px",delay});delay+=1.5;TweenLite.to("#txt2c",0.5,{x:"10%",autoAlpha:0,delay,ease:Quad.easeIn});delay+=0.5;TweenLite.fromTo("#txt2a",0.5,{x:"-20%"},{x:"0%",autoAlpha:1,delay,ease:Quad.easeOut});delay+=1.5;TweenLite.to("#txt2a",0.5,{x:"10%",autoAlpha:0,delay,ease:Quad.easeIn});delay+=0.5;TweenLite.fromTo("#txt2b",0.5,{x:"-20%"},{x:"0%",autoAlpha:1,delay,ease:Quad.easeOut});delay+=1.5;TweenLite.to("#txt2b",0.5,{x:"10%",autoAlpha:0,delay,ease:Quad.easeIn});delay+=0.5;TweenLite.fromTo("#txt2c",0.5,{x:"-20%"},{x:"0%",autoAlpha:1,delay,ease:Quad.easeOut});delay+=1;TweenLite.fromTo("#cta_shine",0.5,{x:"-50px"},{x:"155px",delay});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+function initParticles(){console.log("initParticles()");var canvasWidth=160;var canvasHeight=600;var canvasContext=gEL("#canvas").getContext("2d");var adCtrlOB={window:window,wrapper:gEL("#banner"),adMaxTime:15000,};var adCtrl=new AdCtrl(adCtrlOB);var renderOB={window:window,frameRate:24,canvasWidth,canvasHeight,};var renderMan=adCtrl.renderEngine(renderOB);renderMan.addClearContext(canvasContext);renderMan.addMask("img_mask.png");var pixelsOB={renderMan,canvas:gEL("#canvas"),canvasWidth,canvasHeight,offSet:8};var pixelsOB1={startX:83,startY:476,endX:86,endY:444,totalNum:25,globalAlpha:0.8,};var adAniPixels1=new AdAniPixels(extend(pixelsOB,pixelsOB1));var pixelsOB2={startX:116,startY:392,endX:142,endY:376,totalNum:10,globalAlpha:0.9,offSet:7,};var adAniPixels2=new AdAniPixels(extend(pixelsOB,pixelsOB2));var pixelsOB3={startX:68,startY:418,endX:36,endY:438,totalNum:12,globalAlpha:0.9,offSet:7,};var adAniPixels3=new AdAniPixels(extend(pixelsOB,pixelsOB3));adCtrl.startAd();renderMan.start();}
+function gEL(id){return document.querySelector(id);}
+function extend(obj,src){Object.keys(src).forEach(function(key){obj[key]=src[key];});return obj;}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;overflow:hidden;pointer-events:none;user-select:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#fff;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{left:0;top:0;width:160px;height:600px}#bkgrnd_over{background-image:url("img_bkgrnd_over.png")}#bkgrnd_under{background-image:url("img_bkgrnd_under.png")}#eyebrow{background-image:url("img_eyebrow.png")}#txt1{background-image:url("img_txt1.png")}#txt2a{background-image:url("img_txt2a.png")}#txt2b{background-image:url("img_txt2b.png")}#txt2c{background-image:url("img_txt2c.png")}#txt3a{background-image:url("img_txt3a.png")}#txt3b{background-image:url("img_txt3b.png")}#logo{background-image:url("img_logo.png")}#cta{width:141px;height:40px;left:10px;top:535px;box-sizing:border-box;border:2px solid #ec7211;border-radius:3px;background-image:url("img_cta.png");background-color:#ec7211;background-position:-1px -1px;pointer-events:all;cursor:pointer}#cta:hover{background-position:-1px -38px;background-color:#fff}#cta_shine{width:40px;height:80px;left:0;top:0;background:#fff;background:linear-gradient(90deg,rgba(255,255,255,0) 0,rgba(255,255,255,0.6) 50%,rgba(255,255,255,0) 100%);transform:translate(-50px,-18px) rotate(30deg)}</style>
+</head>
+<body>
+<img src=img_mask.png style=display:none />
+<div id=banner class=adsize>
+<div id=bkgrnd_under class=adsize></div>
+<canvas id=canvas width=160 height=600 class=adsize></canvas>
+<div id=bkgrnd_over class=adsize></div>
+<div id=eyebrow class=adsize></div>
+<div id=txt1 class=adsize></div>
+<div id=txt2a class=adsize></div>
+<div id=txt2b class=adsize></div>
+<div id=txt2c class=adsize></div>
+<div id=txt3a class=adsize></div>
+<div id=txt3b class=adsize></div>
+<div id=txt4a class=adsize></div>
+<div id=txt4b class=adsize></div>
+<div id=txt5a class=adsize></div>
+<div id=txt5b class=adsize></div>
+<div id=txt6a class=adsize></div>
+<div id=txt6b class=adsize></div>
+<div id=logo class=adsize></div>
+<div id=cta><div id=cta_shine></div></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>160x600</title>
+<meta name=ad.size content="width=160,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.dnb.com";window.onload=function(){initMouseEvents();resetBanner();resetReveal();resetRun();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick);bindEvent(gEL("#cta"),"mouseover",onCTAOver);bindEvent(gEL("#cta"),"mouseout",onCTAOut);}
+function onBannerClick(e){window.open(clickTag);}
+function onCTAOver(e){gEL("#cta").style.backgroundColor="#fff";gEL("#cta").style.backgroundPosition="0px -32px";}
+function onCTAOut(e){gEL("#cta").style.backgroundColor="#e6a65d";gEL("#cta").style.backgroundPosition="0px 0px";}
+var groundRotate=-13;function resetBanner(){TweenLite.set("#run",{scale:0.3,x:-175,y:505,rotation:groundRotate});TweenLite.set("#box1",{y:0});TweenLite.set("#box2",{y:300});TweenLite.set("#chat",{x:94,y:454,rotation:groundRotate});TweenLite.set("#chat",{scale:0,autoAlpha:0});TweenLite.set("#txt2",{autoAlpha:0});TweenLite.set("#cta",{x:-140});TweenLite.set("#cta",{backgroundPosition:"0px 32px"});}
+function startAnimation(){var delay=0;delay+=0.5;TweenLite.to("#box1",0.5,{x:10,y:-274,rotation:4,delay:delay,ease:Power1.easeInOut});TweenLite.to("#box2",0.5,{x:30,y:538,rotation:-13,delay:delay,ease:Power1.easeInOut});delay+=0.5;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);});delay+=0.75;TweenLite.delayedCall(delay,playRun);delay+=2;TweenLite.to("#chat",0.5,{autoAlpha:1,scale:1,ease:Back.easeOut,delay:delay});TweenLite.from("#chat",2.25,{y:"-=120",ease:Bounce.easeOut,delay:delay});delay+=1;TweenLite.to("#txt2",0.5,{autoAlpha:1,delay:delay});delay+=0.5;TweenLite.to("#cta",0.5,{x:0,y:0,delay:delay,ease:Quad.easeOut});delay+=0.3;TweenLite.to("#cta",0.5,{backgroundPosition:"0px 0px",delay:delay,ease:Quad.easeOut});delay+=0.5;console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var runParts;var runFrames;function resetRun(){runParts=[["cart",457,458],["arm_r_2",143,58],["arm_r_1",104,54],["leg_r_2",95,182],["leg_r_1",187,130],["leg_f_2",95,182],["leg_f_1",187,130],["body_r",263,239],["head",76,87],["body_f",284,125],["arm_f_2",146,103],["arm_f_1",147,45],["tie",149,116],];runFrames=[[[324,80,0],[260,74,-1.8],[219,76,-1.8],[166,177,33.8],[119,135,7.8],[81,222,2.8],[146,135,71.7],[92,61,0.1],[200,33,0.1],[67,64,-1.7],[55,64,-5.8],[117,57,0.1],[136,37,-6],],[[374,80,0],[312,83,-6.5],[272,90,-6.5],[235,193,-6],[176,161,-14.6],[112,221,22],[207,157,91.2],[143,78,-2.3],[251,47,-2.3],[119,88,-6.2],[109,92,-14.5],[170,74,-2.3],[180,61,-15],],[[439,80,0],[378,75,0.1],[336,78,0.1],[268,209,-6.3],[235,140,10.3],[239,197,51.1],[252,124,53.1],[207,64,-1],[316,36,-1],[184,69,-3],[174,63,-3.8],[236,58,2.1],[249,39,-7.3],],[[504,80,0],[443,68,7],[402,66,7],[305,224,-7],[317,126,40.4],[366,164,51],[307,131,7.1],[272,52,0],[382,25,0],[250,52,0],[241,35,6.7],[303,42,6.7],[321,21,0],],[[564,80,0],[500,73,2],[458,74,2],[345,203,37.8],[378,132,60.2],[398,205,0.5],[364,141,9],[328,65,-2.8],[436,33,-2.8],[306,66,-2.8],[295,58,0.3],[357,58,0.3],[372,38,-7],],[[624,80,0],[556,78,-2.8],[515,82,-2.8],[396,198,82.9],[455,154,91.5],[479,257,-60],[431,152,11.5],[383,79,-5.7],[490,42,-5.7],[361,81,-5.7],[349,81,-5.7],[411,74,-5.7],[423,55,-14],],[[689,80,0],[622,72,0],[580,73,0],[486,193,76],[500,130,61.9],[502,241,-38.3],[496,132,31.6],[448,58,-1.5],[559,30,-1.5],[428,60,-1.5],[416,59,-1.5],[478,57,-1.5],[495,33,-5.5],],[[754,80,0],[688,65,2.7],[646,63,2.7],[596,170,67.5],[554,120,26.5],[532,228,-16.7],[564,119,52],[517,41,2.7],[628,19,2.7],[495,40,2.7],[483,37,2.7],[545,40,2.7],[568,11,2.7],],];for(var a in runParts){var runPart=runParts[a];TweenLite.set("#run_"+runPart[0],{scale:0.5,width:runPart[1]+"px",height:runPart[2]+"px"});}
+var runFrame=runFrames[0];for(var a in runFrame){var runPart=runParts[a];var framePart=runFrame[a];TweenLite.set("#run_"+runPart[0],{x:framePart[0],y:framePart[1],rotation:framePart[2]});}}
+function playRun(){var aniTime=0.15;var ease=Power0.easeInOut;var lastFrameNum=runFrames.length-1;var loopW=480;var startLoop=0;var endLoop=1;var delay=0;var loopX;for(var c=startLoop;c<=endLoop;c++){loopX=c*loopW;if(c===endLoop){lastFrameNum=1;}
+for(var a=0;a<=lastFrameNum;a++){if(c===endLoop&&a===lastFrameNum){aniTime=0.3;ease=Quad.easeOut;}
+var runFrame=runFrames[a];for(var b in runFrame){var runPart=runParts[b];var framePart=runFrame[b];var newX=loopX+framePart[0];TweenLite.to("#run_"+runPart[0],aniTime,{x:newX,y:framePart[1],rotation:framePart[2],delay:delay,ease:ease});}
+delay+=aniTime;}}}
+var scale=2;var msgWidth=160;var msgHeight=600;var canvasWidth=msgWidth*scale;var canvasHeight=msgHeight*scale;var txtAR;function resetReveal(){txtAR=[];txtAR[1]=initText("txt1");txtAR[1].boxes=[[10,83,110,22],[10,108,71,22],[10,133,144,25],[10,158,113,22]];}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*scale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.5,{y:imgOb.srcRect[1],ease:Power3.easeOut,delay});delay+=0.3;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+function hideText(txtOb){var delay=0;for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1]+imgOb.srcRect[3],ease:Power3.easeOut,delay});}
+TweenLite.to(this,0.3+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb],onComplete:rEL,onCompleteParams:[txtOb.canvas]});}
+function gEL(id){return document.querySelector(id);}
+function bindEvent(el,eventName,eventHandler){if(el.addEventListener){el.addEventListener(eventName,eventHandler,false);}else if(el.attachEvent){el.attachEvent("on"+eventName,eventHandler);}}
+function rEL(el){el.parentElement.removeChild(el);}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{overflow:hidden;background-color:#4298b5;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:160px;height:600px;left:0;top:0}.box{width:200px;height:302px;left:-20px;top:0;background-color:#004f71;transform-origin:50% 50%}#logo{background-image:url("img_logo.png")}#txt1{background-image:url("img_txt1.png")}#txt2{background-image:url("img_txt2.png")}#chat{width:50px;height:43px;left:0;top:0;background-image:url("img_chat.png");transform-origin:50% 50%}#run{width:720px;height:350px;left:0;top:0;transform-origin:0 0}.run{left:0;top:0;transform-origin:0 0}#run_cart{background-image:url("img_run_cart.png")}#run_arm_r_2{background-image:url("img_run_arm_r_2.png")}#run_arm_r_1{background-image:url("img_run_arm_r_1.png")}#run_leg_r_2{background-image:url("img_run_leg_r_2.png")}#run_leg_r_1{background-image:url("img_run_leg_r_1.png")}#run_leg_f_2{background-image:url("img_run_leg_f_2.png")}#run_leg_f_1{background-image:url("img_run_leg_f_1.png")}#run_body_r{background-image:url("img_run_body_r.png")}#run_head{background-image:url("img_run_head.png")}#run_body_f{background-image:url("img_run_body_f.png")}#run_arm_f_2{background-image:url("img_run_arm_f_2.png")}#run_arm_f_1{background-image:url("img_run_arm_f_1.png")}#run_tie{background-image:url("img_run_tie.png")}#cta{width:124px;height:26px;left:12px;top:308px;border-radius:50px;background-color:#e6a65d;background-image:url("img_cta.png");background-position:0 0;transform-origin:0 100%;pointer-events:all;cursor:pointer}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=chat></div>
+<div id=run>
+<div id=run_cart class=run></div>
+<div id=run_arm_r_2 class=run></div>
+<div id=run_arm_r_1 class=run></div>
+<div id=run_leg_r_2 class=run></div>
+<div id=run_leg_r_1 class=run></div>
+<div id=run_leg_f_2 class=run></div>
+<div id=run_leg_f_1 class=run></div>
+<div id=run_body_r class=run></div>
+<div id=run_head class=run></div>
+<div id=run_body_f class=run></div>
+<div id=run_arm_f_2 class=run></div>
+<div id=run_arm_f_1 class=run></div>
+<div id=run_tie class=run></div>
+</div>
+<div id=box1 class=box></div>
+<div id=box2 class=box></div>
+<div id=txt1 class=adsize></div>
+<div id=txt2 class=adsize></div>
+<div id=logo class=adsize></div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

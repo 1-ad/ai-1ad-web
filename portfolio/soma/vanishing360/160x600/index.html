@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>160x600</title>
+<meta name=ad.size content="width=160,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.soma.com/";window.onload=function(){initMouseEvents();resetBanner();resetTextFX();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick);}
+function onBannerClick(e){window.open(clickTag);}
+function resetBanner(){TweenLite.set("#bkgrnd1",{x:40,autoAlpha:0});TweenLite.set("#bkgrnd2",{x:0,autoAlpha:0});TweenLite.set("#bkgrnd3",{x:0,autoAlpha:0});TweenLite.set("#bkgrnd4",{x:0,autoAlpha:0});}
+function startAnimation(){var delay=0;TweenLite.to("#bkgrnd1",1,{x:0,autoAlpha:1,delay:delay,ease:Quad.easeOut});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(fxAR[1]);});delay+=3.5;TweenLite.to("#bkgrnd2",1,{x:0,autoAlpha:1,delay:delay,ease:Quad.easeOut});TweenLite.to("#txt1",0.5,{autoAlpha:0,delay:delay});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(fxAR[2]);});delay+=2.5;TweenLite.to("#bkgrnd3",1,{x:0,autoAlpha:1,delay:delay,ease:Quad.easeOut});TweenLite.to("#txt2",0.5,{autoAlpha:0,delay:delay});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(fxAR[3]);});delay+=2.5;TweenLite.to("#bkgrnd4",1,{x:0,autoAlpha:1,delay:delay,ease:Quad.easeOut});TweenLite.to("#txt3",0.5,{autoAlpha:0,delay:delay});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(fxAR[4]);});}
+var fxAR=[];var fadeWidth=300;var tempCanvas;var tempContext;function resetTextFX(){var fxOb={id:"#txt1",src:"img_txt1.png",speed:0.4,drawImg:false,boxesReveal:[[43,76,74,27,0.2],[16,106,130,29,0.25],[36,137,91,25,0.3],[26,169,108,16,0.15],[26,187,108,16,0.15],[34,205,92,18],],};newCanvasOb(fxOb);fxAR[1]=fxOb;var fxOb={id:"#txt2",src:"img_txt2.png",speed:0.5,drawImg:false,boxesReveal:[[30,105,101,23,0.2],[31,136,99,23,0.2],[36,165,89,23,0.2],],};newCanvasOb(fxOb);fxAR[2]=fxOb;var fxOb={id:"#txt3",src:"img_txt3.png",speed:0.5,drawImg:false,boxesReveal:[[23,91,116,22,0.05],[32,119,98,22,0.05],[29,147,104,25,0.05],[24,174,114,25],],};newCanvasOb(fxOb);fxAR[3]=fxOb;var fxOb={id:"#txt4",src:"img_txt4.png",speed:0.5,drawImg:false,boxesReveal:[[16,100,132,18],[11,129,140,33,0.25],[35,162,94,25],],};newCanvasOb(fxOb);fxAR[4]=fxOb;}
+function revealText(fxOb){tempCanvas=document.createElement("canvas");tempCanvas.width=fxOb.width;tempCanvas.height=fxOb.height;tempContext=tempCanvas.getContext("2d");fxOb.renderAR=[];var widthAR=[];var partOb,aniTime;for(var a in fxOb.boxesReveal){partOb={};partOb.srcRect=fxOb.boxesReveal[a];widthAR.push(partOb.srcRect[2]);for(var b in partOb.srcRect){partOb.srcRect[b]*=fxOb.scale;}
+fxOb.renderAR.push(partOb);}
+var totalWidth=widthAR.reduce((a,b)=>a+b,0);var totalTime=(totalWidth/100)*fxOb.speed;var delay=0;for(var a in fxOb.renderAR){partOb=fxOb.renderAR[a];partOb.x=partOb.srcRect[0];partOb.y=partOb.srcRect[1];partOb.w=partOb.srcRect[2];partOb.h=partOb.srcRect[3];aniTime=totalTime*(partOb.w/totalWidth);partOb.x=partOb.srcRect[0]-partOb.w-fadeWidth;TweenLite.to(partOb,aniTime,{x:partOb.srcRect[0],ease:Power1.easeOut,delay:delay});if(partOb.srcRect[4]!==undefined){delay+=partOb.srcRect[4];}else{delay+=aniTime*0.5;}}
+onRenderRevealText(fxOb);TweenLite.to(this,totalTime+delay+aniTime,{onUpdate:onRenderRevealText,onUpdateParams:[fxOb]});}
+function onRenderRevealText(fxOb){fxOb.context.clearRect(0,0,fxOb.width,fxOb.height);var partOb,linearGradient;for(var a in fxOb.renderAR){partOb=fxOb.renderAR[a];linearGradient=fxOb.context.createLinearGradient(partOb.x+partOb.w,partOb.y,partOb.x+partOb.w+fadeWidth,partOb.y);linearGradient.addColorStop(0,"rgba(0, 0, 0, 1)");linearGradient.addColorStop(1,"rgba(0, 0, 0, 0)");tempContext.clearRect(0,0,fxOb.width,fxOb.height);tempContext.drawImage(fxOb.img,partOb.srcRect[0],partOb.y,partOb.w,partOb.h,partOb.srcRect[0],partOb.y,partOb.w,partOb.h);tempContext.save();tempContext.globalCompositeOperation="destination-in";tempContext.fillStyle=linearGradient;tempContext.fillRect(partOb.x,partOb.y,partOb.w+fadeWidth,partOb.h);tempContext.restore();fxOb.context.drawImage(tempCanvas,0,0,fxOb.width,fxOb.height);}}
+function newCanvasOb(fxOb){var el=gEL(fxOb.id);el.innerHTML="";el.style.backgroundPositionX="-10000px";el.style.backgroundImage="none";fxOb.scale=2;fxOb.width=el.offsetWidth*fxOb.scale;fxOb.height=el.offsetHeight*fxOb.scale;fxOb.canvas=document.createElement("canvas");fxOb.canvas.width=fxOb.width;fxOb.canvas.height=fxOb.height;fxOb.canvas.style.width=el.offsetWidth+"px";fxOb.canvas.style.height=el.offsetHeight+"px";fxOb.context=fxOb.canvas.getContext("2d");el.appendChild(fxOb.canvas);fxOb.img=new Image();fxOb.img.src=fxOb.src;fxOb.img.onload=function(){if(fxOb.drawImg===true){fxOb.context.drawImage(fxOb.img,0,0);}};}
+function gEL(id){return document.querySelector(id);}
+function rEL(el){el.parentElement.removeChild(el);}
+function bindEvent(el,eventName,eventHandler){if(el.addEventListener){el.addEventListener(eventName,eventHandler,false);}else if(el.attachEvent){el.attachEvent("on"+eventName,eventHandler);}}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-shadow:1px 1px 1px rgba(0,0,0,0.004);text-decoration:none!important}div,canvas,svg{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#d6aaa5;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:160px;height:600px;left:0;top:0}#bkgrnd1{background-image:url("img_bkgrnd1.jpg")}#bkgrnd2{background-image:url("img_bkgrnd2.jpg")}#bkgrnd3{background-image:url("img_bkgrnd3.jpg")}#bkgrnd4{background-image:url("img_bkgrnd4.jpg")}#logo{background-image:url("img_logo.png")}#txt1{background-image:url("img_txt1.png")}#txt2{background-image:url("img_txt2.png")}#txt3{background-image:url("img_txt3.png")}#txt4{background-image:url("img_txt4.png")}#cta{width:130px;height:48px;left:15px;top:242px;background-image:url("img_cta.png");background-position:0 0;background-color:#000;pointer-events:all;cursor:pointer}#cta:hover{background-position:0 -48px;background-color:#fff}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=bkgrnd1 class=adsize></div>
+<div id=bkgrnd2 class=adsize></div>
+<div id=bkgrnd3 class=adsize></div>
+<div id=bkgrnd4 class=adsize></div>
+<div id=txt1 class=adsize></div>
+<div id=txt2 class=adsize></div>
+<div id=txt3 class=adsize></div>
+<div id=txt4 class=adsize></div>
+<div id=logo class=adsize></div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

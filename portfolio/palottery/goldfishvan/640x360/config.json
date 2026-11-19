@@ -1,0 +1,227 @@
+{
+    "projectId": "palottery_goldfish",
+    "creativeId": "adgallery_goldfishvan_brandedslate",
+    "buildId": "",
+    "format": "VPAID",
+    "templateId": "str_brandedslate",
+    "ctx": "",
+    "adDuration": 30,
+    "impType": "video",
+    "skipOffset": 5,
+    "mutedOnStart": false,
+    "features": [],
+    "patches": {
+        "tmAdElement": true
+    },
+    "tracking": {
+        "actionPixelSrc": null,
+        "googleAnalytics": {
+            "propertyId": "",
+            "testPropertyId": "",
+            "prependProjectId": false,
+            "prependCreativeId": true
+        },
+        "macros": [
+            "%timestamp%",
+            "[[random]]",
+            "[[timestamp]]",
+            "[timestamp]"
+        ],
+        "clickThrus": [{
+            "name": "video/primary/clickthru",
+            "url": "https://www.palottery.state.pa.us/",
+            "googleEvent": "video/primary/clickthru",
+            "actionPixelName": "Click Thru Preroll",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/bkgrnd",
+            "url": "https://www.palottery.state.pa.us/",
+            "googleEvent": "slate/clickthru/bkgrnd",
+            "actionPixelName": "Click Thru Background",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/learnmore",
+            "url": "https://www.palottery.state.pa.us/",
+            "googleEvent": "slate/clickthru/learnmore",
+            "actionPixelName": "Click Thru Learn More",
+            "thirdPartyPixels": []
+        }],
+        "events": []
+    },
+    "assets": {
+        "videos": [{
+            "primary": true,
+            "initByCreative": true,
+            "name": "primary",
+            "view": "template_default",
+            "src": "goldfishvan.mp4",
+            "poster": "goldfishvan.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "tracking": {
+                "clickThruName": "video/primary/clickthru",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": true,
+            "initByCreative": false,
+            "name": "primary",
+            "view": "mobile_video_only",
+            "src": "goldfishvan.mp4",
+            "poster": "goldfishvan.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": true,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/primary/clickthru",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }],
+        "views": [{
+            "name": "template_default",
+            "role": "default",
+            "format": "VPAID",
+            "elements": {
+                "tag": "div",
+                "id": "creative-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                },
+                "children": [{
+                    "tag": "iframe",
+                    "id": "creative-overlay",
+                    "src": "index.html",
+                    "width": "100%",
+                    "height": "100%",
+                    "scrolling": "NO",
+                    "frameborder": "0",
+                    "marginwidth": "0",
+                    "marginheight": "0",
+                    "style": {
+                        "position": "absolute",
+                        "left": "0",
+                        "top": "0",
+                        "margin": "0",
+                        "padding": "0",
+                        "border": "0",
+                        "visibility": "visible"
+                    }
+                }]
+            }
+        }, {
+            "name": "mobile_video_only",
+            "role": "alternate",
+            "format": "VPAID",
+            "trigger": {
+                "type": "device",
+                "condition": "equal",
+                "value": "mobile"
+            },
+            "elements": {
+                "tag": "div",
+                "id": "creative-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                },
+                "children": [{
+                    "tag": "div",
+                    "id": "primary-video-hotspot",
+                    "style": {
+                        "position": "absolute",
+                        "left": "0",
+                        "top": "0",
+                        "width": "100%",
+                        "height": "100%",
+                        "margin": "0",
+                        "padding": "0",
+                        "border": "0",
+                        "overflow": "hidden",
+                        "backgroundColor": "lime",
+                        "opacity": "0",
+                        "pointer-events": "auto",
+                        "cursor": "pointer"
+                    }
+                }, {
+                    "tag": "div",
+                    "id": "ad-playbutton-container",
+                    "style": {
+                        "position": "absolute",
+                        "left": "0",
+                        "top": "0",
+                        "width": "100%",
+                        "height": "100%",
+                        "margin": "0",
+                        "padding": "0",
+                        "border": "0",
+                        "visibility": "hidden",
+                        "cursor": "pointer"
+                    }
+                }]
+            }
+        }]
+    }
+}

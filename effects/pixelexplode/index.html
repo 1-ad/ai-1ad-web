@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>300x250</title>
+    <meta name="ad.size" content="width=300,height=250">
+    <meta name="format-detection" content="telephone=no">
+    <meta charset="UTF-8">
+    <script src="../../js/shared.js"></script>
+    <script src="pixel.js"></script>
+    <script src="pixelSlide.js"></script>
+    <script src="pixelExplode.js"></script>
+    <script>
+        var adMaxTime = 15000;
+
+        var canvasWidth = 300 * 2;
+        var canvasHeight = 250 * 2;
+
+        var pixelOB;
+        var pixelSlideFX;
+        var pixelExplodeFX;
+
+        var mouseIsOver;
+        var FXisPlaying;
+
+        window.onload = function() {
+            //console.log("window.onload()");
+
+            gEL("#banner").addEventListener("click", onBannerClick);
+            gEL("#banner").addEventListener("mouseover", onBannerOver);
+            gEL("#banner").addEventListener("mouseout", onBannerOut);
+
+            var effectOB = {};
+            effectOB.canvasWidth = canvasWidth;
+            effectOB.canvasHeight = canvasHeight;
+            effectOB.renderCanvas = "#effectCanvas";
+            effectOB.imageAR = ["logo.png"];
+            effectOB.onReady = onPixelReady;
+            effectOB.sourceRect = rect(143, 170, 318, 166);
+            pixelOB = pixelFX(effectOB);
+        }
+
+        function onPixelReady() {
+            //console.log("onPixelReady()");
+
+            FXisPlaying = true;
+            requestTimeout(bannerStart, 250);
+        }
+
+        function bannerStart() {
+            //console.log("bannerStart()");
+
+            var delay = 0;
+            requestTimeout(function() {
+                gEL("#banner").className = "adsize fadein trans250";
+            }, delay);
+
+            delay += 250;
+            requestTimeout(function() {
+                bannerReady();
+            }, delay);
+
+            //delay += 250;
+            //console.log("TOTAL ANIMATION SECONDS: " + (delay / 1000));
+        }
+
+        function onBannerOver(e) {
+            //console.log("onBannerOver(e)");
+
+            mouseIsOver = true;
+
+            playFX();
+        }
+
+        function onBannerOut(e) {
+            //console.log("onBannerOut(e)");
+
+            mouseIsOver = false;
+        }
+
+        function onBannerClick(e) {
+            //console.log("onBannerClick(e)");
+
+            mouseIsOver = true;
+            playFX();
+            mouseIsOver = false;
+        }
+
+        function bannerReady() {
+            //console.log("bannerReady()");
+
+            FXisPlaying = false;
+
+            playFX();
+        }
+
+        function playFX() {
+            //console.log("playFX()");
+
+            if (FXisPlaying != true && mouseIsOver == true) {
+                FXisPlaying = true;
+
+                var effectOB = {};
+                effectOB.onComplete = onExplodeDone;
+                effectOB.pixelOB = pixelOB;
+                pixelExplodeFX = pixelExplode(effectOB);
+                pixelExplodeFX.startFX();
+            }
+        }
+
+        function onExplodeDone() {
+            //console.log("onExplodeDone()");
+
+            FXisPlaying = true;
+
+            var effectOB = {};
+            effectOB.onComplete = onSlideDone;
+            effectOB.pixelOB = pixelOB;
+            pixelSlideFX = pixelSlide(effectOB);
+            pixelSlideFX.startFX();
+        }
+
+        function onSlideDone() {
+            //console.log("onSlideDone()");
+
+            bannerReady();
+        }
+    </script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            background-color: #fff;
+            text-decoration: none !important;
+        }
+        div,
+        img,
+        canvas {
+            position: absolute;
+            transform: translatez(0);
+            backface-visibility: hidden;
+            background-position: 0px 0px;
+            background-size: cover;
+            pointer-events: none;
+            user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            -webkit-touch-callout: none;
+        }
+        a[x-apple-data-detectors] {
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+            -webkit-touch-callout: none !important;
+        }
+        #banner {
+            background-color: #ccc;
+            overflow: hidden;
+            pointer-events: all;
+            cursor: pointer;
+        }
+        /*#border {
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+        }*/
+        
+        .adsize {
+            left: 0px;
+            top: 0px;
+            width: 300px;
+            height: 250px;
+        }
+        /* BKGRND */
+        
+        #bkgrnd {
+            background-image: url("bkgrnd.jpg");
+        }
+        /* ANIMATION */
+        
+        .fadein {
+            opacity: 1;
+            visibility: visible;
+        }
+        .fadeout {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .trans250 {
+            -webkit-transition: all 250ms ease-in-out;
+            -moz-transition: all 250ms ease-in-out;
+            -o-transition: all 250ms ease-in-out;
+            transition: all 250ms ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="logo.png" alt="" style="display:none;" />
+    <div id="banner" class="adsize fadeout">
+        <div id="bkgrnd" class="adsize"></div>
+        <canvas id="effectCanvas" class="adsize" width="600" height="500"></canvas>
+    </div>
+    <!--<div id="border" class="adsize"></div>-->
+</body>
+
+</html>

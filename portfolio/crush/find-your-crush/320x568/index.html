@@ -1,0 +1,66 @@
+<script src="mraid.js"></script>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="https://use.typekit.net/cyb3wai.css" />
+<style type="text/css">html,body{width:100%;height:100%;left:0;top:0;margin:0;padding:0;background-color:#000;text-decoration:none!important;font-family:Helvetica,Arial,sans-serif;font-weight:400;font-style:normal}div,img,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none;transform-origin:50% 50%}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important;-webkit-tap-highlight-color:rgba(0,0,0,0)!important;-webkit-touch-callout:none!important}#wrapper{background-color:#000;transform-origin:0 0;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}.adsize{width:320px;height:568px;left:0;top:0}#close{width:30px;height:30px;right:0;top:0;visibility:hidden;background-image:url("./img_close.png");pointer-events:auto;cursor:pointer}#bkgrnd{background-color:#fff;pointer-events:all;cursor:pointer}.logo{width:320px;height:80px;left:0;top:0}#logo1{background-image:url("./img_logo1.png")}#logo2{background-image:url("./img_logo2.png")}#logo3{background-image:url("./img_logo3.png")}#instruct{width:320px;height:auto;left:0;top:90px;color:#777;font-size:18px;line-height:20px;text-align:center;font-family:cubano,sans-serif;letter-spacing:-0.03em}#tiles{width:290px;height:290px;left:15px;top:150px;overflow:visible}.tile{width:290px;height:290px;left:0;top:0;border-radius:16px;border:1px solid #a1a1a1;background-color:#fff;will-change:transform;overflow:hidden;transition:all 300ms ease-in-out;pointer-events:all;cursor:-webkit-grab;cursor:-moz-grab;cursor:grab}.tile_tint{width:100%;height:100%;left:0;top:0;opacity:0;background-color:#000;transition:all 300ms ease-in-out}.tile_photo{width:290px;height:210px;left:0;top:0;border-bottom:1px solid #a1a1a1;overflow:hidden}.tile_photo_img{width:290px;height:250%;left:0;top:-135px;-webkit-transform:scale(0.42) rotate(6deg);transform:scale(0.42) rotate(6deg)}.tile_title{left:0;top:218px;padding:0 14px;color:#515050;font-size:24px;line-height:30px;font-weight:bold;background-color:rgba(255,0,0,0)}.removed{opacity:.25;transform:scale(0.25)}.title_body{left:0;top:248px;padding:0 25px 0 15px;color:#515050;font-size:12px;line-height:16px;background-color:rgba(255,255,0,0)}#tile1_img{background-image:url("./img_pineapple.png")}#tile2_img{background-image:url("./img_watermelon.png")}#tile3_img{background-image:url("./img_orange.png")}#tile4_img{background-image:url("./img_strawberry.png")}#tile5_img{background-image:url("./img_grape.png")}.color1{background-color:#fbcf00}.color2{background-color:#d44754}.color3{background-color:#ea7110}.color4{background-color:#d30960}.color5{background-color:#85277d}.moving{transition:none;cursor:-webkit-grabbing;cursor:-moz-grabbing;cursor:grabbing}#heart{width:60px;height:60px;left:130px;top:490px;background-color:rgba(248,132,132,0);transform-origin:50%;pointer-events:all;cursor:pointer}#heart_mask{width:60px;height:60px;left:0;top:0;background-image:url("./img_heart.png")}#heart_circles{width:58px;height:58px;left:1px;top:1px;overflow:hidden}.circle{width:58px;height:58px;left:1px;top:1px;opacity:0;border-radius:50%;animation:scaleIn 2000ms infinite cubic-bezier(0.36,0.11,0.89,0.32);transition:all 300ms ease-in-out}@keyframes scaleIn{from{transform:translateY(-5%) scale(0,0);opacity:.8}to{transform:translateY(-5%) scale(4,4);opacity:0}}.txt-main{color:#fff;text-shadow:0 4px 0 rgba(240,87,34,0.58);-webkit-text-stroke:1.5px #00895e;font-family:cubano,sans-serif}#page2{transform-origin:50% 50%}#page2_title{width:320px;height:40px;left:0;top:20px;font-size:40px;line-height:40px;text-align:center}#page2_logo{width:170px;height:155px;left:75px;top:84px;background-image:url("./img_logo.png")}#page2_replay{width:320px;height:40px;top:528px;left:0;background-image:url("./img_replay.png");pointer-events:all;cursor:pointer}#page2_can1{width:176px;height:324px;left:72px;top:258px}#page2_can2{width:40px;height:74px;left:0;top:468px}#page2_can3{width:45px;height:82px;left:38px;top:460px}#page2_can4{width:45px;height:82px;left:236px;top:460px}#page2_can5{width:40px;height:74px;left:280px;top:468px}</style>
+<div id="wrapper" class="adsize">
+<div id="bkgrnd" class="adsize"></div>
+<div id="page1" class="adsize">
+<div id="logo1" class="logo"></div>
+<div id="logo2" class="logo"></div>
+<div id="logo3" class="logo"></div>
+<div id="instruct">WHICH FLAVOR IS FOR YOU?<br />SWIPE TO SEE.</div>
+<div id="tiles">
+<div id="tile5" class="tile">
+<div class="tile_photo color5"><div id="tile5_img" class="tile_photo_img"></div></div>
+<div class="tile_title">Grape</div>
+<div class="title_body">Must love cashmere, cats, and competitive roller skating.</div>
+<div class="tile_tint"></div>
+</div>
+<div id="tile4" class="tile">
+<div class="tile_photo color4"><div id="tile4_img" class="tile_photo_img"></div></div>
+<div class="tile_title">Strawberry</div>
+<div class="title_body">Go ahead, make a redhead joke. I'll wait.</div>
+<div class="tile_tint"></div>
+</div>
+<div id="tile3" class="tile">
+<div class="tile_photo color3"><div id="tile3_img" class="tile_photo_img"></div></div>
+<div class="tile_title">Orange</div>
+<div class="title_body">I put the "O" in O.G. -- Orange Grooviness, that is.</div>
+<div class="tile_tint"></div>
+</div>
+<div id="tile2" class="tile">
+<div class="tile_photo color2"><div id="tile2_img" class="tile_photo_img"></div></div>
+<div class="tile_title">Watermelon</div>
+<div class="title_body">Hi, I'm new here. Not, like, new on Earth but new to the Crush fam.</div>
+<div class="tile_tint"></div>
+</div>
+<div id="tile1" class="tile">
+<div class="tile_photo color1"><div id="tile1_img" class="tile_photo_img"></div></div>
+<div class="tile_title">Pineapple</div>
+<div class="title_body">I like long walks on tropical beaches. I'm sweet, not prickly, despite rumors.</div>
+<div class="tile_tint"></div>
+</div>
+</div>
+<div id="heart">
+<div id="heart_circles">
+<div id="heart_circle4" class="circle color1" style="animation-delay:-1500ms"></div>
+<div id="heart_circle3" class="circle color1" style="animation-delay:-1000ms"></div>
+<div id="heart_circle2" class="circle color1" style="animation-delay:-500ms"></div>
+<div id="heart_circle1" class="circle color1" style="animation-delay:0ms"></div>
+</div>
+<div id="heart_mask"></div>
+</div>
+</div>
+<div id="page2" class="adsize">
+<div id="page2_title" class="txt-main">IT'S A</div>
+<div id="page2_logo"></div>
+<div id="page2_can1"></div>
+<div id="page2_can5"></div>
+<div id="page2_can2"></div>
+<div id="page2_can4"></div>
+<div id="page2_can3"></div>
+<div id="page2_replay"></div>
+</div>
+</div>
+<div id="close"></div>
+<script type="text/javascript">var config={};config.projectId="crush_acrush_pho";config.clickThrus=[{name:"clickthru/bkgrnd",url:"https://www.crushsoda.com/",googleEvent:"clickthru/bkgrnd",},];config.trackingEvents=[{name:"viewed",googleEvent:"viewed",},{name:"swiped",googleEvent:"swiped",},{name:"click/heart/pineapple",googleEvent:"click/heart/pineapple",},{name:"click/heart/watermelon",googleEvent:"click/heart/watermelon",},{name:"click/heart/orange",googleEvent:"click/heart/orange",},{name:"click/heart/strawberry",googleEvent:"click/heart/strawberry",},{name:"click/heart/grape",googleEvent:"click/heart/grape",},{name:"click/replay",googleEvent:"click/replay",},];config.allowOrientationChange=false;config.forceOrientation="portrait";config.googleCustomPrefix="01";config.googlePreppage2ProjectId=false;var rootPath="./";var includes=["./adbridge-mraid-display-2.0.0.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/easing/EasePack.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js",rootPath+"hammer.min.js",rootPath+"creative.js",];var count=includes.length;includes.forEach(function(b){var a=document.createElement("script");a.setAttribute("async","true");a.setAttribute("src",b);a.onload=function(){if(--count==0){var c=new AdBridge_TM(config);var d=new Creative_TM(c,rootPath)}};document.body.appendChild(a)});</script>

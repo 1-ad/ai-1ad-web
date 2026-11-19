@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>728x90</title>
+<meta name=ad.size content="width=728,height=90" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/Enabler.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var bannerWidth=728;var bannerHeight=90;var canvasScale=2;var canvasWidth=bannerWidth*canvasScale;var canvasHeight=bannerHeight*canvasScale;var TO_RADIANS=Math.PI/180;window.onload=function(){rEL(gEL("#smoke"));initSmoke();initMouseEvents();resetBanner();adVisible()};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation()}function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick)}function onBannerClick(a){Enabler.exit("Banner")}function resetBanner(){TweenLite.set("#red",{scale:2,autoAlpha:0});TweenLite.set("#dts",{y:"-20%",scale:2,autoAlpha:0});TweenLite.set("#kai",{x:-610,y:90,scale:2.25});TweenLite.set("#header",{x:"-100%"});TweenLite.set("#bkgrnd",{autoAlpha:0});TweenLite.set("#legal",{autoAlpha:0});TweenLite.set("#glow",{autoAlpha:0});TweenLite.set("#cta",{scale:2,autoAlpha:0});TweenLite.set("#cta_glow",{autoAlpha:0})}function startAnimation(){var c=0;TweenLite.delayedCall(c,playSmoke);c+=0.75;TweenLite.to("#dts",1,{y:"0%",scale:1,delay:c,ease:Power4.easeOut});TweenLite.to("#dts",2,{autoAlpha:1,delay:c,ease:Quad.easeOut});TweenLite.to("#red",3,{scale:1,autoAlpha:1,delay:c,ease:Quad.easeOut});c+=2;TweenLite.to("#kai",1,{x:-610,y:-494,delay:c,ease:Power2.easeOut});c+=1;TweenLite.to("#kai",1,{x:0,y:-200,scale:1,delay:c,ease:Power2.easeInOut});TweenLite.to("#bkgrnd",1,{autoAlpha:1,delay:c,ease:Power2.easeInOut});TweenLite.to("#dts",0.5,{autoAlpha:0,delay:c,ease:Power2.easeInOut});c+=0.5;TweenLite.to("#header",0.5,{x:"0%",delay:c,ease:Power1.easeOut});c+=0.5;TweenLite.to("#cta",0.5,{scale:1,autoAlpha:1,delay:c,ease:Power1.easeOut});TweenLite.to("#legal",0.5,{autoAlpha:1,delay:c});for(var b=1;b<=3;b++){c+=0.5;TweenLite.to("#glow",1,{autoAlpha:1,delay:c,ease:Quad.easeIn});TweenLite.to("#cta_glow",1,{autoAlpha:1,delay:c,ease:Quad.easeIn});c+=1;TweenLite.to("#glow",0.5,{autoAlpha:0,delay:c,ease:Quad.easeOut});TweenLite.to("#cta_glow",0.5,{autoAlpha:0,delay:c,ease:Quad.easeOut});c+=1.5}console.log("TOTAL BANNER ANIMATION SECONDS: "+c)}var smokeSize=240;var smokeTotal=24;var smokeImg;var smokeCanvas;var smokeContext;var smokeRenderAR;function initSmoke(){smokeImg=new Image();smokeImg.src="img_smoke.png";smokeCanvas=gEL("#smokeCanvas");smokeContext=smokeCanvas.getContext("2d");smokeRenderAR=[];var b=bannerWidth+smokeSize;var e=Math.round(b/smokeTotal);for(var c=1;c<=smokeTotal;c++){var d={};d.img=smokeImg;d.x=c*e-smokeSize/2;d.y=bannerHeight+smokeSize/2+randRange(0,bannerHeight*2);d.width=smokeSize;d.height=smokeSize;d.rotation=randRange(0,360);d.scale=1;d.alpha=randRange(5,8)/10;d.x*=canvasScale;d.y*=canvasScale;d.width*=canvasScale;d.height*=canvasScale;smokeRenderAR.push(d)}}function playSmoke(){for(var c in smokeRenderAR){var f=smokeRenderAR[c];var d=(randRange(20,30)/10)*f.scale;var b=f.rotation+randRange(45,120)*ab();var e=-(smokeSize*d+randRange(0,bannerHeight/2));var g=2+randRange(1,15)/10;TweenLite.to(f,g,{y:e,scale:d,rotation:b,ease:Power1.easeOut})}TweenLite.to(this,4,{onUpdate:onRenderSmoke,onUpdateParams:[]})}function onRenderSmoke(){smokeContext.clearRect(0,0,canvasWidth*canvasScale,canvasHeight*canvasScale);var d,c,e;for(var b in smokeRenderAR){d=smokeRenderAR[b];c=d.width*d.scale;e=d.height*d.scale;smokeContext.save();smokeContext.globalAlpha=d.alpha;smokeContext.translate(d.x,d.y);smokeContext.rotate(d.rotation*TO_RADIANS);smokeContext.drawImage(d.img,-(c*0.5),-(e*0.5),c,e);smokeContext.restore()}}function gEL(a){return document.querySelector(a)}function rEL(a){a.parentElement.removeChild(a)}function bindEvent(c,a,b){if(c.addEventListener){c.addEventListener(a,b,false)}else{if(c.attachEvent){c.attachEvent("on"+a,b)}}}function randRange(b,a){return Math.floor(window.Math.seedRandom()*(a-b+1))+b}window.Math.seed=3;window.Math.seedRandom=function(a,c){a=a||1;c=c||0;Math.seed=(Math.seed*9301+49297)%233280;var b=Math.seed/233280;return c+b*(a-c)};function ab(){return Math.random()<0.5?-1:1};</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#000;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:728px;height:90px;left:0;top:0}#red{transform-origin:50% 50%}#red2{left:364px;transform:rotate(180deg)}.red{width:364px;height:90px;left:0;top:0;transform-origin:50% 50%;background-image:url("img_red.png")}#dts{transform-origin:50% 50%}#dts1{background-image:url("img_dts1.png")}#dts2{background-image:url("img_dts2.png")}#header{width:231px;height:90px;left:0;top:0;background-image:url("img_header.png")}#glow{background-image:url("img_glow.png")}#bkgrnd{background-image:url("img_bkgrnd.jpg")}#legal{background-image:url("img_legal.png")}#smoke{opacity:0;background-image:url("img_smoke.png")}.kai{width:728px;height:290px;left:0;top:0;transform-origin:0 0}#kai1{background-image:url("img_kai.png")}.cta{width:100px;height:32px;left:612px;top:46px;border-radius:10px}#cta{border:2px solid #fff;background-color:#000;background-image:url("img_cta.png");background-position:0 0;transform-origin:50%;pointer-events:all;cursor:pointer}#cta:hover{background-color:#ffed00;background-position:0 -32px}#cta_glow{border:2px solid #f7ff2a;background-color:#f7ff2a;box-shadow:0 0 14px 7px #f7ff2a}</style>
+</head>
+<body>
+<div id=smoke></div>
+<div id=banner class=adsize>
+<div id=red class=adsize>
+<div id=red1 class=red></div>
+<div id=red2 class=red></div>
+</div>
+<div id=dts class=adsize>
+<div id=dts1 class=adsize></div>
+<div id=dts2 class=adsize></div>
+</div>
+<canvas id=smokeCanvas width=1456 height=180 class=adsize></canvas>
+<div id=bkgrnd class=adsize></div>
+<div id=glow class=adsize></div>
+<div id=kai class=kai>
+<div id=kai1 class=kai></div>
+</div>
+<div id=header></div>
+<div id=legal class=adsize></div>
+<div id=cta_glow class=cta></div>
+<div id=cta class=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

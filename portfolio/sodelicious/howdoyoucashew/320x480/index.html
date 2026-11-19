@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>320x480</title>
+<meta name=ad.size content="width=320,height=480">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=banner.js></script>
+<style type=text/css>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,img,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#wrapper{overflow:hidden}.adsize{height:480px;width:320px;top:0;left:0}.video{position:absolute;width:100%;height:100%;left:0;top:0}.player{width:320px;height:180px;left:0;top:115px;background-color:#000;pointer-events:auto;cursor:pointer}.loader{position:absolute;width:40px;height:40px;left:50%;top:50%;margin-left:-26px;margin-top:-26px;transform-origin:50% 50%;border:6px solid rgba(204,204,204,0.75);border-top:6px solid #fff;border-radius:50%;animation:loader_spin 2s linear infinite;pointer-events:none}@keyframes loader_spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.playbutton{position:absolute;width:100%;height:100%;left:0;top:0;background-color:rgba(0,0,0,.5);pointer-events:none}.playbutton_icon{position:absolute;left:50%;top:50%;margin-left:-7px;margin-top:-10px;transform-origin:50% 50%;pointer-events:none}.playbutton_circle{position:absolute;width:40px;height:40px;left:50%;top:50%;margin-left:-26px;margin-top:-26px;transform-origin:50% 50%;border:6px solid #fff;border-radius:50%;pointer-events:none}#bkgrnd{background-image:url("img_bkgrnd.jpg")}#frame{background-image:url("img_frame.png")}#header{top:0;left:0;width:320px;height:115px;background-color:rgba(0,227,255,0);pointer-events:auto;cursor:pointer}#logo{top:295px;left:0;width:126px;height:99px;background-color:rgba(0,227,255,0);pointer-events:auto;cursor:pointer}#getcoupon{top:394px;left:6px;width:126px;height:38px;background-color:rgba(0,227,255,0);pointer-events:auto;cursor:pointer}.social{width:24px;height:24px;top:448px;background-color:rgba(0,227,255,0);pointer-events:auto;cursor:pointer}#facebook{left:7px}#twitter{left:41px}#pinterest{left:74px}#instagram{left:103px}#products{width:170px;height:165px;left:139px;top:308px;overflow:hidden}#products_img{width:1360px;height:165px;left:0;top:0;background-image:url("img_products.png")}#hotspot{left:139px;top:308px;width:170px;height:165px;background-color:rgba(0,227,255,0);pointer-events:auto;cursor:pointer}.arrow{width:30px;height:38px;top:356px;pointer-events:auto;cursor:pointer}#arrow_back{left:143px;background-image:url("img_arrow_back.png")}#arrow_next{left:276px;background-image:url("img_arrow_next.png")}.fadein{opacity:1;visibility:visible}.fadeout{opacity:0;visibility:hidden}.trans500{-webkit-transition:all 500ms ease-in-out;-moz-transition:all 500ms ease-in-out;-o-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}}</style>
+<div id=wrapper class="adsize fadeout">
+<div id=pages class=adsize>
+<div id=bkgrnd class=adsize></div>
+<div id=products>
+<div id=products_img class=trans500></div>
+</div>
+<div id=frame class=adsize></div>
+<div id=header></div>
+<div id=logo></div>
+<div id=getcoupon></div>
+<div id=facebook class=social></div>
+<div id=twitter class=social></div>
+<div id=pinterest class=social></div>
+<div id=instagram class=social></div>
+<div id=hotspot></div>
+<div id=arrow_back class=arrow></div>
+<div id=arrow_next class=arrow></div>
+<div id=primary_player class=player>
+<video id=primary_video class=video playsinline preload>
+<source src=vid_howdoyoucashew.mp4 type=video/mp4>
+</video>
+<div id=primary_loader class="loader fadein"></div>
+<div id=primary_playbutton class="playbutton fadein">
+<div class=playbutton_circle></div>
+<div class=playbutton_icon>
+<svg>
+<polygon points="0, 0 0, 20 18, 10" fill=#fff />
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>

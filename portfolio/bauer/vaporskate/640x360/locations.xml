@@ -1,0 +1,54 @@
+<data>
+  <user>
+    <ip><![CDATA[66.42.49.12]]></ip>
+    <lat><![CDATA[37.75827]]></lat>
+    <lon><![CDATA[-122.4393]]></lon>
+    <city><![CDATA[San Francisco]]></city>
+    <state><![CDATA[CA]]></state>
+    <country><![CDATA[US]]></country>
+    <postalcode><![CDATA[94114]]></postalcode>
+    <source><![CDATA[zipcode]]></source>
+    <time><![CDATA[2020-02-07 10:35:44]]></time>
+  </user>
+  <locations>
+    <location>
+      <id><![CDATA[55]]></id>
+      <name><![CDATA[DISCOUNT HOCKEY INC]]></name>
+      <street><![CDATA[6465 De Soto Ave.]]></street>
+      <city><![CDATA[WOODLAND HILLS]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[91367]]></zipcode>
+      <country><![CDATA[US]]></country>
+      <phone><![CDATA[(818) 735-0699]]></phone>
+      <lat><![CDATA[34.1879132]]></lat>
+      <lon><![CDATA[-118.5891946]]></lon>
+      <distance><![CDATA[320.1645247572783]]></distance>
+    </location>
+    <location>
+      <id><![CDATA[54]]></id>
+      <name><![CDATA[ULTIMATE SKATE & HOCKEY]]></name>
+      <street><![CDATA[555 N. Nash Avenue]]></street>
+      <city><![CDATA[El Segundo]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[90245]]></zipcode>
+      <country><![CDATA[US]]></country>
+      <phone><![CDATA[(714) 518-3240]]></phone>
+      <lat><![CDATA[33.9219556]]></lat>
+      <lon><![CDATA[-118.3883570]]></lon>
+      <distance><![CDATA[341.1281741996155]]></distance>
+    </location>
+    <location>
+      <id><![CDATA[56]]></id>
+      <name><![CDATA[PURE HOCKEY]]></name>
+      <street><![CDATA[517 E Katella Avenue]]></street>
+      <city><![CDATA[Anaheim]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[92805]]></zipcode>
+      <country><![CDATA[US]]></country>
+      <phone><![CDATA[(714) 300-0708]]></phone>
+      <lat><![CDATA[33.8038119]]></lat>
+      <lon><![CDATA[-117.8998948]]></lon>
+      <distance><![CDATA[364.0742321283917]]></distance>
+    </location>
+  </locations>
+</data>

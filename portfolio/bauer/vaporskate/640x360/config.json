@@ -1,0 +1,175 @@
+{
+    "projectId": "bauer_fasterthanfast",
+    "creativeId": "vaporskate_kane2017_a_21sec_brandedslate",
+    "buildId": "",
+    "format": "VPAID",
+    "templateId": "str_brandedslate",
+    "ctx": "",
+    "adDuration": 21,
+    "skipOffset": 5,
+    "mutedOnStart": false,
+    "features": [],
+    "patches": {
+        "tmAdElement": true
+    },
+    "tracking": {
+        "googleAnalytics": {
+            "propertyId": "",
+            "testPropertyId": "",
+            "prependProjectId": false,
+            "prependCreativeId": true
+        },
+        "clickThrus": [{
+            "name": "video/primary/clickthru",
+            "url": "https://www.bauer.com/",
+            "googleEvent": "video/primary/clickthru",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/bkgrnd",
+            "url": "https://www.bauer.com/",
+            "googleEvent": "slate/clickthru/bkgrnd",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/clickthru/ctabtn",
+            "url": "https://www.bauer.com/",
+            "googleEvent": "slate/clickthru/ctabtn",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/map/clickthru/ctabtn",
+            "url": "https://www.bauer.com/",
+            "googleEvent": "slate/map/clickthru/ctabtn",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/map/clickthru/marker",
+            "url": null,
+            "googleEvent": "slate/map/clickthru/marker",
+            "thirdPartyPixels": []
+        }],
+        "events": [{
+            "name": "slate/viewed",
+            "googleEvent": "slate/viewed",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/click/close",
+            "googleEvent": "slate/click/close",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/expand/show",
+            "googleEvent": "slate/expand/show",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/expand/hide",
+            "googleEvent": "slate/expand/hide",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/map/load/success",
+            "googleEvent": "slate/map/load/success",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/map/interaction",
+            "googleEvent": "slate/map/interaction",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/feed/load/start",
+            "googleEvent": "slate/feed/load/start",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/feed/load/success",
+            "googleEvent": "slate/feed/load/success",
+            "thirdPartyPixels": []
+        }, {
+            "name": "slate/feed/load/error",
+            "googleEvent": "slate/feed/load/error",
+            "thirdPartyPixels": []
+        }]
+    },
+    "assets": {
+        "videos": [{
+            "primary": true,
+            "initByCreative": true,
+            "name": "primary",
+            "src": "vaporskate_kane2017_a_21sec.mp4",
+            "poster": "vaporskate_kane2017_a_21sec.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": true,
+            "usePlayButton": true,
+            "tracking": {
+                "clickThruName": "video/primary/clickthru",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }],
+        "view": {
+            "tag": "div",
+            "id": "creative-container",
+            "style": {
+                "position": "absolute",
+                "left": "0",
+                "top": "0",
+                "width": "100%",
+                "height": "100%",
+                "margin": "0",
+                "padding": "0",
+                "border": "0",
+                "visibility": "visible"
+            },
+            "children": [{
+                "tag": "iframe",
+                "id": "creative-overlay",
+                "src": "index.html",
+                "width": "100%",
+                "height": "100%",
+                "scrolling": "NO",
+                "frameborder": "0",
+                "marginwidth": "0",
+                "marginheight": "0",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                }
+            }, {
+                "tag": "div",
+                "id": "ad-playbutton-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "hidden",
+                    "cursor": "pointer"
+                }
+            }]
+        }
+    }
+}
