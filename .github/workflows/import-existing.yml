@@ -1,0 +1,95 @@
+name: Import existing website baseline
+
+on:
+  push:
+    branches: [main]
+    paths: [.baseline-import.json]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: website-baseline-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Restore and verify the original website
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        shell: python
+        run: |
+          import base64
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import subprocess
+          import urllib.request
+
+          api = os.environ['GITHUB_API_URL']
+          repository = os.environ['GITHUB_REPOSITORY']
+          token = os.environ['GITHUB_TOKEN']
+          trigger = os.environ['GITHUB_SHA']
+          work = Path(os.environ['RUNNER_TEMP']) / 'website-baseline-import'
+          work.mkdir()
+
+          def request(path):
+              req = urllib.request.Request(api + '/repos/' + repository + path, headers={
+                  'Authorization': 'Bearer ' + token,
+                  'Accept': 'application/vnd.github+json',
+                  'X-GitHub-Api-Version': '2022-11-28',
+              })
+              with urllib.request.urlopen(req, timeout=120) as response:
+                  return json.load(response)
+
+          response = request('/contents/.baseline-import.json?ref=' + trigger)
+          manifest = json.loads(base64.b64decode(response['content']))
+          bundle = work / 'baseline.bundle'
+          digest = hashlib.sha256()
+          with bundle.open('wb') as output:
+              for i, entry in enumerate(manifest['chunks']):
+                  blob = request('/git/blobs/' + entry['sha'])
+                  data = base64.b64decode(blob['content'])
+                  if len(data) != entry['size'] or hashlib.sha256(data).hexdigest() != entry['sha256']:
+                      raise RuntimeError('Bundle chunk verification failed: ' + str(i))
+                  digest.update(data)
+                  output.write(data)
+                  print('Verified bundle chunk', i + 1, 'of', len(manifest['chunks']), flush=True)
+          if digest.hexdigest() != manifest['sha256']:
+              raise RuntimeError('Complete bundle verification failed')
+
+          auth = base64.b64encode(('x-access-token:' + token).encode()).decode()
+          env = os.environ.copy()
+          env.update({
+              'GIT_CONFIG_COUNT': '1',
+              'GIT_CONFIG_KEY_0': 'http.extraheader',
+              'GIT_CONFIG_VALUE_0': 'AUTHORIZATION: basic ' + auth,
+          })
+          checkout = work / 'checkout'
+          subprocess.run(['git', 'clone', os.environ['GITHUB_SERVER_URL'] + '/' + repository + '.git', str(checkout)], env=env, check=True)
+
+          def git(*args):
+              return subprocess.check_output(['git', '-C', str(checkout), *args], env=env, text=True).strip()
+
+          if git('rev-parse', 'HEAD') != trigger:
+              raise RuntimeError('Repository changed during import; refusing to overwrite newer work')
+          git('bundle', 'verify', str(bundle))
+          git('fetch', str(bundle), 'refs/heads/main:refs/remotes/baseline/main')
+          if git('rev-parse', 'refs/remotes/baseline/main') != manifest['commit']:
+              raise RuntimeError('Unexpected baseline commit')
+          git('config', 'user.name', 'github-actions[bot]')
+          git('config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com')
+          git('merge', '--allow-unrelated-histories', '--no-commit', '--no-ff', 'refs/remotes/baseline/main')
+          git('rm', '.baseline-import.json', '.github/workflows/import-existing.yml')
+          if git('write-tree') != manifest['tree']:
+              raise RuntimeError('Imported files do not match the verified baseline tree')
+          git('commit', '-m', 'Import existing 1-ad website as-is')
+          git('push', 'origin', 'HEAD:main')
+          head = git('rev-parse', 'HEAD')
+          print('Imported verified website baseline:', head)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as summary:
+              summary.write('Imported all original website files without content changes.\n\nCommit: `' + head + '`\n\nVerified tree: `' + manifest['tree'] + '`\n')
