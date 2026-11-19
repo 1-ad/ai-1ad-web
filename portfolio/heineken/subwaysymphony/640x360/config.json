@@ -1,0 +1,347 @@
+{
+    "projectId": "heineken_subwaysymphony",
+    "creativeId": "heineken_subwaysymphony_expandable",
+    "buildId": "",
+    "format": "VPAID",
+    "templateId": "str_expandable",
+    "ctx": "",
+    "adDuration": 30,
+    "impType": "video",
+    "skipOffset": 5,
+    "mutedOnStart": false,
+    "features": [],
+    "patches": {
+        "tmAdElement": true
+    },
+    "tracking": {
+        "actionPixelSrc": null,
+        "googleAnalytics": {
+            "propertyId": "",
+            "testPropertyId": "",
+            "prependCreativeId": true,
+            "prependProjectId": false
+        },
+        "macros": [
+            "%timestamp%",
+            "[[random]]",
+            "[[timestamp]]",
+            "[timestamp]"
+        ],
+        "clickThrus": [{
+            "name": "video/clickthru",
+            "url": "https://www.heineken.com/",
+            "googleEvent": "video/clickthru",
+            "actionPixelName": "Click Thru Preroll",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/prologue",
+            "url": "https://www.heineken.com/",
+            "googleEvent": "video/clickthru/prologue",
+            "actionPixelName": "Click Thru Video Prologue",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/episode1",
+            "url": "https://www.heineken.com/",
+            "googleEvent": "video/clickthru/episode1",
+            "actionPixelName": "Click Thru Episode 1",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/episode2",
+            "url": "https://www.heineken.com/",
+            "googleEvent": "video/clickthru/episode2",
+            "actionPixelName": "Click Thru Episode 2",
+            "thirdPartyPixels": []
+        }, {
+            "name": "video/clickthru/episode3",
+            "url": "https://www.heineken.com/",
+            "googleEvent": "video/clickthru/episode3",
+            "actionPixelName": "Click Thru Episode 3",
+            "thirdPartyPixels": []
+        }, {
+            "name": "expand/click/tweet_support",
+            "url": "https://www.heineken.com/",
+            "googleEvent": "expand/click/tweet_support",
+            "actionPixelName": "Expanded Click Thru Tweet Support",
+            "thirdPartyPixels": []
+        }],
+        "events": [{
+            "name": "overlay/viewed",
+            "googleEvent": "overlay/viewed",
+            "actionPixelName": "Overlay Impression",
+            "thirdPartyPixels": []
+        }, {
+            "name": "expand/viewed",
+            "googleEvent": "expand/viewed",
+            "actionPixelName": "Expanded Impression",
+            "thirdPartyPixels": []
+        }, {
+            "name": "overlay/expanded",
+            "googleEvent": "overlay/expanded",
+            "actionPixelName": "Ad Expanded",
+            "thirdPartyPixels": []
+        }, {
+            "name": "expand/closed",
+            "googleEvent": "expand/closed",
+            "actionPixelName": "Ad Collapsed",
+            "thirdPartyPixels": []
+        }]
+    },
+    "assets": {
+        "videos": [{
+            "primary": true,
+            "name": "primary",
+            "initByCreative": false,
+            "src": "vid_preroll.mp4",
+            "poster": "vid_preroll.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": true,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "prologue",
+            "initByCreative": true,
+            "src": "vid_prologue.mp4",
+            "poster": "vid_prologue.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/prologue",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "expanded/prologue/quartiles/0",
+                            "actionPixelName": "Video Prologue Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "expanded/prologue/quartiles/25",
+                            "actionPixelName": "Video Prologue Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "expanded/prologue/quartiles/50",
+                            "actionPixelName": "Video Prologue Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "expanded/prologue/quartiles/75",
+                            "actionPixelName": "Video Prologue Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "expanded/prologue/quartiles/100",
+                            "actionPixelName": "Video Prologue Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "episode1",
+            "initByCreative": true,
+            "src": "vid_episode1.mp4",
+            "poster": "vid_episode1.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/episode1",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "expanded/episode1/quartiles/0",
+                            "actionPixelName": "Video Episode 1 Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "expanded/episode1/quartiles/25",
+                            "actionPixelName": "Video Episode 1 Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "expanded/episode1/quartiles/50",
+                            "actionPixelName": "Video Episode 1 Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "expanded/episode1/quartiles/75",
+                            "actionPixelName": "Video Episode 1 Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "expanded/episode1/quartiles/100",
+                            "actionPixelName": "Video Episode 1 Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "episode2",
+            "initByCreative": true,
+            "src": "vid_episode2.mp4",
+            "poster": "vid_episode2.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/episode2",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "expanded/episode2/quartiles/0",
+                            "actionPixelName": "Video Episode 2 Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "expanded/episode2/quartiles/25",
+                            "actionPixelName": "Video Episode 2 Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "expanded/episode2/quartiles/50",
+                            "actionPixelName": "Video Episode 2 Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "expanded/episode2/quartiles/75",
+                            "actionPixelName": "Video Episode 2 Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "expanded/episode2/quartiles/100",
+                            "actionPixelName": "Video Episode 2 Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }, {
+            "primary": false,
+            "name": "episode3",
+            "initByCreative": true,
+            "src": "vid_episode3.mp4",
+            "poster": "vid_episode3.jpg",
+            "autoPlay": true,
+            "endAdOnComplete": false,
+            "usePlayButton": true,
+            "playButtonParentId": "ad-playbutton-container",
+            "tracking": {
+                "clickThruName": "video/clickthru/episode3",
+                "quartiles": {
+                    "standard": {
+                        "pct0": {
+                            "googleEvent": "expanded/episode3/quartiles/0",
+                            "actionPixelName": "Video Episode 3 Completion 0",
+                            "thirdPartyPixels": []
+                        },
+                        "pct25": {
+                            "googleEvent": "expanded/episode3/quartiles/25",
+                            "actionPixelName": "Video Episode 3 Completion 25",
+                            "thirdPartyPixels": []
+                        },
+                        "pct50": {
+                            "googleEvent": "expanded/episode3/quartiles/50",
+                            "actionPixelName": "Video Episode 3 Completion 50",
+                            "thirdPartyPixels": []
+                        },
+                        "pct75": {
+                            "googleEvent": "expanded/episode3/quartiles/75",
+                            "actionPixelName": "Video Episode 3 Completion 75",
+                            "thirdPartyPixels": []
+                        },
+                        "pct100": {
+                            "googleEvent": "expanded/episode3/quartiles/100",
+                            "actionPixelName": "Video Episode 3 Completion 100",
+                            "thirdPartyPixels": []
+                        }
+                    }
+                }
+            }
+        }],
+        "view": {
+            "tag": "div",
+            "id": "creative-container",
+            "style": {
+                "position": "absolute",
+                "left": "0",
+                "top": "0",
+                "width": "100%",
+                "height": "100%",
+                "margin": "0",
+                "padding": "0",
+                "border": "0",
+                "visibility": "visible"
+            },
+            "children": [{
+                "tag": "iframe",
+                "id": "creative-overlay",
+                "src": "index.html",
+                "width": "100%",
+                "height": "100%",
+                "scrolling": "NO",
+                "frameborder": "0",
+                "marginwidth": "0",
+                "marginheight": "0",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "visible"
+                }
+            }, {
+                "tag": "div",
+                "id": "ad-playbutton-container",
+                "style": {
+                    "position": "absolute",
+                    "left": "0",
+                    "top": "0",
+                    "width": "100%",
+                    "height": "100%",
+                    "margin": "0",
+                    "padding": "0",
+                    "border": "0",
+                    "visibility": "hidden",
+                    "cursor": "pointer"
+                }
+            }]
+        }
+    }
+}

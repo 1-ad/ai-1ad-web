@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<title>EXPANDED</title>
+<style>body{vertical-align:baseline;border:0 none;outline:0;padding:0;margin:0;left:0;top:0;width:100%;height:100%}div,img,svg{position:absolute;user-select:none;background-position:0 0;background-size:cover;background-repeat:no-repeat;transform-origin:0 0;pointer-events:none;overflow:hidden}#ad-container{visibility:hidden}#border{border:2px solid #fff;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}.adsize{width:640px;height:360px;left:0;top:0}.video-container{width:368px;height:207px;left:19px;top:72px;background-color:#000;outline:2px solid #fff}.video{width:100%;height:100%;pointer-events:auto;cursor:pointer}.video-playbutton{background-color:rgba(0,0,0,.5);visibility:hidden;pointer-events:auto;cursor:pointer}.loader{width:40px;height:40px;left:50%;top:50%;margin-left:-28px;margin-top:-28px;transform-origin:50% 50%;border:8px solid rgba(204,204,204,0.75);border-top:8px solid #fff;border-radius:50%;animation:loader_spin 2s linear infinite;pointer-events:none}@keyframes loader_spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}#bkgrnd{background-image:url("img_expand_bkgrnd.jpg")}.header{width:640px;height:52px;left:0;top:0}#header_white{background-color:#fff}.header_white_off{transform:scaleY(0)}.header_white_on{transform:scaleY(1)}#header_logo{background-image:url("img_expand_logo.png")}#header_title{background-image:url("img_expand_title.png")}#header_title_o{background-image:url("img_expand_title_o.png")}.header_title_o_on{transform:translateY(-5px)}#header_name{background-image:url("img_expand_name.png")}#close{width:32px;height:32px;right:0;top:0;background-color:#fff;pointer-events:auto;cursor:pointer}#close_icon{left:50%;top:50%;width:12px;height:12px;margin-left:-6px;margin-top:-6px}#watch{width:225px;height:65px;left:401px;top:90px;background-image:url("img_expand_watch.png")}.watch{width:225px;height:65px;left:0;top:0}#watch_prologue{background-image:url("img_expand_watch_prologue.png")}#watch_episode1{background-image:url("img_expand_watch_episode1.png")}#watch_episode2{background-image:url("img_expand_watch_episode2.png")}#watch_episode3{background-image:url("img_expand_watch_episode3.png")}#tweet_btn{width:225px;height:66px;left:401px;top:180px;background-image:url("img_expand_tweet_btn.png");background-color:transparent;outline:2px solid #fff;pointer-events:auto;cursor:pointer}#tweet_btn:hover{background-color:#000}.thumb{width:156px;height:65px;top:298px;clip-path:url(#thumb_mask);pointer-events:auto;cursor:pointer}.thumb_off{transform:translateY(0px)}.thumb_on{transform:translateY(-5px)}.thumb_tint{width:156px;height:65px;background-color:rgba(0,0,0,.5)}#thumb_prologue{left:5px;background-image:url("img_expand_thumb_prologue.jpg")}#thumb_episode1{left:163px;background-image:url("img_expand_thumb_episode1.jpg")}#thumb_episode2{left:321px;background-image:url("img_expand_thumb_episode2.jpg")}#thumb_episode3{left:479px;background-image:url("img_expand_thumb_episode3.jpg")}.thumb_txt{width:156px;height:65px}#thumb_prologue_txt{background-image:url("img_expand_thumb_prologue_txt.png")}#thumb_episode1_txt{background-image:url("img_expand_thumb_episode1_txt.png")}#thumb_episode2_txt{background-image:url("img_expand_thumb_episode2_txt.png")}#thumb_episode3_txt{background-image:url("img_expand_thumb_episode3_txt.png")}#thumb_mask{opacity:0}.fadein{opacity:1;visibility:visible}.fadeout{opacity:0;visibility:hidden}.trans250{-webkit-transition:all 250ms ease-in-out;-moz-transition:all 250ms ease-in-out;-o-transition:all 250ms ease-in-out;transition:all 250ms ease-in-out}.trans500{-webkit-transition:all 500ms ease-in-out;-moz-transition:all 500ms ease-in-out;-o-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}.trans500out{-webkit-transition:all 500ms ease-out;-moz-transition:all 500ms ease-out;-o-transition:all 500ms ease-out;transition:all 500ms ease-out}.trans1000{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}.delay250{transition-delay:250ms}</style>
+</head>
+<body style=margin:0px onload=onExpandLoaded()>
+<svg>
+<clipPath id=thumb_mask>
+<path d="M156,8,149,0H7L0,8 V65H156Z" />
+</clipPath>
+</svg>
+<div id=ad-container class="adsize fadeout">
+<div id=bkgrnd class=adsize></div>
+<div id=header class=header>
+<div id=header_white></div>
+<div id=header_logo></div>
+<div id=header_title></div>
+<div id=header_title_o></div>
+<div id=header_name></div>
+</div>
+<div id=thumb_prologue>
+<div id=thumb_prologue_tint class=thumb_tint></div>
+<div id=thumb_prologue_txt class=thumb_txt></div>
+</div>
+<div id=thumb_episode1>
+<div id=thumb_episode1_tint class=thumb_tint></div>
+<div id=thumb_episode1_txt class=thumb_txt></div>
+</div>
+<div id=thumb_episode2>
+<div id=thumb_episode2_tint class=thumb_tint></div>
+<div id=thumb_episode2_txt class=thumb_txt></div>
+</div>
+<div id=thumb_episode3>
+<div id=thumb_episode3_tint class=thumb_tint></div>
+<div id=thumb_episode3_txt class=thumb_txt></div>
+</div>
+<div id=secondary-video-container class=video-container>
+<video id=secondary-video class=video playsinline></video>
+<div id=secondary-loader class=loader></div>
+</div>
+<div id=watch>
+<div id=watch_prologue></div>
+<div id=watch_episode1></div>
+<div id=watch_episode2></div>
+<div id=watch_episode3></div>
+</div>
+<div id=tweet_btn></div>
+<div id=close>
+<svg id=close_icon>
+<path fill=#000 d=M10.6,12,12,10.6,7.4,6,12,1.4,10.6,0,6,4.6,1.4,0,0,1.4,4.6,6,0,10.6,1.4,12,6,7.4Z />
+</svg>
+</div>
+<div id=border class=adsize></div>
+</div>
+<script>var ab;var videoAR=["prologue","episode1","episode2","episode3"];var currentVideoID;var secondaryVideoControl;var adPlayBtnEL;function onExpandLoaded(){initThumbs();initMouseEvents();initSecondaryVideo();resetHeader();parent.expandLoaded()}function showViewExpand(a,b){ab=a;adPlayBtnEL=b;gEL("#ad-container").style.visibility="visible";gEL("#ad-container").className="adsize fadein trans500";setTimeout(expandShowDone,500)}function expandShowDone(){parent.expandShowDone();showHeader();playVideo("prologue")}function hideExpand(){gEL("#ad-container").className="adsize fadeout trans500";secondaryVideoControl.pause();adPlayBtnEL.style.visibility="hidden";setTimeout(hideExpandDone,500)}function hideExpandDone(){parent.closeExpand()}function resetHeader(){gEL("#header_white").className="header header_white_off";gEL("#header_logo").className="header fadeout";gEL("#header_title").className="header fadeout";gEL("#header_title_o").className="header fadeout";gEL("#header_name").className="header fadeout"}function showHeader(){var a=500;setTimeout(function(){gEL("#header_white").className="header header_white_on trans500out"},a);a+=500;setTimeout(function(){gEL("#header_logo").className="header fadein trans500"},a);a+=500;setTimeout(function(){gEL("#header_title").className="header fadein trans500";gEL("#header_title_o").className="header fadein trans500"},a);a+=500;setTimeout(function(){gEL("#header_title_o").className="header header_title_o_on trans1000"},a);a+=1000;setTimeout(function(){gEL("#header_name").className="header fadein trans500"},a)}function initThumbs(){var b;for(var c in videoAR){b=videoAR[c];gEL("#thumb_"+b).className="thumb thumb_off";gEL("#thumb_"+b).addEventListener("mouseover",onThumbOver);gEL("#thumb_"+b).addEventListener("mouseout",onThumbOut);gEL("#thumb_"+b).addEventListener("click",onThumbClick);gEL("#watch_"+b).className="watch fadeout"}}function selectThumb(a){gEL("#thumb_"+a).className="thumb thumb_on trans250";gEL("#thumb_"+a+"_tint").className="thumb_tint fadeout trans250"}function dropThumb(a){gEL("#thumb_"+a).className="thumb thumb_off trans250";gEL("#thumb_"+a+"_tint").className="thumb_tint fadein trans250"}function onThumbOver(b){var a=b.target.id.split("_")[1];if(a!=currentVideoID){selectThumb(a)}}function onThumbOut(b){var a=b.target.id.split("_")[1];if(a!=currentVideoID){dropThumb(a)}}function onThumbClick(b){var a=b.target.id.split("_")[1];playVideo(a)}function playVideo(a){if(currentVideoID){dropThumb(currentVideoID);gEL("#watch_"+currentVideoID).className="watch fadeout trans250"}currentVideoID=a;selectThumb(currentVideoID);gEL("#watch_"+currentVideoID).className="watch fadein trans250 delay250";playSecondaryVideo(currentVideoID)}function initSecondaryVideo(){gEL("#secondary-video").addEventListener("playing",function(){gEL("#secondary-loader").className="loader fadeout"});gEL("#secondary-video").addEventListener("waiting",function(){gEL("#secondary-loader").className="loader fadein trans500"});gEL("#secondary-video").addEventListener("ended",function(){})}function playSecondaryVideo(b){var a=ab.getVideoConfigByName(b);secondaryVideoControl=ab.addVideo(a,gEL("#secondary-video"),adPlayBtnEL,gEL("#secondary-loader"));secondaryVideoControl.play()}function initMouseEvents(){gEL("#close").addEventListener("click",onCloseClick);gEL("#tweet_btn").addEventListener("click",onTweetBtnClick)}function onCloseClick(){hideExpand()}function onTweetBtnClick(){ab.openClickThru("expand/click/tweet_support")}function gEL(a){return document.querySelector(a)};</script>
+</body>
+</html>

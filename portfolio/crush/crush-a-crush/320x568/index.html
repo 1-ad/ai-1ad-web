@@ -1,0 +1,35 @@
+<script src="mraid.js"></script>
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+<link rel="stylesheet" href="https://use.typekit.net/cyb3wai.css" />
+<style type="text/css">html,body{width:100%;height:100%;left:0;top:0;margin:0;padding:0;background-color:#000;text-decoration:none!important;font-family:cubano,sans-serif;font-weight:400;font-style:normal}div,img,canvas{position:absolute;background-position:0 0;background-size:cover;pointer-events:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none;transform-origin:50% 50%}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important;-webkit-tap-highlight-color:rgba(0,0,0,0)!important;-webkit-touch-callout:none!important}#wrapper{background-color:#000;transform-origin:0 0;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}.adsize{width:320px;height:568px;left:0;top:0}#close{width:30px;height:30px;right:0;top:0;visibility:hidden;background-image:url("./img_close.png");pointer-events:auto;cursor:pointer}#bkgrnd{background-image:url("./img_bkgrnd.png");pointer-events:all;cursor:pointer}#timer{width:100px;height:32px;left:110px;top:90px;text-align:center;font-size:32px;line-height:32px;color:#e35000}#instruct{display:inline-block;width:290px;height:290px;left:15px;top:115px;text-align:center;font-size:30px;line-height:34px;color:#e35000;border-radius:20px;background-color:#facf8d;pointer-events:all;cursor:pointer}#instruct_txt{position:relative;padding:20px}#instruct_btn{position:relative;width:100%;padding-top:17px;border-top:1px solid #f4af6a}.txt-main{color:#fff;text-shadow:0 4px 0 rgba(240,87,34,0.58);-webkit-text-stroke:1.5px #00895e}.logo{width:320px;height:96px;left:0;top:6px}#logo1{background-image:url("./img_logo1.png")}#logo2{background-image:url("./img_logo2.png")}#logo3{background-image:url("./img_logo3.png")}.hole{width:98px;height:98px;transform-origin:50%;background-image:url("./img_hole.png");pointer-events:all;cursor:pointer}#hole0{left:40px;top:150px}#hole1{left:182px;top:150px}#hole2{left:40px;top:288px}#hole3{left:182px;top:288px}#hole4{left:40px;top:426px}#hole5{left:182px;top:426px}#end{transform-origin:50% 50%}#end_title{width:320px;top:110px;font-size:30px;line-height:34px;text-align:center}#end_score{width:320px;height:125px;top:145px;text-align:center;color:#fff}#end_score_num{width:320px;top:0;font-size:90px;line-height:90px}#end_score_txt{width:320px;top:80px;font-size:45px;line-height:45px}#end_btn{width:180px;height:54px;left:70px;top:305px;font-size:26px;line-height:54px;background-color:#e35000;text-align:center;color:#fff;-webkit-text-stroke:1.5px #00895e;pointer-events:all;cursor:pointer}#end_cans{width:320px;height:167px;left:0;top:401px;background-image:url("./img_end_cans.png")}</style>
+<div id="wrapper" class="adsize">
+<img src="./img_mask.png" alt="" style="visibility:hidden" />
+<div id="bkgrnd" class="adsize"></div>
+<div id="logo1" class="logo"></div>
+<div id="logo2" class="logo"></div>
+<div id="logo3" class="logo"></div>
+<div id="hole0" class="hole"></div>
+<div id="hole1" class="hole"></div>
+<div id="hole2" class="hole"></div>
+<div id="hole3" class="hole"></div>
+<div id="hole4" class="hole"></div>
+<div id="hole5" class="hole"></div>
+<div id="timer"></div>
+<canvas id="canvas1" width="640" height="1136" class="adsize"></canvas>
+<canvas id="canvas2" width="320" height="568" class="adsize"></canvas>
+<div id="instruct">
+<div id="instruct_txt">THE NAME OF THE GAME IS CRUSH. WHEN YOU<br />SEE A CAN POP UP, CRUSH IT!</div>
+<div id="instruct_btn" class="txt-main">START CRUSHING!</div>
+</div>
+<div id="end" class="adsize">
+<div id="end_title" class="txt-main">NICE JOB ON YOUR</div>
+<div id="end_score">
+<div id="end_score_num">7</div>
+<div id="end_score_txt">CRUSHES!</div>
+</div>
+<div id="end_btn">PLAY AGAIN</div>
+<div id="end_cans"></div>
+</div>
+</div>
+<div id="close"></div>
+<script type="text/javascript">var config={};config.projectId="crush_crushacrush_pho";config.clickThrus=[{name:"clickthru/bkgrnd",url:"https://www.crushsoda.com/",googleEvent:"clickthru/bkgrnd",},];config.trackingEvents=[{name:"viewed",googleEvent:"viewed",},{name:"start/instruct",googleEvent:"start/instruct",},{name:"start/autoplay",googleEvent:"start/autoplay",},{name:"start/replay",googleEvent:"start/replay",},{name:"game/interact",googleEvent:"game/interact",},];config.allowOrientationChange=false;config.forceOrientation="portrait";config.googleCustomPrefix="02";config.googlePrependProjectId=false;var rootPath="./";var includes=["./adbridge-mraid-display-2.0.0.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/plugins/CSSPlugin.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/easing/EasePack.min.js","https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenLite.min.js",rootPath+"creative.js",];var count=includes.length;includes.forEach(function(b){var a=document.createElement("script");a.setAttribute("async","true");a.setAttribute("src",b);a.onload=function(){if(--count==0){var c=new AdBridge_TM(config);var d=new Creative_TM(c,rootPath)}};document.body.appendChild(a)});</script>

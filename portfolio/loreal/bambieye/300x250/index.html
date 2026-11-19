@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.lorealparisusa.com/brands/makeup/bambi-eye.aspx";window.onload=function(){initMouseEvents();resetBanner();adVisible()};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,delay:0.25});TweenLite.delayedCall(0.25,startAnimation)}function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick)}function onBannerClick(a){window.open(window.clickTag,"_blank")}function resetBanner(){gEL("#video1").style.backgroundY="0px";gEL("#video2").style.backgroundY="0px";TweenLite.set("#legal",{autoAlpha:0});TweenLite.set("#cta",{scale:0,autoAlpha:0})}function startAnimation(){var a=0;var b={d:"#video1",f:1,ef:15,h:gEL("#video1").offsetHeight};TweenLite.to(b,1.5,{f:b.ef,delay:a,ease:Linear.easeNone,onUpdate:renderVideo,onUpdateParams:[b],});a+=1.5;TweenLite.to("#video1",0.25,{autoAlpha:0,delay:a});TweenLite.delayedCall(a,playVideo2);TweenLite.delayedCall(a,playVideo3);a+=0.5;TweenLite.to("#cta",0.5,{scale:1,autoAlpha:1,ease:Power1.easeOut,delay:a});a+=0.5;TweenLite.to("#cta",0.5,{backgroundColor:"#f0c2b2",delay:a})}var video2loopNum=0;var video3loopNum=0;var totalLoops=3;function playVideo2(){if(video2loopNum<totalLoops){video2loopNum++;var a={d:"#video2",f:1,ef:30,ls:16,le:30,h:gEL("#video2").offsetHeight};TweenLite.set(a.d,{autoAlpha:1});TweenLite.to(a,2,{f:a.ef,delay:0.1,ease:Linear.easeNone,onUpdate:renderVideo,onUpdateParams:[a],onComplete:playVideo2,})}}function playVideo3(){if(video3loopNum<totalLoops){video3loopNum++;var a={d:"#video3",f:1,ef:20,h:gEL("#video3").offsetHeight};TweenLite.set(a.d,{autoAlpha:1});TweenLite.to(a,2,{f:a.ef,delay:0.1,ease:Linear.easeNone,onUpdate:renderVideo,onUpdateParams:[a],onComplete:playVideo3,})}}function renderVideo(a){var c=Math.floor(a.f);if(a.d==="#video2"&&c===a.ef){TweenLite.set(a.d,{autoAlpha:0})}else{var b=(c-1)*a.h;gEL(a.d).style.backgroundPositionY=-b+"px"}if(a.d==="#video2"){if(a.f>=a.ls&&a.f<=a.le){TweenLite.set("#legal",{autoAlpha:1})}else{TweenLite.set("#legal",{autoAlpha:0})}}}function gEL(a){return document.querySelector(a)};</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important;font-family:"Nunito",sans-serif}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#fff;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{left:0;top:0;width:300px;height:250px}#video1{background-image:url("img_video1.jpg")}#disney{background-image:url("img_disney.png")}.video2{left:30px;top:38px;width:270px;height:140px}#video2{background-image:url("img_video2.jpg")}#video3{left:100px;top:180px;width:200px;height:70px;background-image:url("img_video3.png")}#legal{background-image:url("img_legal.png")}#overlay{background-image:url("img_overlay.png")}#end{background-image:url("img_end.jpg")}#cta{width:100px;height:24px;left:177px;top:201px;outline:2px solid #000;background-color:#fff;box-sizing:border-box;background-image:url("img_cta.png");transform-origin:50% 50%;pointer-events:all;cursor:pointer}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=end class=video2></div>
+<div id=video2 class=video2></div>
+<div id=legal class=video2></div>
+<div id=overlay class=adsize></div>
+<div id=cta></div>
+<div id=video3></div>
+<div id=video1 class=adsize><div id=disney class=adsize></div></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<meta charset=UTF-8>
+<title>preroll</title>
+<script src=/js/adBridge.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/plugins/CSSPlugin.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/easing/EasePack.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenLite.min.js></script>
+<style type=text/css>body{vertical-align:baseline;border:0 none;outline:0;padding:0;margin:0;left:0;top:0;width:100%;height:100%}div,img,canvas{position:absolute;user-select:none;background-position:0 0;background-size:cover;background-repeat:no-repeat;transform-origin:0 0;pointer-events:none;overflow:hidden}#ad-container{overflow:visible;visibility:hidden;background-color:#000}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:640px;height:360px;left:0;top:0}.video-container{background-color:#000}.video{width:100%;height:100%;pointer-events:auto;cursor:pointer}.video-container_slate{width:384px;height:216px;left:227px;top:8px}.video-playbutton{left:0;top:0;width:640px;height:360px;background-color:rgba(0,0,0,.5);visibility:hidden;pointer-events:auto;cursor:pointer}.loader{width:40px;height:40px;left:50%;top:50%;margin-left:-28px;margin-top:-28px;transform-origin:50% 50%;border:8px solid rgba(204,204,204,0.75);border-top:8px solid #fff;border-radius:50%;animation:loader_spin 2s linear infinite;pointer-events:none}@keyframes loader_spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}#bkgrnd{background-image:url("img_bkgrnd.png");pointer-events:auto}.vehicle{overflow:visible;pointer-events:auto;cursor:pointer}#camry{left:9px;top:272px}.camry{width:163px;height:59px}#camry_set_img{background-image:url("img_camry.png")}#camry_set_tint{background-image:url("img_camry_tint.png")}#camry_set_shine{background-image:url("img_camry_shine.png")}#camry_text{width:63px;height:15px;left:90px;top:238px;background-image:url("img_camry_text.png")}#corolla{left:113px;top:273px}.corolla{width:146px;height:60px}#corolla_set_img{background-image:url("img_corolla.png")}#corolla_set_tint{background-image:url("img_corolla_tint.png")}#corolla_set_shine{background-image:url("img_corolla_shine.png")}#corolla_text{width:63px;height:15px;left:190px;top:238px;background-image:url("img_corolla_text.png")}#rav4{left:199px;top:265px}.rav4{width:196px;height:74px}#rav4_set_img{background-image:url("img_rav4.png")}#rav4_set_tint{background-image:url("img_rav4_tint.png")}#rav4_set_shine{background-image:url("img_rav4_shine.png")}#rav4_text{width:63px;height:15px;left:290px;top:238px;background-image:url("img_rav4_text.png")}#highlander{left:330px;top:262px}.highlander{width:160px;height:78px}#highlander_set_img{background-image:url("img_highlander.png")}#highlander_set_tint{background-image:url("img_highlander_tint.png")}#highlander_set_shine{background-image:url("img_highlander_shine.png")}#highlander_text{width:63px;height:15px;left:403px;top:238px;background-image:url("img_highlander_text.png")}#cta{width:132px;height:31px;left:493px;top:254px;border:solid 1px #fff;background-image:url("img_cta.png");background-position:0 0;pointer-events:auto;cursor:pointer}#cta:hover{background-position:0 -31px;background-color:#fff}#close{top:0;right:0;width:24px;height:24px;background-color:#fff;border-sizing:box;pointer-events:auto;cursor:pointer}#close:hover{background-color:#dedede}#close_icon{width:12px;height:12px;margin-left:6px;margin-top:6px}.fadein{opacity:1;visibility:visible}.fadeout{opacity:0;visibility:hidden}.trans500{-webkit-transition:all 500ms ease-in-out;-moz-transition:all 500ms ease-in-out;-o-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}.trans1000{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}</style>
+</head>
+<body>
+<div id=ad-container class=adsize>
+<div id=bkgrnd class=adsize></div>
+<div id=camry_text></div>
+<div id=corolla_text></div>
+<div id=rav4_text></div>
+<div id=highlander_text></div>
+<div id=camry class="vehicle camry">
+<div id=camry_set class=camry>
+<div id=camry_set_img class=camry></div>
+<div id=camry_set_tint class=camry></div>
+<div id=camry_set_shine class=camry></div>
+</div>
+</div>
+<div id=corolla class="vehicle corolla">
+<div id=corolla_set class=corolla>
+<div id=corolla_set_img class=corolla></div>
+<div id=corolla_set_tint class=corolla></div>
+<div id=corolla_set_shine class=corolla></div>
+</div>
+</div>
+<div id=rav4 class="vehicle rav4">
+<div id=rav4_set class=rav4>
+<div id=rav4_set_img class=rav4></div>
+<div id=rav4_set_tint class=rav4></div>
+<div id=rav4_set_shine class=rav4></div>
+</div>
+</div>
+<div id=highlander class="vehicle highlander">
+<div id=highlander_set class=highlander>
+<div id=highlander_set_img class=highlander></div>
+<div id=highlander_set_tint class=highlander></div>
+<div id=highlander_set_shine class=highlander></div>
+</div>
+</div>
+<div id=cta></div>
+<div id=close class=fadeout>
+<svg id=close_icon>
+<path fill=#000000 d=M10.6,12,12,10.6,7.4,6,12,1.4,10.6,0,6,4.6,1.4,0,0,1.4,4.6,6,0,10.6,1.4,12,6,7.4Z />
+</svg>
+</div>
+<div id=primary-video-container class="video-container adsize">
+<video id=primary-video class=video></video>
+<div id=primary-loader class=loader></div>
+</div>
+<div id=primary-video-playbutton class=video-playbutton></div>
+<div id=border class=adsize></div>
+</div>
+<script type=text/javascript>var ab;var primaryVideoControl;var showViewSeconds=2;var viewWasShown=false;function onAdInit(){initVideo();initMouseEvents();initVehicles();onWindowResize();gEL("#ad-container").style.visibility="visible";ab.ready();ab.track("slate/impression")}function onAdStarted(){}function onAdVideoStart(){}function onAdVideoTimeUpdate(a,b){}function onVideoTimeUpdate(a){var b=a.getCurrentTime();if(b>=showViewSeconds&&!viewWasShown){viewWasShown=true;showView()}}function onAdVideoFirstQuartile(){}function onAdVideoMidpoint(){}function onAdVideoThirdQuartile(){}function onAdVideoComplete(){}function onAdVolumeChange(){}function onAdPaused(){}function onAdPlaying(){}function onAdSizeChange(a,b,c){resizeCreative(a,b,c)}function onAdUserClose(){}function onAdStopped(){}function onAdExpandedChange(){}function onAdSkippableStateChange(){}function onAdSkipped(){}function onAdExtended(){}function onAdDurationChange(){}function onAdRemainingTimeChange(){}function initVideo(){var a=ab.getPrimaryVideoConfig();primaryVideoControl=ab.addVideo(a,gEL("#primary-video"),gEL("#primary-video-playbutton"),gEL("#primary-loader"));ab.addPrimaryVideoController(primaryVideoControl);primaryVideoControl.on("TimeUpdate",function(){onVideoTimeUpdate(primaryVideoControl)},false);gEL("#primary-video").addEventListener("ended",function(){console.log("primary-video - ended");if(userEngaged!=true){ab.stopAd()}else{gEL("#close").className="fadein"}});primaryVideoControl.play()}function showView(){gEL("#primary-video-container").className="video-container video-container_slate trans1000";gEL("#primary-video-container").style.backgroundColor="transparent";setTimeout(showViewDone,1000)}function showViewDone(){ab.track("slate/viewed");showVehicles()}function initMouseEvents(){gEL("#bkgrnd").addEventListener("click",onBkgrndClick);gEL("#cta").addEventListener("click",onCTAClick);gEL("#close").addEventListener("click",onCloseClick)}function onBkgrndClick(){ab.openClickThru("slate/clickthru/bkgrnd")}function onCTAClick(){ab.openClickThru("slate/clickthru/cta_btn")}function onCloseClick(){ab.track("slate/click/close");ab.stopAd()}var vehicleAR=[];var currentVehicleID;function initVehicles(){vehicleAR.push({id:"camry",height:59});vehicleAR.push({id:"corolla",height:60});vehicleAR.push({id:"rav4",height:74});vehicleAR.push({id:"highlander",height:78});var d;var c=0;for(var b in vehicleAR){d=vehicleAR[b].id;resetSprite(b);vehicleAR[b].x=gEL("#"+d).style.left;vehicleAR[b].y=gEL("#"+d).style.top;TweenLite.set("#"+d+"_text",{opacity:0});TweenLite.set("#"+d+"_set_tint",{opacity:0});TweenLite.set("#"+d,{opacity:0,scale:0.9,x:vehicleAR[b].x+40,y:vehicleAR[b].y+1});gEL("#"+d).addEventListener("mouseover",onVehicleOver);gEL("#"+d).addEventListener("mouseout",onVehicleOut);gEL("#"+d).addEventListener("click",onVehicleClick)}}function showVehicles(){var e;var c=0;var d=0;for(var b in vehicleAR){e=vehicleAR[b].id;TweenLite.to("#"+e,0.4,{opacity:1,scale:1,x:vehicleAR[b].x,y:vehicleAR[b].y,ease:Quad.easeOut,delay:c,overwrite:true});TweenLite.to("#"+e+"_text",0.4,{opacity:1,delay:c});c+=0.3;TweenLite.delayedCall(d,floatUpTween,[e]);d+=0.25}}function floatUpTween(b){var c=TweenLite.to("#"+b+"_set",1,{y:"-3",ease:Quad.easeInOut,onComplete:floatDownTween,onCompleteParams:[b]});var a=findWithAttr(vehicleAR,"id",b);vehicleAR[a].floatTween=c}function floatDownTween(b){var c=TweenLite.to("#"+b+"_set",1,{y:"3",ease:Quad.easeInOut,onComplete:floatUpTween,onCompleteParams:[b]});var a=findWithAttr(vehicleAR,"id",b);vehicleAR[a].floatTween=c}function floatTweenStatus(c){var d;for(var b in vehicleAR){d=vehicleAR[b].floatTween;if(c==1){d.play()}else{d.pause()}}}function onVehicleOver(c){currentVehicleID=c.currentTarget.id;var a=findWithAttr(vehicleAR,"id",currentVehicleID);var b=vehicleAR[a].trackIsDone;if(b!=true){vehicleAR[a].trackIsDone=true;ab.track("slate/rollover/"+currentVehicleID);sendUserEngaged()}animateVehicles();floatTweenStatus(0)}function onVehicleOut(a){currentVehicleID=null;animateVehicles();floatTweenStatus(1)}function onVehicleClick(a){currentVehicleID=a.currentTarget.id;ab.openClickThru("slate/clickthru/"+currentVehicleID)}function animateVehicles(){var d,e,g,c,j,h,b,f;for(var i in vehicleAR){d=vehicleAR[i].id;if(d==currentVehicleID||currentVehicleID==null){e=0;g=1;c=1;j=vehicleAR[i].x;h=vehicleAR[i].y;f=1}else{e=0.5;g=0.5;c=0.95;j=vehicleAR[i].x+20;h=vehicleAR[i].y+1;f=0.5}TweenLite.to("#"+d,0.35,{opacity:g,scale:c,x:j,y:h,overwrite:true});TweenLite.to("#"+d+"_text",0.4,{opacity:f});TweenLite.to("#"+d+"_set_tint",0.35,{opacity:e,overwrite:true});if(d==currentVehicleID){TweenLite.to(vehicleAR[i],0.5,{posNum:15,ease:Linear.none,overwrite:false,onUpdate:aniSprite,onUpdateParams:[i],onComplete:resetSprite,onCompleteParams:[i]})}}}function aniSprite(e){var a=vehicleAR[e].id;var d=vehicleAR[e].height;var b=Math.round(vehicleAR[e].posNum);var c=Math.round(b*-d);gEL("#"+a+"_set_shine").style.backgroundPosition="0px "+c+"px"}function resetSprite(b){var a=vehicleAR[b].id;vehicleAR[b].posNum=0;gEL("#"+a+"_set_shine").style.backgroundPosition="0px 0px"}function findWithAttr(d,a,c){for(var b=0;b<d.length;b+=1){if(d[b][a]===c){return b}}return -1}document.body.onload=onWindowResize;window.addEventListener("resize",onWindowResize);function onWindowResize(){resizeCreative(window.innerWidth,window.innerHeight)}function resizeCreative(b,d,e){var g=640;var f=360;var b=window.innerWidth;var d=window.innerHeight;var a=Math.min(b/g,d/f);var c=Math.round((b-(g*a))/2);var h=Math.round((d-(f*a))/2);console.log("adWidth="+b+" adHeight="+d+" containerScale="+a+" containerLeft="+c+" containerTop="+h);gEL("#ad-container").style.transform="scale("+a+", "+a+")";gEL("#ad-container").style.left=c+"px";gEL("#ad-container").style.top=h+"px"}var userEngaged=false;function sendUserEngaged(){if(userEngaged!=true){userEngaged=true}}function gEL(a){return document.querySelector(a)}</script>
+<script type=text/javascript>window.addEventListener("load",function(){ab=adBridge;ab.on("AdInit",onAdInit);ab.on("AdVideoStart",onAdVideoStart);ab.on("AdVideoTimeUpdate",onAdVideoTimeUpdate);ab.on("AdVideoFirstQuartile",onAdVideoFirstQuartile);ab.on("AdVideoMidpoint",onAdVideoMidpoint);ab.on("AdVideoThirdQuartile",onAdVideoThirdQuartile);ab.on("AdVideoComplete",onAdVideoComplete);ab.on("AdVolumeChange",onAdVolumeChange);ab.on("AdPaused",onAdPaused);ab.on("AdPlaying",onAdPlaying);ab.on("AdSizeChange",onAdSizeChange);ab.on("AdUserClose",onAdUserClose);ab.on("AdStopped",onAdStopped);ab.on("AdExpandedChange",onAdExpandedChange);ab.on("AdSkippableStateChange",onAdSkippableStateChange);ab.on("AdSkipped",onAdSkipped);ab.on("AdExtended",onAdExtended);ab.on("AdDurationChange",onAdDurationChange);ab.on("AdRemainingTimeChange",onAdRemainingTimeChange);ab.pageLoaded()});</script>
+</body>
+</html>

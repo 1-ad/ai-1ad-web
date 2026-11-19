@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/BezierPlugin.min.js></script>
+<script src=expanded.js></script>
+<script>var clickTag="https://www.seagate.com/";</script>
+<link href=expanded.css rel=stylesheet />
+<style>html,body{width:300px;height:250px;background-color:#fff;margin:0;padding:0;overflow:visible;text-decoration:none!important}#wrapper{position:relative;width:300px;height:250px;top:0;left:0;overflow:hidden}#banner{position:absolute;width:300px;height:250px;top:0;left:0;background-color:#fff;visibility:hidden}#border{position:absolute;width:300px;height:250px;top:0;left:0;box-sizing:border-box;border:1px solid #888;pointer-events:none}</style>
+</head>
+<body>
+<div id=wrapper>
+<div id=banner>
+<canvas id=streamCanvas width=300 height=250 class=layer></canvas>
+<div id=cover><img alt src=cover.png width=300 height=250 class=layer /></div>
+<div id=title><img alt src=title.png width=260 height=28 /></div>
+<div id=bullets><img alt src=bullets.png width=250 height=44 /></div>
+<div id=cta><img alt id=cta_img src=cta.png width=150 height=23 /></div>
+<div id=arrow><img alt src=arrow.png width=8 height=14 /></div>
+<div id=seagate><img alt src=seagate.png width=156 height=17 /></div>
+<canvas id=fallCanvas width=300 height=250 class=layer></canvas>
+</div>
+<div id=border></div>
+</div>
+</body>
+</html>

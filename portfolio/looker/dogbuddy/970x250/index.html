@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>970x250</title>
+<meta name=ad.size content="width=970,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://looker.com/";window.onload=function(){initMouseEvents();resetBanner();resetReveal();initTiles(tilesOb);adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);gEL("#cta").addEventListener("mouseover",onCTAOver);gEL("#cta").addEventListener("mouseout",onCTAOut);}
+function onBannerClick(e){window.open(clickTag);}
+function onCTAOver(e){gEL("#cta").style.backgroundColor="#fff";}
+function onCTAOut(e){gEL("#cta").style.backgroundColor="#f3ba44";}
+var bannerWidth;var bannerHeight;var bluetransHeight=800;var frameLength=1350;var graph1Boxes;var graph2Boxes;var graph3Boxes;var playGraph=true;function resetBanner(){bannerWidth=gEL("#banner").offsetWidth;bannerHeight=gEL("#banner").offsetHeight;TweenLite.set("#f3",{height:"0px"});TweenLite.set("#f3_bkgrnd",{y:-bluetransHeight});graph1Boxes=document.getElementsByClassName("graph1_box");graph2Boxes=document.getElementsByClassName("graph2_box");graph3Boxes=document.getElementsByClassName("graph3_box");TweenLite.set("#f2_graph1",{scaleY:-1});TweenLite.set("#f2_graph3",{scaleY:-1});gEL("#f2_frame_svg").style.strokeDasharray=frameLength;gEL("#f2_frame_svg").style.strokeDashoffset=frameLength;TweenLite.set("#f2_eye",{scale:0});TweenLite.set("#f3_txt3",{autoAlpha:0});TweenLite.set("#cta",{scaleX:0});TweenLite.set("#cta",{backgroundPosition:"0px 32px"});}
+function startAnimation(){var delay=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);});delay+=0.5;TweenLite.delayedCall(delay,function(){revealText(txtAR[2]);});delay+=3;TweenLite.to("#f1",0.75,{y:-bluetransHeight,delay:delay,ease:Quad.easeInOut});TweenLite.delayedCall(delay,startGraphs);delay+=0.25;TweenLite.to("#f2_frame_svg",0.75,{css:{"stroke-dashoffset":0},delay:delay,ease:Quad.easeInOut});delay+=0.5;TweenLite.set("#f1",{autoAlpha:0,delay:delay});delay+=0.25;TweenLite.to("#f2_eye",1,{scale:1,delay:delay,ease:Quad.easeInOut});delay+=1;TweenLite.delayedCall(delay,function(){showTiles(tilesOb);});delay+=1.5;TweenLite.set("#f2_frame",{scaleX:-1,delay:delay});TweenLite.to("#f2_frame_svg",0.75,{strokeDashoffset:frameLength,delay:delay,ease:Quad.easeInOut});TweenLite.set("#f2_frame",{autoAlpha:0,delay:delay+0.75});delay+=0.5;TweenLite.to("#f2_scene",0.5,{x:200,delay:delay,ease:Quad.easeInOut});TweenLite.to("#f2_graph2",0.5,{x:175,delay:delay,ease:Quad.easeInOut});TweenLite.to("#f2_graph3",0.5,{x:50,delay:delay,ease:Quad.easeInOut});delay+=0.5;TweenLite.delayedCall(delay,function(){revealText(txtAR[3]);});delay+=3;TweenLite.to("#f3_bkgrnd",0.75,{y:0,delay:delay,ease:Quad.easeInOut});delay+=0.25;TweenLite.to("#f3",0.25,{height:bannerHeight+"px",delay:delay,ease:Quad.easeInOut});delay+=1;TweenLite.delayedCall(delay,function(){revealText(txtAR[4]);playGraph=false;});TweenLite.set("#f2",{autoAlpha:0,delay:delay});delay+=0.5;TweenLite.to("#f3_txt3",0.5,{autoAlpha:1,delay:delay});delay+=0.5;TweenLite.delayedCall(delay,function(){revealText(txtAR[5]);});delay+=0.5;TweenLite.to("#cta",0.5,{scaleX:1,delay:delay,ease:Power1.easeOut});delay+=0.3;TweenLite.to("#cta",0.5,{backgroundPosition:"0px 0px",delay:delay,ease:Quad.easeOut});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+function startGraphs(){for(var a in graph1Boxes){if(graph1Boxes[a].nodeName=="path"){var graphBox=graph1Boxes[a];TweenLite.set(graphBox,{scaleY:0});var randRatio=randRange(0,10)/10;loopGraphY(graphBox,randRatio);}}
+for(var a in graph2Boxes){if(graph2Boxes[a].nodeName=="path"){var graphBox=graph2Boxes[a];TweenLite.set(graphBox,{scaleY:0});var randRatio=randRange(0,10)/10;loopGraphY(graphBox,randRatio);}}
+for(var a in graph3Boxes){if(graph3Boxes[a].nodeName=="path"){var graphBox=graph3Boxes[a];TweenLite.set(graphBox,{scaleY:0});var randRatio=randRange(0,10)/10;loopGraphY(graphBox,randRatio);}}}
+function loopGraphY(graphBox,randRatio){if(playGraph===true){var boxScaleY=graphBox._gsTransform.scaleY;var newScaleY=1;if(boxScaleY>0.8){newScaleY=randRange(1,3)/10;}
+var delay=randRange(0,10)/10;var tw=TweenLite.to(graphBox,2,{scaleY:newScaleY,ease:Quad.easeInOut,delay:delay,onComplete:loopGraphY,onCompleteParams:[graphBox]});if(randRatio){tw.progress(randRatio);}}}
+var canvasScale=2;var canvasWidth;var canvasHeight;var txtAR;function resetReveal(){canvasWidth=bannerWidth*canvasScale;canvasHeight=bannerHeight*canvasScale;txtAR=[];txtAR[1]=initText("f1_txt1");txtAR[1].boxes=[[20,22,205,28]];txtAR[2]=initText("f1_txt2");txtAR[2].boxes=[[22,90,668,52],[22,142,668,52]];txtAR[3]=initText("f2_txt1");txtAR[3].boxes=[[24,53,386,33],[24,88,386,33]];txtAR[4]=initText("f3_txt2");txtAR[4].boxes=[[21,129,309,34]];txtAR[5]=initText("f3_txt4");txtAR[5].boxes=[[710,204,233,21]];}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*canvasScale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.5,{y:imgOb.srcRect[1],ease:Power4.easeOut,delay});delay+=0.2;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+var tilesOb={id:"#f2_dog",src:"img_f2_dog.png",srcRect:{x:422,y:60,w:220,h:190},canvasScale:2,tileW:10,tileH:10,startX:422,startY:60,};function initTiles(tilesOb){var img=new Image();tilesOb.img=img;img.src=tilesOb.src;img.onload=function(){tileLoaded(tilesOb);};}
+function tileLoaded(tilesOb){tilesOb.canvasWidth=tilesOb.img.width;tilesOb.canvasHeight=tilesOb.img.height;tilesOb.srcRect.x*=tilesOb.canvasScale;tilesOb.srcRect.y*=tilesOb.canvasScale;tilesOb.srcRect.w*=tilesOb.canvasScale;tilesOb.srcRect.h*=tilesOb.canvasScale;tilesOb.startX*=tilesOb.canvasScale;tilesOb.startY*=tilesOb.canvasScale;tilesOb.maxDelay=0;var el=gEL(tilesOb.id);el.innerHTML="";el.style.backgroundImage="none";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=tilesOb.canvasWidth;renderCanvas.height=tilesOb.canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);tilesOb.canvas=renderCanvas;tilesOb.context=renderContext;tilesOb.renderAR=[];var numOfColumns=Math.ceil(tilesOb.srcRect.w/tilesOb.tileW);var numOfRows=Math.ceil(tilesOb.srcRect.h/tilesOb.tileH);var imgOb,tileX,tileY;for(var rowNum=0;rowNum<numOfRows;rowNum++){for(var colNum=0;colNum<numOfColumns;colNum++){tileX=Math.round(tilesOb.srcRect.x+colNum*tilesOb.tileW);tileY=Math.round(tilesOb.srcRect.y+rowNum*tilesOb.tileH);imgOb={};imgOb.x=tileX;imgOb.y=tileY;imgOb.w=tilesOb.tileW;imgOb.h=tilesOb.tileH;imgOb.srcRect=rect(tileX,tileY,tilesOb.tileW,tilesOb.tileH);imgOb.distance=getDistance(tileX,tileY,tilesOb.startX,tilesOb.startY);imgOb.delayMS=Math.round(imgOb.distance*2)+randRange(0,200);imgOb.drawn=false;if(imgOb.delayMS>tilesOb.maxDelay){tilesOb.maxDelay=imgOb.delayMS;}
+tilesOb.renderAR.push(imgOb);}}
+tilesOb.maxDelay+=50;}
+function showTiles(tilesOb){tilesOb.startMS=Date.now();tilesOb.tw=TweenLite.to(this,tilesOb.maxDelay/1000,{onUpdate:onRenderTiles,onUpdateParams:[tilesOb]});}
+function onRenderTiles(tilesOb){var currentMS=Date.now();for(var a in tilesOb.renderAR){var imgOb=tilesOb.renderAR[a];if(imgOb.drawn!==true&&currentMS>tilesOb.startMS+imgOb.delayMS){imgOb.drawn=true;tilesOb.context.drawImage(tilesOb.img,imgOb.srcRect.x,imgOb.srcRect.y,imgOb.srcRect.w,imgOb.srcRect.h,imgOb.x,imgOb.y,imgOb.w,imgOb.h);}}}
+function gEL(id){return document.querySelector(id);}
+function rEL(el){el.parentElement.removeChild(el);}
+function rect(x,y,w,h){return{x:x,y:y,w:w,h:h,};}
+function randRange(min,max){return Math.floor(window.Math.seedRandom()*(max-min+1))+min;}
+window.Math.seed=3;window.Math.seedRandom=function(max,min){max=max||1;min=min||0;Math.seed=(Math.seed*9301+49297)%233280;var rnd=Math.seed/233280;return min+rnd*(max-min);};function getDistance(x1,y1,x2,y2){var xs=x2-x1;var ys=y2-y1;xs*=xs;ys*=ys;return Math.sqrt(xs+ys);}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas,svg{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#fff;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:970px;height:250px;left:0;top:0}#f3{overflow:hidden}.bluetrans{width:970px;height:800px;left:0;top:0;background-image:url("img_bluetrans.svg")}#f1_txt1{background-image:url("img_f1_txt1.png")}#f1_txt2{background-image:url("img_f1_txt2.png")}#f2_txt1{background-image:url("img_f2_txt1.png")}#f3_txt1{background-image:url("img_f3_txt1.png")}#f3_txt2{background-image:url("img_f3_txt2.png")}#f3_txt3{background-image:url("img_f3_txt3.png")}#f3_txt4{background-image:url("img_f3_txt4.png")}#f2_frame{transform-origin:50% 50%}#f2_frame_svg{stroke:#5337bb;stroke-width:9;stroke-linejoin:miter;stroke-miterlimit:10;fill:none}.graph{width:145px;height:85px;top:105px;transform-origin:50% 50%;opacity:.5}#f2_graph1{left:80px;top:140px}#f2_graph2{left:250px}#f2_graph3{left:765px}.graph_a{transform-origin:0 30px}.graph_b{transform-origin:0 0}.graph1_box{fill:#3a91de;stroke:none}.graph2_box{fill:#959595;stroke:none}.graph3_box{fill:#3a91de;stroke:none}#f2_eye{background-image:url("img_f2_eye.png");transform-origin:50% 50%}#f2_dog{background-image:url("img_f2_dog.png");transform-origin:50% 50%}#cta{width:146px;height:42px;left:25px;top:180px;background-color:#f3ba44;background-image:url("img_cta.png");background-position:0 0;transform-origin:0 50%;pointer-events:all;cursor:pointer}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=f2 class=adsize>
+<svg id=f2_graph1 class=graph width=145 height=85>
+<path class="graph1_box graph_a" d="M5 0H0v60h5V0z" />
+<path class="graph1_box graph_a" d="M15 0h-5v60h5V0z" />
+<path class="graph1_box graph_a" d="M25 0h-5v60h5V0z" />
+<path class="graph1_box graph_a" d="M45 60V0h-5v60h5z" />
+<path class="graph1_box graph_a" d="M65 0h-5v60h5V0z" />
+<path class="graph1_box graph_a" d="M95 0h-5v60h5V0z" />
+<path class="graph1_box graph_a" d="M115 0h-5v60h5V0z" />
+<path class="graph1_box graph_a" d="M145 0h-5v60h5V0z" />
+<path class="graph1_box graph_b" d="M35 85V60h-5v25h5z" />
+<path class="graph1_box graph_b" d="M55 60h-5v25h5V60z" />
+<path class="graph1_box graph_b" d="M75 60h-5v25h5V60z" />
+<path class="graph1_box graph_b" d="M85 85V60h-5v25h5z" />
+<path class="graph1_box graph_b" d="M105 85V60h-5v25h5z" />
+<path class="graph1_box graph_b" d="M120 60v25h5V60h-5z" />
+<path class="graph1_box graph_b" d="M135 85V60h-5v25h5z" />
+</svg>
+<svg id=f2_graph2 class=graph width=145 height=85>
+<path class="graph2_box graph_a" d="M5 0H0v60h5V0z" />
+<path class="graph2_box graph_a" d="M15 0h-5v60h5V0z" />
+<path class="graph2_box graph_a" d="M25 0h-5v60h5V0z" />
+<path class="graph2_box graph_a" d="M45 60V0h-5v60h5z" />
+<path class="graph2_box graph_a" d="M65 0h-5v60h5V0z" />
+<path class="graph2_box graph_a" d="M95 0h-5v60h5V0z" />
+<path class="graph2_box graph_a" d="M115 0h-5v60h5V0z" />
+<path class="graph2_box graph_a" d="M145 0h-5v60h5V0z" />
+<path class="graph2_box graph_b" d="M35 85V60h-5v25h5z" />
+<path class="graph2_box graph_b" d="M55 60h-5v25h5V60z" />
+<path class="graph2_box graph_b" d="M75 60h-5v25h5V60z" />
+<path class="graph2_box graph_b" d="M85 85V60h-5v25h5z" />
+<path class="graph2_box graph_b" d="M105 85V60h-5v25h5z" />
+<path class="graph2_box graph_b" d="M120 60v25h5V60h-5z" />
+<path class="graph2_box graph_b" d="M135 85V60h-5v25h5z" />
+</svg>
+<svg id=f2_graph3 class=graph width=145 height=85>
+<path class="graph3_box graph_a" d="M5 0H0v60h5V0z" />
+<path class="graph3_box graph_a" d="M15 0h-5v60h5V0z" />
+<path class="graph3_box graph_a" d="M25 0h-5v60h5V0z" />
+<path class="graph3_box graph_a" d="M45 60V0h-5v60h5z" />
+<path class="graph3_box graph_a" d="M65 0h-5v60h5V0z" />
+<path class="graph3_box graph_a" d="M95 0h-5v60h5V0z" />
+<path class="graph3_box graph_a" d="M115 0h-5v60h5V0z" />
+<path class="graph3_box graph_a" d="M145 0h-5v60h5V0z" />
+<path class="graph3_box graph_b" d="M35 85V60h-5v25h5z" />
+<path class="graph3_box graph_b" d="M55 60h-5v25h5V60z" />
+<path class="graph3_box graph_b" d="M75 60h-5v25h5V60z" />
+<path class="graph3_box graph_b" d="M85 85V60h-5v25h5z" />
+<path class="graph3_box graph_b" d="M105 85V60h-5v25h5z" />
+<path class="graph3_box graph_b" d="M120 60v25h5V60h-5z" />
+<path class="graph3_box graph_b" d="M135 85V60h-5v25h5z" />
+</svg>
+<div id=f2_frame class=adsize>
+<svg width=970 height=250>
+<path id=f2_frame_svg d="M30 250V30h910v220" />
+</svg>
+</div>
+<div id=f2_scene class=adsize>
+<div id=f2_eye class=adsize></div>
+<div id=f2_dog class=adsize></div>
+</div>
+<div id=f2_txt1 class=adsize></div>
+</div>
+<div id=f3_bkgrnd class=bluetrans></div>
+<div id=f3 class=adsize>
+<div id=f3_txt1 class=adsize></div>
+<div id=f3_txt2 class=adsize></div>
+<div id=f3_txt3 class=adsize></div>
+<div id=f3_txt4 class=adsize></div>
+</div>
+<div id=f1 class=bluetrans>
+<div id=f1_txt1 class=adsize></div>
+<div id=f1_txt2 class=adsize></div>
+</div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

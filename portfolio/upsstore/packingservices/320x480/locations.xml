@@ -1,0 +1,51 @@
+<data>
+  <user>
+    <ip><![CDATA[66.42.49.12]]></ip>
+    <lat><![CDATA[37.75827]]></lat>
+    <lon><![CDATA[-122.4393]]></lon>
+    <city><![CDATA[San Francisco]]></city>
+    <state><![CDATA[CA]]></state>
+    <country><![CDATA[US]]></country>
+    <postalcode><![CDATA[94114]]></postalcode>
+    <source><![CDATA[zipcode]]></source>
+    <time><![CDATA[2020-02-07 10:37:01]]></time>
+  </user>
+  <locations>
+    <location>
+      <id><![CDATA[4096]]></id>
+      <storenum><![CDATA[4546]]></storenum>
+      <address><![CDATA[2370 Market St Suite 103]]></address>
+      <city><![CDATA[San Francisco]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[94114]]></zipcode>
+      <phone><![CDATA[(415) 431-0121]]></phone>
+      <lat><![CDATA[37.7633659]]></lat>
+      <lon><![CDATA[-122.4347267]]></lon>
+      <distance><![CDATA[0.42748525770880813]]></distance>
+    </location>
+    <location>
+      <id><![CDATA[4095]]></id>
+      <storenum><![CDATA[6520]]></storenum>
+      <address><![CDATA[4104 24Th St]]></address>
+      <city><![CDATA[San Francisco]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[94114]]></zipcode>
+      <phone><![CDATA[(415) 824-3200]]></phone>
+      <lat><![CDATA[37.7514263]]></lat>
+      <lon><![CDATA[-122.4343499]]></lon>
+      <distance><![CDATA[0.5407997793307602]]></distance>
+    </location>
+    <location>
+      <id><![CDATA[4092]]></id>
+      <storenum><![CDATA[5818]]></storenum>
+      <address><![CDATA[60 29Th St]]></address>
+      <city><![CDATA[San Francisco]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[94110]]></zipcode>
+      <phone><![CDATA[(415) 550-6488]]></phone>
+      <lat><![CDATA[37.7441194]]></lat>
+      <lon><![CDATA[-122.4215886]]></lon>
+      <distance><![CDATA[1.3554597184407111]]></distance>
+    </location>
+  </locations>
+</data>

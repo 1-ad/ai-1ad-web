@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=banner.js></script>
+<script>var clickTag="http://www.applemans.ie/";var adMaxTime=15000;var canvasWidth=600;var canvasHeight=500;window.onload=function(){initMouseEvents();initAppleSky();initAppleFall();initAnimate();resetBanner();adVisible()};function adVisible(){gEL("#banner").style.visibility="visible";gEL("#banner").className="adsize fadein trans250";requestTimeout(startAnimation,250);checkWindowVisibility()}function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick)}function onBannerClick(a){window.open(window.clickTag)}function resetBanner(){gEL("#banner").className="adsize fadeout";gEL("#frame1").className="adsize";gEL("#frame1_logo").className="adsize fadeout";gEL("#frame3").className="fadeout";gEL("#frame3_bottle").className="adsize bottle_off";gEL("#frame3_headline").className="adsize headline_off";gEL("#frame3_drinkaware").className="adsize fadeout";gEL("#frame3_cta_img").className="frame3_cta_img cta_off"}function startAnimation(){clearAllRequestTimeouts();adTimerReset(adMaxTime);var a=0;a+=500;requestTimeout(function(){gEL("#frame1_logo").className="adsize fadein trans500"},a);a+=3000;requestTimeout(function(){gEL("#frame1").className="adsize fadeout trans500";startAppleSky()},a);a+=3000;requestTimeout(function(){startAppleFall();gEL("#frame3").className="adsize fadein trans500"},a);a+=500;requestTimeout(function(){gEL("#frame3_bottle").className="adsize bottle_on trans1000out"},a);a+=100;requestTimeout(function(){gEL("#frame3_headline").className="adsize headline_on trans1000out"},a);a+=900;requestTimeout(function(){gEL("#frame3_cta_img").className="frame3_cta_img cta_on trans500out";gEL("#frame3_drinkaware").className="adsize fadein trans500"},a)};</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,img,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none;overflow:hidden;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important;-webkit-tap-highlight-color:rgba(0,0,0,0)!important;-webkit-touch-callout:none!important}#banner{background-color:#00573f;overflow:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #ccc}.adsize{width:300px;height:250px;left:0;top:0}#frame1{background-image:url("frame1.png");background-color:#00573f}#frame1_logo{background-image:url("frame1_logo.png")}#frame2{background-image:url("frame2_sky.jpg")}#frame3{background-image:url("frame3_scene.jpg")}#frame3_table{background-image:url("frame3_table.png")}#frame3_glass{background-image:url("frame3_glass.png")}#frame3_bottle{background-image:url("frame3_bottle.png")}#frame3_headline{background-image:url("frame3_headline.png")}#frame3_drinkaware{background-image:url("frame3_drinkaware.png")}.bottle_off{-webkit-transform:translateX(-215px);transform:translateX(-215px)}.bottle_on{-webkit-transform:translateX(0);transform:translateX(0)}.headline_off{width:0;height:250px;left:0;top:0}.headline_on{width:215px;height:250px;left:0;top:0}#frame3_canvas{-webkit-filter:blur(3px);filter:blur(3px)}#frame3_cta{width:140px;height:36px;left:9px;top:189px}.frame3_cta_img{width:140px;height:36px;left:0;top:0}#frame3_cta_img_btn{background-image:url("frame3_cta_btn.png")}#frame3_cta_img_txt{background-image:url("frame3_cta_txt.png");background-position:0 0;pointer-events:auto}#frame3_cta_img_txt:hover{background-position:0 -36px}.cta_off{-webkit-transform:translateX(100%);transform:translateX(100%)}.cta_on{-webkit-transform:translateX(0);transform:translateX(0)}.fadein{opacity:1;visibility:visible}.fadeout{opacity:0;visibility:hidden}.trans250{-webkit-transition:all 250ms ease-in-out;-moz-transition:all 250ms ease-in-out;-o-transition:all 250ms ease-in-out;transition:all 250ms ease-in-out}.trans500{-webkit-transition:all 500ms ease-in-out;-moz-transition:all 500ms ease-in-out;-o-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}.trans1000{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}.trans500out{-webkit-transition:all 500ms ease-out;-moz-transition:all 500ms ease-out;-o-transition:all 500ms ease-out;transition:all 500ms ease-out}.trans1000out{-webkit-transition:all 1000ms ease-out;-moz-transition:all 1000ms ease-out;-o-transition:all 1000ms ease-out;transition:all 1000ms ease-out}</style>
+</head>
+<body>
+<img src=apple.png alt style=display:none />
+<div id=banner class="adsize fadeout">
+<div id=frame2 class=adsize>
+<canvas id=frame2_canvas class=adsize width=600 height=500></canvas>
+</div>
+<div id=frame1 class=adsize>
+<div id=frame1_logo class=adsize></div>
+</div>
+<div id=frame3 class=adsize>
+<canvas id=frame3_canvas class=adsize width=600 height=500></canvas>
+<div id=frame3_table class=adsize></div>
+<div id=frame3_cta>
+<div id=frame3_cta_img class=frame3_cta_img>
+<div id=frame3_cta_img_btn class=frame3_cta_img></div>
+<div id=frame3_cta_img_txt class=frame3_cta_img></div>
+</div>
+</div>
+<div id=frame3_headline></div>
+<div id=frame3_bottle></div>
+<div id=frame3_glass class=adsize></div>
+<div id=frame3_drinkaware></div>
+</div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

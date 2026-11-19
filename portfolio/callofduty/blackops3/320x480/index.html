@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>320x480</title>
+<meta name=ad.size content="width=320,height=480">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js></script>
+<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenLite.min.js></script>
+<script src=smoke.js></script>
+<script src=embers.js></script>
+<script src=banner.js></script>
+<link href=banner.css rel=stylesheet>
+</head>
+<body>
+<div id=wrapper class=adsize>
+<div id=pages class=adsize>
+<div id=page1 class=adsize>
+<img alt id=page1_bkgrnd class="adsize fadeout" src=images/bkgrnd.jpg />
+<canvas id=smokeCanvas width=320 height=320></canvas>
+<canvas id=embersCanvas width=320 height=480></canvas>
+<img alt id=page1_fogrnd class=adsize src=images/fogrnd.png />
+<img alt id=page1_available_now class=available src=images/available_now.png width=320 height=30 />
+<div id=primary_player class=player>
+<video id=primary_video class=video playsinline preload>
+<source src=cod-bop3_launch_pho_uk.mp4 type=video/mp4>
+</video>
+<div id=primary_loader class="loader fadein"></div>
+<div id=primary_playbutton class="playbutton fadein">
+<div id=primary_playbutton_circle class=playbutton_circle></div>
+<div id=primary_playbutton_icon class=playbutton_icon>
+<svg>
+<polygon points="0, 0 0, 20 18, 10" fill=#ffffff />
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>320x480</title>
+<meta name=ad.size content="width=320,height=480">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=banner.js></script>
+<link href=banner.css rel=stylesheet>
+</head>
+<body>
+<div id=wrapper class="adsize fadeout">
+<div id=bkgrnd class=adsize></div>
+<div id=overlay class=adsize></div>
+<div id=byebye class=fadeout></div>
+<div id=frame></div>
+<div id=skip_btn></div>
+<div id=primary_player>
+<video id=primary_video playsinline preload>
+<source src=vid_preroll.mp4 type=video/mp4>
+</video>
+<div id=primary_loader class="loader fadein"></div>
+<div id=primary_playbutton class="playbutton fadein">
+<div id=primary_playbutton_circle class=playbutton_circle></div>
+<div id=primary_playbutton_icon class=playbutton_icon>
+<svg>
+<polygon points="0, 0 0, 20 18, 10" fill=#ffffff />
+</svg>
+</div>
+</div>
+</div>
+<div id=secondary_player>
+<video id=secondary_video playsinline>
+<source src=vid_effect.mp4 type=video/mp4 autostart=false>
+</video>
+</div>
+</div>
+</body>
+</html>

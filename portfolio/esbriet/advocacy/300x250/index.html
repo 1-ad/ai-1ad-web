@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel=stylesheet>
+<script>window.onload=function(){initMouseEvents();initISIScroll();resetBanner();adVisible()};function adVisible(){gEL("#wrapper").className="adsize fadein trans250";requestTimeout(startAnimation,250);checkVisibility()}function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);gEL("#isi_fda").addEventListener("click",onFDAClick);gEL("#isi_1800FDA1088").addEventListener("click",on1800FDA1088Click);gEL("#isi_18888352555").addEventListener("click",on18888352555Click);gEL("#isi_fpi").addEventListener("click",onFPIClick)}function onBannerClick(a){window.open("https://www.esbriet.com/","_blank")}function onFDAClick(a){window.open("https://www.fda.gov/Safety/MedWatch/default.htm","_blank")}function on1800FDA1088Click(a){window.open("tel:1-800-FDA-1088")}function on18888352555Click(a){window.open("tel:1-888-835-2555")}function onFPIClick(a){window.open("http://www.gene.com/download/pdf/esbriet_prescribing.pdf","_blank")}function resetBanner(){gEL("#curtain_back").className="curtain_back_on";gEL("#curtain_right").className="curtain_right_on";gEL("#curtain_left").className="curtain_left_on";gEL("#frame1_header").className="frame1_header_off";gEL("#frame1_line1").className="frame1_line frame1_line1_off";gEL("#frame1_text2").className="adsize fadeout";gEL("#frame1_line2").className="frame1_line frame1_line2_off";gEL("#frame2_hero").className="adsize frame2_hero_pos1";gEL("#frame2_text1").className="adsize frame2_text_off";gEL("#frame2_text2").className="adsize frame2_text_off";gEL("#frame2_text3").className="adsize frame2_text_off";gEL("#frame3_text1").className="adsize_half fadeout";gEL("#frame3_text2").className="adsize_half fadeout";gEL("#frame3_cta").className="frame3_cta_off"}function startAnimation(){clearAllRequestTimeouts();var a=0;requestTimeout(function(){gEL("#frame1_header").className="frame1_header_on trans500"},a);a+=500;requestTimeout(function(){gEL("#frame1_text2").className="adsize fadein trans500"},a);a+=500;requestTimeout(function(){gEL("#frame1_line1").className="frame1_line frame1_line_on trans500";gEL("#frame1_line2").className="frame1_line frame1_line_on trans500"},a);a+=3000;requestTimeout(function(){gEL("#frame1_header").className="frame1_header_off trans500";gEL("#frame1_text2").className="adsize fadeout trans500";gEL("#frame1_line1").className="frame1_line frame1_line_on fadeout trans500";gEL("#frame1_line2").className="frame1_line frame1_line_on fadeout trans500";gEL("#curtain_back").className="curtain_back_off trans1000";gEL("#curtain_right").className="curtain_right_off trans1000";gEL("#curtain_left").className="curtain_left_off trans1000"},a);a+=1500;requestTimeout(function(){gEL("#frame2_hero").className="adsize frame2_hero_pos2 trans1000"},a);a+=500;requestTimeout(function(){gEL("#frame2_text1").className="adsize frame2_text_on trans1000"},a);a+=500;requestTimeout(function(){gEL("#frame2_text2").className="adsize frame2_text_on trans1000"},a);a+=4000;requestTimeout(function(){gEL("#frame2_text2").className="adsize fadeout trans500";gEL("#frame2_text3").className="adsize frame2_text_on trans1000"},a);a+=4000;requestTimeout(function(){gEL("#curtain_back").className="curtain_back_on trans1000";gEL("#curtain_right").className="curtain_right_on trans1000";gEL("#curtain_left").className="curtain_left_on trans1000";gEL("#banner").className="adsize_half trans1000"},a);a+=1000;requestTimeout(function(){gEL("#frame3_text1").className="adsize_half fadein trans500"},a);a+=4000;requestTimeout(function(){gEL("#frame3_text1").className="adsize_half fadeout trans500"},a);a+=500;requestTimeout(function(){gEL("#frame3_text2").className="adsize_half fadein trans500"},a);a+=500;requestTimeout(function(){gEL("#frame3_cta").className="frame3_cta_on trans500"},a);a+=500;requestTimeout(function(){gEL("#frame3_cta").className="frame3_cta_on";startAutoScroll()},a)}var autoScrollSpeed=1;var autoScrollInterval;var scrollStartTime;var userScrolled;var oldScrollTop;var currentScrollTop;var scrollDiv;function initISIScroll(){userScrolled=false;scrollDiv=gEL("#isi_scroll");scrollDiv.addEventListener("mousedown",onISIClick);scrollDiv.addEventListener("scroll",onISIScroll)}function onISIScroll(){var a=scrollDiv.scrollTop;var b=Math.abs(a-oldScrollTop);if(b>autoScrollSpeed*2){userScrolled=true;stopAutoScroll()}oldScrollTop=scrollDiv.scrollTop}function onISIClick(a){userScrolled=true;stopAutoScroll()}function startAutoScroll(){if(userScrolled!=true){stopAutoScroll();oldScrollTop=0;currentScrollTop=0;autoScrollInterval=setInterval(doAutoScroll,50);scrollStartTime=new Date().getTime()}}function doAutoScroll(){currentScrollTop+=autoScrollSpeed;scrollDiv.scrollTop=currentScrollTop;var a=scrollDiv.scrollTop;if(a==oldScrollTop){var b=new Date().getTime();totalScrollSeconds=(b-scrollStartTime)/1000;stopAutoScroll()}}function stopAutoScroll(){clearInterval(autoScrollInterval)}var timeoutAR=[];function requestTimeout(a,c){var b={};b.id=Math.random();b.callbackFN=a;b.delayMS=c;b.startMS=void 0;b.remainMS=c;b.timerTO=void 0;b.pause=function(){window.clearTimeout(b.timerTO);b.remainMS-=new Date-b.startMS;if(b.remainMS<-1){b.clear()}};b.resume=function(){b.startMS=new Date;window.clearTimeout(b.timerTO);b.timerTO=window.setTimeout(b.callbackFN,b.remainMS)};b.clear=function(){window.clearTimeout(b.timerTO);var d=gIndex(timeoutAR,"id",b.id);if(d>-1){timeoutAR.splice(d,1)}};b.resume();timeoutAR.push(b);return b}function clearAllRequestTimeouts(){var b=timeoutAR.length;while(b--){timeoutAR[b].clear()}timeoutAR=[]}function pauseAllTimeouts(){var b=timeoutAR.length;while(b--){timeoutAR[b].pause()}}function resumeAllTimeouts(){var b=timeoutAR.length;while(b--){timeoutAR[b].resume()}}function gIndex(e,c,d){for(var b in e){if(e[b][c]===d){return b}}return -1}var vis=(function(){var c,a,b={hidden:"visibilitychange",webkitHidden:"webkitvisibilitychange",mozHidden:"mozvisibilitychange",msHidden:"msvisibilitychange"};for(c in b){if(c in document){a=b[c];break}}return function(d){if(d){document.addEventListener(a,d)}return !document[c]}})();vis(function(){if(vis()){setTimeout(function(){resumeAllTimeouts()},300)}else{pauseAllTimeouts()}});function checkVisibility(){if(document.visibilityState=="hidden"){pauseAllTimeouts()}else{resumeAllTimeouts()}}function gEL(a){return document.querySelector(a)};</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,img{position:absolute;background-position:0 0;background-size:cover;pointer-events:none;backface-visibility:hidden}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#wrapper{overflow:hidden}#banner{pointer-events:all;cursor:pointer}#border{top:0;left:0;width:100%;height:100%;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #000}.adsize{left:0;top:0;width:300px;height:250px}.adsize_half{left:0;top:0;width:300px;height:114px;overflow:hidden}#curtain_back{left:0;top:0;width:300px;background-color:#483378}.curtain_back_on{height:250px}.curtain_back_off{height:0}#curtain_left{top:0;width:300px;height:250px;background-image:url("curtain_left.png")}.curtain_left_on{left:0}.curtain_left_off{left:-255px}#curtain_right{top:0;width:300px;height:250px;background-image:url("curtain_right.png")}.curtain_right_on{left:0}.curtain_right_off{left:255px}#frame1_header{left:0;width:300px;height:50px;background-image:url("frame1_text1.png");background-color:rgba(255,255,255,.1)}.frame1_header_off{top:-50px}.frame1_header_on{top:0}#frame1_text2{background-image:url("frame1_text2.png")}.frame1_line{width:230px;height:2px;background-color:rgba(255,255,255,1)}#frame1_line1{top:88px}#frame1_line2{top:206px}.frame1_line1_off{left:-230px}.frame1_line2_off{left:300px}.frame1_line_on{left:35px}#frame2{background-color:#ececec}#frame2_hero{background-image:url("hero.jpg")}.frame2_hero_pos1{left:0}.frame2_hero_pos2{left:84px}#frame2_text1{background-image:url("frame2_text1.png")}#frame2_text2{background-image:url("frame2_text2.png")}#frame2_text3{background-image:url("frame2_text3.png")}.frame2_text_off{left:-300px}.frame2_text_on{left:0}#frame3_cta{left:65px;width:170px;height:30px;border:solid 1px #51af99;border-radius:2px;background-image:url("cta.png");background-position:0 0;background-color:#51af99;pointer-events:all;cursor:pointer}#frame3_cta:hover{background-position:0 -30px;background-color:#fff}#frame3_text1{background-image:url("frame3_text1.png")}#frame3_text2{background-image:url("frame3_text2.png")}.frame3_cta_off{top:114px}.frame3_cta_on{top:76px}#isi{width:300px;height:136px;left:0;top:114px}#isi_instruct{left:0;top:0;width:300px;height:18px;font-size:10px;line-height:18px;font-weight:normal;font-family:'Open Sans',sans-serif;color:#666;background-color:#e2e5e9;padding-left:10px}#isi_scroll{width:285px;height:117px;left:0;top:18px;font-size:10px;line-height:13px;font-weight:normal;font-family:'Open Sans',sans-serif;color:#000;padding-left:9px;padding-right:5px;padding-top:0;padding-bottom:0;overflow-y:scroll;pointer-events:all;cursor:default}.isi_purple{font-size:10px;font-weight:bold;color:#483378}.isi_pink{font-size:10px;font-weight:bold;color:#963aa5}.isi_link{font-weight:bold;color:#51af99;text-decoration:none;white-space:nowrap;pointer-events:all;cursor:pointer}.isi_link:hover{text-decoration:underline}p{margin:0;padding-top:5px}ul{list-style:none;padding:0;margin:0}.ul_sub{padding-left:5px}li{padding-top:5px;padding-left:8px;text-indent:-6px}li:before{content:"• "}sup{vertical-align:baseline;position:relative;top:-3px;font-size:7px}.fadein{opacity:1}.fadeout{opacity:0}.trans250{-webkit-transition:all 250ms ease-in-out;-moz-transition:all 250ms ease-in-out;-o-transition:all 250ms ease-in-out;transition:all 250ms ease-in-out}.trans500{-webkit-transition:all 500ms ease-in-out;-moz-transition:all 500ms ease-in-out;-o-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}.trans1000{-webkit-transition:all 1000ms ease-in-out;-moz-transition:all 1000ms ease-in-out;-o-transition:all 1000ms ease-in-out;transition:all 1000ms ease-in-out}</style>
+</head>
+<body>
+<div id=wrapper class="adsize fadeout">
+<div id=isi>
+<div id=isi_instruct>Scroll for select Important Safety Information</div>
+<div id=isi_scroll>
+<p><span class=isi_purple>About Esbriet</span> Esbriet is a prescription medicine used to treat people with a lung disease called idiopathic pulmonary fibrosis (IPF).</p>
+<p>It is not known if Esbriet is safe and effective in children.</p>
+<p class=isi_purple>Select Important Safety Information</p>
+<p><strong>Before you take Esbriet, tell your doctor about all of your medical conditions, including if you:</strong>
+</p>
+<ul>
+<li>have liver problems</li>
+<li>have kidney problems</li>
+<li>are a smoker</li>
+<li>are pregnant or plan to become pregnant. It is not known if Esbriet will harm your unborn baby.</li>
+<li>are breastfeeding or plan to breastfeed. It is not known if Esbriet passes into your breast milk. You and your doctor should decide if you will take Esbriet or breastfeed.</li>
+</ul>
+<p><strong>Tell your doctor about all the medicines you take</strong>, including prescription and over-the-counter medicines, vitamins, and herbal supplements.</p>
+<p class=isi_pink>What should I avoid while taking Esbriet?</p>
+<ul>
+<li>Sunlight. Esbriet can make your skin sensitive to the sun and the light from sunlamps and tanning beds. You could get a severe sunburn. Use sunscreen (SPF 50) and wear a hat and clothes that cover your skin if you have to be in sunlight. Talk to your doctor if you get sunburn or a rash.</li>
+<li>Taking Esbriet with other medicines that can make your skin sensitive to the sun, the light from sunlamps and tanning beds.</li>
+<li>Smoking. Smoking may affect how well Esbriet works.</li>
+</ul>
+<p class=isi_pink>What are the possible side effects of Esbriet?</p>
+<p><strong>Esbriet may cause serious side effects, including:</strong>
+</p>
+<ul>
+<li><strong>liver problems</strong>. Call your doctor right away if you have unexplained symptoms such as yellowing of your skin or the white part of your eyes (jaundice), dark or brown (tea-colored) urine, pain on the upper right side of your stomach area (abdomen), bleeding or bruising more easily than normal, or feeling tired. Your doctor will do blood tests to check how your liver is working during your treatment with Esbriet.</li>
+<li><strong>sensitivity to sunlight (photosensitivity) and rash</strong>. See <strong>“What should I avoid while taking Esbriet?”</strong>
+</li>
+<li><strong>stomach problems</strong>. Esbriet may cause stomach problems such as nausea, vomiting, diarrhea, indigestion, heartburn, and stomach pain. Tell your doctor right away if your stomach problems get worse or do not go away. Your doctor may need to change your dose of Esbriet.</li>
+</ul>
+<p><strong>The most common side effects of Esbriet include</strong> feeling tired, insomnia, upper respiratory tract infections, sinusitis, headache, dizziness, decreased weight and decreased or loss of appetite.</p>
+<p>These are not all the possible side effects of Esbriet.</p>
+<p><strong>Call your doctor for medical advice about side effects. You may report side effects to the FDA at <span id=isi_1800FDA1088 class=isi_link>1-800-FDA-1088</span> or <span id=isi_fda class=isi_link>www.fda.gov/medwatch</span>. You may also report side effects to Genentech at <span id=isi_18888352555 class=isi_link>1-888-835-2555</span>.</strong>
+</p>
+<p><strong>Please see full <span id=isi_fpi class=isi_link>Prescribing Information</span>, including Patient Information, for additional important safety information.</strong>
+</p>
+<p>© 2018 Genentech USA, Inc. All rights reserved.
+<br>ESB/032918/0032</p>
+<br>
+</div>
+</div>
+<div id=banner class=adsize>
+<div id=frame2 class=adsize>
+<div id=frame2_hero></div>
+<div id=frame2_text1></div>
+<div id=frame2_text2></div>
+<div id=frame2_text3></div>
+</div>
+<div id=curtain_back></div>
+<div id=curtain_right></div>
+<div id=curtain_left></div>
+<div id=frame1 class=adsize>
+<div id=frame1_header></div>
+<div id=frame1_line1></div>
+<div id=frame1_text2></div>
+<div id=frame1_line2></div>
+</div>
+<div id=frame3 class=adsize_half>
+<div id=frame3_text1></div>
+<div id=frame3_text2></div>
+<div id=frame3_cta></div>
+</div>
+</div>
+<div id=border class=adsize></div>
+</div>
+</body>
+</html>

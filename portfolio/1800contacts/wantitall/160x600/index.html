@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>160x600</title>
+<meta name=ad.size content="width=160,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=MorphSVGPlugin.min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.1800contacts.com/";window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});TweenLite.delayedCall(0.25,startAnimation);}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(window.clickTag,"_blank");}
+var bannerWidth;var bannerHeight;function resetBanner(){bannerWidth=gEL("#banner").offsetWidth;bannerHeight=gEL("#banner").offsetHeight;resetReveal();resetLines();resetWalk();resetHang();resetBoxes();resetBags();TweenLite.set("#f1",{autoAlpha:1});TweenLite.set("#f2",{autoAlpha:0});TweenLite.set("#f3",{autoAlpha:0});TweenLite.set("#f4",{autoAlpha:0});TweenLite.set("#f5",{autoAlpha:0});TweenLite.set("#f6",{autoAlpha:0});TweenLite.set("#f2_bkgrnd",{scaleY:0});TweenLite.set("#f6_bkgrnd",{scaleY:0});TweenLite.set("#cta1",{autoAlpha:0,y:-50});TweenLite.set("#cta2",{autoAlpha:0});TweenLite.set("#f1_txt2",{autoAlpha:0});TweenLite.set("#f1_line",{scale:0.72,x:72,y:258,autoAlpha:1});TweenLite.set("#f4_yay",{scale:1,x:8,y:100,autoAlpha:1});TweenLite.set("#f6_arrow",{scale:0.5,x:48,y:226,rotation:116});}
+function resetLines(){var lineElements=document.getElementsByClassName("line");for(var i=0;i<lineElements.length;i++){var lineOb={};var el=lineElements.item(i);var pathLength=Math.ceil(el.getTotalLength());el.style.strokeDasharray=pathLength;el.style.strokeDashoffset=pathLength;}}
+function startAnimation(){var delay=0;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);playWalk();});delay+=1.25;TweenLite.to("#f1_txt2",0.25,{autoAlpha:1,delay:delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[2]);});delay+=0.25;TweenLite.to("#f1_line_path",1,{strokeDashoffset:0,delay:delay,ease:Quad.easeInOut});delay+=2;TweenLite.set("#f2",{autoAlpha:1,delay:delay});TweenLite.to("#f2_bkgrnd",0.25,{scaleY:1,delay:delay});delay+=0.2;TweenLite.to("#cta1",0.25,{autoAlpha:1,y:0,delay:delay,ease:Power2.easeOut});delay+=0.05;TweenLite.delayedCall(delay,function(){resetWalk();revealText(txtAR[3]);});TweenLite.set("#f1",{autoAlpha:0,delay:delay});delay+=1;TweenLite.set("#f3",{autoAlpha:1,delay:delay});TweenLite.set("#f2_bkgrnd",{scaleY:0,delay:delay});TweenLite.to("#f3",1.5,{y:-850,delay:delay,ease:Power0.easeInOut});TweenLite.delayedCall(delay,function(){playHang();});delay+=0.5;TweenLite.delayedCall(delay,function(){hideText(txtAR[3]);});delay+=0.5;TweenLite.set("#f2",{autoAlpha:0,delay:delay});delay+=0.5;TweenLite.set("#f4",{autoAlpha:1,delay:delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[4]);});delay+=0.25;TweenLite.delayedCall(delay,playBoxes);delay+=1.5;TweenLite.set("#f3",{autoAlpha:0,delay:delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[4]);});delay+=0.25;TweenLite.delayedCall(delay,playYay);delay+=1.5;TweenLite.to("#f4_yay",0.25,{autoAlpha:0,delay:delay});delay+=0.25;TweenLite.set("#f5",{autoAlpha:1,delay:delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[5]);playBags();});delay+=0.5;TweenLite.set("#f4",{autoAlpha:0,delay:delay});delay+=1;TweenLite.set("#f6",{autoAlpha:1,delay:delay});TweenLite.to("#f6_bkgrnd",0.25,{scaleY:1,delay:delay});delay+=0.05;TweenLite.set("#logo",{fill:"#39358d",delay:delay});delay+=0.2;TweenLite.set("#cta1",{autoAlpha:0,delay:delay});TweenLite.set("#cta2",{autoAlpha:1,delay:delay});delay+=0.05;TweenLite.set("#f5",{autoAlpha:0,delay:delay});TweenLite.delayedCall(delay,function(){revealText(txtAR[6]);});delay+=0.25;TweenLite.to("#f6_arrow_path_1",0.75,{strokeDashoffset:0,delay:delay,ease:Quad.easeInOut});TweenLite.to("#f6_arrow_path_2",0.25,{strokeDashoffset:0,delay:delay+0.75,ease:Quad.easeInOut});delay+=1;TweenLite.delayedCall(delay,function(){revealText(txtAR[7]);});delay+=0.25;TweenLite.delayedCall(delay,function(){playCheer();});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var walkBodyFrames=[{x:239,y:44},{x:184,y:28},{x:140,y:39},{x:95,y:27},{x:53,y:34}];var walkArm1Paths=[];var walkArm2Paths=[];var walkLeg1Paths=[];var walkLeg2Paths=[];function resetWalk(){walkArm1Paths=getSVGPaths("#walk_arm1","walk_leg");walkArm2Paths=getSVGPaths("#walk_arm2","walk_leg");walkLeg1Paths=getSVGPaths("#walk_leg1","walk_leg");walkLeg2Paths=getSVGPaths("#walk_leg2","walk_leg");TweenLite.killTweensOf(walkArm1Paths[0]);TweenLite.set("#walk",{scale:0.74,x:-18,y:334});TweenLite.set("#walk_shadow",{scale:1,x:walkBodyFrames[0].x-52,y:242});TweenLite.set("#walk_body",{x:walkBodyFrames[0].x,y:walkBodyFrames[0].y});}
+function playWalk(){var aniTime=0.2;var delay=0;var ease=Power0.easeInOut;var lastFrameNum=walkLeg1Paths.length;for(var a=0;a<lastFrameNum;a++){if(a===lastFrameNum-1){ease=Power1.easeOut;aniTime=0.3;}
+TweenLite.to("#walk_body",aniTime,{x:walkBodyFrames[a].x,y:walkBodyFrames[a].y,delay:delay,ease:ease});TweenLite.to("#walk_shadow",aniTime,{x:walkBodyFrames[a].x-52,delay:delay,ease:ease});TweenLite.to(walkArm1Paths[0],aniTime,{morphSVG:walkArm1Paths[a],delay:delay,ease:ease});TweenLite.to(walkArm2Paths[0],aniTime,{morphSVG:walkArm2Paths[a],delay:delay,ease:ease});TweenLite.to(walkLeg1Paths[0],aniTime,{morphSVG:walkLeg1Paths[a],delay:delay,ease:ease});TweenLite.to(walkLeg2Paths[0],aniTime,{morphSVG:walkLeg2Paths[a],delay:delay,ease:ease});delay+=aniTime;}
+TweenLite.to(walkArm1Paths[0],aniTime,{morphSVG:walkArm1Paths[5],delay:delay,ease:ease});delay+=0.2;TweenLite.to(walkArm1Paths[0],0.3,{morphSVG:walkArm1Paths[6],delay:delay,ease:Power1.easeInOut,onComplete:reverseTween,onReverseComplete:restartTween});TweenLite.to(walkArm2Paths[0],0.75,{morphSVG:walkArm2Paths[5],delay:delay,ease:Power1.easeInOut});}
+function resetHang(){TweenLite.killTweensOf("#f3_hang");TweenLite.killTweensOf("#hang_arm1_1");TweenLite.killTweensOf("#hang_leg1_1");TweenLite.killTweensOf("#hang_leg2_1");TweenLite.set("#f3_hang",{scale:0.8,rotation:8});TweenLite.set("#hang_arm1_1",{autoAlpha:1,morphSVG:"#hang_arm1_1"});TweenLite.set("#hang_arm2_1",{autoAlpha:1,morphSVG:"#hang_arm2_1"});TweenLite.set("#hang_leg1_1",{autoAlpha:1,morphSVG:"#hang_leg1_1"});TweenLite.set("#hang_leg2_1",{autoAlpha:1,morphSVG:"#hang_leg2_1"});}
+function playHang(){var time=0.3;var ease=Power0.easeInOut;TweenLite.to("#f3_hang",0.6,{rotation:-8,ease:Quad.easeInOut,onComplete:reverseTween,onReverseComplete:restartTween});TweenLite.to("#hang_arm1_1",time,{morphSVG:"#hang_arm1_2",ease:ease,onComplete:reverseTween,onReverseComplete:restartTween});TweenLite.to("#hang_leg1_1",time,{morphSVG:"#hang_leg1_2",ease:ease,onComplete:reverseTween,onReverseComplete:restartTween});TweenLite.to("#hang_leg2_1",time,{morphSVG:"#hang_leg2_2",ease:ease,onComplete:reverseTween,onReverseComplete:restartTween});}
+var boxesArm1Paths=[];var boxesLeg1Paths=[];var boxesLeg2Paths=[];var boxFrames;var boxesBodyFrames;function resetBoxes(){boxFrames=[{x:298,y:10},{x:263,y:22},{x:241,y:8},{x:214,y:25},{x:184,y:10},{x:156,y:21},{x:127,y:7},{x:100,y:21},{x:75,y:6},{x:48,y:22},{x:27,y:8},{x:-3,y:22},{x:-29,y:7},{x:-52,y:23},{x:-76,y:10},{x:-103,y:23},{x:-130,y:8},];boxesBodyFrames=[{x:343,y:98},{x:310,y:110},{x:286,y:97},{x:262,y:111},{x:227,y:99},{x:199,y:109},{x:172,y:96},{x:145,y:108},{x:119,y:94},{x:93,y:110},{x:72,y:96},{x:43,y:111},{x:14,y:94},{x:-7,y:110},{x:-33,y:96},{x:-56,y:111},{x:-83,y:97},];boxesArm1Paths=getSVGPaths("#boxes_arm1","boxes_leg");boxesLeg1Paths=getSVGPaths("#boxes_leg1","boxes_leg");boxesLeg2Paths=getSVGPaths("#boxes_leg2","boxes_leg");TweenLite.set("#f4_boxes",{x:-140,y:250});TweenLite.set("#boxes_box",{x:299,y:8,rotation:2});TweenLite.set("#boxes_body",{x:343,y:98});TweenLite.set("#boxes_shadow",{scale:0.7,x:boxesBodyFrames[0].x-42,y:238});}
+function playBoxes(){var aniTime=0.3;var delay=0;var ease=Power0.easeInOut;var lastFrameNum=boxFrames.length;for(var a=0;a<lastFrameNum;a++){var rotation=randRange(2,-8);TweenLite.to("#boxes_body",aniTime,{x:boxesBodyFrames[a].x,y:boxesBodyFrames[a].y,delay:delay,ease:ease});TweenLite.to("#boxes_shadow",aniTime,{x:boxesBodyFrames[a].x-42,delay:delay,ease:ease});TweenLite.to("#boxes_box",aniTime,{x:boxFrames[a].x,y:boxFrames[a].y,rotation:rotation,delay:delay,ease:ease});TweenLite.to(boxesArm1Paths[0],aniTime,{morphSVG:boxesArm1Paths[a],delay:delay,ease:ease});TweenLite.to(boxesLeg1Paths[0],aniTime,{morphSVG:boxesLeg1Paths[a],delay:delay,ease:ease});TweenLite.to(boxesLeg2Paths[0],aniTime,{morphSVG:boxesLeg2Paths[a],delay:delay,ease:ease});delay+=aniTime;}}
+function playYay(){var delay=0;for(var a=1;a<=8;a++){TweenLite.to("#f4_yay_line_"+a,0.15,{css:{"stroke-dashoffset":0},delay:delay,ease:Power1.easeInOut});delay+=0.1;}
+delay=0;for(var a=1;a<=6;a++){TweenLite.to("#f4_yay_word_"+a,0.2,{css:{"stroke-dashoffset":0},delay:delay,ease:Power1.easeInOut});delay+=0.15;}}
+var bagsBodyFrames=[{x:240,y:44},{x:184,y:28},{x:140,y:39},{x:95,y:27},{x:53,y:34},{x:53,y:40},{x:53,y:34},{x:53,y:40},{x:53,y:34}];var bagsBag1Frames;var bagsBag2Frames;var bagsArm1Paths=[];var bagsArm2Paths=[];var bagsLeg1Paths=[];var bagsLeg2Paths=[];function resetBags(){bagsBag1Frames=[{x:219,y:132},{x:163,y:117},{x:119,y:130},{x:74,y:116},{x:32,y:122},{x:24,y:126},{x:32,y:122},{x:24,y:126},{x:32,y:122},];bagsBag2Frames=[{x:323,y:143},{x:267,y:128},{x:223,y:141},{x:178,y:127},{x:136,y:133},{x:144,y:137},{x:136,y:133},{x:144,y:137},{x:136,y:133},];bagsArm1Paths=getSVGPaths("#bags_arm1","walk_leg");bagsArm2Paths=getSVGPaths("#bags_arm2","walk_leg");bagsLeg1Paths=getSVGPaths("#bags_leg1","walk_leg");bagsLeg2Paths=getSVGPaths("#bags_leg2","walk_leg");TweenLite.set("#bags",{scale:0.7,x:30,y:324});TweenLite.set("#bags_body",{x:bagsBodyFrames[0].x,y:bagsBodyFrames[0].y});TweenLite.set("#bags_bag1",{x:bagsBag1Frames[0].x,y:bagsBag1Frames[0].y});TweenLite.set("#bags_bag2",{x:bagsBag2Frames[0].x,y:bagsBag2Frames[0].y});TweenLite.set("#bags_shadow",{scale:1,x:bagsBodyFrames[0].x-50,y:242});}
+function playBags(){var aniTime=0.2;var delay=0;var ease=Power0.easeInOut;var lastFrameNum=4;for(var a=0;a<=lastFrameNum;a++){if(a===lastFrameNum){ease=Power1.easeOut;aniTime=0.3;}
+TweenLite.to("#bags_body",aniTime,{x:bagsBodyFrames[a].x,y:bagsBodyFrames[a].y,delay:delay,ease:ease});TweenLite.to("#bags_shadow",aniTime,{x:bagsBodyFrames[a].x-50,delay:delay,ease:ease});TweenLite.to("#bags_bag1",aniTime,{x:bagsBag1Frames[a].x,y:bagsBag1Frames[a].y,delay:delay,ease:ease});TweenLite.to("#bags_bag2",aniTime,{x:bagsBag2Frames[a].x,y:bagsBag2Frames[a].y,delay:delay,ease:ease});if(bagsArm1Paths[a]){TweenLite.to(bagsArm1Paths[0],aniTime,{morphSVG:bagsArm1Paths[a],delay:delay,ease:ease});}
+if(bagsArm2Paths[a]){TweenLite.to(bagsArm2Paths[0],aniTime,{morphSVG:bagsArm2Paths[a],delay:delay,ease:ease});}
+if(bagsLeg1Paths[a]){TweenLite.to(bagsLeg1Paths[0],aniTime,{morphSVG:bagsLeg1Paths[a],delay:delay,ease:ease});}
+if(bagsLeg2Paths[a]){TweenLite.to(bagsLeg2Paths[0],aniTime,{morphSVG:bagsLeg2Paths[a],delay:delay,ease:ease});}
+delay+=aniTime;}}
+function playCheer(){TweenLite.set("#bags_bag1",{autoAlpha:0});TweenLite.set("#bags_bag2",{autoAlpha:0});var aniTime=0.2;var delay=0;var ease=Power0.easeInOut;var firstFrameNum=5;var lastFrameNum=6;for(var a=firstFrameNum;a<=lastFrameNum;a++){if(a===lastFrameNum){ease=Power1.easeOut;aniTime=0.3;}
+TweenLite.to("#bags_body",aniTime,{x:bagsBodyFrames[a].x,y:bagsBodyFrames[a].y,delay:delay,ease:ease});if(bagsArm1Paths[a]){TweenLite.to(bagsArm1Paths[0],aniTime,{morphSVG:bagsArm1Paths[a],delay:delay,ease:ease});}
+if(bagsArm2Paths[a]){TweenLite.to(bagsArm2Paths[0],aniTime,{morphSVG:bagsArm2Paths[a],delay:delay,ease:ease});}
+if(bagsLeg1Paths[a]){TweenLite.to(bagsLeg1Paths[0],aniTime,{morphSVG:bagsLeg1Paths[a],delay:delay,ease:ease});}
+if(bagsLeg2Paths[a]){TweenLite.to(bagsLeg2Paths[0],aniTime,{morphSVG:bagsLeg2Paths[a],delay:delay,ease:ease});}
+delay+=aniTime;}
+lastFrameNum++;ease=Power0.easeInOut;aniTime=0.3;var tw1=TweenLite.to(bagsArm1Paths[0],aniTime,{morphSVG:bagsArm1Paths[lastFrameNum],delay:delay,ease:ease,onComplete:reverseTween});var tw2=TweenLite.to(bagsArm2Paths[0],aniTime,{morphSVG:bagsArm2Paths[lastFrameNum],delay:delay,ease:ease,onComplete:reverseTween});delay+=aniTime*2;TweenLite.delayedCall(delay,function(){tw1.restart();tw2.restart();});}
+function getSVGPaths(el,className){var paths=[];var nodes=gEL(el).childNodes;for(var a in nodes){var path=nodes[a];if(path.classList&&path.classList.value.indexOf(className)!==-1){paths.push(path);}}
+TweenLite.set(paths[0],{autoAlpha:1,morphSVG:paths[0]});return paths;}
+var canvasScale=2;var canvasWidth;var canvasHeight;var txtAR;function resetReveal(){canvasWidth=bannerWidth*canvasScale;canvasHeight=bannerHeight*canvasScale;txtAR=[];txtAR[1]=initText("f1_txt1");txtAR[1].boxes=[[13,99,86,26],[13,132,121,26],[13,165,138,26],[12,198,55,26]];txtAR[2]=initText("f1_txt3");txtAR[2].boxes=[[77,198,40,26],[12,234,99,26]];txtAR[3]=initText("f2_txt1");txtAR[3].boxes=[[14,96,69,30],[14,135,57,30],[14,176,129,31]];txtAR[4]=initText("f4_txt1");txtAR[4].boxes=[[12,98,86,26],[12,133,121,26],[12,166,138,26],[12,202,120,26]];txtAR[5]=initText("f5_txt1");txtAR[5].boxes=[[12,98,115,26],[12,132,99,26],[12,168,65,26],[12,204,128,26]];txtAR[6]=initText("f6_txt1");txtAR[6].boxes=[[11,98,55,26],[12,133,109,26],[11,166,125,26],[11,202,68,26]];txtAR[7]=initText("f6_txt2");txtAR[7].boxes=[[14,262,65,16],[14,280,65,16]];}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*canvasScale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1],ease:Power3.easeOut,delay});delay+=0.15;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+function hideText(txtOb){var delay=0;for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1]+imgOb.srcRect[3],ease:Power3.easeOut,delay});}
+TweenLite.to(this,0.3+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb],onComplete:rEL,onCompleteParams:[txtOb.canvas]});}
+function gEL(id){return document.querySelector(id);}
+function rEL(el){el.parentElement.removeChild(el);}
+function randRange(min,max){return Math.floor(window.Math.seedRandom()*(max-min+1))+min;}
+window.Math.seed=6;window.Math.seedRandom=function(max,min){max=max||1;min=min||0;Math.seed=(Math.seed*9301+49297)%233280;var rnd=Math.seed/233280;return min+rnd*(max-min);};function reverseTween(){this.reverse();}
+function restartTween(){this.restart();}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff}div,canvas,svg{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none}#banner{overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer;background-color:#6ba3da}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:160px;height:600px;left:0;top:0;transform-origin:0 0}.anisize{width:300px;height:250px;left:0;top:0;transform-origin:0 0}#f2_bkgrnd{background-color:#001d9b}#f3_bkgrnd{background-color:#001d9b}#f6_bkgrnd{background-color:#fff}#logo{width:130px;height:15px;left:16px;top:42px;fill:#fff;stroke:none}#f1_txt1{background-image:url("img_f1_txt1.png")}#f1_txt2{background-image:url("img_f1_txt2.png")}#f1_txt3{background-image:url("img_f1_txt3.png")}#f2_txt1{background-image:url("img_f2_txt1.png")}#f4_txt1{background-image:url("img_f4_txt1.png")}.line{stroke:#06359d;stroke-width:1;stroke-linejoin:miter;stroke-linecap:butt;stroke-miterlimit:10;fill:none}.line2{stroke-width:2}.line_arrow{stroke-width:2;stroke:#2e6baf}#f1_line{width:42px;height:34px;left:0;top:0;transform-origin:0 0}.sey_black{fill:#000;stroke:none}.sey_white{fill:#fff;stroke:none}.sey_blue{fill:#0a349a;stroke:none}.sey_shadow{width:150px;height:9px;left:0;top:0;background-image:url("img_shadow.png");transform-origin:0 0}#walk{width:380px;height:250px;left:0;top:0}.walk_leg{stroke:#0031a0;stroke-width:12;stroke-linejoin:miter;stroke-linecap:round;stroke-miterlimit:4;fill:none;visibility:hidden}.walk_body{width:112px;height:112px;left:0;top:0;background-image:url("img_walk_body.png")}#f3{width:160px;height:740px;left:0;top:0}#f3_curtain{width:160px;height:56px;left:0;top:599px;background-image:url("img_f3_curtain.png")}#f3_hang{width:140px;height:600px;left:63px;top:648px;transform-origin:15px 10px}.hang_leg{stroke:#0031a0;stroke-width:10;stroke-linejoin:miter;stroke-linecap:round;stroke-miterlimit:4;fill:none;visibility:hidden}#f4_yay{width:144px;height:142px;left:0;top:0;transform-origin:0 0}#boxes_box{width:120px;height:172px;left:0;top:0;background-image:url("img_boxes_box.png");transform-origin:55px 158px}#boxes_body{width:72px;height:72px;left:0;top:0}.boxes_leg{stroke:#0031a0;stroke-width:8;stroke-linejoin:miter;stroke-linecap:round;stroke-miterlimit:4;fill:none;visibility:hidden}.bags_bag{width:40px;height:51px;left:0;top:0;background-image:url("img_bags_bag.png")}#f6_arrow{width:124px;height:60px;left:0;top:0;transform-origin:50% 50%}#cta1{background-color:#fff}#cta2{background-position:0 -30px;background-color:#001d9b}.cta{width:128px;height:30px;left:15px;top:528px;border-radius:50px;border:1px solid #fff;border-radius:50px;background-image:url("img_cta.png");transform-origin:0 0;pointer-events:all;cursor:pointer}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=f1 class=adsize>
+<div id=walk>
+<div id=walk_shadow class=sey_shadow></div>
+<svg id=walk_arm1 width=380 height=250>
+<path d="M226.45 24.75Q218.9 34 216 43.85q-2.7 9.1-1.1 17.6 1.9 9.9 9.05 16.9 7.2 7 17.85 9.1" class=walk_leg />
+<path d="M171.45 8.75Q163.9 18 161 27.85q-2.7 9.1-1.1 17.6 1.9 9.9 9.05 16.9 7.2 7 17.85 9.1" class=walk_leg />
+<path d="M126.95 17.75Q119.4 27 116.5 36.85q-2.7 9.1-1.1 17.6 1.9 9.9 9.05 16.9 7.2 7 17.85 9.1" class=walk_leg />
+<path d="M82.45 7.75Q74.9 17 72 26.85q-2.7 9.1-1.1 17.6 1.9 9.9 9.05 16.9 7.2 7 17.85 9.1" class=walk_leg />
+<path d="M39.95 12.75Q32.4 22 29.5 31.85q-2.7 9.1-1.1 17.6 1.9 9.9 9.05 16.9 7.2 7 17.85 9.1" class=walk_leg />
+<path d="M28.9 20.95q-4.9 10.9-5.15 21.1-.25 9.5 3.5 17.35 4.35 9.1 13.1 13.95 8.75 4.9 19.55 4.15" class=walk_leg />
+<path d="M61.1 12.85q-9.7 7-15.05 15.7-4.95 8.15-5.6 16.75-.75 10.05 4.35 18.65 5.15 8.7 14.9 13.45" class=walk_leg />
+</svg>
+<svg id=walk_arm2 width=380 height=250>
+<path d="M344.1 109.45q21.8 15 23.45 32 1.4 14.3-11.55 30.55" class=walk_leg />
+<path d="M301 156q12.95-16.25 11.55-30.55-1.65-17-23.45-32" class=walk_leg />
+<path d="M244.6 102.45q21.8 15 23.45 32 1.4 14.3-11.55 30.55" class=walk_leg />
+<path d="M212 155q12.95-16.25 11.55-30.55-1.65-17-23.45-32" class=walk_leg />
+<path d="M157.6 97.45q21.8 15 23.45 32 1.4 14.3-11.55 30.55" class=walk_leg />
+<path d="M147 137q11.7.85 19.9-1.8 8-2.6 10.65-7.85 2.7-5.4-1.15-12.2-4.2-7.45-15.4-15.15" class=walk_leg />
+</svg>
+<svg id=walk_leg1 width=380 height=250>
+<path d="M258.8 238.9q-9.5-24.55-5.4-51.2 4.6-31.05 26.95-52.85" class=walk_leg />
+<path d="M258.8 238.9q-13.9-33.35-21.25-53-13.3-35.5-15.55-57.9" class=walk_leg />
+<path d="M258.8 238.9q-11.65-14.85-48.8-55.5-32.55-35.6-43.65-52" class=walk_leg />
+<path d="M122 203q-19.75-18.5-16.85-37.65 3-20.1 30.45-35.95" class=walk_leg />
+<path d="M74.15 242.15q1.75-29.25 6.75-54.4 5.4-27.25 14.15-46.8" class=walk_leg />
+</svg>
+<svg id=walk_leg2 width=380 height=250>
+<path d="M332.35 238.9q-15.7-25.9-23.45-50.7-7.5-23.95-8.95-51.2" class=walk_leg />
+<path d="M260.75 201.4q-32.75-16-36.05-33.25-3.3-17.15 22.05-38.35" class=walk_leg />
+<path d="M158 239q.3-14.75 5.55-28.65 4.15-10.9 12.6-23.75 10.15-14.6 15.15-21.95 8.9-13.1 13.45-23.25" class=walk_leg />
+<path d="M158.35 241q.3-16.8-2.15-62.1-2.1-36.55.15-55.5" class=walk_leg />
+<path d="M145.6 242.15q-10.45-30.5-15.1-53.7-4.4-21.95-5.8-48.6" class=walk_leg />
+</svg>
+<div id=walk_body class=walk_body></div>
+</div>
+<div id=f1_txt1 class=adsize></div>
+<div id=f1_txt2 class=adsize></div>
+<div id=f1_txt3 class=adsize></div>
+<svg id=f1_line width=42 height=34>
+<path id=f1_line_path class=line d="M39.9.32c.82.95.88 1.16-.44 1.26s-32.12 3.6-35.8 3.6c-6.8 0-.57-.75-.57-.75s20.7-1 29.28.75c2.64.54 4.88.94 5.42 1.5s-.07.95-23.38 1.42c-12.95 0-5.5-.88-3.53-.8s16.2-.07 22 1.28 3.68 1.62 3.3 1.62c-4.88.58-22.7 2.28-24.8 2.55s-5.22.13-1-.75 20.8-.07 23.86 1.3.6 1.7.07 2-13.7 3.1-12.8 3.57c.48 1 5.7-.07 11 1.35 3 .75.67 2.3.4 2.5s-3.7 2.48-3.7 3.12-.4 1 2.17 2 8.23 3.96 9.13 4.84" />
+</svg>
+</div>
+<div id=f3 class=adsize>
+<div id=f3_bkgrnd class=adsize></div>
+<div id=f3_curtain></div>
+<div id=f3_hang>
+<svg width=140 height=250>
+<g id=hang_leg1>
+<path id=hang_leg1_2 class=hang_leg d="M24 222q-6.9-20.3-8.55-32.9-1.5-11.7 1.2-20.25 2.1-6.6 8.35-15.45 12.05-16.9 13-18.4" />
+<path id=hang_leg1_1 class=hang_leg d="M60 205q-37.75-.35-39.5-21.6-.75-8.85 4.55-22.25Q29.05 151 38 135" />
+</g>
+<g id=hang_leg2>
+<path id=hang_leg2_2 class=hang_leg d="M82 219q-54.6-25.85-28-78" />
+<path id=hang_leg2_1 class=hang_leg d="M58 239q-12.55-22.55-15-42.15Q39.55 169.3 54 141" />
+</g>
+<g id=hang_arm1>
+<path id=hang_arm1_2 class=hang_leg d="M107 156q11.75-9.85 11.1-22.95-.6-13.2-13.55-18.6" />
+<path id=hang_arm1_1 class=hang_leg d="M127 149.55q-.05-11.9-4.7-20.2-5.55-9.8-17.75-14.9" />
+</g>
+<g id=hang_body>
+<path id=hang_arm2_1 class=hang_leg d="M15.9 8.95q-1.95 9.3-1.4 18.15.55 8.55 3.35 15.55 2.65 6.6 7.3 12.3Q29.55 60.3 35 64" />
+<path class=sey_blue d="M117.35 98.9q0-9.8-3.75-18.9-3.75-9.1-10.6-16.2-7.1-7.3-16.6-11.35-9.5-4.1-19.7-4.2-9.9-.1-19.05 3.5-9.2 3.6-16.25 10.3-7.3 6.95-11.3 16.3-4 9.35-4 19.45 0 9.8 3.7 18.9 3.75 9.1 10.65 16.2 7.1 7.3 16.6 11.4 9.5 4.05 19.7 4.15 9.85.1 19-3.5 9.25-3.6 16.3-10.3 7.35-7 11.35-16.35 4-9.35 3.95-19.4z" />
+<path class=sey_white d="M107.95 76.85q-3.25-6.75-10.5-12.95-6.85-5.8-14.95-9.2-11.65-4.95-23.2-3.15-9.3 1.5-18.7 7.4-5.75 2.8-9.15 7.85-2.95 4.45-4.45 11-2.85 13.25-.05 23.8 3.6 13.2 16.35 22.6 16.9 11.15 36.6 8.35 20.4-2.9 32.75-19.65 2.15-5.3 1.05-15.35-1.1-11.05-5.75-20.7z" />
+<path class=sey_black d="M81.85 69.55q2.3-5.3.15-10.65-2.2-5.4-7.5-7.7-5.3-2.25-10.65-.05-5.35 2.1-7.65 7.4-2.25 5.3-.1 10.7 2.15 5.4 7.45 7.65 5.35 2.3 10.7.1 5.35-2.15 7.6-7.45z" />
+<path class=sey_white d="M78.7 65.95q.7-1.6.05-3.25-.65-1.55-2.25-2.25-1.6-.7-3.2-.05-1.65.65-2.35 2.25-.7 1.6 0 3.25.65 1.6 2.25 2.3 1.6.7 3.2 0 1.6-.65 2.3-2.25z" id=D />
+</g>
+</svg>
+</div>
+</div>
+<div id=f2 class=adsize>
+<div id=f2_bkgrnd class=adsize></div>
+<div id=f2_txt1 class=adsize></div>
+</div>
+<div id=f4 class=adsize>
+<div id=f4_txt1 class=adsize></div>
+<div id=f4_yay class=anisize>
+<svg viewBox="0 0 144 142">
+<g id=f4_yay_line>
+<path id=f4_yay_line_8 d="M36 23.25q-.6-4.8-1.4-9.5-.45-2.5-1.2-4.9-.75-2.55-2.4-4.6" class="line line2" />
+<path id=f4_yay_line_7 d="M20.5 45.5q-3.8-3.3-8.35-5.25-2.1-.95-4.05-2.05-2.05-1-4-2.2-1.55-.9-3.1-1.75" class="line line2" />
+<path id=f4_yay_line_6 d="M28.5 99q-4.7.7-8.95 2.9-3.5 1.8-6.9 3.9-2.3 1.45-4.75 2.55-1.45.75-2.9 1.4" class="line line2" />
+<path id=f4_yay_line_5 d="M65.5 119l-1.75 21.75" class="line line2" />
+<path id=f4_yay_line_4 d="M104.45 119.75q2.1 4.55 5.15 8.35 3.15 3.85 7.05 6.85.9.75 1.8 1.55" class="line line2" />
+<path id=f4_yay_line_3 d="M119.7 102.5l19.75 9.25" class="line line2" />
+<path id=f4_yay_line_2 d="M113.95 35.75q.25-.15 6.5-3.9 5.1-3.05 7.25-3.7 3.5-1.05 9.1-5.3 5.6-4.25 5.9-4.35" class="line line2" />
+<path id=f4_yay_line_1 d="M77 19.5q2.3-4.45 2.05-9.5-.1-1.6.3-3.15Q80.05 3.9 81 1" class="line line2" />
+</g>
+<g id=f4_yay_word>
+<path id=f4_yay_word_6 d="M92.5 77.6l-.85 2" class="line line2" />
+<path id=f4_yay_word_5 d="M94.4 52.7l-.5 17.65" class="line line2" />
+<path id=f4_yay_word_4 d="M76.5 67.1q-.7 2-1 4.05-.3 1.9-.1 3.8.1.9.8 1.5 1.9.8 3.35-.4 2.1-1.7 3.45-4.1 1.45-2.55 2.5-5.35 0 1.2-.35 2.35-1.3 4.45-2 9.15-.1.8-.35 1.55-.45 1.1-.5 2.35-.05 1-.35 2-.2.75-.25 1.45-.35 4.65-.95 9.3" class="line line2" />
+<path id=f4_yay_word_3 d="M69.05 68.55q.2-1.4-1.2-1.9-1.5-.65-2.75.2-3.9 2.5-4.4 7.35-.15 1.7.1 3.35.15.95 1 1.2.85.2 1.55-.2.85-.5 1.5-1.3 2.15-2.55 3.25-5.7-.2 1.85-.25 4.15 0 .8.15 1.6.15.65.7.8 1.1.4 2.25.35" class="line line2" />
+<path id=f4_yay_word_2 d="M61 49.5q-1.1 2.85-2.1 5.65-.4 1-.6 2.1-.95 4.75-2.95 9.25-.65 1.45-.85 3-.5 4.25-1.2 8.4-.5 2.95-.55 6.1" class="line line2" />
+<path id=f4_yay_word_1 d="M43.5 52.1l-.3.5.05 1q.8 2.35 1.85 4.7.45 1.05 1 1.95 1.05 1.5 2.05 3.1.6.9 1.4 1.55 1.1.85 2.4 1.4.55.2 1.2.3.65 0 1.35 0" class="line line2" />
+</g>
+</svg>
+</div>
+<div id=f4_boxes class=anisize>
+<div id=boxes_shadow class=sey_shadow></div>
+<svg id=boxes_arm1 viewBox="0 0 300 250">
+<path d="M352.75 168.25q9.05 7.35 19.95 8.25 10 .8 19.05-3.8 8.85-4.5 13.6-12.55 5-8.45 3.65-17.9" class=boxes_leg />
+<path d="M319 181q9.15 8.05 20.05 9.05 10 .9 19.25-4.1 8.9-4.8 14.15-13.5 5.5-9.05 5.05-19.2" class=boxes_leg />
+<path d="M296 166.25q9.2 8.1 19.75 9.5 9.7 1.3 18.5-3.3 8.6-4.5 13.65-13.15 5.3-9.05 5.1-20.05" class=boxes_leg />
+<path d="M268.75 183.25q9.35 6.75 20.6 7.1 10.35.3 19.85-4.65 9.3-4.85 14.55-13 5.55-8.55 4.75-17.95" class=boxes_leg />
+<path d="M239.25 168.5q9.05 7.35 19.75 8.2 9.75.8 18.5-3.9 8.55-4.55 13.1-12.6 4.75-8.45 3.4-17.95" class=boxes_leg />
+<path d="M211.5 180q9.15 8.05 19.7 9.2 9.6 1.05 18.35-3.75 8.4-4.6 13.3-13.15 5.1-8.85 4.65-19.05" class=boxes_leg />
+<path d="M182 165.5q9.2 8.1 19.9 9.6 9.9 1.4 18.85-3.05 8.8-4.35 14-12.9 5.45-8.95 5.25-19.9" class=boxes_leg />
+<path d="M155.25 179.25q9.25 8.15 19.85 9.65 9.95 1.45 18.75-3.15 8.7-4.55 13.6-13.65 5.2-9.65 4.55-21.85" class=boxes_leg />
+<path d="M130.25 164.25q10.8 8.25 21.7 9 9.95.65 18.35-4.8 7.9-5.2 12.4-14.35 4.5-9.25 4.05-19.6" class=boxes_leg />
+<path d="M103.5 179.75q10.5 8.2 21.35 9.55 9.95 1.25 18.35-3.4 8.1-4.45 12.6-13.1 4.65-8.8 4.2-19.55" class=boxes_leg />
+<path d="M81.75 165.75q9.2 8.1 19.55 9.55 9.55 1.35 18.1-3.1 8.3-4.4 13.2-13 5.1-8.95 4.9-19.95" class=boxes_leg />
+<path d="M52.75 180.5Q62 188.65 72.7 190q10 1.25 18.9-3.6 8.8-4.85 13.8-14.15 5.25-9.8 4.6-22" class=boxes_leg />
+<path d="M26.35 165.7q10.75 8.25 21.55 8.75 9.75.45 17.95-5.3 7.7-5.4 12-14.85 4.35-9.4 3.9-19.8" class=boxes_leg />
+<path d="M3.35 181.2q12.25 7.8 23.25 8.45 10 .6 17.75-4.7 7.2-5 11.05-14.05 3.8-8.9 3.35-19.4" class=boxes_leg />
+<path d="M-20.4 167.95q26.35 13.85 41.65 2.6 6.6-4.85 9.85-13.8 3.15-8.55 2.65-19.25" class=boxes_leg />
+<path d="M-48 180.75q26.7 14.05 43.95 3.6Q3.5 179.8 7.4 171.2q3.85-8.45 3.35-18.95" class=boxes_leg />
+<path d="M-75 165.5q27.65 14.8 44.8 4.3 7.45-4.55 11.25-13.25 3.7-8.45 3.2-19.05" class=boxes_leg />
+</svg>
+<svg id=boxes_leg1 viewBox="0 0 300 250">
+<path d="M389.8 236.7q-8-20.7-12.2-33.7-7.1-22.15-8.6-36.75" class=boxes_leg />
+<path d="M384.8 236.7q-7.3-9.3-30.5-34.7-20.35-22.25-27.3-32.5" class=boxes_leg />
+<path d="M307 210q-15-10.7-17.25-24.65Q287.2 169.1 305.5 158" class=boxes_leg />
+<path d="M274.8 236.7q-5.95-15.35-3.4-32 2.9-19.4 16.85-33.05" class=boxes_leg />
+<path d="M274.8 236.7q-8-20.7-12.2-33.7-7.1-22.15-8.6-36.75" class=boxes_leg />
+<path d="M274.8 236.7q-7.3-9.3-30.5-34.7-20.35-22.25-27.3-32.5" class=boxes_leg />
+<path d="M194 205q-14.95-10.9-16.45-23.45Q175.9 167.6 192.5 158" class=boxes_leg />
+<path d="M170.25 237.75q-10.6-12.95-8.7-31.6 1.35-13.45 9.45-30.65" class=boxes_leg />
+<path d="M170.5 236.75q-6.15-14.35-16.7-42.55-11.85-31.7-14.3-37.7" class=boxes_leg />
+<path d="M170.25 237q-21.55-24.35-30.2-34.15-14.55-16.55-22.3-26.85" class=boxes_leg />
+<path d="M95 203q-19.25-11.45-20.6-23.6-1.3-11.9 14.6-23.15" class=boxes_leg />
+<path d="M68.25 237.75q-10.6-12.95-8.7-31.6Q60.9 192.7 69 175.5" class=boxes_leg />
+<path d="M65.5 236.75q-6.15-14.35-16.7-42.55-11.85-31.7-14.3-37.7" class=boxes_leg />
+<path d="M65.5 236.75q-5.9-7.2-29.55-34.5-17.1-19.75-23.7-29.25" class=boxes_leg />
+<path d="M-14 208q-16.65-14.55-17.35-26.35-.9-13.85 20.6-22.65" class=boxes_leg />
+<path d="M-38.5 236q-11.15-16.35-7.1-34.7 1.45-6.55 5.1-14.3 4.25-8.3 6-11.75" class=boxes_leg />
+<path d="M-39 237q-5.2-14.35-12.8-40.8-5.3-18.4-9.45-34.45" class=boxes_leg />
+</svg>
+<svg id=boxes_leg2 viewBox="0 0 300 250">
+<path d="M386 212q-16.5-9.6-15.85-20.95.5-8.5 12.1-22.55" class=boxes_leg />
+<path d="M322 238q.3-15.95 11.2-33.35 6.3-9.45 9.45-14.2 5.55-8.4 8.35-14.7" class=boxes_leg />
+<path d="M325 238q.2-10.5-1.35-38.8-1.3-22.85.1-34.7" class=boxes_leg />
+<path d="M320.75 236.7q-9.8-16.2-14.65-31.7-4.7-14.95-5.6-32" class=boxes_leg />
+<path d="M273 210q-15.75-9.05-16.1-19.75-.25-8.8 10.35-21.75" class=boxes_leg />
+<path d="M212 238q.3-15.95 11.2-33.35 6.3-9.45 9.45-14.2 5.55-8.4 8.35-14.7" class=boxes_leg />
+<path d="M212 238q.2-10.5-1.35-38.8-1.3-22.85.1-34.7" class=boxes_leg />
+<path d="M212 238q-12.45-16.45-17.65-26.8-9.05-18.1-6.6-33.2" class=boxes_leg />
+<path d="M160 205q-17.65-12.55-15.75-23.2.8-4.55 5.15-9.85 3-3.6 10.1-10.2" class=boxes_leg />
+<path d="M107.75 235.75q5.1-23.05 13.65-35.95 2.75-4.25 8.35-10.9 6.6-7.9 9.75-12.15" class=boxes_leg />
+<path d="M107 238q.3-26.55.65-39.05.5-21.45 2.1-34.95" class=boxes_leg />
+<path d="M107.5 238q-12.45-16.45-17.65-26.8-9.05-18.1-6.6-33.2" class=boxes_leg />
+<path d="M53 205q-16.75-12.4-13.65-24.85 2.25-9 15.15-18.4" class=boxes_leg />
+<path d="M3.25 235.75q3.55-17.5 11.95-31.95 2.95-5.05 7.9-12.05 7.55-10.75 8.4-12" class=boxes_leg />
+<path d="M2.75 237.75q-.5-18.15 1.65-40.35.95-10.1 3.85-32.15" class=boxes_leg />
+<path d="M2.75 237q-10.85-12.7-16.1-28.45-5.1-15.25-3.4-28.3" class=boxes_leg />
+<path d="M-44 209q-16.8-11.3-13.2-25 1.3-4.9 5.35-10.65.9-1.25 6.85-8.6" class=boxes_leg />
+</svg>
+<div id=boxes_body>
+<svg viewBox="0 0 72 72">
+<path class=sey_blue d="M71.8 39.85q1.6-14.8-7.7-26.35Q54.85 1.9 40.1.3l-.5-.1Q24.8-1.25 13.25 8.15 1.75 17.55.2 32.4-1.25 47.2 8.15 58.75 17.55 70.3 32.4 71.8q14.75 1.5 26.3-7.85 11.5-9.35 13.1-24.1z" />
+<path class=sey_white d="M69.4 40.4q1.45-9.65-2.35-18.05Q60.4 7.75 39.55 4.1q-14.5-2.25-26.15 6.55-4.9 3.7-8.25 8.7Q2 24.2 1.1 29q-.9 4.55.2 9.95Q2.45 44.85 5.7 50q8 12.65 24.55 15.3 19.65 3.15 30.55-7.8 7.1-7.15 8.6-17.1z" />
+<path class=sey_black d="M42.95 25.95q3.25 1.65 6.7.5 3.45-1.15 5.1-4.45 1.6-3.2.5-6.7-1.2-3.45-4.45-5.1-3.25-1.65-6.7-.45h-.05q-3.45 1.15-5.1 4.4-1.6 3.3-.45 6.75 1.15 3.45 4.45 5.05z" />
+<path class=sey_white d="M49.85 17.3q-1.05 0-1.8.75-.75.7-.75 1.8 0 1 .75 1.8.75.75 1.8.75 1.05 0 1.8-.75.75-.8.75-1.8 0-1.1-.75-1.8-.75-.75-1.8-.75z" />
+</svg>
+</div>
+<div id=boxes_box></div>
+</div>
+</div>
+<div id=f5 class=adsize>
+<div id=f5_txt1 class=adsize></div>
+</div>
+<div id=f6 class=adsize>
+<div id=f6_bkgrnd class=adsize></div>
+<div id=f6_txt1 class=adsize></div>
+<div id=f6_txt2 class=adsize></div>
+<svg id=f6_arrow viewBox="0 0 124 60">
+<path id=f6_arrow_path_1 class="line line_arrow" d="M2.88 58.66c-2.56-9-3-28 11.78-45.54 17.58-20.93 37.8-7.2 37.8-7.2s10.42 4.16 12.6 19.93-4.3 24.47-9.88 27.23c-11.05 5.54-25.12-11.37-7-35.14 15.87-20.86 35.95-11.3 43.5-6.62 15.57 9.67 26.12 32.6 26.12 32.6" />
+<path id=f6_arrow_path_2 class="line line2" d="M121.74 28.53c-3 8.5-2.6 18.37-2.85 19.12-.9 2.82-3.94-3.14-15.6-8.83" />
+</svg>
+</div>
+<div id=bags class=bags>
+<div id=bags_shadow class=sey_shadow></div>
+<svg id=bags_leg1 width=380 height=250>
+<path d="M259.8 238.9q-9.5-24.55-5.4-51.2 4.6-31.05 26.95-52.85" class=walk_leg />
+<path d="M258.8 238.9q-13.9-33.35-21.25-53-13.3-35.5-15.55-57.9" class=walk_leg />
+<path d="M258.8 238.9q-11.65-14.85-48.8-55.5-32.55-35.6-43.65-52" class=walk_leg />
+<path d="M122 203q-19.75-18.5-16.85-37.65 3-20.1 30.45-35.95" class=walk_leg />
+<path d="M74.15 242.15q1.75-29.25 6.75-54.4 5.4-27.25 14.15-46.8" class=walk_leg />
+<path d="M74.15 242.15q-5.2-31.55-2-51.75 4.1-25.8 22.9-49.45" class=walk_leg />
+</svg>
+<svg id=bags_leg2 width=380 height=250>
+<path d="M333.35 238.9q-15.7-25.9-23.45-50.7-7.5-23.95-8.95-51.2" class=walk_leg />
+<path d="M260.75 201.4q-32.75-16-36.05-33.25-3.3-17.15 22.05-38.35" class=walk_leg />
+<path d="M158 239q.3-14.75 5.55-28.65 4.15-10.9 12.6-23.75 10.15-14.6 15.15-21.95 8.9-13.1 13.45-23.25" class=walk_leg />
+<path d="M158.35 241q.3-16.8-2.15-62.1-2.1-36.55.15-55.5" class=walk_leg />
+<path d="M145.6 242.15q-10.45-30.5-15.1-53.7-4.4-21.95-5.8-48.6" class=walk_leg />
+<path d="M145.6 242.15q-19.05-25.45-23.7-48.5-4.55-22.7 2.8-53.8" class=walk_leg />
+</svg>
+<div id=bags_bag1 class=bags_bag></div>
+<div id=bags_bag2 class=bags_bag></div>
+<svg id=bags_arm1 width=380 height=250>
+<path d="M243.5 103.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=walk_leg />
+<path d="M187.5 88.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=walk_leg />
+<path d="M143.5 98.5q-15.1 11-22.3 22.25-14.35 22.55 25.3 23.75" class=walk_leg />
+<path d="M98.5 87.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=walk_leg />
+<path d="M56.5 93.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=walk_leg />
+<path d="M56.5 93.5q-8.55 8.55-24.1 8.15-15.45-.45-24.9-9.15" class=walk_leg />
+<path d="M39.9 16.25q-2.3 2.95-4.8 7.7-5.1 9.5-6.25 18.4Q25.1 70.65 62.05 82" class=walk_leg />
+<path d="M20.7 19.7q-1.15 2.4-1.95 6.35-1.65 7.95.1 15.8 5.7 25.2 43.2 40.15" class=walk_leg />
+</svg>
+<svg id=bags_arm2 width=380 height=250>
+<path d="M341.05 106.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=walk_leg />
+<path d="M285.05 91.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=walk_leg />
+<path d="M241.05 101.15l8.65 8.5q9.5 10.15 13.9 18.6 13.9 26.95-29.1 26.25" class=walk_leg />
+<path d="M196.05 90.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=walk_leg />
+<path d="M154.05 96.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=walk_leg />
+<path d="M154.05 96.15q15.2 7.85 28.75 7.2 12.45-.65 27.7-8.85" class=walk_leg />
+<path d="M181.95 21.75l4.85 7.7q5.1 9.5 6.25 18.4 3.7 28.3-33.25 39.7" class=walk_leg />
+<path d="M191.5 19.5q4 5.25 5.55 12.85 1.8 8.85-.5 17.75-6.05 23.15-36.75 37.45" class=walk_leg />
+</svg>
+<div id=bags_body class=walk_body></div>
+</div>
+<svg id=logo width=172 height=20>
+<path d="M3.55 3.2L0 4.5v1.55l1.85-.65v7.85H0v1.5h5.4v-1.5H3.55V3.2m14.05.45q0-1.45-1.15-2.55Q15.4 0 13.85 0q-1.7 0-2.9 1.1Q9.8 2.2 9.8 3.8q0 .9.5 1.7.5.85 1.35 1.3-1.15.45-1.85 1.55-.75 1-.75 2.2 0 1.95 1.4 3.2Q11.8 15 13.75 15q1.95 0 3.3-1.35 1.35-1.3 1.35-3.2 0-1.15-.7-2.25-.65-1.05-1.85-1.55 1.75-.95 1.75-3m-1.65.2q0 .85-.65 1.6-.65.65-1.6.65-.95 0-1.6-.65-.65-.75-.65-1.65 0-.95.65-1.6.65-.65 1.6-.65.95 0 1.6.65.65.7.65 1.65m-5.15 6.7q0-1.2.9-2.05.8-.85 2-.85 1.2 0 2.1.8.9.9.9 2.1 0 1.2-.9 2.05-.85.9-2.1.9-1.2 0-2.05-.9-.85-.85-.85-2.05M24.95 2.9q-2.25 0-3.8 1.7-1.3 1.4-1.3 3.6v1.5q0 2.35 1.5 3.85Q22.8 15 24.95 15q2.25 0 3.8-1.65 1.3-1.4 1.3-3.65V8.2q0-2.35-1.45-3.8-1.55-1.5-3.65-1.5m1.5 1.95q.75.35 1.25.95.6.85.6 2.4v1.5q0 1.55-.6 2.35-.45.65-1.15 1-.75.35-1.6.35-.8 0-1.5-.35-.75-.35-1.2-.95-.7-.85-.7-2.4V8.2q0-1.45.65-2.3.45-.6 1.2-1.05.65-.35 1.55-.35.85 0 1.5.35M41.6 9.7V8.2q0-2.35-1.55-3.8-1.45-1.5-3.55-1.5-2.2 0-3.8 1.7-1.35 1.4-1.35 3.6v1.5q0 2.35 1.5 3.85Q34.35 15 36.5 15q2.3 0 3.75-1.65 1.35-1.4 1.35-3.65m-5.1-5.2q1.7 0 2.7 1.3.65.85.65 2.4v1.5q0 1.45-.6 2.35-.45.65-1.2 1-.7.35-1.55.35-1.75 0-2.75-1.3-.65-.85-.65-2.4V8.2q0-1.45.6-2.3.45-.6 1.25-1.05.7-.35 1.55-.35m14.4 1q1 0 1.95.55.9.5 1.5 1.4v.05h1.5V4.1H54.3v1.3q-1.45-1.5-3.5-1.5-2.25 0-4 1.7-1.55 1.65-1.55 3.9 0 2.25 1.7 3.85Q48.55 15 50.8 15q1.85 0 3.3-1 1.5-1 2.1-2.6l.05-.15h-1.8l-.05.05q-.4.9-1.35 1.5-.95.6-2.05.6-1.7 0-2.95-1.2-1.15-1.05-1.15-2.7 0-1.65 1.15-2.85Q49.2 5.5 50.9 5.5m17.35 3.9q0-2.25-1.7-3.9-1.65-1.6-3.9-1.6-2.35 0-4 1.7Q57 7.15 57 9.45q0 2.3 1.65 3.95 1.6 1.6 3.9 1.6 2.35 0 4-1.65 1.7-1.65 1.7-3.95m-2.8-2.75q1.1 1.15 1.1 2.8 0 1.7-1.1 2.75-1.2 1.2-2.9 1.2-1.65 0-2.75-1.2-1.25-1.05-1.25-2.75 0-1.65 1.25-2.8 1.1-1.15 2.75-1.15 1.7 0 2.9 1.15m15.7 8.1V13.2h-1.7V8.75q0-1.6-.6-2.75-.5-1-1.6-1.55-1.1-.55-2.15-.55-1 0-1.9.5-.85.4-1.45 1.1V4.1h-3.4v1.5h1.8v7.6h-1.8v1.55h5.1V13.2h-1.7V9.1q0-.9.05-1.35.2-.7.6-1.2.9-1.05 2.3-1.05 1.95 0 2.7 1.15.3.5.3 1.2.15.5.15 1.35v4h-1.8v1.55h5.1m5.1-9.15V4.1h-2.3V.4H82.4v3.7h-2.05v1.5h2.05v5.15q0 4.25 3.25 4.25h.8v-1.5h-.75q-1.15-.1-1.55-1-.2-.6-.2-2.1V5.6h2.3m10.3-1.5V6q-1.45-2.1-4.1-2.1-1.45 0-2.75.7-1.25.7-1.9 1.85l-.05.05q-.4.75-.6 1.2-.2.75-.2 1.75-.1 1.6.8 3.05.7 1.15 1.95 1.85 1.3.65 2.75.65 2.65 0 4.1-2.05v1.8h3V13.2H98.2V5.6h1.35V4.1h-3M92.6 5.5q1.65 0 2.85 1.15 1.1 1.15 1.1 2.8 0 1.7-1.1 2.85-1.3 1.2-2.95 1.2-1.6 0-2.8-1.3-1.2-1.15-1.2-2.75 0-1.65 1.2-2.8 1.2-1.15 2.9-1.15m17.85-1.4h-1.55v1.3q-1.4-1.5-3.5-1.5-2.25 0-3.95 1.7-1.5 1.65-1.5 3.9 0 2.25 1.6 3.85 1.65 1.65 3.9 1.65 1.8 0 3.3-1 1.4-1 2.05-2.6l.05-.15h-1.8l-.05.05q-.4.9-1.35 1.5-.95.6-2.05.6-1.75 0-2.85-1.2-1.2-1.05-1.2-2.7 0-1.7 1.1-2.85 1.15-1.15 2.8-1.15 1.1 0 2 .55.95.5 1.45 1.4l.1.05h1.45V4.1m7 1.5V4.1h-2.3V.4h-1.65v3.7h-1.95v1.5h1.95v5.15q0 4.25 3.35 4.25h.8v-1.5h-.8q-1.1-.1-1.5-1-.2-.55-.2-2.1V5.6h2.3m6.95-1.5v.6q-.8-.8-2.2-.8-.8 0-1.55.3-.85.3-1.35.95-.5.7-.5 1.8 0 1.55 1.25 2.35.75.45 2.25.75l.15.05q1.1.15 1.5.45.8.45.8 1.25 0 .85-.75 1.4-.55.45-1.4.45-1 0-1.75-.6-.7-.55-.8-1.4v-.2h-1.35v3.3h1.35v-.9q1 1.15 2.8 1.15 1 0 1.9-.45.9-.4 1.25-1.15.45-.9.45-1.65 0-1.6-1.35-2.4-.8-.45-2.4-.75-1-.25-1.5-.55-.7-.4-.7-1.2 0-.7.6-1.15.5-.4 1.3-.4.75 0 1.4.45.6.4.6 1.1v.2h1.45V4.1h-1.45m4.15-2.2q-.5 0-.95.4-.4.45-.4 1.05 0 .5.4.95.45.4.95.4.6 0 1.05-.4.4-.4.4-.95 0-.6-.4-1-.45-.45-1.05-.45m-.8.6q.3-.35.8-.35.55 0 .9.35.35.35.35.85 0 .5-.35.8-.45.35-.9.35-.5 0-.85-.35-.35-.35-.35-.8 0-.45.4-.85m.85 0h-.55v1.6h.3v-.65h.25l.3.65h.4l-.4-.75q.4 0 .4-.4 0-.45-.7-.45m-.05.25q.35 0 .35.2 0 .25-.35.25h-.2v-.45h.2z" />
+</svg>
+<div id=cta2 class=cta></div>
+<div id=cta1 class=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>970x250</title>
+<meta name=ad.size content="width=970,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
+<meta http-equiv=X-UA-Compatible content="IE=10" />
+<meta charset=UTF-8 />
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.dnb.com";window.onload=function(){resetBanner();initMouseEvents();resetReveal();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick);bindEvent(gEL("#cta"),"mouseover",onCTAOver);bindEvent(gEL("#cta"),"mouseout",onCTAOut);}
+function onBannerClick(e){window.open(clickTag);}
+function onCTAOver(e){gEL("#cta").style.backgroundColor="#fff";gEL("#cta").style.backgroundPosition="0px -30px";}
+function onCTAOut(e){gEL("#cta").style.backgroundColor="#e6a65d";gEL("#cta").style.backgroundPosition="0px 0px";}
+function resetBanner(){resetStuck();resetWalk();TweenLite.set("#box1",{y:0});TweenLite.set("#box2",{y:125});TweenLite.set("#txt2",{autoAlpha:0});TweenLite.set("#man",{scale:1.5,rotation:7});TweenLite.set("#cta",{x:464});TweenLite.set("#cta",{backgroundPosition:"0px 30px"});}
+function startAnimation(){var delay=0.5;TweenLite.to("#box1",0.5,{x:10,y:-90,rotation:5,delay:delay,ease:Power1.easeInOut});TweenLite.to("#box2",0.5,{x:10,y:206,rotation:-6,delay:delay,ease:Power1.easeInOut});delay+=0.5;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);});delay+=0.25;TweenLite.delayedCall(delay,function(){playWalk();});delay+=3;TweenLite.to("#txt2",0.5,{autoAlpha:1,delay:delay});delay+=0.5;TweenLite.to("#cta",0.5,{x:0,y:0,delay:delay,ease:Quad.easeOut});delay+=0.3;TweenLite.to("#cta",0.5,{backgroundPosition:"0px 0px",delay:delay,ease:Quad.easeOut});delay+=0.5;console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var canvasScale=2;var msgWidth=970;var msgHeight=250;var canvasWidth=msgWidth*canvasScale;var canvasHeight=msgHeight*canvasScale;var txtAR;function resetReveal(){txtAR=[];txtAR[1]=initText("txt1");txtAR[1].boxes=[[270,61,277,36],[270,101,321,42]];}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*canvasScale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.5,{y:imgOb.srcRect[1],ease:Power3.easeOut,delay});delay+=0.3;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+function hideText(txtOb){var delay=0;for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1]+imgOb.srcRect[3],ease:Power3.easeOut,delay});}
+TweenLite.to(this,0.3+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb],onComplete:rEL,onCompleteParams:[txtOb.canvas]});}
+var manWalk;function resetWalk(){manWalk=[[{id:"arm2",x:-48,y:163,r:15},{id:"rope3",x:-142,y:187,r:-9},{id:"leg2b",x:-45,y:221,r:43},{id:"leg2a",x:-48,y:190,r:35},{id:"leg1b",x:-38,y:220,r:-31},{id:"leg1a",x:-54,y:200,r:-32},{id:"body",x:-61,y:148,r:0},{id:"rope1",x:-124,y:240,r:-2},{id:"rope2",x:-142,y:209,r:-7},{id:"arm1",x:-81,y:174,r:-3},],[{id:"arm2",x:-25,y:156,r:27},{id:"rope3",x:-125,y:173,r:-7},{id:"leg2b",x:-4,y:209,r:62},{id:"leg2a",x:-31,y:189,r:-7},{id:"leg1b",x:-24,y:213,r:-8},{id:"leg1a",x:-32,y:187,r:-9},{id:"body",x:-39,y:139,r:-1},{id:"rope1",x:-118,y:230,r:0},{id:"rope2",x:-121,y:196,r:-5},{id:"arm1",x:-57,y:170,r:-19},],[{id:"arm2",x:-4,y:151,r:38},{id:"rope3",x:-103,y:171,r:-7},{id:"leg2b",x:10,y:207,r:-2},{id:"leg2a",x:-9,y:183,r:4},{id:"leg1b",x:-9,y:209,r:15},{id:"leg1a",x:-10,y:181,r:8},{id:"body",x:-21,y:135,r:-3},{id:"rope1",x:-82,y:224,r:0},{id:"rope2",x:-100,y:192,r:-5},{id:"arm1",x:-39,y:165,r:-13},],[{id:"arm2",x:12,y:146,r:30},{id:"rope3",x:-88,y:166,r:-7},{id:"leg2b",x:19,y:204,r:13},{id:"leg2a",x:7,y:176,r:18},{id:"leg1b",x:33,y:198,r:37},{id:"leg1a",x:0,y:188,r:-45},{id:"body",x:-3,y:131,r:1},{id:"rope1",x:-79,y:221,r:0},{id:"rope2",x:-86,y:188,r:-5},{id:"arm1",x:-22,y:161,r:-15},],[{id:"arm2",x:33,y:144,r:14},{id:"rope3",x:-62,y:159,r:-4},{id:"leg2b",x:39,y:202,r:42},{id:"leg2a",x:35,y:172,r:35},{id:"leg1b",x:45,y:201,r:-31},{id:"leg1a",x:25,y:180,r:-36},{id:"body",x:20,y:127,r:-1},{id:"rope1",x:-41,y:211,r:2},{id:"rope2",x:-60,y:181,r:-3},{id:"arm1",x:1,y:154,r:-4},],[{id:"arm2",x:57,y:134,r:31},{id:"rope3",x:-41,y:155,r:-7},{id:"leg2b",x:78,y:190,r:59},{id:"leg2a",x:54,y:167,r:1},{id:"leg1b",x:59,y:194,r:-9},{id:"leg1a",x:51,y:168,r:-10},{id:"body",x:43,y:120,r:-1},{id:"rope1",x:-34,y:211,r:0},{id:"rope2",x:-36,y:177,r:-5},{id:"arm1",x:24,y:148,r:-11},],[{id:"arm2",x:67,y:135,r:0},{id:"rope3",x:-25,y:151,r:-7},{id:"leg2b",x:85,y:190,r:0},{id:"leg2a",x:64,y:167,r:0},{id:"leg1b",x:65,y:192,r:0},{id:"leg1a",x:62,y:162,r:0},{id:"body",x:54,y:117,r:0},{id:"rope1",x:-9,y:205,r:0},{id:"rope2",x:-27,y:174,r:-5},{id:"arm1",x:35,y:141,r:0},],];for(var a in manWalk[0]){TweenLite.set("#"+manWalk[0][a].id,{x:manWalk[0][a].x,y:manWalk[0][a].y,rotation:manWalk[0][a].r});}}
+function playWalk(){var aniTime=0.4;var delay=0;var ease=Power0.easeInOut;var lastFrameNum=manWalk.length-1;for(var a=0;a<=lastFrameNum;a++){if(a===lastFrameNum){ease=Quad.easeOut;aniTime=0.8;}
+var manFrame=manWalk[a];for(var b in manFrame){TweenLite.to("#"+manFrame[b].id,aniTime,{x:manFrame[b].x,y:manFrame[b].y,rotation:manFrame[b].r,ease:ease,delay:delay});}
+delay+=aniTime;}
+TweenLite.delayedCall(delay-0.2,playStuck);}
+var manStuck1;var manStuck2;var stuckLoopsTotal=3;var stuckLoopsCurrent=0;function resetStuck(){manStuck1=[{id:"leg2b",w:23,h:38,x:85,y:189,r:0},{id:"leg2a",w:27,h:31,x:64,y:167,r:0},{id:"leg1b",w:11,h:44,x:65,y:192,r:0},{id:"leg1a",w:16,h:40,x:62,y:162,r:0},{id:"arm2",w:39,h:34,x:67,y:135,r:0},{id:"rope3",w:111,h:27,x:-25,y:151,r:-7},{id:"rope1",w:111,h:27,x:-9,y:205,r:0},{id:"body",w:25,h:61,x:54,y:117,r:0},{id:"rope2",w:111,h:27,x:-27,y:174,r:-5},{id:"arm1",w:29,h:63,x:35,y:141,r:0},];manStuck2=[{id:"leg2b",x:89,y:188,r:6},{id:"leg2a",x:65,y:169,r:-7},{id:"leg1b",x:69,y:191,r:6},{id:"leg1a",x:61,y:163,r:-7},{id:"arm2",x:72,y:132,r:10},{id:"rope3",x:-22,y:150,r:-6},{id:"rope1",x:-7,y:204,r:0},{id:"body",x:62,y:114,r:9},{id:"rope2",x:-26,y:171,r:-4},{id:"arm1",x:39,y:140,r:-2},];for(var a in manStuck1){TweenLite.set("#"+manStuck1[a].id,{width:manStuck1[a].w+"px",height:manStuck1[a].h+"px"});}}
+function playStuck(){stuckLoopsCurrent++;if(stuckLoopsCurrent<=stuckLoopsTotal){var playTime=randRange(5,6)/10;for(var a in manStuck2){if(manStuck2[a].id==="arm1"){TweenLite.to("#"+manStuck2[a].id,playTime,{x:manStuck2[a].x,y:manStuck2[a].y,rotation:manStuck2[a].r,ease:Power0.easeInOut,onComplete:reverseTween,onReverseComplete:playStuck,});}else{TweenLite.to("#"+manStuck2[a].id,playTime,{x:manStuck2[a].x,y:manStuck2[a].y,rotation:manStuck2[a].r,ease:Power0.easeInOut,onComplete:reverseTween});}}}}
+function gEL(id){return document.querySelector(id);}
+function bindEvent(el,eventName,eventHandler){if(el.addEventListener){el.addEventListener(eventName,eventHandler,false);}else if(el.attachEvent){el.attachEvent("on"+eventName,eventHandler);}}
+function rEL(el){el.parentElement.removeChild(el);}
+function randRange(min,max){return Math.floor(Math.random()*(max-min+1))+min;}
+function reverseTween(){this.reverse();}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{overflow:hidden;background-color:#4298b5;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:970px;height:250px;left:0;top:0}.box{width:1040px;height:125px;left:-35px;top:0;background-color:#004f71;transform-origin:50% 50%}#logo{background-image:url("img_logo.png")}#txt1{background-image:url("img_txt1.png")}#txt2{background-image:url("img_txt2.png")}#man{width:300px;height:250px;left:54px;top:-118px;transform-origin:0 0}.man{left:0;top:0;transform-origin:0 0}#leg2b{background-image:url("img_man_leg2b.png")}#leg2a{background-image:url("img_man_leg2a.png")}#leg1b{background-image:url("img_man_leg1b.png")}#leg1a{background-image:url("img_man_leg1a.png")}#arm2{background-image:url("img_man_arm2.png")}#body{background-image:url("img_man_body.png")}#arm1{background-image:url("img_man_arm1.png");transform-origin:24px 4px}.rope{width:113px;height:27px;left:0;top:0;background-image:url("img_rope.png");background-position-x:-2px;transform-origin:0 0}#cta{width:152px;height:30px;left:674px;top:106px;border-radius:50px;background-color:#e6a65d;background-image:url("img_cta.png");background-position:0 0;transform-origin:0 100%;pointer-events:all;cursor:pointer}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=man>
+<div id=arm2 class=man></div>
+<div id=leg2b class=man></div>
+<div id=leg2a class=man></div>
+<div id=leg1b class=man></div>
+<div id=leg1a class=man></div>
+<div id=rope3 class="rope man"></div>
+<div id=rope1 class="rope man"></div>
+<div id=body class=man></div>
+<div id=rope2 class="rope man"></div>
+<div id=arm1 class=man></div>
+</div>
+<div id=box1 class=box></div>
+<div id=box2 class=box></div>
+<div id=txt1 class=adsize></div>
+<div id=txt2 class=adsize></div>
+<div id=logo class=adsize></div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

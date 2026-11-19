@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250</title>
+<meta name=ad.size content="width=300,height=250" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=MorphSVGPlugin.min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script>var clickTag="https://www.1800contacts.com/";window.onload=function(){initMouseEvents();resetWave();resetBags();resetBoxes();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(window.clickTag,"_blank");}
+var bannerWidth;var bannerHeight;function resetBanner(){bannerWidth=gEL("#banner").offsetWidth;bannerHeight=gEL("#banner").offsetHeight;resetReveal();resetLines();TweenLite.set("#cta",{x:-248});TweenLite.set("#end_arrow",{scaleX:-0.4,scaleY:0.4,x:78,y:90,rotation:100});}
+function resetLines(){var lineElements=document.getElementsByClassName("line");for(var i=0;i<lineElements.length;i++){var lineOb={};var el=lineElements.item(i);var pathLength=Math.ceil(el.getTotalLength());el.style.strokeDasharray=pathLength;el.style.strokeDashoffset=pathLength;}}
+function startAnimation(){var delay=0;TweenLite.delayedCall(delay,function(){playWave();});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[1]);});delay+=0.5;TweenLite.to("#cta",0.5,{x:0,delay:delay,ease:Power2.easeOut});delay+=2;TweenLite.to("#wave",0.5,{x:"+=30",y:"-=25",rotation:-8,delay:delay,ease:Quad.easeIn});TweenLite.delayedCall(delay,function(){hideText(txtAR[1]);});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[2]);});delay+=0.25;TweenLite.delayedCall(delay,function(){playBags();});delay+=1.75;TweenLite.delayedCall(delay,function(){hideText(txtAR[2]);});delay+=1.75;TweenLite.delayedCall(delay,function(){revealText(txtAR[3]);});TweenLite.delayedCall(delay,function(){showOfferLines();});delay+=1.75;TweenLite.delayedCall(delay,function(){hideText(txtAR[3]);});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[4]);});delay+=1.75;TweenLite.delayedCall(delay,function(){hideText(txtAR[4]);});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[5]);});delay+=1.75;TweenLite.to("#offer_lines",0.25,{autoAlpha:0,delay:delay});TweenLite.delayedCall(delay,function(){hideText(txtAR[5]);});delay+=0.25;TweenLite.delayedCall(delay,function(){revealText(txtAR[6]);});delay+=0.25;TweenLite.delayedCall(delay,function(){playBoxes();});delay+=0.25;var tagParts=gEL("#end_tag").childNodes;for(var a=tagParts.length-1;a>=0;a--){var child=tagParts[a];if(child.tagName==="path"){TweenLite.to(child,0.08,{strokeDashoffset:0,delay:delay,ease:Linear.easeNone});delay+=0.08;}}
+TweenLite.to("#end_arrow_1",0.75,{strokeDashoffset:0,delay:delay,ease:Quad.easeInOut});TweenLite.to("#end_arrow_2",0.25,{strokeDashoffset:0,delay:delay+0.75,ease:Quad.easeInOut});delay+=1;console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var waveBodyFrames;var waveArm1Paths;function resetWave(){waveBodyFrames=[{x:52,y:33}];waveArm1Paths=getSVGPaths("#wave_arm1","bags_leg");TweenLite.set(waveArm1Paths[0],{morphSVG:waveArm1Paths[1]});TweenLite.set(".wave_leg",{autoAlpha:1});TweenLite.set("#wave",{scale:0.75,x:284,y:0,rotation:-38});TweenLite.set("#wave_body",{x:waveBodyFrames[0].x,y:waveBodyFrames[0].y});}
+function playWave(){var delay=0;var aniTime=0.4;var ease=Quad.easeInOut;var loops=5;for(var a=1;a<=loops;a++){for(var b=0;b<=1;b++){TweenLite.to(waveArm1Paths[0],aniTime,{morphSVG:waveArm1Paths[b],delay:delay,ease:ease});delay+=aniTime;}}}
+var bagsBodyFrames;var bagsBag1Frames;var bagsBag2Frames;var bagsArm1Paths=[];var bagsArm2Paths=[];var bagsLeg1Paths=[];var bagsLeg2Paths=[];var bagsStartFrame=3;function resetBags(){bagsBodyFrames=[{x:240,y:44},{x:184,y:28},{x:140,y:39},{x:95,y:27},{x:53,y:34},{x:53,y:40},{x:53,y:34},{x:53,y:40},{x:53,y:34}];bagsBag1Frames=[{x:219,y:132},{x:163,y:117},{x:119,y:130},{x:74,y:116},{x:32,y:122},{x:24,y:126},{x:32,y:122},{x:24,y:126},{x:32,y:122},];bagsBag2Frames=[{x:323,y:143},{x:267,y:128},{x:223,y:141},{x:178,y:127},{x:136,y:133},{x:144,y:137},{x:136,y:133},{x:144,y:137},{x:136,y:133},];bagsArm1Paths=getSVGPaths("#bags_arm1","bags_leg");bagsArm2Paths=getSVGPaths("#bags_arm2","bags_leg");bagsLeg1Paths=getSVGPaths("#bags_leg1","bags_leg");bagsLeg2Paths=getSVGPaths("#bags_leg2","bags_leg");TweenLite.set("#bags",{scale:0.64,x:256,y:20});TweenLite.set("#bags_body",{x:bagsBodyFrames[bagsStartFrame].x,y:bagsBodyFrames[0].y});TweenLite.set("#bags_bag1",{x:bagsBag1Frames[bagsStartFrame].x,y:bagsBag1Frames[0].y});TweenLite.set("#bags_bag2",{x:bagsBag2Frames[bagsStartFrame].x,y:bagsBag2Frames[0].y});TweenLite.set("#bags_shadow",{scale:1,x:bagsBodyFrames[bagsStartFrame].x-50,y:242});}
+function playBags(){var aniTime=0.28;var ease=Linear.easeNone;var delay=0;var startFrameNum=0;var lastFrameNum=3;var startLoop=0;var endLoop=4;var loopW=188;var loopX;for(var c=startLoop;c<=endLoop;c++){loopX=c*loopW;if(c===startLoop){startFrameNum=bagsStartFrame;}else{startFrameNum=0;}
+for(var a=startFrameNum;a<=lastFrameNum;a++){TweenLite.to("#bags_body",aniTime,{x:bagsBodyFrames[a].x-loopX,y:bagsBodyFrames[a].y,delay:delay,ease:ease});TweenLite.to("#bags_shadow",aniTime,{x:bagsBodyFrames[a].x-50-loopX,delay:delay,ease:ease});TweenLite.to("#bags_bag1",aniTime,{x:bagsBag1Frames[a].x-loopX,y:bagsBag1Frames[a].y,delay:delay,ease:ease});TweenLite.to("#bags_bag2",aniTime,{x:bagsBag2Frames[a].x-loopX,y:bagsBag2Frames[a].y,delay:delay,ease:ease});if(bagsArm1Paths[a]){TweenLite.to(bagsArm1Paths[0],aniTime,{x:-loopX,morphSVG:bagsArm1Paths[a],delay:delay,ease:ease});}
+if(bagsArm2Paths[a]){TweenLite.to(bagsArm2Paths[0],aniTime,{x:-loopX,morphSVG:bagsArm2Paths[a],delay:delay,ease:ease});}
+if(bagsLeg1Paths[a]){TweenLite.to(bagsLeg1Paths[0],aniTime,{x:-loopX,morphSVG:bagsLeg1Paths[a],delay:delay,ease:ease});}
+if(bagsLeg2Paths[a]){TweenLite.to(bagsLeg2Paths[0],aniTime,{x:-loopX,morphSVG:bagsLeg2Paths[a],delay:delay,ease:ease});}
+delay+=aniTime;}}}
+function showOfferLines(){var lineParts=gEL("#offer_lines").childNodes;var delay=0;for(var a=lineParts.length-1;a>=0;a--){var child=lineParts[a];if(child.tagName==="path"){TweenLite.to(child,0.2,{strokeDashoffset:0,delay:delay,ease:Linear.easeNone});delay+=0.2;}}}
+var boxesArm1Paths=[];var boxesLeg1Paths=[];var boxesLeg2Paths=[];var boxFrames;var boxesBodyFrames;var boxesShadowX=-52;var boxesLoopX;var boxesRotation=[-6,2,-8,3,-3];function resetBoxes(){boxFrames=[{x:70,y:6},{x:51,y:13},{x:38,y:5},{x:22,y:15},{x:24,y:15},{x:21,y:15}];boxesBodyFrames=[{x:96,y:59},{x:79,y:66},{x:65,y:58},{x:51,y:67},{x:53,y:67},{x:49,y:67}];boxesArm1Paths=getSVGPaths("#boxes_arm1","boxes_leg");boxesLeg1Paths=getSVGPaths("#boxes_leg1","boxes_leg");boxesLeg2Paths=getSVGPaths("#boxes_leg2","boxes_leg");TweenLite.set("#boxes",{scale:1.25,x:240,y:0});TweenLite.set("#boxes_body",{x:boxesBodyFrames[0].x,y:boxesBodyFrames[0].y});TweenLite.set("#boxes_box",{x:boxFrames[0].x,y:boxFrames[0].y});TweenLite.set("#boxes_shadow",{scale:0.6,x:boxesBodyFrames[0].x+boxesShadowX,y:141});}
+function playBoxes(){var aniTime=0.25;var delay=0;var ease=Power0.easeInOut;var lastFrameNum=4;var loopW=-66;var startLoop=0;var endLoop=1;for(var b=startLoop;b<=endLoop;b++){boxesLoopX=b*loopW;for(var a=0;a<lastFrameNum;a++){if(b===endLoop&&a===lastFrameNum-1){aniTime=0.3;ease=Quad.easeOut;}
+var rotation=randRange(2,-5);TweenLite.to("#boxes_body",aniTime,{x:boxesBodyFrames[a].x+boxesLoopX,y:boxesBodyFrames[a].y,delay:delay,ease:ease});TweenLite.to("#boxes_box",aniTime,{x:boxFrames[a].x+boxesLoopX,y:boxFrames[a].y,rotation:rotation,delay:delay,ease:ease});TweenLite.to("#boxes_shadow",aniTime,{x:boxesBodyFrames[a].x+boxesShadowX+boxesLoopX,delay:delay,ease:ease});TweenLite.to(boxesArm1Paths[0],aniTime,{x:boxesLoopX,morphSVG:boxesArm1Paths[a],delay:delay,ease:ease});TweenLite.to(boxesLeg1Paths[0],aniTime,{x:boxesLoopX,morphSVG:boxesLeg1Paths[a],delay:delay,ease:ease});TweenLite.to(boxesLeg2Paths[0],aniTime,{x:boxesLoopX,morphSVG:boxesLeg2Paths[a],delay:delay,ease:ease});delay+=aniTime;}}
+TweenLite.delayedCall(delay,playBalance);}
+function playBalance(){var aniTime=0.75;var delay=0;var ease=Quad.easeInOut;var firstFrameNum=3;for(var a in boxesRotation){var rotation=boxesRotation[a];var franeNum=firstFrameNum+(a%3);TweenLite.to("#boxes_body",aniTime,{x:boxesBodyFrames[franeNum].x+boxesLoopX,y:boxesBodyFrames[franeNum].y,delay:delay,ease:ease});TweenLite.to("#boxes_box",aniTime,{x:boxFrames[franeNum].x+boxesLoopX,y:boxFrames[franeNum].y,rotation:rotation,delay:delay,ease:ease});TweenLite.to("#boxes_shadow",aniTime,{x:boxesBodyFrames[franeNum].x+boxesShadowX+boxesLoopX,delay:delay,ease:ease});TweenLite.to(boxesArm1Paths[0],aniTime,{x:boxesLoopX,morphSVG:boxesArm1Paths[franeNum],delay:delay,ease:ease});TweenLite.to(boxesLeg1Paths[0],aniTime,{x:boxesLoopX,morphSVG:boxesLeg1Paths[franeNum],delay:delay,ease:ease});TweenLite.to(boxesLeg2Paths[0],aniTime,{x:boxesLoopX,morphSVG:boxesLeg2Paths[franeNum],delay:delay,ease:ease});delay+=aniTime;}}
+function getSVGPaths(el,className){var paths=[];var nodes=gEL(el).childNodes;for(var a in nodes){var path=nodes[a];if(path.classList&&path.classList.value.indexOf(className)!==-1){paths.push(path);}}
+TweenLite.set(paths[0],{autoAlpha:1,morphSVG:paths[0]});return paths;}
+var canvasScale=2;var canvasWidth;var canvasHeight;var txtAR;function resetReveal(){canvasWidth=bannerWidth*canvasScale;canvasHeight=bannerHeight*canvasScale;txtAR=[];txtAR[1]=initText("txt1");txtAR[1].boxes=[[19,23,191,26]];txtAR[2]=initText("txt2");txtAR[2].boxes=[[18,23,127,31],[18,54,139,25]];txtAR[3]=initText("offer1");txtAR[3].boxes=[[45,53,210,92]];txtAR[4]=initText("offer2");txtAR[4].boxes=[[45,53,210,92]];txtAR[5]=initText("offer3");txtAR[5].boxes=[[45,53,210,92]];txtAR[6]=initText("end");txtAR[6].boxes=[[19,25,76,30],[19,59,152,34]];}
+function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}
+function revealText(txtOb,doAnimate=true){var el=gEL(txtOb.id);el.innerHTML="";el.classList="adsize";var renderCanvas=document.createElement("canvas");renderCanvas.setAttribute("class","adsize");renderCanvas.width=canvasWidth;renderCanvas.height=canvasHeight;var renderContext=renderCanvas.getContext("2d");el.appendChild(renderCanvas);txtOb.canvas=renderCanvas;txtOb.context=renderContext;txtOb.renderAR=[];var delay=0;for(var a in txtOb.boxes){var imgOb={};imgOb.srcRect=txtOb.boxes[a];for(var a in imgOb.srcRect){imgOb.srcRect[a]=imgOb.srcRect[a]*canvasScale;}
+if(doAnimate){imgOb.y=imgOb.srcRect[1]-imgOb.srcRect[3];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1],ease:Power3.easeOut,delay});delay+=0.15;}else{imgOb.y=imgOb.srcRect[1];}
+txtOb.renderAR.push(imgOb);}
+onRenderRevealText(txtOb);if(doAnimate){TweenLite.to(this,1+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb]});}}
+function onRenderRevealText(txtOb){txtOb.context.clearRect(0,0,canvasWidth,canvasHeight);for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];txtOb.context.save();txtOb.context.beginPath();txtOb.context.rect(imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.clip();txtOb.context.drawImage(txtOb.img,imgOb.srcRect[0],imgOb.srcRect[1],imgOb.srcRect[2],imgOb.srcRect[3],imgOb.srcRect[0],imgOb.y,imgOb.srcRect[2],imgOb.srcRect[3]);txtOb.context.restore();}}
+function hideText(txtOb){var delay=0;for(var a in txtOb.renderAR){var imgOb=txtOb.renderAR[a];TweenLite.to(imgOb,0.3,{y:imgOb.srcRect[1]+imgOb.srcRect[3],ease:Power3.easeOut,delay});}
+TweenLite.to(this,0.3+delay,{onUpdate:onRenderRevealText,onUpdateParams:[txtOb],onComplete:rEL,onCompleteParams:[txtOb.canvas]});}
+function gEL(id){return document.querySelector(id);}
+function rEL(el){el.parentElement.removeChild(el);}
+function ab(){return Math.random()<0.5?-1:1;}
+function isEven(n){return n%2==0;}
+function randRange(min,max){return Math.floor(window.Math.seedRandom()*(max-min+1))+min;}
+window.Math.seed=6;window.Math.seedRandom=function(max,min){max=max||1;min=min||0;Math.seed=(Math.seed*9301+49297)%233280;var rnd=Math.seed/233280;return min+rnd*(max-min);};function reverseTween(){this.reverse();}
+function restartTween(){this.restart();}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff}div,canvas,svg{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none}#banner{overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer;background-color:#6ba3da}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:250px;left:0;top:0;transform-origin:0 0}.anisize{width:300px;height:250px;left:0;top:0;transform-origin:0 0}#logo{background-image:url("img_logo.png")}#txt1{background-image:url("img_txt1.png")}#txt2{background-image:url("img_txt2.png")}#offer1{background-image:url("img_offer1.png")}#offer2{background-image:url("img_offer2.png")}#offer3{background-image:url("img_offer3.png")}#end{background-image:url("img_end.png")}.line{stroke:#2e6baf;stroke-width:1.5;stroke-linejoin:round;stroke-linecap:round;fill:none}.line2{stroke-width:2.5}.sey_shadow{width:150px;height:9px;left:0;top:0;background-image:url("img_shadow.png");transform-origin:0 0}.overflow{overflow:visible}#wave{width:380px;height:250px;transform-origin:0 100%}.wave_leg{visibility:visible}#boxes{width:150px;height:150px;left:0;top:0}#boxes_box{width:72px;height:104px;left:0;top:0;background-image:url("img_boxes_box.png");transform-origin:33px 95px}#boxes_box_line1{width:91px;height:104px;left:-6px;top:0;background-image:url("img_boxes_line1.png");transform-origin:50% 50%}#boxes_box_line2{width:91px;height:104px;left:-6px;top:0;background-image:url("img_boxes_line2.png");transform-origin:50% 50%}#boxes_body{width:43px;height:43px;left:0;top:0;background-image:url("img_boxes_body.png")}.boxes_leg{stroke:#0031a0;stroke-width:5;stroke-linejoin:miter;stroke-linecap:round;stroke-miterlimit:4;fill:none;visibility:hidden}.walk_body{width:112px;height:112px;left:0;top:0;background-image:url("img_walk_body.png")}.walk_body_lines{width:112px;height:40px;left:0;top:-40px;background-image:url("img_walk_body_lines.png")}.bags_leg{stroke:#0031a0;stroke-width:12;stroke-linejoin:miter;stroke-linecap:round;stroke-miterlimit:4;fill:none;visibility:hidden}.bags_bag{width:40px;height:51px;left:0;top:0;background-image:url("img_bags_bag.png")}#end_tag{width:96px;height:58px;left:21px;top:116px}#end_arrow{width:124px;height:60px;left:0;top:0;transform-origin:50% 50%}#cta{width:120px;height:28px;left:22px;top:196px;border-radius:50px;border:1px solid #fff;border-radius:50px;background-image:url("img_cta.png");transform-origin:0 0;pointer-events:all;cursor:pointer;background-color:#fff}#cta:hover{background-position:0 -28px;background-color:#001d9b}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=txt1 class=adsize></div>
+<div id=txt2 class=adsize></div>
+<div id=offer1 class=adsize></div>
+<div id=offer2 class=adsize></div>
+<div id=offer3 class=adsize></div>
+<div id=end class=adsize></div>
+<svg id=offer_lines width=300 height=250>
+<path d="M249.45 148.7q3.4.75 6.75 1.5 2.25.5 4.6 1.2 1.4.5 2.85.8.8.25 1.65.45 1.05.4 2.15.4 1.3 0 1.9.5" class=line />
+<path d="M246.1 153.2q4.8 3.5 9.3 6.5" class=line />
+<path d="M51.45 157.55q-1.7 1.8-7.85 7.15-.15.2-.4.35" class=line />
+<path d="M46.6 150.45Q43 152 39.55 153.5q-2.65 1.15-4.6 2.55" class=line />
+<path d="M264 52q4-2.65 8.25-4.2.9-.4 1.95-.9.3-.15.6-.3 1.3-.6 2.35-1.35" class=line />
+<path d="M261 44.5q2.05-3.6 4.15-7.15.2-.35.35-.75" class=line />
+<path d="M45 53.1q-2.55-3-4.55-6.3-1.35-2.25-2.2-4.55" class=line />
+<path d="M40.15 58.35q-4-5.3-9.6-7.8-.7-.2-1.35-.75-.3-.2-.7-.5-.15-.1-.35-.3" class=line />
+</svg>
+<div id=wave>
+<svg id=wave_parts class=overflow width=380 height=250>
+<path d="M145.6 242.15q-10.45-30.5-15.1-53.7-4.4-21.95-5.8-48.6" class="bags_leg wave_leg" />
+<path d="M74.15 242.15q1.75-29.25 6.75-54.4 5.4-27.25 14.15-46.8" class="bags_leg wave_leg" />
+<path d="M157.6 97.45q21.8 15 23.45 32 1.4 14.3-11.55 30.55" class="bags_leg wave_leg" />
+</svg>
+<svg id=wave_arm1 class=overflow width=380 height=250>
+<path d="M28.9 20.95q-4.9 10.9-5.15 21.1-.25 9.5 3.5 17.35 4.35 9.1 13.1 13.95 8.75 4.9 19.55 4.15" class=bags_leg />
+<path d="M61.1 12.85q-9.7 7-15.05 15.7-4.95 8.15-5.6 16.75-.75 10.05 4.35 18.65 5.15 8.7 14.9 13.45" class=bags_leg />
+</svg>
+<div id=wave_body class=walk_body><div class=walk_body_lines></div></div>
+</div>
+<div id=bags class=bags>
+<div id=bags_shadow class=sey_shadow></div>
+<svg id=bags_leg1 class=overflow width=380 height=250>
+<path d="M259.8 238.9q-9.5-24.55-5.4-51.2 4.6-31.05 26.95-52.85" class=bags_leg />
+<path d="M258.8 238.9q-13.9-33.35-21.25-53-13.3-35.5-15.55-57.9" class=bags_leg />
+<path d="M258.8 238.9q-11.65-14.85-48.8-55.5-32.55-35.6-43.65-52" class=bags_leg />
+<path d="M122 203q-19.75-18.5-16.85-37.65 3-20.1 30.45-35.95" class=bags_leg />
+<path d="M74.15 242.15q1.75-29.25 6.75-54.4 5.4-27.25 14.15-46.8" class=bags_leg />
+<path d="M74.15 242.15q-5.2-31.55-2-51.75 4.1-25.8 22.9-49.45" class=bags_leg />
+</svg>
+<svg id=bags_leg2 class=overflow width=380 height=250>
+<path d="M333.35 238.9q-15.7-25.9-23.45-50.7-7.5-23.95-8.95-51.2" class=bags_leg />
+<path d="M260.75 201.4q-32.75-16-36.05-33.25-3.3-17.15 22.05-38.35" class=bags_leg />
+<path d="M158 239q.3-14.75 5.55-28.65 4.15-10.9 12.6-23.75 10.15-14.6 15.15-21.95 8.9-13.1 13.45-23.25" class=bags_leg />
+<path d="M158.35 241q.3-16.8-2.15-62.1-2.1-36.55.15-55.5" class=bags_leg />
+<path d="M145.6 242.15q-10.45-30.5-15.1-53.7-4.4-21.95-5.8-48.6" class=bags_leg />
+<path d="M145.6 242.15q-19.05-25.45-23.7-48.5-4.55-22.7 2.8-53.8" class=bags_leg />
+</svg>
+<div id=bags_bag1 class=bags_bag></div>
+<div id=bags_bag2 class=bags_bag></div>
+<svg id=bags_arm1 class=overflow width=380 height=250>
+<path d="M243.5 103.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=bags_leg />
+<path d="M187.5 88.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=bags_leg />
+<path d="M143.5 98.5q-15.1 11-22.3 22.25-14.35 22.55 25.3 23.75" class=bags_leg />
+<path d="M98.5 87.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=bags_leg />
+<path d="M56.5 93.5q-15.1 10.25-22.3 20.75-14.35 21.05 25.3 22.25" class=bags_leg />
+<path d="M56.5 93.5q-8.55 8.55-24.1 8.15-15.45-.45-24.9-9.15" class=bags_leg />
+<path d="M39.9 16.25q-2.3 2.95-4.8 7.7-5.1 9.5-6.25 18.4Q25.1 70.65 62.05 82" class=bags_leg />
+<path d="M20.7 19.7q-1.15 2.4-1.95 6.35-1.65 7.95.1 15.8 5.7 25.2 43.2 40.15" class=bags_leg />
+</svg>
+<svg id=bags_arm2 class=overflow width=380 height=250>
+<path d="M341.05 106.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=bags_leg />
+<path d="M285.05 91.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=bags_leg />
+<path d="M241.05 101.15l8.65 8.5q9.5 10.15 13.9 18.6 13.9 26.95-29.1 26.25" class=bags_leg />
+<path d="M196.05 90.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=bags_leg />
+<path d="M154.05 96.15l8.7 8.05q9.65 9.65 14.05 17.6 14.15 25.5-28.85 24.8" class=bags_leg />
+<path d="M154.05 96.15q15.2 7.85 28.75 7.2 12.45-.65 27.7-8.85" class=bags_leg />
+<path d="M181.95 21.75l4.85 7.7q5.1 9.5 6.25 18.4 3.7 28.3-33.25 39.7" class=bags_leg />
+<path d="M191.5 19.5q4 5.25 5.55 12.85 1.8 8.85-.5 17.75-6.05 23.15-36.75 37.45" class=bags_leg />
+</svg>
+<div id=bags_body class=walk_body><div class=walk_body_lines></div></div>
+</div>
+<div id=boxes class=adsize>
+<div id=boxes_shadow class=sey_shadow></div>
+<svg id=boxes_arm1 class=overflow width=150 height=150>
+<path d="M103.15 103.6q5.4 4.4 11.85 4.55 5.8.1 11.1-3.2 5.1-3.2 7.85-8.45 2.85-5.45 2.05-11.15" class=boxes_leg />
+<path d="M85 111.1q5.45 4.8 12.05 5.05 5.95.2 11.5-3.3 5.35-3.4 8.55-9 3.3-5.8 3-11.9" class=boxes_leg />
+<path d="M71.2 102.25q5.5 4.85 11.85 5.3 5.8.45 11.1-2.85 5.15-3.15 8.2-8.75 3.15-5.8 3.05-12.4" class=boxes_leg />
+<path d="M54.85 112.45q5.6 4 12.35 3.85 6.2-.15 11.95-3.65 5.55-3.35 8.7-8.65 3.35-5.5 2.85-11.15" class=boxes_leg />
+<path d="M57.35 112.45q17.6 5.85 27.75-.9 9.2-6.1 8.1-18.7" class=boxes_leg />
+<path d="M53.6 112.45q5.6 4 12.35 3.85 6.2-.15 11.95-3.65 5.55-3.35 8.7-8.65 3.35-5.5 2.85-11.15" class=boxes_leg />
+</svg>
+<svg id=boxes_leg1 class=overflow width=150 height=150>
+<path d="M124.5 142q-4.8-12.4-7.35-20.2-4.25-13.3-5.15-22.05" class=boxes_leg />
+<path d="M124.45 142q-4.35-5.55-18.3-20.8-12.2-13.35-16.35-19.5" class=boxes_leg />
+<path d="M67.6 126q-6.1-9.7-4.75-16.55 1.5-7.8 12.85-14.65" class=boxes_leg />
+<path d="M58.5 142q-3.6-9.2-2.05-19.2 1.75-11.6 10.1-19.8" class=boxes_leg />
+<path d="M58.5 142q-4.4-10.9-2.85-19.5 2-11.4 14.4-18" class=boxes_leg />
+<path d="M58.5 142q-5.25-9.4-4.35-20.05Q55.2 109.8 64.3 103" class=boxes_leg />
+</svg>
+<svg id=boxes_leg2 class=overflow width=150 height=150>
+<path d="M125.2 127.95q-10.05-7.05-10.7-12.4-.35-2.7 1.15-6.3 1.1-2.8 4.3-8.15" class=boxes_leg />
+<path d="M86.8 142.8q.2-9.6 6.7-20 3.8-5.7 5.7-8.55 3.3-5 5-8.8" class=boxes_leg />
+<path d="M88.6 142.8q.1-6.3-.8-23.3-.8-13.7.05-20.8" class=boxes_leg />
+<path d="M86.05 142q-5.9-9.7-8.8-19-2.8-8.95-3.35-19.2" class=boxes_leg />
+<path d="M86.05 142q-7.65-9.3-9.15-19.5-1-6.85.75-18.7" class=boxes_leg />
+<path d="M86.05 142q-7.55-8.75-11-18.75-2.8-8.25-3.4-19.45" class=boxes_leg />
+</svg>
+<div id=boxes_body></div>
+<div id=boxes_box>
+<div id=boxes_box_line1></div>
+<div id=boxes_box_line2></div>
+</div>
+</div>
+<svg id=end_tag width=96 height=58>
+<path d="M93.25 40.8l-1.4 1.25" class=line />
+<path d="M93.7 25.2q-.1 1.95-.15 3.9 0 1.85 0 3.75-.05 1.95.2 3.95" class=line />
+<path d="M89 36.2q1-.6.8-1.7 0-.1 0-.2-1.8-1.35-3.95-.65-.3.45-.55.9.95 2 2.2 3.7.3.35.4.9.4 1.65-1 2.45-1.4.25-2.4-.45" class=line />
+<path d="M81.75 35.55q-.25-.7-1.25-.7-1.9 0-2.5 1.95-.6 1.9-.3 3.75.05.4.2.8l1.6.1q.5-.35.95-.75.6-.45.85-1.05.4-1.15.7-2.3.1-.3.15-.55-.3 2.95-.7 5.75-.5 3.8-1.3 7.45-.45 2.05-1.3 4-1 2.15-3.05 1-.6-.35-1.05-.9-.45-.55-.75-1.1-.4-.95-.75-1.9" class=line />
+<path d="M68.75 34.55l-.85 7.05q.7-1.2 1.75-2.4.75-.85 1.45-1.7.5-.5 1.15-.85.45-.25 1-.35.6.35.65.9 0 .25.1.55.35 1.3.75 2.6.2.55.35 1.1.15.45.4.45" class=line />
+<path d="M65.75 29.1l-.05 1.15.6.4" class=line />
+<path d="M64.7 33.45q-.05 1.95-.1 3.9 0 .8 0 1.65 0 1.35.25 2.55l.05-.2q.05-.15.15-.25" class=line />
+<path d="M57.15 35.5q-.05 1.75.15 3.75.15 1.25 1.1 2.15 1.05-.8 1.55-2.15.6-1.65 1.3-3.25.45-1.1.85-2.25.1-.3.2-.6" class=line />
+<path d="M53.35 35.25q-.1-.35-.25-.6-.15-.3-.4-.5-1.25-.35-2 .5-.65.7-1.2 1.5-1.4 1.9-1.25 4.2.05.35.2.9.05.2.2.45 1.85.3 2.85-1.35.4-.65.7-1.3.5-1.25.9-2.55 0 1.45.2 2.9.1.85.4 1.7.15.3.65.3.4 0 .85.05" class=line />
+<path d="M45.9 36.35q1.05-.3 1-1.55 0-.1 0-.15-1.55-1.5-3.75-1-.2.25-.35.55-.1.2-.15.5.55 1.6 1.6 2.9.65.85.75 2 .05.7-.25 1.35-.6.7-1.7.6-.95-.05-1.65-.6" class=line />
+<path d="M26.65 35.65l-.2 6.25q.2-1.05.5-2.05.35-1.05.85-1.95.15-.35.35-.6.7-.75 1.35-1.55.95-1.2 2.45-.7.3.05.6.3" class=line />
+<path d="M17.75 33.95q0 1.95.2 3.95.1 1.15.45 2.25 0 .1.15.15.3 0 .55-.05.85-.55 1.5-1.3.65-.65 1.05-1.5.55-1.3.65-2.9.2 1.35.45 2.75.35 2 .55 3.95.05.3.15.65" class=line />
+<path d="M13.3 34.85q-1.8.1-2.6 1.7-.45.85-.7 2.2-.4 1.85.8 3 .85.35 1.85.05.5-.1.9-.35 1.9-1.4 1.6-3.7-.1-1.05-.3-2.05-.05-.4-.2-.7l-1.35-.15z" class=line />
+<path d="M8.3 34.25q-.05.15-.1.45l-.05.1q-.3 1.45-.6 2.9-.35 1.4-.6 2.85-.3 1.75-.5 3.5-.2 1.9-.45 3.8-.2 1.65-.15 3.4 0 .15.05.35M2.7 34.15q-.8 1.85-.55 3.9.05.45.15.95.05.5.7.95.45.3 1.1 0 3-1.65 4.05-5.15" class=line />
+<path d="M71.35 14.35q1.15-.55 2.5-.65 1.9-.3 3.8-.6.55-.1 1.15-.15" class=line />
+<path d="M75.05 3q-.25 1.9-.3 3.6-.1 1.8-.2 3.6-.1 1.25-.1 2.55-.05 1.55 0 3.15.05 1.65.15 3.35.05.65.2 1.35" class=line />
+<path d="M64.2 12.95q-.05 1.6-.05 3.2 0 1.3.1 2.6 0 .3.15.55.25 0 .5-.05.5-.3.9-.7.65-.75 1.1-1.55.95-1.5 1.6-3.3.05.25.1.65.45 2.8 1.25 5.55.05.1.1.25" class=line />
+<path d="M60.15 13.7q-2.05-.15-3.05 1.55-.35.55-.6 1.15-.25.8-.35 1.7-.1.8-.05 1.65.4.55 1.15.55 1.7.2 2.8-.95.6-.65 1.05-1.35.65-.9.5-1.95-.1-.7-.35-1.3-.15-.4-.5-.55-.25-.1-.5-.1" class=line />
+<path d="M45.2 13q-.75 1.1-1.8 2.05-1.05.85-2.05 1.85-1.3 1.3-2.25 2.75-.4.6-.8 1.2" class=line />
+<path d="M39.65 13.8q1.05 1.1 2.25 2.15.85.8 1.7 1.65 1.3 1.25 2.2 2.75" class=line />
+<path d="M34.65 14.4q-.05-.6-.2-1.15-.05-.2-.2-.35l-1.7-.05q-2.2 1.95-2.8 5.2-.2 1 .2 2.15.75.1 1.6 0 .8-.25 1.15-.9.35-.75.75-1.45.55-1.05 1.05-2.1.05 1.65.2 3.3 0 .3.15.65.3.15.65.25.2.1.5.15" class=line />
+<path d="M16.7 19.6q.05-1.8.05-3.55.05-1.95 0-3.9 0-1.75 0-3.45.3.7.7 1.4.7 1.2 1.5 2.45.8 1.2 1.65 2.4l4.6-7.4q.15 1.15.25 2.35.2 2 .4 4.05.1.8.2 1.65.35 2.8.4 5.4l.65-1.65" class=line />
+</svg>
+<svg id=end_arrow viewBox="0 0 124 60">
+<path id=end_arrow_1 class="line line2" d="M2.88 58.66c-2.56-9-3-28 11.78-45.54 17.58-20.93 37.8-7.2 37.8-7.2s10.42 4.16 12.6 19.93-4.3 24.47-9.88 27.23c-11.05 5.54-25.12-11.37-7-35.14 15.87-20.86 35.95-11.3 43.5-6.62 15.57 9.67 26.12 32.6 26.12 32.6" />
+<path id=end_arrow_2 class="line line2" d="M121.74 28.53c-3 8.5-2.6 18.37-2.85 19.12-.9 2.82-3.94-3.14-15.6-8.83" />
+</svg>
+<div id=logo class=adsize></div>
+<div id=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

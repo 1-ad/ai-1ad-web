@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x250->600x250</title>
+<meta name=ad.size content="width=300,height=250">
+<meta name=format-detection content="telephone=no">
+<meta charset=UTF-8>
+<script src=https://s0.2mdn.net/ads/studio/Enabler.js></script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div{position:absolute;background-repeat:no-repeat;background-size:100% 100%;left:0;top:0;width:300px;height:250px;pointer-events:none}img{position:absolute}#wrapper{width:900px;opacity:0}#banner{width:900px;background-color:#fff;opacity:0}</style>
+<script>if(Enabler.isInitialized()){init()}else{Enabler.addEventListener(studio.events.StudioEvent.INIT,init)}function init(){Enabler.setExpandingPixelOffsets(300,0,900,250);Enabler.setStartExpanded(false);Enabler.setIsMultiDirectional(true);if(Enabler.isPageLoaded()){politeInit()}else{Enabler.addEventListener(studio.events.StudioEvent.PAGE_LOADED,politeInit())}}function politeInit(){Enabler.loadScript("banner.js",function(){});var a=document.createElement("link");a.setAttribute("rel","stylesheet");a.setAttribute("type","text/css");a.setAttribute("href",Enabler.getUrl("banner.css"));document.getElementsByTagName("head")[0].appendChild(a);var b=document.createElement("link");b.setAttribute("rel","stylesheet");b.setAttribute("type","text/css");b.setAttribute("href",Enabler.getUrl("https://fonts.googleapis.com/css?family=Oswald:300,400"));document.getElementsByTagName("head")[0].appendChild(b)};</script>
+</head>
+<body>
+<div id=wrapper>
+<div id=loader>
+</div>
+<div id=banner>
+<div id=expand class="expand expand_close">
+<div id=expand_video class=expand_video>
+<video id=expand_video_player playsinline>
+<source id=expand_video_player_mp4 src type=video/mp4 />
+</video>
+</div>
+<div id=expand_video_loader></div>
+<div id=expand_video_play class=expand_video_playpause></div>
+<div id=expand_video_pause class=expand_video_playpause></div>
+<div id=expand_video_progress>
+<div id=expand_video_progress_loaded></div>
+<div id=expand_video_progress_scrubber></div>
+</div>
+<div id=expand_video_time>0:00</div>
+<div id=expand_poster>
+<div id=expand_poster_image></div>
+<div id=expand_poster_text></div>
+<div id=expand_poster_play>
+<div id=expand_poster_play_btn></div>
+</div>
+</div>
+<div id=expand_closebtn></div>
+</div>
+<div id=collapse class="collapse collapse_close">
+<img alt id=collapse_bkgrnd class="collapse collapse_bkgrnd_pos1" src=collapse_bkgrnd.png />
+<div id=collapse_footer class=collapse_footer_pos0>
+<div id=collapse_footer_bar></div>
+</div>
+<div id=collapse1 class=collapse>
+<img alt id=collapse1_text1a class=collapse1_text1a_pos0 src=collapse1_text1a.png />
+<img alt id=collapse1_text1b class=collapse1_text1b_pos0 src=collapse1_text1b.png />
+<img alt id=collapse1_text2a class="collapse1_text1a_pos1 fadeout" src=collapse1_text2a.png />
+<img alt id=collapse1_text2b class="collapse1_text1b_pos1 fadeout" src=collapse1_text2b.png />
+<img alt id=collapse1_text3 class=collapse1_text3_pos0 src=collapse1_text3.png />
+<img alt id=collapse1_text4 class=fadeout src=collapse1_text4.png />
+<div id=collapse1_cta class=collapse1_cta_pos0>
+<div id=collapse1_cta3 class="collapse1_cta cta_ani cta1"></div>
+<div id=collapse1_cta2 class="collapse1_cta cta_ani cta2"></div>
+<div id=collapse1_cta1 class="collapse1_cta cta_ani cta3"></div>
+<div id=collapse1_cta_btn class=collapse1_cta></div>
+</div>
+</div>
+<div id=collapse2 class=collapse>
+<img alt id=collapse2_logos class=collapse2_logos_pos0 src=collapse2_logos.png />
+<div id=collapse2_biosimilars></div>
+<div id=collapse2_genentech></div>
+<img alt id=collapse2_text1 class="collapse collapse2_text_pos0" src=collapse2_text1.png />
+<img alt id=collapse2_text2 class="collapse fadeout" src=collapse2_text2.png />
+<img alt id=collapse2_text3 class="collapse collapse2_text_pos0" src=collapse2_text3.png />
+<img alt id=collapse2_text4 class="collapse fadeout" src=collapse2_text4.png />
+<div id=collapse2_cta class=collapse2_cta_pos0>
+<div id=collapse2_cta3 class="collapse2_cta cta_ani cta1"></div>
+<div id=collapse2_cta2 class="collapse2_cta cta_ani cta2"></div>
+<div id=collapse2_cta1 class="collapse2_cta cta_ani cta3"></div>
+<div id=collapse2_cta_btn class=collapse2_cta></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

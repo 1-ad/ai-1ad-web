@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+<title>300x600</title>
+<meta name=ad.size content="width=300,height=600" />
+<meta name=format-detection content="telephone=no" />
+<meta charset=UTF-8 />
+<script src=ScrambleTextPlugin.min.js></script>
+<script src=TextPlugin.min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
+<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<link href="https://fonts.googleapis.com/css?family=Muli:800" rel=stylesheet />
+<link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel=stylesheet />
+<script>var clickTag="https://www.imperva.com";window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
+function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
+function onBannerClick(e){window.open(clickTag);}
+var adWidth=300;var adHeight=600;var textX=32;var barWidth=44;var ctaWidth=120;var ctaHeight=38;var logoWidth=140;function resetBanner(){initBoxes();initScramble("body");gEL("#body").classList="blur fadeout";TweenLite.set("#bg_white",{y:"100%"});TweenLite.set("#boxes",{y:"0"});TweenLite.set("#logo",{width:"0%",x:logoWidth/2+"px"});TweenLite.set("#logo_img",{x:"-50%"});TweenLite.set("#bar1",{left:adWidth+"px"});TweenLite.set("#bar2",{left:adWidth+44+"px",scaleX:10});TweenLite.set("#cta1",{left:adWidth+"px"});TweenLite.set("#cta2",{left:adWidth+"px",width:ctaWidth*10+"px"});}
+function startAnimation(){var delay=0;TweenLite.delayedCall(delay,showBoxes);delay+=0.75;TweenLite.delayedCall(delay,hideBoxes);delay+=1;TweenLite.delayedCall(delay,blinkCircle);delay+=0.5;TweenLite.to("#boxes",0.5,{x:"-30px",y:"-74px",scale:1.25,delay});TweenLite.to("#bg_white",0.5,{y:"0%",delay});delay+=0.5;TweenLite.to("#logo",0.5,{width:logoWidth+"px",x:"0%",delay});TweenLite.to("#logo_img",0.5,{x:"0%",delay});delay+=0.5;TweenLite.to("#bar1",0.5,{left:textX+"px",delay,ease:Quad.easeInOut});TweenLite.to("#bar2",0.5,{left:textX+barWidth+"px",delay,ease:Quad.easeOut});TweenLite.to("#bar2",0.75,{scaleX:0,delay,ease:Quad.easeOut});delay+=0.5;TweenLite.delayedCall(delay,showTitle);delay+=2;TweenLite.to("#cta1",0.5,{left:textX+"px",delay});TweenLite.to("#cta2",0.5,{left:textX+ctaWidth-ctaHeight+"px",delay,ease:Quad.easeOut});TweenLite.to("#cta2",0.75,{width:ctaHeight+"px",delay,ease:Quad.easeOut});delay+=0.5;TweenLite.delayedCall(delay,function(){gEL("#body").classList="trans500";});TweenLite.to("#body",3,{delay,scrambleText:{chars:"upperAndLowerCase",revealDelay:0.5},onUpdate:fixScramble,onUpdateParams:["body"]});delay+=3;TweenLite.delayedCall(delay,function(){gEL("#cta1").classList="cta btnPulse";});console.log("TOTAL BANNER ANIMATION SECONDS: "+delay);}
+var boxWidth=72;var boxHeight=72;var boxSpaceX=15;var boxSpaceY=15;var cols=Math.ceil(adWidth/boxWidth);var rows=Math.ceil(adHeight/boxHeight)+2;var boxesWidth=(boxWidth-boxSpaceX)*cols;var boxesHeight=(boxHeight-boxSpaceY)*rows;var boxesStartX=(adWidth-boxesWidth)/2-boxSpaceX/2-0;var boxesStartY=(adHeight-boxesHeight)/2-boxSpaceY/2-21;var boxesAR=[];var maxDist=0;function initBoxes(){var boxesHTML="";for(let col=1;col<=cols;col++){for(let row=1;row<=rows;row++){var boxHTML="<div id='box_"+row+"_"+col+"' class='box'><div class='box_black'></div><div class='box_circle'></div></div>";boxesHTML+=boxHTML;}}
+gEL("#boxes").innerHTML=boxesHTML;var centerX=0;var centerY=0;for(let row=1;row<=rows;row++){var boxOnY=boxesStartY+(row-1)*(boxHeight-boxSpaceY);for(let col=1;col<=cols;col++){var boxId="#box_"+row+"_"+col;var width=boxWidth+"px";var height=boxHeight+"px";var boxOnX=boxesStartX+(col-1)*(boxWidth-boxSpaceX);var angleRadians=Math.atan2(centerY-boxOnY,centerX-boxOnX);var dist=Math.round(getDistance(boxOnX,boxOnY,centerX,centerY));TweenLite.set(boxId,{width,height,left:boxOnX,top:boxOnY});var boxSquare=gEL(boxId).getElementsByClassName("box_black");TweenLite.set(boxSquare,{scaleX:0});var boxCircle=gEL(boxId).getElementsByClassName("box_circle");TweenLite.set(boxCircle,{scale:0});var name=row+"_"+col;var boxObj={boxId,boxOnX,boxOnY,dist,boxSquare,boxCircle,name};boxesAR.push(boxObj);}}}
+function showBoxes(){boxesAR=boxesAR.sort(compare);for(var a in boxesAR){var boxObj=boxesAR[a];var delay=(boxObj.dist/100)*0.15;TweenLite.to(boxObj.boxCircle,0.25,{scale:1,delay:delay,ease:Quad.easeInOut});TweenLite.to(boxObj.boxSquare,0.25,{scaleX:1,delay:delay+0.5,ease:Quad.easeInOut});maxDist=Math.max(maxDist,boxObj.dist);}}
+var keepAR=[];keepAR.push("8_4","8_5");keepAR.push("9_3","9_4","9_5");keepAR.push("10_2","10_3","10_4","10_5");function hideBoxes(){for(var a in boxesAR){var boxObj=boxesAR[a];var delay=(boxObj.dist/100)*0.15+0.25;if(!keepAR.includes(boxObj.name)){TweenLite.to(boxObj.boxId,0.5,{scale:0,delay,ease:Quad.easeIn,onComplete:dEL,onCompleteParams:[boxObj.boxId]});}}}
+function blinkCircle(){var cicleEl=gEL("#box_10_4").getElementsByClassName("box_circle");var delay=0;for(let a=1;a<=5;a++){TweenLite.set(cicleEl,{backgroundColor:"#ffd66d",delay});delay+=0.1;TweenLite.set(cicleEl,{backgroundColor:"#fff",delay});delay+=0.1;}
+TweenLite.set(cicleEl,{backgroundColor:"#ffd66d",delay});}
+function showTitle(){var totalTime=2;var line1Txt="Pinpoint the";var line2Txt="real threats to";var line3Txt="your data.";var totalChars=line1Txt.length+line2Txt.length+line3Txt.length;var line1Time=parseFloat((line1Txt.length/totalChars)*totalTime).toFixed(2);var line2Time=parseFloat((line2Txt.length/totalChars)*totalTime).toFixed(2);var line3Time=parseFloat((line3Txt.length/totalChars)*totalTime).toFixed(2);var delay=0.1;TweenLite.to("#title1",line1Time,{text:line1Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line1Time);TweenLite.to("#title2",line2Time,{text:line2Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line2Time);TweenLite.to("#title3",line3Time,{text:line3Txt,ease:Linear.easeNone,delay});}
+var scrambleSpaceChars={};function initScramble(divId){scrambleSpaceChars[divId]=[];var textArr=gEL("#"+divId).innerHTML.split("");for(var a in textArr){if(textArr[a]===" "){scrambleSpaceChars[divId].push(parseInt(a));}}}
+function fixScramble(divId){var text=gEL("#"+divId).innerHTML;for(var a in scrambleSpaceChars[divId]){var index=scrambleSpaceChars[divId][a];text=setCharAt(text,index," ");}
+gEL("#"+divId).innerHTML=text;}
+function gEL(id){return document.querySelector(id);}
+function dEL(id){var el=gEL(id);el.parentElement.removeChild(el);}
+function setCharAt(str,index,chr){if(index>str.length-1)return str;return str.substr(0,index)+chr+str.substr(index+1);}
+function getDistance(x1,y1,x2,y2){var xs=x2-x1;var ys=y2-y1;xs*=xs;ys*=ys;return Math.sqrt(xs+ys);}
+function compare(a,b){if(a.dist<b.dist)return-1;if(a.dist>b.dist)return 1;return 0;}</script>
+<style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{background-color:#285ae6;overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:300px;height:600px;left:0;top:0}#bg_white{width:300px;height:70px;left:0;top:530px;background-color:#fff}#bar1{width:88px;height:24px;left:32px;top:24px;background-color:#fff}#bar2{width:44px;height:24px;left:32px;top:24px;background:#fff;background:linear-gradient(90deg,rgba(255,255,255,1) 0,rgba(255,255,255,0) 100%)}.title{width:auto;height:auto;left:32px;color:#fff;font-size:32px;font-weight:800;text-align:left;font-family:"Muli",sans-serif}#title1{top:80px}#title2{top:120px}#title3{top:160px}#body{width:244px;height:auto;left:32px;top:220px;color:#fff;font-size:14.2px;line-height:24px;font-weight:normal;text-align:left;font-family:"Fira Mono",monospace;letter-spacing:-0.02em}.cta{width:120px;height:38px;left:15px;top:322px;border-radius:20px;background-color:#ffa06e}#cta1{border-radius:20px;background-image:url("img_cta.png");pointer-events:all;cursor:pointer}#cta1:hover{background-color:#fff}#cta2{background:#ffa06e;background:linear-gradient(90deg,rgba(255,160,110,1) 0,rgba(255,160,110,0) 100%)}.btnPulse{animation:btnPulse 1000ms 7}@keyframes btnPulse{0%{box-shadow:0 0 0 0 rgba(255,160,110,0.6)}100%{box-shadow:0 0 0 10px rgba(255,160,110,0)}}#logo{width:140px;height:38px;left:80px;top:547px;overflow:hidden}#logo_img{width:140px;height:38px;left:0;top:0;background-image:url("img_logo.png")}#boxes{transform-origin:0 50%}.box{transform-origin:50% 50%;background-color:rgba(40,90,230,1)}.box_black{width:42px;height:42px;left:15px;top:15px;transform-origin:0 0;background-color:rgba(0,0,0,1)}.box_circle{width:21px;height:21px;left:26px;top:26px;border-radius:10px;transform-origin:50% 50%;background-color:rgba(255,255,255,1)}.fadeout{opacity:0;visibility:hidden}.blur{-webkit-filter:blur(5px);filter:blur(5px)}.trans500{-webkit-transition:all 500ms ease-in-out;-moz-transition:all 500ms ease-in-out;-o-transition:all 500ms ease-in-out;transition:all 500ms ease-in-out}</style>
+</head>
+<body>
+<div id=banner class=adsize>
+<div id=boxes class=adsize></div>
+<div id=bg_white></div>
+<div id=bar1></div>
+<div id=bar2></div>
+<div id=title1 class=title></div>
+<div id=title2 class=title></div>
+<div id=title3 class=title></div>
+<div id=body>Imperva security analytics assess vulnerabilities to help you identify true risks.</div>
+<div id=logo><div id=logo_img></div></div>
+<div id=cta2 class=cta></div>
+<div id=cta1 class=cta></div>
+</div>
+<div id=border class=adsize></div>
+</body>
+</html>

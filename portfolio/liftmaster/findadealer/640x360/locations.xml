@@ -1,0 +1,48 @@
+<data>
+  <user>
+    <ip><![CDATA[66.42.49.12]]></ip>
+    <lat><![CDATA[37.76907]]></lat>
+    <lon><![CDATA[-122.4438]]></lon>
+    <city><![CDATA[San Francisco]]></city>
+    <state><![CDATA[CA]]></state>
+    <country><![CDATA[US]]></country>
+    <postalcode><![CDATA[94117]]></postalcode>
+    <source><![CDATA[zipcode]]></source>
+    <time><![CDATA[2020-02-07 10:31:55]]></time>
+  </user>
+  <locations>
+    <location>
+      <id><![CDATA[120]]></id>
+      <name><![CDATA[R&S ERECTION OF ALAMEDA COUNTY]]></name>
+      <street><![CDATA[31298 SAN ANTONIO ST]]></street>
+      <city><![CDATA[HAYWARD]]></city>
+      <state><![CDATA[CA ]]></state>
+      <zipcode><![CDATA[94544]]></zipcode>
+      <lat><![CDATA[37.608008]]></lat>
+      <lon><![CDATA[-122.047816]]></lon>
+      <distance><![CDATA[23.755499189499545]]></distance>
+    </location>
+    <location>
+      <id><![CDATA[119]]></id>
+      <name><![CDATA[CONTRA COSTA DOOR CO INC]]></name>
+      <street><![CDATA[145 Mason Cir]]></street>
+      <city><![CDATA[Concord]]></city>
+      <state><![CDATA[CA]]></state>
+      <zipcode><![CDATA[94520]]></zipcode>
+      <lat><![CDATA[38.009742]]></lat>
+      <lon><![CDATA[-122.037476]]></lon>
+      <distance><![CDATA[27.209097890429646]]></distance>
+    </location>
+    <location>
+      <id><![CDATA[121]]></id>
+      <name><![CDATA[DOOR PROS GARAGE DOOR CO]]></name>
+      <street><![CDATA[11294 COLOMA RD STE D]]></street>
+      <city><![CDATA[GOLD RIVER]]></city>
+      <state><![CDATA[CA ]]></state>
+      <zipcode><![CDATA[95670]]></zipcode>
+      <lat><![CDATA[38.619438]]></lat>
+      <lon><![CDATA[-121.262182]]></lon>
+      <distance><![CDATA[85.87649886219387]]></distance>
+    </location>
+  </locations>
+</data>
