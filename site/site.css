@@ -156,8 +156,41 @@ sup {
 /********** INTRO **********/
 #intro {
     width: 100%;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-top: 30px;
     padding-bottom: 50px;
+}
+.intro_title {
+    font-size: 36px;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+.intro_actions {
+    margin: 25px 0 10px;
+}
+.intro_link {
+    display: inline-block;
+    box-sizing: border-box;
+    min-height: 44px;
+    margin: 5px;
+    padding: 10px 16px;
+    border: 2px solid #185abc;
+    border-radius: 6px;
+    color: #185abc;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    pointer-events: auto;
+}
+.intro_link:hover {
+    color: #fff;
+    background-color: #185abc;
+}
+.intro_link:focus-visible {
+    outline: 3px solid #185abc;
+    outline-offset: 3px;
 }
 .intro_name {
     font-size: 36px;
@@ -170,7 +203,9 @@ sup {
 }
 .icons_title {
     font-size: 26px;
+    font-weight: normal;
     line-height: 28px;
+    margin-top: 1em;
     margin-bottom: -10px;
 }
 .icons_desc {
@@ -425,6 +460,7 @@ sup {
 /********** GALLERY 2 **********/
 .cChip2_title {
     font-size: 24px;
+    font-weight: normal;
     line-height: 24px;
     margin-top: 30px;
     margin-bottom: 15px;
@@ -580,4 +616,23 @@ sup {
     color: #ffffff;
     border-color: #4285f4;
     background-color: #4285f4;
+}
+
+@media (max-width: 356px) {
+    .gallery {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .eChip, .cChip, .cChip2 {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #content_list {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .intro_title {
+        font-size: 28px;
+    }
 }
