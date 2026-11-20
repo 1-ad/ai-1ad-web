@@ -160,7 +160,10 @@ sup {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 0;
+}
+#intro > p:last-child {
+    margin-bottom: 0;
 }
 .intro_title {
     font-size: 36px;
@@ -198,6 +201,12 @@ sup {
     margin-bottom: -2px;
 }
 /********** ICONS **********/
+#clients_icon,
+#loops_icon,
+#effects_icon,
+#contact_icon {
+    margin-top: 60px;
+}
 .icon_iframe {
     pointer-events: auto;
 }
@@ -224,9 +233,6 @@ sup {
     margin-top: -16px;
 }
 /* ICON - EFFECTS */
-#effects_icon {
-    margin-top: 80px;
-}
 #effects_icon_img {
     width: 250px;
     height: 192px;
@@ -235,9 +241,6 @@ sup {
     margin-bottom: -14px;
 }
 /* ICON - CLIENTS */
-#clients_icon {
-    margin-top: 60px;
-}
 #clients_icon_img {
     width: 160px;
     height: 225px;
@@ -249,9 +252,6 @@ sup {
     margin-top: -4px;
 }
 /* ICON - CONTACT */
-#contact_icon {
-    margin-top: 40px;
-}
 #contact_icon_img {
     width: 160px;
     height: 225px;
@@ -497,8 +497,7 @@ sup {
 
 /********** CONTACT FORM **********/
 #contact {
-    padding: 20px;
-    padding-bottom: 40px;
+    padding: 0 20px 40px;
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(0,255,254,0);

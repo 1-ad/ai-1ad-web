@@ -14,6 +14,8 @@ recommendations from the original “Update Website SEO” review.
   Client projects remain before the animation experiments.
 - A device-width viewport and responsive sizing fixes, including the contact
   form and fixed-size creative cards at a 320px viewport.
+- A shared 60px gap above each of the four section icons. Removed stacked
+  intro spacing that previously left 130px above the Client Projects tower.
 - Consistent `https://www.1-ad.com/` homepage canonical, alternate, and social
   metadata URLs.
 - Accessible titles for all 12 homepage iframes and native lazy loading for the
@@ -66,6 +68,8 @@ does not deploy the branch or change server settings.
   creative targets.
 - Browser layout checks passed at widths of 320, 390, 768, and 1440 pixels,
   without horizontal page overflow or clipped creative cards.
+- Browser measurements confirm a 60px gap above each section icon, measured
+  from the preceding paragraph or gallery edge.
 - The work and contact links navigate to their sections. The contact fields fit
   the 320px layout. XML-backed and fallback preview titles render correctly.
 - A callback check confirms unloaded lazy frames do not prevent loaded demos
