@@ -9,12 +9,14 @@
 <script src=../../js/perlinnoise.js></script>
 <script src=../../js/displacement.js></script>
 <script src=banner.js></script>
-<script>var adMaxTime=60000;var canvasWidth=320;var canvasHeight=320;var canvasLeft=0;var canvasTop=0;window.onload=function(){initEffects();requestTimeout(bannerStart,250)};function onMouseUpdate(a){}function bannerStart(){var a=0;requestTimeout(function(){gEL("#banner").className="adsize fadein trans250"},a)};</script>
+<script>var adMaxTime=60000;var canvasWidth=320;var canvasHeight=320;var canvasLeft=0;var canvasTop=0;window.onload=function(){initializeIcon(initEffects)};function onMouseUpdate(a){};</script>
 <style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}div,img,canvas{position:absolute;transform:translatez(0);backface-visibility:hidden;background-position:0 0;background-size:cover;pointer-events:none;user-select:none;-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-touch-callout:none}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important;-webkit-tap-highlight-color:rgba(0,0,0,0)!important;-webkit-touch-callout:none!important}#banner{background-color:#aaa;overflow:hidden;pointer-events:all}.adsize{left:0;top:0;width:160px;height:200px}#bkgrnd{width:160px;height:160px;left:0;top:0;background-image:url("bkgrnd.jpg")}#renderCanvas{left:0;top:0;width:160px;height:160px}#cover{background-image:url("cover.png")}.fadein{opacity:1;visibility:visible}.fadeout{opacity:0;visibility:hidden}.trans250{-webkit-transition:all 250ms ease-in-out;-moz-transition:all 250ms ease-in-out;-o-transition:all 250ms ease-in-out;transition:all 250ms ease-in-out}</style>
 </head>
 <body>
-<img src=ray.png alt style=display:none />
-<img src=bubble.png alt style=display:none />
+<img data-icon-asset="ray.png" src="ray.png" alt style="display:none" />
+<img data-icon-asset="bubble.png" src="bubble.png" alt style="display:none" />
+<img data-icon-asset="bkgrnd.jpg" src="bkgrnd.jpg" alt style="display:none" />
+<img data-icon-asset="cover.png" src="cover.png" alt style="display:none" />
 <div id=banner class="adsize fadeout">
 <div id=bkgrnd class=adsize></div>
 <canvas id=renderCanvas width=320 height=320></canvas>

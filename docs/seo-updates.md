@@ -16,8 +16,8 @@ recommendations from the original “Update Website SEO” review.
   form and fixed-size creative cards at a 320px viewport.
 - Consistent `https://www.1-ad.com/` homepage canonical, alternate, and social
   metadata URLs.
-- Native lazy loading and accessible titles for all 12 homepage iframes.
-  Visibility callbacks skip frames that have not loaded yet.
+- Accessible titles for all 12 homepage iframes and native lazy loading for the
+  eight creative demos. Visibility callbacks skip frames that have not loaded yet.
 - Descriptive preview titles using existing XML metadata or the 60 campaign
   labels in `site/preview-titles.js`. Keep those labels aligned with the
   homepage when adding or renaming campaigns.
@@ -42,6 +42,11 @@ recommendations from the original “Update Website SEO” review.
   portion enters the viewport and pauses once it is completely outside, or
   when the browser tab is hidden. Cropped containers and fractional positions
   are included. The old 60-second cutoff no longer stops a visible icon.
+- The four icon iframes load eagerly, preload and decode all 16 image assets,
+  and build their particles and complete initial canvas frames on page load.
+  Preparation and revealing the artwork no longer wait for a visibility-gated
+  startup timer. Offscreen icons remain initialized and paused; the larger
+  creative-demo iframes continue to load lazily.
 - The aquarium caches its static displacement map and reuses pixel buffers;
   its steady-state canvas reads drop from four to one per frame. The rocket
   caches its ship element and avoids redundant transform writes. Particle
@@ -75,10 +80,14 @@ does not deploy the branch or change server settings.
   timer cleanup, startup/hover/visibility behavior and iframe visibility updates.
   Original filter and rocket code in `tests/fixtures/` are regression references
   from commit `bfe191d`, not production scripts.
-- All 13 icon regression tests pass. Local browser checks confirm aquarium and
+- All 16 icon regression tests pass. Local browser checks confirm aquarium and
   magic-hat motion, the tower's light sequence and the rocket's pointer response.
   Visibility checks cover partial entry, complete exit, re-entry, cropped icon
   containers and continuous animation beyond 60 seconds.
+- A fresh browser origin confirms all four icons and all 16 images are loaded
+  and initialized before scrolling to the lower sections. The initialization
+  tests also check decoding order, complete particle sets in the initial frame,
+  offscreen pausing and immediate resumption on first entry.
 
 ## Follow-up work
 
@@ -104,5 +113,7 @@ Implementation references: [canonical URLs](https://developers.google.com/search
 [current Google tag installation](https://developers.google.com/tag-platform/gtagjs),
 and [GA4 lead events](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#generate_lead).
 
-Icon performance references: [animation-frame scheduling](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame)
-and [viewport observation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+Icon performance references: [animation-frame scheduling](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame),
+[viewport observation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API),
+[image decoding](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/decode),
+and [eager iframe loading](https://developer.mozilla.org/en-US/docs/Web/API/HTMLIFrameElement/loading).

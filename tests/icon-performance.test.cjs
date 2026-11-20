@@ -65,7 +65,7 @@ test('aquarium reuses scratch buffers and reads the static map once', () => {
     assert.equal(map.reads, 3, 'mutable maps remain supported');
 });
 
-function runtime(hidden = false) {
+function runtime(hidden = false, embedded = false) {
     let now = 0, id = 0;
     const timers = new Map(), rafs = new Map(), events = new Map(), documentEvents = new Map(), nodes = new Map();
     const get = selector => {
@@ -80,7 +80,9 @@ function runtime(hidden = false) {
         requestAnimationFrame(callback) { const handle = ++id; rafs.set(handle, callback); return handle; },
         cancelAnimationFrame(handle) { rafs.delete(handle); }
     };
-    const document = {hidden, visibilityState: hidden ? 'hidden' : 'visible', querySelector: get,
+    window.parent = embedded ? {} : window;
+    const assets = [];
+    const document = {hidden, visibilityState: hidden ? 'hidden' : 'visible', querySelector: get, querySelectorAll: () => assets,
         addEventListener(name, callback) { documentEvents.set(name, callback); }};
     const ctx = vm.createContext({window, document, performance: {now: () => now}, console, Event: class {constructor(type) { this.type = type; }}});
     vm.runInContext(read('icons/shared.js'), ctx);
@@ -94,7 +96,7 @@ function runtime(hidden = false) {
         }
         now = end;
     };
-    return {ctx, window, document, timers, rafs, nodes, get, advance,
+    return {ctx, window, document, timers, rafs, nodes, assets, get, advance,
         frameAt(time) { now = time; const pending = [...rafs.values()]; rafs.clear(); for (const callback of pending) callback(now); },
         visibility(value) { document.hidden = value; document.visibilityState = value ? 'hidden' : 'visible'; documentEvents.get('visibilitychange')(); }
     };
@@ -151,12 +153,13 @@ test('office lights retain their original sequence without retaining completed t
     assert.equal(t.ctx.timeoutAR.length, 2);
     assert.equal(t.timers.size, 2);
 });
-test('icons pause offscreen or in hidden tabs and keep running while visible beyond 60 seconds', () => {
+test('icons pause offscreen or in hidden tabs and keep running while visible beyond 60 seconds', async () => {
     const t = runtime(true);
     let frames = 0;
     t.ctx.initEffects = () => t.ctx.renderEngine({frameRate: 24, renderAR: [() => frames++]}).start();
     vm.runInContext(inline('icons/officetower/index.html'), t.ctx);
     t.window.dispatchEvent(new t.ctx.Event('load'));
+    await new Promise(setImmediate);
     t.advance(1000); assert.equal(frames, 1); assert.equal(t.timers.size, 0); assert.equal(t.rafs.size, 0);
     t.visibility(false); t.advance(250); assert.equal(t.ctx.adCanAnimate, true); assert.equal(t.rafs.size, 1);
     t.ctx.adInViewUpdate(false); assert.equal(t.rafs.size, 0); assert.equal(t.timers.size, 0);
@@ -167,6 +170,91 @@ test('icons pause offscreen or in hidden tabs and keep running while visible bey
     t.ctx.adInViewUpdate(true); assert.equal(t.ctx.adCanAnimate, true); assert.equal(t.rafs.size, 1);
     t.ctx.onAdMouseOver(); assert.equal(t.ctx.adCanAnimate, true);
     t.visibility(true); assert.equal(t.ctx.adCanAnimate, false); assert.equal(t.rafs.size, 0); assert.equal(t.timers.size, 0);
+});
+
+test('asset decoding and the initial draw finish offscreen before the first visible animation frame', async () => {
+    const t = runtime(false, true), decoded = [];
+    t.ctx.adMaxTime = 60000;
+    t.assets.push(...[0, 1].map(() => ({complete: true, naturalWidth: 160,
+        decode: () => new Promise(resolve => decoded.push(resolve))})));
+    t.window.dispatchEvent(new t.ctx.Event('load'));
+    let frames = 0;
+    const ready = t.ctx.initializeIcon(() => t.ctx.renderEngine({frameRate: 24, renderAR: [() => frames++]}).start());
+    t.ctx.adInViewUpdate(true);
+    assert.equal(t.ctx.adIsStarted, false, 'entering during decode cannot start an incomplete icon');
+    assert.equal(t.rafs.size, 0);
+    decoded[0](); await new Promise(setImmediate);
+    assert.equal(frames, 0, 'all images must finish decoding');
+    t.ctx.adInViewUpdate(false);
+    decoded[1](); await ready;
+    assert.equal(frames, 1, 'draw the complete initial state while offscreen');
+    assert.equal(t.get('#banner').className, 'adsize fadein');
+    assert.equal(t.ctx.adIsReady, true);
+    assert.equal(t.ctx.adCanAnimate, false);
+    assert.equal(t.timers.size, 0);
+    assert.equal(t.rafs.size, 0);
+    t.ctx.adInViewUpdate(true);
+    assert.equal(t.ctx.adCanAnimate, true, 'no startup timeout on first entry');
+    assert.equal(t.rafs.size, 1);
+    t.frameAt(42); assert.equal(frames, 2);
+});
+
+test('all four icons build every particle and draw decoded assets before entering the viewport', async () => {
+    const expected = {aquarium: {bubbleRenderAR: 30, rayRenderAR: 15},
+        hatmagic: {shineAR: 16, sparkleAR: 30}, officetower: {iconsAR: 12, cloudAR: 10}, rocketship: {renderAR: 15}};
+    for (const [name, counts] of Object.entries(expected)) {
+        const t = runtime(false, true), drawnAssets = new Set();
+        const makeCanvas = () => {
+            const surface = {width: 320, height: 320, isCanvas: true};
+            const context = {clearRect() {}, save() {}, restore() {}, translate() {}, rotate() {}, setTransform() {}, fillRect() {},
+                createRadialGradient() { return {addColorStop() {}}; },
+                drawImage(image) {
+                    assert(image && (image.isCanvas || image.decoded), 'initial draws must use decoded images');
+                    if (image.source) drawnAssets.add(image.source);
+                }};
+            surface.getContext = () => context;
+            return surface;
+        };
+        t.get('#renderCanvas').getContext = makeCanvas().getContext;
+        t.document.createElement = makeCanvas;
+        t.ctx.gct256 = {PerlinNoise: function () { this.reset = () => {}; this.fillBitmap = () => {}; }};
+        t.ctx.filters = {Point: function (x, y) { this.x = x; this.y = y; },
+            DisplacementMap: function (source, map, target, point) { this.point = point; this.draw = () => {}; }};
+        const html = read(`icons/${name}/index.html`);
+        for (const [, source] of html.matchAll(/data-icon-asset="([^"]+)"/g)) {
+            const asset = {source, complete: true, naturalWidth: 320, decoded: false,
+                decode() { this.decoded = true; return Promise.resolve(); }};
+            t.assets.push(asset);
+            t.nodes.set(`img[data-icon-asset="${source}"]`, asset);
+        }
+        vm.runInContext(read(`icons/${name}/banner.js`), t.ctx);
+        vm.runInContext(inline(`icons/${name}/index.html`), t.ctx);
+        t.window.dispatchEvent(new t.ctx.Event('load'));
+        await new Promise(setImmediate);
+        assert.equal(t.ctx.adIsReady, true, name);
+        assert.equal(t.ctx.renderMan.renderStarted, true, name);
+        for (const [array, count] of Object.entries(counts)) assert.equal(t.ctx[array].length, count, `${name} ${array}`);
+        assert(drawnAssets.size > 0, name);
+        assert.equal(t.get('#banner').className, 'adsize fadein', name);
+        assert.equal(t.rafs.size, 0, name);
+        assert.equal(t.timers.size, 0, name);
+        t.ctx.adInViewUpdate(true);
+        assert.equal(t.rafs.size, 1, name);
+        t.frameAt(42);
+        t.ctx.adInViewUpdate(false);
+        assert.equal(t.rafs.size, 0, name);
+    }
+});
+
+test('only icon iframes load eagerly and every icon image is included in its preload list', () => {
+    const frames = [...read('index.html').matchAll(/<iframe\b[^>]*>/g)].map(match => match[0]);
+    assert.equal(frames.filter(frame => /_icon_iframe\b/.test(frame)).length, 4);
+    for (const frame of frames) assert.match(frame, /_icon_iframe\b/.test(frame) ? /loading=eager\b/ : /loading=lazy\b/);
+    for (const name of ['aquarium', 'hatmagic', 'officetower', 'rocketship']) {
+        const preload = [...read(`icons/${name}/index.html`).matchAll(/data-icon-asset="([^"]+)"/g)].map(match => match[1]);
+        const files = fs.readdirSync(path.join(root, 'icons', name)).filter(file => /\.(png|jpg)$/.test(file));
+        assert.deepEqual(preload.sort(), files.sort(), name);
+    }
 });
 
 test('rocket easing and rendered rotation match the original, with one cached DOM reference', () => {

@@ -1,5 +1,28 @@
 // Icon runtime. Legacy demos continue using js/shared.js.
-var windowIsVisible=false;var adIsInView=true;var adMouseOver=false;var adTimerRunning=false;var adIsStarted=false;var adCanAnimate=false;var adTimerTO;var adResetTO;window.addEventListener("load",function(){gEL("#banner").addEventListener("mousedown",onAdMouseDown);gEL("#banner").addEventListener("mouseover",onAdMouseOver);gEL("#banner").addEventListener("mouseout",onAdMouseOut);requestTimeout(adStart,250);checkWindowVisibility()});function windowScroll(){adMouseOver=false;clearRequestTimeout(adResetTO);adResetTO=requestTimeout(adTimerReset,100);adStatusUpdated()}function adInViewUpdate(a){if(adIsInView!=a){adIsInView=a;if(adIsInView==true){adTimerReset()}adStatusUpdated()}}function onAdMouseDown(a){adMouseOver=true;adStatusUpdated()}function onAdMouseOver(a){adMouseOver=true;adStatusUpdated()}function onAdMouseOut(a){adMouseOver=false;clearRequestTimeout(adResetTO);adResetTO=requestTimeout(adTimerReset,100)}function adStatusUpdated() {
+function getIconImage(source) {
+    return gEL('img[data-icon-asset="' + source + '"]');
+}
+function initializeIcon(setup) {
+    // Eager image elements load with the iframe. Decode every sprite and CSS
+    // layer before building particles and drawing the complete initial frame.
+    var assets = document.querySelectorAll("img[data-icon-asset]");
+    return Promise.all(Array.prototype.map.call(assets, function (asset) {
+        if (!asset.complete || !asset.naturalWidth) {
+            return Promise.reject(new Error("Icon image did not load: " + asset.getAttribute("src")));
+        }
+        return typeof asset.decode === "function" ? asset.decode() : Promise.resolve();
+    })).then(function () {
+        setup();
+        adIsReady = true;
+        // Preparation and the first draw also happen offscreen. Only the
+        // animation loop and timed light sequence depend on viewport visibility.
+        gEL("#banner").className = "adsize fadein";
+        adStart();
+    }).catch(function (error) {
+        console.error("Unable to initialize icon:", error);
+    });
+}
+var windowIsVisible=false;var adIsInView=window.parent===window;var adIsReady=false;var adMouseOver=false;var adTimerRunning=false;var adIsStarted=false;var adCanAnimate=false;var adTimerTO;var adResetTO;window.addEventListener("load",function(){gEL("#banner").addEventListener("mousedown",onAdMouseDown);gEL("#banner").addEventListener("mouseover",onAdMouseOver);gEL("#banner").addEventListener("mouseout",onAdMouseOut);checkWindowVisibility()});function windowScroll(){adMouseOver=false;clearRequestTimeout(adResetTO);adResetTO=requestTimeout(adTimerReset,100);adStatusUpdated()}function adInViewUpdate(a){if(adIsInView!=a){adIsInView=a;if(adIsInView==true){adTimerReset()}adStatusUpdated()}}function onAdMouseDown(a){adMouseOver=true;adStatusUpdated()}function onAdMouseOver(a){adMouseOver=true;adStatusUpdated()}function onAdMouseOut(a){adMouseOver=false;clearRequestTimeout(adResetTO);adResetTO=requestTimeout(adTimerReset,100)}function adStatusUpdated() {
     // Once started, an icon keeps animating until it leaves the viewport or
     // the page becomes hidden, even after the legacy 60-second timer expires.
     if (windowIsVisible && adIsInView && (adIsStarted || adTimerRunning || adMouseOver)) {
@@ -14,7 +37,7 @@ var windowIsVisible=false;var adIsInView=true;var adMouseOver=false;var adTimerR
         resumeAllTimeouts();
     }
 }
-function adStart(){if(adIsStarted==false){adIsStarted=true;window.dispatchEvent(new Event("adStart"));adTimerReset();adStatusUpdated()}}function adResume(){if(adCanAnimate==false){adCanAnimate=true;window.dispatchEvent(new Event("adResume"));resumeAllTimeouts();adTimerReset();adStatusUpdated()}}function adPause(){if(adCanAnimate==true){adCanAnimate=false;window.dispatchEvent(new Event("adPause"));clearRequestTimeout(adTimerTO);pauseAllTimeouts();adStatusUpdated()}}function adTimerReset(a){adTimerRunning=true;if(a!=undefined){adMaxTime=a}clearRequestTimeout(adTimerTO);adTimerTO=requestTimeout(adTimeUp,adMaxTime);adStatusUpdated()}function adTimeUp(){adTimerRunning=false;adStatusUpdated()}var timeoutAR=[];function requestTimeout(callback, delay) {
+function adStart(){if(adIsReady&&adIsStarted==false){adIsStarted=true;window.dispatchEvent(new Event("adStart"));adTimerReset();adStatusUpdated()}}function adResume(){if(adCanAnimate==false){adCanAnimate=true;window.dispatchEvent(new Event("adResume"));resumeAllTimeouts();adTimerReset();adStatusUpdated()}}function adPause(){if(adCanAnimate==true){adCanAnimate=false;window.dispatchEvent(new Event("adPause"));clearRequestTimeout(adTimerTO);pauseAllTimeouts();adStatusUpdated()}}function adTimerReset(a){adTimerRunning=true;if(a!=undefined){adMaxTime=a}clearRequestTimeout(adTimerTO);adTimerTO=requestTimeout(adTimeUp,adMaxTime);adStatusUpdated()}function adTimeUp(){adTimerRunning=false;adStatusUpdated()}var timeoutAR=[];function requestTimeout(callback, delay) {
     var timer = {
         id: Math.random(), callbackFN: callback, delayMS: delay,
         remainMS: delay, startMS: 0, timerTO: null, done: false
