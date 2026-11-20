@@ -1,6 +1,8 @@
 // Icon runtime. Legacy demos continue using js/shared.js.
 var windowIsVisible=false;var adIsInView=true;var adMouseOver=false;var adTimerRunning=false;var adIsStarted=false;var adCanAnimate=false;var adTimerTO;var adResetTO;window.addEventListener("load",function(){gEL("#banner").addEventListener("mousedown",onAdMouseDown);gEL("#banner").addEventListener("mouseover",onAdMouseOver);gEL("#banner").addEventListener("mouseout",onAdMouseOut);requestTimeout(adStart,250);checkWindowVisibility()});function windowScroll(){adMouseOver=false;clearRequestTimeout(adResetTO);adResetTO=requestTimeout(adTimerReset,100);adStatusUpdated()}function adInViewUpdate(a){if(adIsInView!=a){adIsInView=a;if(adIsInView==true){adTimerReset()}adStatusUpdated()}}function onAdMouseDown(a){adMouseOver=true;adStatusUpdated()}function onAdMouseOver(a){adMouseOver=true;adStatusUpdated()}function onAdMouseOut(a){adMouseOver=false;clearRequestTimeout(adResetTO);adResetTO=requestTimeout(adTimerReset,100)}function adStatusUpdated() {
-    if (windowIsVisible && adIsInView && (adTimerRunning || adMouseOver)) {
+    // Once started, an icon keeps animating until it leaves the viewport or
+    // the page becomes hidden, even after the legacy 60-second timer expires.
+    if (windowIsVisible && adIsInView && (adIsStarted || adTimerRunning || adMouseOver)) {
         if (!adIsStarted) adStart();
         else if (!adCanAnimate) adResume();
     } else if (adCanAnimate) {

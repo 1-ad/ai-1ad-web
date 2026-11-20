@@ -151,7 +151,7 @@ test('office lights retain their original sequence without retaining completed t
     assert.equal(t.ctx.timeoutAR.length, 2);
     assert.equal(t.timers.size, 2);
 });
-test('hidden startup, viewport pausing, hover and the 60-second stop still work', () => {
+test('icons pause offscreen or in hidden tabs and keep running while visible beyond 60 seconds', () => {
     const t = runtime(true);
     let frames = 0;
     t.ctx.initEffects = () => t.ctx.renderEngine({frameRate: 24, renderAR: [() => frames++]}).start();
@@ -161,7 +161,10 @@ test('hidden startup, viewport pausing, hover and the 60-second stop still work'
     t.visibility(false); t.advance(250); assert.equal(t.ctx.adCanAnimate, true); assert.equal(t.rafs.size, 1);
     t.ctx.adInViewUpdate(false); assert.equal(t.rafs.size, 0); assert.equal(t.timers.size, 0);
     t.advance(1000); t.ctx.adInViewUpdate(true); assert.equal(t.rafs.size, 1);
-    t.advance(60000); assert.equal(t.ctx.adCanAnimate, false); assert.equal(t.rafs.size, 0);
+    t.advance(120000); assert.equal(t.ctx.adCanAnimate, true); assert.equal(t.rafs.size, 1);
+    t.ctx.adInViewUpdate(false); assert.equal(t.ctx.adCanAnimate, false); assert.equal(t.rafs.size, 0);
+    assert.equal(t.timers.size, 0);
+    t.ctx.adInViewUpdate(true); assert.equal(t.ctx.adCanAnimate, true); assert.equal(t.rafs.size, 1);
     t.ctx.onAdMouseOver(); assert.equal(t.ctx.adCanAnimate, true);
     t.visibility(true); assert.equal(t.ctx.adCanAnimate, false); assert.equal(t.rafs.size, 0); assert.equal(t.timers.size, 0);
 });
@@ -194,12 +197,22 @@ function homepage(withObserver = true) {
     const pendingFrames = new Map(); let nextFrame = 0;
     let observer, reads = 0;
     const get = selector => {
-        if (!nodes.has(selector)) nodes.set(selector, {
+        if (!nodes.has(selector)) {
+            const element = {
             id: selector.slice(1), style: {}, offsetTop: 2000, offsetLeft: 0, offsetWidth: 160, offsetHeight: 200, offsetParent: null,
             contentWindow: {adInViewUpdate(value) { notifications.push([selector, value]); }, onMouseUpdate(value) { mouse.push(value); }},
             listeners: {}, addEventListener(name, callback) { this.listeners[name] = callback; },
-            getBoundingClientRect() { reads++; return {top: this.offsetTop, left: 0, width: 160, height: 200}; }
-        });
+            getBoundingClientRect() { reads++; return {top: this.offsetTop, left: this.offsetLeft,
+                bottom: this.offsetTop + this.offsetHeight, right: this.offsetLeft + this.offsetWidth}; }
+            };
+            element.parentElement = {getBoundingClientRect() {
+                reads++;
+                return {top: element.offsetTop, left: element.offsetLeft,
+                    bottom: element.offsetTop + (element.clipHeight ?? element.offsetHeight),
+                    right: element.offsetLeft + (element.clipWidth ?? element.offsetWidth)};
+            }};
+            nodes.set(selector, element);
+        }
         return nodes.get(selector);
     };
     const window = {addEventListener() {}, pageXOffset: 0, pageYOffset: 0, innerWidth: 1280, innerHeight: 720,
@@ -229,17 +242,44 @@ test('icon visibility covers initial load, lazy frame load, resize and full visi
 test('scroll-based visibility remains available without IntersectionObserver', () => {
     const t = homepage(false), frame = t.get('#contact_icon_iframe');
     frame.offsetTop = 100; t.ctx.onWindowScroll(); t.flushFrame(); assert.equal(t.notifications.at(-1)[1], true);
-    frame.offsetTop = 650; t.ctx.onWindowScroll(); t.flushFrame(); assert.equal(t.notifications.at(-1)[1], false);
+    frame.offsetTop = 650; t.ctx.onWindowScroll(); t.flushFrame(); assert.equal(t.notifications.at(-1)[1], true);
+    frame.offsetTop = 720; t.ctx.onWindowScroll(); t.flushFrame(); assert.equal(t.notifications.at(-1)[1], false);
 });
 test('cropped icon containers do not prevent animation and scroll checks are coalesced', () => {
     const t = homepage(), tower = t.get('#clients_icon_iframe');
-    tower.offsetTop = 100; tower.offsetWidth = 250; tower.offsetHeight = 250;
+    tower.offsetTop = 100; tower.offsetWidth = 250; tower.offsetHeight = 250; tower.clipWidth = 160; tower.clipHeight = 225;
     t.observer.callback([{target: tower, isIntersecting: true, intersectionRatio: 0.576, boundingClientRect: {}}]);
     assert.deepEqual(t.notifications.at(-1), ['#clients_icon_iframe', true]);
     const reads = t.reads();
-    tower.offsetTop = 500;
+    tower.offsetTop = -225;
     for (let i = 0; i < 120; i++) t.ctx.onWindowScroll();
     assert.equal(t.pendingFrames.size, 1); assert.equal(t.reads(), reads);
-    t.flushFrame(); assert.equal(t.reads(), reads + 4);
+    t.flushFrame(); assert.equal(t.reads(), reads + 8);
     assert.equal(t.notifications.filter(([id]) => id === '#clients_icon_iframe').at(-1)[1], false);
+});
+test('icons animate with any visible area and pause at every fully clipped viewport edge', () => {
+    for (const withObserver of [true, false]) {
+        const t = homepage(withObserver), frame = t.get('#contact_icon_iframe');
+        for (const [top, left, visible] of [
+            [719.75, 0, true], [720, 0, false], [100, 0, true],
+            [-199.75, 0, true], [-200, 0, false],
+            [100, 1279.75, true], [100, 1280, false],
+            [100, -159.75, true], [100, -160, false]
+        ]) {
+            frame.offsetTop = top; frame.offsetLeft = left;
+            t.ctx.onWindowScroll(); t.flushFrame();
+            assert.equal(t.notifications.at(-1)[1], visible, `edge ${top},${left}`);
+        }
+    }
+});
+test('cropped artwork resumes without requiring the whole iframe to enter the viewport', () => {
+    const t = homepage(), hat = t.get('#effects_icon_iframe');
+    hat.offsetWidth = 250; hat.offsetHeight = 250; hat.clipHeight = 192;
+    for (const [top, visible] of [[719.75, true], [-191.75, true], [-192, false], [-40, true]]) {
+        hat.offsetTop = top;
+        hat.listeners.load();
+        assert.equal(t.notifications.at(-1)[1], visible);
+    }
+    hat.clipHeight = 0; t.window.onresize();
+    assert.equal(t.notifications.filter(([id]) => id === '#effects_icon_iframe').at(-1)[1], false);
 });

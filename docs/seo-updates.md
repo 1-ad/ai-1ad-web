@@ -38,6 +38,10 @@ recommendations from the original “Update Website SEO” review.
   Rendering uses animation frames with the original 42 ms update interval;
   completed timers are released, and hidden icons pause reliably on initial
   load, iframe load, scroll and resize. Non-icon demos retain `js/shared.js`.
+- Icon visibility follows the displayed artwork: animation starts when any
+  portion enters the viewport and pauses once it is completely outside, or
+  when the browser tab is hidden. Cropped containers and fractional positions
+  are included. The old 60-second cutoff no longer stops a visible icon.
 - The aquarium caches its static displacement map and reuses pixel buffers;
   its steady-state canvas reads drop from four to one per frame. The rocket
   caches its ship element and avoids redundant transform writes. Particle
@@ -71,9 +75,10 @@ does not deploy the branch or change server settings.
   timer cleanup, startup/hover/visibility behavior and iframe visibility updates.
   Original filter and rocket code in `tests/fixtures/` are regression references
   from commit `bfe191d`, not production scripts.
-- All 11 icon regression tests pass. Local browser checks confirm aquarium and
+- All 13 icon regression tests pass. Local browser checks confirm aquarium and
   magic-hat motion, the tower's light sequence and the rocket's pointer response.
-  Visibility checks preserve the existing behavior of cropped icon containers.
+  Visibility checks cover partial entry, complete exit, re-entry, cropped icon
+  containers and continuous animation beyond 60 seconds.
 
 ## Follow-up work
 

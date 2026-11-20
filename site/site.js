@@ -24,7 +24,13 @@ function updateIconVisibility(state, inView, rect) {
     } catch (error) {}
 }
 function refreshIconVisibility(state) {
-    updateIconVisibility(state, elInView(state.element), state.element.getBoundingClientRect());
+    var rect = state.element.getBoundingClientRect();
+    var clip = state.element.parentElement.getBoundingClientRect();
+    // The tower and hat extend beyond their cropped containers. Animate while
+    // any of the displayed icon is onscreen, not only when the whole iframe fits.
+    var inView = Math.min(rect.bottom, clip.bottom, window.innerHeight) > Math.max(rect.top, clip.top, 0) &&
+        Math.min(rect.right, clip.right, window.innerWidth) > Math.max(rect.left, clip.left, 0);
+    updateIconVisibility(state, inView, rect);
 }
 function initIconVisibility() {
     if (typeof window.IntersectionObserver === "function") {
@@ -33,9 +39,6 @@ function initIconVisibility() {
                 for (var i = 0; i < iconFrameStates.length; i++) {
                     var state = iconFrameStates[i];
                     if (state.element === entry.target) {
-                        // The tower and hat containers crop their iframes, so their
-                        // intersection ratios cannot reach 1. Keep the original
-                        // viewport geometry test instead of using that ratio.
                         refreshIconVisibility(state);
                         break;
                     }
@@ -58,8 +61,8 @@ function initIconVisibility() {
 }
 function iframeInView(force) {
     if (!force) {
-        // Scrolling across a cropped edge need not cross an observer threshold.
-        // Coalesce scroll events while retaining the existing visibility rule.
+        // Refresh edge positions once per frame, including fractional-pixel
+        // movement and cropped edges that do not cross an observer threshold.
         if (iconVisibilityRequest === null) {
             iconVisibilityRequest = window.requestAnimationFrame(function () {
                 iconVisibilityRequest = null;
@@ -74,4 +77,4 @@ function iframeInView(force) {
     }
     for (var i = 0; i < iconFrameStates.length; i++) refreshIconVisibility(iconFrameStates[i]);
 }
-function elInView(c){var e=c.offsetTop;var d=c.offsetLeft;var b=c.offsetWidth;var a=c.offsetHeight;while(c.offsetParent){c=c.offsetParent;e+=c.offsetTop;d+=c.offsetLeft}return(e>=window.pageYOffset&&d>=window.pageXOffset&&(e+a)<=(window.pageYOffset+window.innerHeight)&&(d+b)<=(window.pageXOffset+window.innerWidth))}function gEL(a){return document.querySelector(a)}var supportsTouch="ontouchstart" in window||navigator.msMaxTouchPoints;
+function gEL(a){return document.querySelector(a)}var supportsTouch="ontouchstart" in window||navigator.msMaxTouchPoints;
