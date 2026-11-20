@@ -57,7 +57,7 @@ try {
     }
     $temporaryFile = @tempnam($messageDirectory, '.pending-');
     if ($temporaryFile === false || dirname($temporaryFile) !== $messageDirectory
-        || !chmod($temporaryFile, 0600)) {
+        || !chmod($temporaryFile, 0640)) {
         throw new RuntimeException('Could not create a private message file.');
     }
     $archive = 'Received (UTC): ' . gmdate('Y-m-d\TH:i:s\Z') . "\n" . $messagePlain;
@@ -75,7 +75,7 @@ try {
         @unlink($temporaryFile);
     }
     error_log('Contact form: private message storage failed (' . get_class($error) . ').');
-    contactResponse(503, 'error', 'We could not save your message. Please email justin@1-ad.com directly.');
+    contactResponse(503, 'error', 'We could not save your message. Please try again later.');
 }
 
 // Credentials live outside the website and are readable only by root and PHP.
@@ -84,7 +84,7 @@ $config = is_readable($configPath) ? @parse_ini_file($configPath, false, INI_SCA
 if (!is_array($config) || empty($config['username']) || empty($config['password'])
     || !filter_var($config['username'], FILTER_VALIDATE_EMAIL)) {
     error_log('Contact form: Gmail SMTP credentials are not configured.');
-    contactResponse(503, 'error', 'Email is temporarily unavailable. Please email justin@1-ad.com directly.');
+    contactResponse(503, 'error', 'Email is temporarily unavailable. Please try again later.');
 }
 
 try {
@@ -112,7 +112,7 @@ try {
 } catch (Throwable $error) {
     // Never include credentials or the visitor's message in public responses/logs.
     error_log('Contact form: SMTP delivery failed (' . get_class($error) . ').');
-    contactResponse(502, 'error', 'We could not send your message. Please email justin@1-ad.com directly.');
+    contactResponse(502, 'error', 'We could not send your message. Please try again later.');
 }
 
 contactResponse(200, 'success');
