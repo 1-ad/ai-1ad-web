@@ -58,6 +58,7 @@ HEADERS = [
     ("qualcomm/levitate", "#3e6f86", "#1b2447", THREE),
     ("qualcomm/multiply", "#b5d8df", "#536a8c", THREE),
     ("qualcomm/revolution", "#d6142c", "#590715", THREE),
+    ("loreal/bambieye", "#e8c5b9", "#af887b", TWO_PORTRAIT),
 ]
 
 

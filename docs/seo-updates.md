@@ -20,10 +20,10 @@ recommendations from the original “Update Website SEO” review.
   metadata URLs.
 - Accessible titles for all 12 homepage iframes and native lazy loading for the
   eight creative demos. Visibility callbacks skip frames that have not loaded yet.
-- Descriptive preview titles using existing XML metadata or the 74 campaign
+- Descriptive preview titles using existing XML metadata or the 79 campaign
   labels in `site/preview-titles.js`. Keep those labels aligned with the
   homepage when adding or renaming campaigns.
-- All 49 existing sitemap URLs converted to HTTPS, plus 14 new campaign previews
+- All 49 existing sitemap URLs converted to HTTPS, plus 18 new campaign previews
   and a sitemap declaration
   in `robots.txt`. The homepage records the latest copy update as `2026-11-20`;
   unverified historical modification dates on previews are omitted.
@@ -49,11 +49,17 @@ recommendations from the original “Update Website SEO” review.
   Klaviyo Intro, FLEX Holiday Rear Handle, and Jelmyto AUA 2021, Kidney and
   Patient Profiles. The 53 banner sizes and 632 creative files were copied
   from the owner's portfolio folders.
+- Restored five existing banner sets missing from the gallery: LEGO Level Up
+  Your Ninja, LEGO Discover The Secrets, Citrix Workspace, AXE Carousel and
+  L'Oréal Bambi Eye. They follow the 14 recently imported campaigns, retaining
+  Qualcomm first. Reused four existing headers unchanged and composed Bambi
+  Eye's header from its original two backup PNGs. Also restored Citrix
+  Intelligence's 300 × 600 and Johnston & Murphy Spring 2018's 200 × 200 links.
 - All 182 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
   from cdnjs. This replaces the temporary local Qualcomm library and older
   CDN/embedded copies. Compatibility adjustments and verification are recorded
   in [GSAP upgrade notes](gsap-upgrade.md).
-- Created 14 matching 600 × 200 JPEG headers by arranging the original backup
+- Created 15 matching 600 × 200 JPEG headers by arranging the original backup
   PNGs with angled cards, soft shadows and complementary backgrounds. Every
   supplied size appears in its campaign header. Rebuild these assets with
   `python3 scripts/build-portfolio-headers.py` (requires ImageMagick);
@@ -89,10 +95,20 @@ does not deploy the branch or change server settings.
 - Chrome checks confirmed a working animated preview and descriptive title
   for each of the 14 new campaigns, plus the static/animated toggle. The
   Qualcomm previews now use the same cdnjs library as the other GSAP projects.
-- Homepage preview links retain all 178 original creative paths and add 53
-  new size variants; all 231 creative entry files exist. Each linked campaign
+- Homepage preview links retain all 178 original creative paths, add 53
+  imported sizes and restore 18 previously unlisted sizes; all 249 creative
+  entry files exist. Each linked campaign
   has a descriptive fallback title. New headers include every supplied size.
-- The sitemap parses as XML and contains 63 distinct HTTPS URLs with existing
+- The gallery audit accounts for all 253 portfolio entry pages. Every HTML5
+  banner variant is linked. The four unlisted entries are video-only previews:
+  `aimovig/time2018/540x432`, `aws/redshift/540x304`,
+  `imperva/cybercriminals/540x304` and `imperva/secure/540x304` under `portfolio/`.
+  They were not added to the banner gallery.
+- Chrome checks confirm all five restored cards and their preview titles,
+  plus the two restored size previews. All seven previews render without
+  console errors. All 167 quoted local asset references in the restored
+  variants resolve; the four reused header files remain byte-identical.
+- The sitemap parses as XML and contains 67 distinct HTTPS URLs with existing
   creative targets.
 - Browser layout checks passed at widths of 320, 390, 768, and 1440 pixels,
   without horizontal page overflow or clipped creative cards.

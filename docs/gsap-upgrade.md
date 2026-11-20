@@ -40,6 +40,35 @@ When upgrading again, update the core and every plugin together.
   by angle; its numeric positions are unchanged, without the removed
   `useFrames` option.
 
+## Review links
+
+These local previews show the 28 variants that needed compatibility patches
+beyond changing the GSAP imports. The development server must be running on
+port 8765; these links review the local branch, not the published website.
+
+| Campaign | Preview sizes | Patch |
+| --- | --- | --- |
+| L’Oréal Lash Paradise | [300×250](http://127.0.0.1:8765/preview/?c=portfolio/loreal/lashparadise/300x250) · [300×600](http://127.0.0.1:8765/preview/?c=portfolio/loreal/lashparadise/300x600) · [728×90](http://127.0.0.1:8765/preview/?c=portfolio/loreal/lashparadise/728x90) | Reveal-slider transform reads |
+| Looker Dog Buddy | [160×600](http://127.0.0.1:8765/preview/?c=portfolio/looker/dogbuddy/160x600) · [300×250](http://127.0.0.1:8765/preview/?c=portfolio/looker/dogbuddy/300x250) · [300×600](http://127.0.0.1:8765/preview/?c=portfolio/looker/dogbuddy/300x600) · [728×90](http://127.0.0.1:8765/preview/?c=portfolio/looker/dogbuddy/728x90) · [970×250](http://127.0.0.1:8765/preview/?c=portfolio/looker/dogbuddy/970x250) | Animated graph transform reads |
+| Dun & Bradstreet Credit Essentials | [160×600](http://127.0.0.1:8765/preview/?c=portfolio/dnb/gpe2/160x600) · [300×50](http://127.0.0.1:8765/preview/?c=portfolio/dnb/gpe2/300x50) · [300×250](http://127.0.0.1:8765/preview/?c=portfolio/dnb/gpe2/300x250) · [300×600](http://127.0.0.1:8765/preview/?c=portfolio/dnb/gpe2/300x600) · [728×90](http://127.0.0.1:8765/preview/?c=portfolio/dnb/gpe2/728x90) | Delayed callback cancellation |
+| Citrix Parallax | [300×250](http://127.0.0.1:8765/preview/?c=portfolio/citrix/parallax/300x250) · [970×250](http://127.0.0.1:8765/preview/?c=portfolio/citrix/parallax/970x250) · [970×90-970×415](http://127.0.0.1:8765/preview/?c=portfolio/citrix/parallax/970x90-970x415) | Paused timeline and timer cleanup |
+| Crush-A-Crush | [320×568](http://127.0.0.1:8765/preview/?c=portfolio/crush/crush-a-crush/320x568) | Timer cleanup and dependency loader |
+| Seagate Digital Oz | [300×250](http://127.0.0.1:8765/preview/?c=portfolio/seagate/digitaloz/300x250) · [640×480](http://127.0.0.1:8765/preview/?c=portfolio/seagate/digitaloz/640x480) | Bezier-to-MotionPath migration |
+| Seagate Holiday | [160×600](http://127.0.0.1:8765/preview/?c=portfolio/seagate/holiday/160x600) · [300×250](http://127.0.0.1:8765/preview/?c=portfolio/seagate/holiday/300x250) · [728×90](http://127.0.0.1:8765/preview/?c=portfolio/seagate/holiday/728x90) | Bezier-to-MotionPath migration |
+| Imperva Security Analytics | [160×600](http://127.0.0.1:8765/preview/?c=portfolio/imperva/analytics/160x600) · [300×600](http://127.0.0.1:8765/preview/?c=portfolio/imperva/analytics/300x600) · [728×90](http://127.0.0.1:8765/preview/?c=portfolio/imperva/analytics/728x90) | Numeric text-animation durations |
+| Imperva SecureSphere | [160×600](http://127.0.0.1:8765/preview/?c=portfolio/imperva/secure/160x600) · [300×600](http://127.0.0.1:8765/preview/?c=portfolio/imperva/secure/300x600) · [728×90](http://127.0.0.1:8765/preview/?c=portfolio/imperva/secure/728x90) | Numeric text-animation durations |
+
+Additional plugin and dependency-loader upgrades can be reviewed in
+[Databricks Zipline](http://127.0.0.1:8765/preview/?c=portfolio/databricks/zipline/300x250)
+(SplitText),
+[Jelmyto Kidney](http://127.0.0.1:8765/preview/?c=portfolio/jelmyto/kidney/300x250)
+(MorphSVG),
+[1-800 CONTACTS Tiered Promo](http://127.0.0.1:8765/preview/?c=portfolio/1800contacts/tieredpromo/300x250)
+and [Want It All](http://127.0.0.1:8765/preview/?c=portfolio/1800contacts/wantitall/300x250)
+(MorphSVG), and
+[Find-Your-Crush](http://127.0.0.1:8765/preview/?c=portfolio/crush/find-your-crush/320x568)
+(dynamic script loading).
+
 ## Verification
 
 - All 420 inline scripts parse, as do the modified external animation files.
