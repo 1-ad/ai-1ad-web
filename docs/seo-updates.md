@@ -45,13 +45,13 @@ recommendations from the original “Update Website SEO” review.
   load, iframe load, scroll and resize. Non-icon demos retain `js/shared.js`.
 - Moved the four animated section illustrations into the root `sections/`
   directory and updated the homepage, regression tests and documentation paths.
-- Imported 14 client campaigns. Qualcomm Big Ideas, Built-In AI, Levitate,
-  Multiply and PC Revolution appear first. The other imports are BlackBerry
-  MTD, Box Bubbles and Cutting Costs, Databricks Zipline,
+- Imported 14 client campaigns. Qualcomm Big Ideas, Built-In AI, Levitate
+  and PC Revolution appear first; Multiply is temporarily hidden. The other
+  imports are BlackBerry MTD, Box Bubbles and Cutting Costs, Databricks Zipline,
   Klaviyo Intro, FLEX Holiday Rear Handle, and Jelmyto AUA 2021, Kidney and
   Patient Profiles. The 53 banner sizes and 632 creative files were copied
   from the owner's portfolio folders.
-- Added four HP campaigns together immediately after Qualcomm: Cadalyst —
+- Added four HP campaigns together immediately after LEGO: Cadalyst —
   Generative Design, Care Pack Program, Hybrid Collaboration and Device
   Manageability. Copied 109 source files covering 12 banner sizes, added each
   demo's `_info.xml`, and composed four headers from the original backup PNGs.
@@ -68,6 +68,9 @@ recommendations from the original “Update Website SEO” review.
 - Grouped client panels by brand within the existing banner, preroll and mobile
   galleries. Each brand keeps its first position relative to other brands, and
   projects within a brand retain their previous order. Qualcomm remains first.
+- Temporarily hid the SF SPCA and Qualcomm Multiply panels with inline
+  `display:none`. Remove that style to restore them; their markup and preview
+  files are preserved.
 - All 194 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
   from cdnjs. This replaces the temporary local Qualcomm library and older
   CDN/embedded copies. Compatibility adjustments and verification are recorded
@@ -133,7 +136,9 @@ Existing expansion and offset metadata remains in the original XML files.
   brand, product, campaign, description, size and available static backup.
   New headers include every supplied size.
 - The gallery audit accounts for all 265 portfolio entry pages. Every HTML5
-  banner variant is linked. The four unlisted entries are video-only previews:
+  banner variant is represented in the gallery markup, including the temporarily
+  hidden SF SPCA and Qualcomm Multiply panels. The four unlisted entries are
+  video-only previews:
   `aimovig/time2018/540x432`, `aws/redshift/540x304`,
   `imperva/cybercriminals/540x304` and `imperva/secure/540x304` under `portfolio/`.
   They were not added to the banner gallery.
