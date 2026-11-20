@@ -5,9 +5,11 @@
 <meta name=ad.size content="width=300,height=250" />
 <meta name=format-detection content="telephone=no" />
 <meta charset=UTF-8 />
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script>gsap.defaults({overwrite:"auto"});</script>
+
+
 <script>var clickTag="https://www.lorealparisusa.com/products/hair-color/products/root-touch-up/magic-root-cover-up.aspx";window.onload=function(){initMouseEvents();initProducts();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
 function initMouseEvents(){gEL("#banner").addEventListener("mouseover",onBannerOver);gEL("#banner").addEventListener("mouseout",onBannerOut);gEL("#banner").addEventListener("mousemove",onBannerMove);gEL("#banner").addEventListener("click",onBannerClick);}
 function onBannerClick(e){window.open(clickTag);}

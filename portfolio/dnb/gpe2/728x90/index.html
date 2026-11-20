@@ -7,9 +7,11 @@
 <meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
 <meta http-equiv=X-UA-Compatible content="IE=10" />
 <meta charset=UTF-8 />
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/TweenLite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script>gsap.defaults({overwrite:"auto"});</script>
+
+
 <script>var clickTag="https://www.dnb.com";window.onload=function(){initMouseEvents();resetBanner();resetReveal();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
 function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
 function onBannerClick(e){window.open(clickTag);}
@@ -24,7 +26,7 @@ randColor=randRange(1,100);if(randColor<40){partOb.color=colorAr[randRange(0,col
 partOb.pts=[];partOb.pts.push(pt3d(partOb.x,0,0));partOb.pts.push(pt3d(partOb.x+particleWidth-particleSpace,0,0));partOb.pts.push(pt3d(partOb.x+particleWidth-particleSpace,0+particleHeight-particleSpace,0));partOb.pts.push(pt3d(partOb.x,0+particleHeight-particleSpace,0));particlesRenderAr.push(partOb);}}
 function resumeParticles(){TweenLite.delayedCall(0.03,redrawParticles);}
 function endParticles(){particleEnd=true;}
-function stopParticles(){TweenLite.killDelayedCallsTo(redrawParticles);}
+function stopParticles(){gsap.killTweensOf(redrawParticles);}
 function redrawParticles(){onUpdateParticles();onRenderParticles();TweenLite.delayedCall(0.03,redrawParticles);}
 var moveAmt=10;var amtMoved=particleHeight;function onUpdateParticles(){if(amtMoved>=particleHeight){buildRow(-1);amtMoved=0;}
 var partOb;var a=particlesRenderAr.length;while(a--){partOb=particlesRenderAr[a];partOb.y+=moveAmt;if(partOb.y>particleMaxY){particlesRenderAr.splice(a,1);}}

@@ -5,11 +5,14 @@
 <meta name=ad.size content="width=300,height=250">
 <meta name=format-detection content="telephone=no">
 <meta charset=UTF-8>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js></script>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/easing/EasePack.min.js></script>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/CSSPlugin.min.js></script>
-<script src=https://cdnjs.cloudflare.com/ajax/libs/gsap/latest/plugins/BezierPlugin.min.js></script>
-<script src=banner.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/MotionPathPlugin.min.js"></script>
+<script>gsap.registerPlugin(MotionPathPlugin);gsap.defaults({overwrite:"auto"});</script>
+
+
+
+<script src="banner.js?v=gsap-3.15.1"></script>
 <script>var clickTag="https://www.seagate.com/";</script>
 <link href=banner.css rel=stylesheet />
 <style>html,body{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}#banner{position:absolute;width:300px;height:250px;top:0;left:0;background-color:#fff;display:none;overflow:hidden;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border:1px solid #888}</style>

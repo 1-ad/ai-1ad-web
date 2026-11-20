@@ -7,9 +7,11 @@
 <meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
 <meta http-equiv=X-UA-Compatible content="IE=10" />
 <meta charset=UTF-8 />
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script>gsap.defaults({overwrite:"auto"});</script>
+
+
 <script>var clickTag="https://looker.com/";window.onload=function(){initMouseEvents();resetBanner();resetReveal();initTiles(tilesOb);adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
 function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);gEL("#cta").addEventListener("mouseover",onCTAOver);gEL("#cta").addEventListener("mouseout",onCTAOut);}
 function onBannerClick(e){window.open(clickTag);}
@@ -20,7 +22,7 @@ function startAnimation(){var delay=0.25;TweenLite.delayedCall(delay,function(){
 function startGraphs(){for(var a in graph1Boxes){if(graph1Boxes[a].nodeName=="path"){var graphBox=graph1Boxes[a];TweenLite.set(graphBox,{scaleY:0});var randRatio=randRange(0,10)/10;loopGraphY(graphBox,randRatio);}}
 for(var a in graph2Boxes){if(graph2Boxes[a].nodeName=="path"){var graphBox=graph2Boxes[a];TweenLite.set(graphBox,{scaleY:0});var randRatio=randRange(0,10)/10;loopGraphY(graphBox,randRatio);}}
 for(var a in graph3Boxes){if(graph3Boxes[a].nodeName=="path"){var graphBox=graph3Boxes[a];TweenLite.set(graphBox,{scaleY:0});var randRatio=randRange(0,10)/10;loopGraphY(graphBox,randRatio);}}}
-function loopGraphY(graphBox,randRatio){if(playGraph===true){var boxScaleY=graphBox._gsTransform.scaleY;var newScaleY=1;if(boxScaleY>0.8){newScaleY=randRange(1,3)/10;}
+function loopGraphY(graphBox,randRatio){if(playGraph===true){var boxScaleY=gsap.getProperty(graphBox,"scaleY");var newScaleY=1;if(boxScaleY>0.8){newScaleY=randRange(1,3)/10;}
 var delay=randRange(0,10)/10;var tw=TweenLite.to(graphBox,2,{scaleY:newScaleY,ease:Quad.easeInOut,delay:delay,onComplete:loopGraphY,onCompleteParams:[graphBox]});if(randRatio){tw.progress(randRatio);}}}
 var canvasScale=2;var canvasWidth;var canvasHeight;var txtAR;function resetReveal(){canvasWidth=bannerWidth*canvasScale;canvasHeight=bannerHeight*canvasScale;txtAR=[];txtAR[1]=initText("f1_txt1");txtAR[1].boxes=[[20,22,205,28]];txtAR[2]=initText("f1_txt2");txtAR[2].boxes=[[22,90,668,52],[22,142,668,52]];txtAR[3]=initText("f2_txt1");txtAR[3].boxes=[[24,53,386,33],[24,88,386,33]];txtAR[4]=initText("f3_txt2");txtAR[4].boxes=[[21,129,309,34]];txtAR[5]=initText("f3_txt4");txtAR[5].boxes=[[710,204,233,21]];}
 function initText(txtName){var img=new Image();img.src="img_"+txtName+".png";var txtOb={id:"#"+txtName,img,};var el=gEL(txtOb.id);el.innerHTML="";el.style.backgroundImage="none";return txtOb;}

@@ -5,9 +5,11 @@
 <meta name=ad.size content="width=160,height=600" />
 <meta name=format-detection content="telephone=no" />
 <meta charset=UTF-8 />
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script>gsap.defaults({overwrite:"auto"});</script>
+
+
 <script>var clickTag="https://www.lorealparisusa.com/beauty-magazine/makeup/face-makeup/find-your-true-match.aspx";window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,delay:0.25});TweenLite.delayedCall(0.125,playVideomation);}
 function initMouseEvents(){gEL("#banner").addEventListener("click",onBannerClick);}
 function onBannerClick(e){window.open(window.clickTag,"_blank");}

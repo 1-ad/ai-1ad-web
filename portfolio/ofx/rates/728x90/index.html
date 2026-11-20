@@ -7,9 +7,11 @@
 <meta name=viewport content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1" />
 <meta http-equiv=X-UA-Compatible content="IE=10" />
 <meta charset=UTF-8 />
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script>gsap.defaults({overwrite:"auto"});</script>
+
+
 <script>var clickTag="https://www.ofx.com/";var canvasWidth=728;var canvasHeight=90;window.onload=function(){initMouseEvents();resetBanner();resetReveal();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1});startAnimation();}
 function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick);}
 function onBannerClick(e){window.open(clickTag);}

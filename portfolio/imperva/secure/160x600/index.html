@@ -5,11 +5,15 @@
 <meta name=ad.size content="width=160,height=600" />
 <meta name=format-detection content="telephone=no" />
 <meta charset=UTF-8 />
-<script src=ScrambleTextPlugin.min.js></script>
-<script src=TextPlugin.min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/ScrambleTextPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/TextPlugin.min.js"></script>
+<script>gsap.registerPlugin(ScrambleTextPlugin,TextPlugin);gsap.defaults({overwrite:"auto"});</script>
+
+
+
+
 <link href="https://fonts.googleapis.com/css?family=Muli:800" rel=stylesheet />
 <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel=stylesheet />
 <script>var clickTag="https://www.imperva.com";window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
@@ -20,7 +24,7 @@ function startAnimation(){var delay=0;TweenLite.delayedCall(delay,showBoxes);del
 var x=-39;var y=-22;var width=adWidth-x;var height=adHeight-y;var boxWidth=80;var boxHeight=75;var cols=Math.ceil(width/boxWidth);var rows=Math.ceil(height/boxHeight);function initBoxes(){var boxesHTML="";for(let col=1;col<=cols;col++){for(let row=1;row<=rows;row++){var boxHTML="<div id='box_"+row+"_"+col+"' class='box'></div>";boxesHTML+=boxHTML;}}
 gEL("#boxes").innerHTML=boxesHTML;var startLeft=x+(cols-5)*boxWidth;for(let row=1;row<=rows;row++){for(let col=1;col<=cols;col++){var boxId="#box_"+row+"_"+col;var width=boxWidth+"px";var height=boxHeight+"px";var left=x+(col-1)*boxWidth;var top=y+(row-1)*boxHeight+"px";var evenRow=isEven(row);if(evenRow)left+=boxWidth*0.5;left+="px";TweenLite.set(boxId,{width,height,left,top,autoAlpha:0,scale:0});}}}
 function showBoxes(){var startX=80;var startY=370;var delay=0;for(let row=1;row<=rows;row++){for(let col=1;col<=cols;col++){var boxId="#box_"+row+"_"+col;var boxX=gEL(boxId).offsetLeft;var boxY=gEL(boxId).offsetTop;var dist=Math.round(getDistance(boxX,boxY,startX,startY));var delay=(dist/100)*0.25;var endS=dist<110?1:0;TweenLite.to(boxId,0.75,{autoAlpha:1,scale:1.25,delay,ease:Quad.easeInOut});TweenLite.to(boxId,0.75,{scale:endS,delay:delay+0.75,ease:Quad.easeInOut});if(endS===0){TweenLite.to(boxId,0.75,{scale:endS,delay:delay+0.75,ease:Quad.easeInOut,onComplete:dEL,onCompleteParams:[boxId]});}else{TweenLite.to(boxId,0.75,{scale:endS,delay:delay+0.75,ease:Quad.easeInOut});}}}}
-function showTitle(){var totalTime=2;var line1Txt="Secure Apps.";var line2Txt="Secure Data.";var line3Txt="Secure Growth.";var totalChars=line1Txt.length+line2Txt.length+line3Txt.length;var line1Time=parseFloat((line1Txt.length/totalChars)*totalTime).toFixed(2);var line2Time=parseFloat((line2Txt.length/totalChars)*totalTime).toFixed(2);var line3Time=parseFloat((line3Txt.length/totalChars)*totalTime).toFixed(2);var delay=0.1;TweenLite.to("#title1",line1Time,{text:line1Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line1Time);TweenLite.to("#title2",line2Time,{text:line2Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line2Time);TweenLite.to("#title3",line3Time,{text:line3Txt,ease:Linear.easeNone,delay});}
+function showTitle(){var totalTime=2;var line1Txt="Secure Apps.";var line2Txt="Secure Data.";var line3Txt="Secure Growth.";var totalChars=line1Txt.length+line2Txt.length+line3Txt.length;var line1Time=+parseFloat((line1Txt.length/totalChars)*totalTime).toFixed(2);var line2Time=+parseFloat((line2Txt.length/totalChars)*totalTime).toFixed(2);var line3Time=+parseFloat((line3Txt.length/totalChars)*totalTime).toFixed(2);var delay=0.1;TweenLite.to("#title1",line1Time,{text:line1Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line1Time);TweenLite.to("#title2",line2Time,{text:line2Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line2Time);TweenLite.to("#title3",line3Time,{text:line3Txt,ease:Linear.easeNone,delay});}
 var scrambleSpaceChars={};function initScramble(divId){scrambleSpaceChars[divId]=[];var textArr=gEL("#"+divId).innerHTML.split("");for(var a in textArr){if(textArr[a]===" "){scrambleSpaceChars[divId].push(parseInt(a));}}}
 function fixScramble(divId){var text=gEL("#"+divId).innerHTML;for(var a in scrambleSpaceChars[divId]){var index=scrambleSpaceChars[divId][a];text=setCharAt(text,index," ");}
 gEL("#"+divId).innerHTML=text;}

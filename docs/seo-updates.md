@@ -49,11 +49,10 @@ recommendations from the original “Update Website SEO” review.
   Klaviyo Intro, FLEX Holiday Rear Handle, and Jelmyto AUA 2021, Kidney and
   Patient Profiles. The 53 banner sizes and 632 creative files were copied
   from the owner's portfolio folders.
-- Four Qualcomm sets could not load GSAP from jsDelivr in the browser. Their
-  12 entry files now reference a shared local copy of the exact GSAP 3.12.5
-  library at `portfolio/qualcomm/gsap-3.12.5.min.js`. The downloaded bytes
-  match the same release on cdnjs. The original animation code and artwork
-  are unchanged; no dependency version was upgraded.
+- All 182 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
+  from cdnjs. This replaces the temporary local Qualcomm library and older
+  CDN/embedded copies. Compatibility adjustments and verification are recorded
+  in [GSAP upgrade notes](gsap-upgrade.md).
 - Created 14 matching 600 × 200 JPEG headers by arranging the original backup
   PNGs with angled cards, soft shadows and complementary backgrounds. Every
   supplied size appears in its campaign header. Rebuild these assets with
@@ -83,16 +82,13 @@ does not deploy the branch or change server settings.
 
 - JavaScript syntax checks passed. Whitespace checks are clean for the gallery,
   preview wrapper, title map, sitemap, documentation and header generator;
-  imported creative files and the vendor library retain their original whitespace.
-- All 647 new sample, header and shared-library URLs returned HTTP 200, and
-  every static asset reference resolves, including configured URLs in the
-  Qualcomm text effects.
-  All 175 copied inline and standalone scripts passed syntax checks, as did
-  the shared GSAP library. The 620 untouched files match their originals byte
-  for byte; the other 12 differ only in the GSAP script URL.
+  existing creative-file formatting is retained.
+- Initial portfolio-import checks verified all 647 sample/header/library URLs
+  and the original copied file contents. The subsequent GSAP migration removes
+  superseded local vendor files; see the upgrade notes for current script checks.
 - Chrome checks confirmed a working animated preview and descriptive title
   for each of the 14 new campaigns, plus the static/animated toggle. The
-  Qualcomm previews run with the local library and no new console errors.
+  Qualcomm previews now use the same cdnjs library as the other GSAP projects.
 - Homepage preview links retain all 178 original creative paths and add 53
   new size variants; all 231 creative entry files exist. Each linked campaign
   has a descriptive fallback title. New headers include every supplied size.

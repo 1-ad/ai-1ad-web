@@ -5,11 +5,15 @@
 <meta name=ad.size content="width=300,height=600" />
 <meta name=format-detection content="telephone=no" />
 <meta charset=UTF-8 />
-<script src=ScrambleTextPlugin.min.js></script>
-<script src=TextPlugin.min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/easepack_2.0.1_min.js></script>
-<script src=https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_2.0.1_min.js></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/EasePack.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/ScrambleTextPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/TextPlugin.min.js"></script>
+<script>gsap.registerPlugin(ScrambleTextPlugin,TextPlugin);gsap.defaults({overwrite:"auto"});</script>
+
+
+
+
 <link href="https://fonts.googleapis.com/css?family=Muli:800" rel=stylesheet />
 <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel=stylesheet />
 <script>var clickTag="https://www.imperva.com";window.onload=function(){initMouseEvents();resetBanner();adVisible();};function adVisible(){TweenLite.to("#banner",0.25,{autoAlpha:1,onComplete:startAnimation});}
@@ -23,7 +27,7 @@ function showBoxes(){boxesAR=boxesAR.sort(compare);for(var a in boxesAR){var box
 var keepAR=[];keepAR.push("8_4","8_5");keepAR.push("9_3","9_4","9_5");keepAR.push("10_2","10_3","10_4","10_5");function hideBoxes(){for(var a in boxesAR){var boxObj=boxesAR[a];var delay=(boxObj.dist/100)*0.15+0.25;if(!keepAR.includes(boxObj.name)){TweenLite.to(boxObj.boxId,0.5,{scale:0,delay,ease:Quad.easeIn,onComplete:dEL,onCompleteParams:[boxObj.boxId]});}}}
 function blinkCircle(){var cicleEl=gEL("#box_10_4").getElementsByClassName("box_circle");var delay=0;for(let a=1;a<=5;a++){TweenLite.set(cicleEl,{backgroundColor:"#ffd66d",delay});delay+=0.1;TweenLite.set(cicleEl,{backgroundColor:"#fff",delay});delay+=0.1;}
 TweenLite.set(cicleEl,{backgroundColor:"#ffd66d",delay});}
-function showTitle(){var totalTime=2;var line1Txt="Pinpoint the";var line2Txt="real threats to";var line3Txt="your data.";var totalChars=line1Txt.length+line2Txt.length+line3Txt.length;var line1Time=parseFloat((line1Txt.length/totalChars)*totalTime).toFixed(2);var line2Time=parseFloat((line2Txt.length/totalChars)*totalTime).toFixed(2);var line3Time=parseFloat((line3Txt.length/totalChars)*totalTime).toFixed(2);var delay=0.1;TweenLite.to("#title1",line1Time,{text:line1Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line1Time);TweenLite.to("#title2",line2Time,{text:line2Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line2Time);TweenLite.to("#title3",line3Time,{text:line3Txt,ease:Linear.easeNone,delay});}
+function showTitle(){var totalTime=2;var line1Txt="Pinpoint the";var line2Txt="real threats to";var line3Txt="your data.";var totalChars=line1Txt.length+line2Txt.length+line3Txt.length;var line1Time=+parseFloat((line1Txt.length/totalChars)*totalTime).toFixed(2);var line2Time=+parseFloat((line2Txt.length/totalChars)*totalTime).toFixed(2);var line3Time=+parseFloat((line3Txt.length/totalChars)*totalTime).toFixed(2);var delay=0.1;TweenLite.to("#title1",line1Time,{text:line1Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line1Time);TweenLite.to("#title2",line2Time,{text:line2Txt,ease:Linear.easeNone,delay});delay+=parseFloat(line2Time);TweenLite.to("#title3",line3Time,{text:line3Txt,ease:Linear.easeNone,delay});}
 var scrambleSpaceChars={};function initScramble(divId){scrambleSpaceChars[divId]=[];var textArr=gEL("#"+divId).innerHTML.split("");for(var a in textArr){if(textArr[a]===" "){scrambleSpaceChars[divId].push(parseInt(a));}}}
 function fixScramble(divId){var text=gEL("#"+divId).innerHTML;for(var a in scrambleSpaceChars[divId]){var index=scrambleSpaceChars[divId][a];text=setCharAt(text,index," ");}
 gEL("#"+divId).innerHTML=text;}
