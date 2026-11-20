@@ -1,6 +1,6 @@
 # Shared GSAP CDN version
 
-All 182 GSAP-loading creative pages use **GSAP 3.15.1** from cdnjs:
+All 194 GSAP-loading creative pages use **GSAP 3.15.1** from cdnjs:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js"></script>
@@ -20,6 +20,11 @@ When upgrading again, update the core and every plugin together.
 - Replaced ten embedded vendor scripts and the two Crush dependency arrays.
   Removed 36 unused local copies of GSAP and its plugins, including the
   temporary Qualcomm GSAP 3.12.5 copy.
+- The 12 newly imported HP banners also use this version. Six collaboration
+  and manageability variants load SplitText from cdnjs and register the plugin
+  object explicitly; their superseded local SplitText files were not imported.
+  GSAP's npm release metadata and cdnjs both reported 3.15.1 when rechecked
+  for this import on 2026-11-20.
 
 ## Compatibility
 
@@ -76,9 +81,12 @@ and [Want It All](http://127.0.0.1:8765/preview/?c=portfolio/1800contacts/wantit
   one core import per project, with plugins after the core.
 - Runtime checks using the actual CDN build pass for delayed-call cancellation,
   legacy overwrite behavior, paused timeline scrubbing and curved-path endpoints.
-- All 182 pages pass Chrome load/initial-animation checks, observing each for
+- The original 182 pages pass Chrome load/initial-animation checks, observing each for
   six seconds after load. The eight Imperva variants pass a 15-second retest
   after correcting their duration values. All report GSAP 3.15.1.
+- All 12 imported HP banners also pass Chrome playback checks through their
+  later animation frames, with no JavaScript errors. Each reports GSAP 3.15.1;
+  all six SplitText variants report SplitText 3.15.1 and render split text.
 - Visual checks cover Seagate's later motion-path frames, Databricks' SplitText
   animation and the L'Oréal before/after slider. Dragging the slider updates
   its position without errors. Imperva's eight title functions also pass

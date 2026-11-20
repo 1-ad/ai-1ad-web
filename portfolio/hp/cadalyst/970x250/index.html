@@ -1,0 +1,38 @@
+<!doctype html><html lang=en><title>970x250</title><meta name=ad.size content="width=970,height=250"><meta name=format-detection content="telephone=no"><meta name=viewport 
+content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1"><meta http-equiv=X-UA-Compatible content="IE=10"><meta charset=UTF-8><script 
+src=https://cdnjs.cloudflare.com/ajax/libs/gsap/3.15.1/gsap.min.js></script><script>
+var clickTag="https://www8.hp.com/h20195/v2/GetDocument.aspx?docname=4AA8-0110ENW",startFrame=1,gotoNextFrame=!0;function adVisible(){gsap.to("#banner",.25,{autoAlpha:1,delay:.25,
+onStart:this["showFrame"+startFrame]})}function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick)}function onBannerClick(a){window.open(clickTag)}function resetBanner(){
+gsap.set("#laptop",{maskImage:"url('img_mask.png')",maskSize:"970px 250px"}),gsap.set("#txt2, #logos, #cta",{autoAlpha:0}),gsap.set(".txt1a-txt, .txt1b-txt",{y:50,autoAlpha:0}),
+gsap.set(".txt1a-blur, .txt1b-blur",{y:50,autoAlpha:0}),gsap.set(".txt3-txt, .txt3-blur",{y:50,autoAlpha:0})}function showFrame1(){playFrames({d:"#frames",ef:59,h:gsap.getProperty("#frames","height"),
+yoyo:!0,doLoops:3,delayMs:50,loopDelay:.2});var a=.25;gsap.to("#txt2",.5,{autoAlpha:1,delay:a}),gsap.delayedCall(a,(function(){showText("txt1a")})),a+=2,gsap.delayedCall(a,(function(){
+hideText("txt1a")})),a+=.25,gsap.delayedCall(a,(function(){showText("txt1b")})),a+=2,gsap.delayedCall(a,(function(){hideText("txt1b")})),gotoNextFrame&&gsap.delayedCall(a,showFrame2)}
+function showFrame2(){var a=gsap.getProperty("#cta","width");gsap.set("#cta",{x:a,width:"0px",autoAlpha:1}),gsap.set("#cta_txt",{x:-a});var e=0;gsap.to("#logos",1,{autoAlpha:1,ease:Quad.easeInOut,
+delay:e}),e+=.5,gsap.delayedCall(e,(function(){showText("txt3")})),e+=1,gsap.to("#cta",.5,{x:0,width:a+"px",ease:Quad.easeOut,delay:e}),gsap.to("#cta_txt",.5,{x:0,ease:Quad.easeOut,delay:e})}
+function playFrames(a){a.f||(a.f=0),a.direction||(a.direction=1),a.loopNum||(a.loopNum=1),a.doLoops||(a.doLoops=1),renderFrame(a)}function renderFrame(a){a.f+=a.direction;var e=(a.f-1)*a.h
+;gsap.set(a.d,{backgroundPositionY:-e+"px"}),1===a.direction&&a.f>a.ef?a.loopNum<a.doLoops&&(a.loopNum+=1,a.yoyo?a.direction*=-1:a.f=0,
+gsap.delayedCall(a.delayMs/1e3+a.loopDelay,renderFrame,[a])):-1===a.direction&&1===a.f?a.loopNum<a.doLoops&&(a.loopNum+=1,a.direction*=-1,
+gsap.delayedCall(a.delayMs/1e3,renderFrame,[a])):gsap.delayedCall(a.delayMs/1e3,renderFrame,[a])}function showText(a,e){e||(e=.75);var t=e/2,o=e/5;gsap.to("."+a+"-txt",e,{y:0,autoAlpha:1,
+ease:Quad.easeOut,stagger:o}),gsap.to("."+a+"-txt",e,{autoAlpha:1,ease:Quad.easeInOut,stagger:o}),gsap.to("."+a+"-blur",e,{y:0,ease:Quad.easeOut,stagger:o}),gsap.to("."+a+"-blur",t,{autoAlpha:1,
+ease:Quad.easeInOut,stagger:o}),gsap.to("."+a+"-blur",t,{autoAlpha:0,ease:Quad.easeInOut,delay:t,stagger:o})}function hideText(a){gsap.to("."+a+"-txt",.5,{y:-50,autoAlpha:0,ease:Quad.easeIn}),
+gsap.to("."+a+"-txt",.5,{autoAlpha:0,ease:Quad.easeInOut}),gsap.to("."+a+"-blur",.5,{y:-50,ease:Quad.easeIn}),gsap.to("."+a+"-blur",.25,{autoAlpha:1,ease:Quad.easeInOut}),gsap.to("."+a+"-blur",.25,{
+autoAlpha:0,ease:Quad.easeInOut,delay:.25})}function gEL(a){return document.querySelector(a)}function bindEvent(a,e,t){
+a.addEventListener?a.addEventListener(e,t,!1):a.attachEvent&&a.attachEvent("on"+e,t)}window.onload=function(){resetBanner(),initMouseEvents(),adVisible()}</script><style>
+body,html{width:100%;height:100%;margin:0;padding:0;background-color:#fff;text-decoration:none!important}canvas,div,svg{position:absolute;background-position:0 0;background-size:cover;
+background-repeat:no-repeat;pointer-events:none;user-select:none;transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;
+font-family:inherit!important;font-weight:inherit!important;line-height:inherit!important}#banner{opacity:0;visibility:hidden;overflow:hidden;background-color:#000;pointer-events:all;cursor:pointer}
+#border{box-sizing:border-box;border:1px solid #000}.adsize{width:970px;height:250px;left:0;top:0;backface-visibility:hidden}.blur{filter:blur(5px)}#frames{width:181px;height:133px;left:279px;top:33px
+;background-image:url(img_frames.jpg)}#laptop{background-image:url(img_laptop.jpg);mask-image:url(img_mask.png)}#mask{opacity:0;background-image:url(img_mask.png)}#logos{background-image:
+url(img_logos.png)}.txt1a-1{background-image:url(img_txt1a-1.png)}.txt1a-2{background-image:url(img_txt1a-2.png)}.txt1a-3{background-image:url(img_txt1a-3.png)}.txt1a-4{background-image:
+url(img_txt1a-4.png)}.txt1a-5{background-image:url(img_txt1a-5.png)}.txt1b-1{background-image:url(img_txt1b-1.png)}.txt1b-2{background-image:url(img_txt1b-2.png)}.txt1b-3{background-image:
+url(img_txt1b-3.png)}.txt1b-4{background-image:url(img_txt1b-4.png)}.txt1b-5{background-image:url(img_txt1b-5.png)}#txt2{background-image:url(img_txt2.png)}.txt3-1{background-image:url(img_txt3-1.png)
+}.txt3-2{background-image:url(img_txt3-2.png)}.cta{width:120px;height:26px;left:0;top:0;overflow:hidden}#cta{left:656px;top:115px;transform-origin:50% 50%;background:
+linear-gradient(90deg,#009bdf 0,#410099 100%)}#cta_txt{background-image:url(img_cta.png);pointer-events:all;cursor:pointer}#cta_txt:hover{background-color:#fff;background-position-y:-26px}</style><div
+ id=mask></div><div id=banner class=adsize><div id=frames></div><div id=laptop class=adsize></div><div id=txt1a class=adsize><div class="adsize txt1a-txt txt1a-1"></div><div 
+class="adsize txt1a-txt txt1a-2"></div><div class="adsize txt1a-txt txt1a-3"></div><div class="adsize txt1a-txt txt1a-4"></div><div class="adsize txt1a-txt txt1a-5"></div><div 
+class="adsize txt1a-blur txt1a-1 blur"></div><div class="adsize txt1a-blur txt1a-2 blur"></div><div class="adsize txt1a-blur txt1a-3 blur"></div><div class="adsize txt1a-blur txt1a-4 blur"></div><div 
+class="adsize txt1a-blur txt1a-5 blur"></div></div><div id=txt1b class=adsize><div class="adsize txt1b-txt txt1b-1"></div><div class="adsize txt1b-txt txt1b-2"></div><div 
+class="adsize txt1b-txt txt1b-3"></div><div class="adsize txt1b-txt txt1b-4"></div><div class="adsize txt1b-txt txt1b-5"></div><div class="adsize txt1b-blur txt1b-1 blur"></div><div 
+class="adsize txt1b-blur txt1b-2 blur"></div><div class="adsize txt1b-blur txt1b-3 blur"></div><div class="adsize txt1b-blur txt1b-4 blur"></div><div class="adsize txt1b-blur txt1b-5 blur"></div>
+</div><div id=txt2 class=adsize></div><div id=txt3 class=adsize><div class="adsize txt3-txt txt3-1"></div><div class="adsize txt3-txt txt3-2"></div><div class="adsize txt3-blur txt3-1 blur"></div><div
+ class="adsize txt3-blur txt3-2 blur"></div></div><div id=logos class=adsize></div><div id=cta class=cta><div id=cta_txt class=cta></div></div></div><div id=border class=adsize></div>

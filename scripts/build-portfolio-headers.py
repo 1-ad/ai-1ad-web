@@ -42,6 +42,10 @@ TWO_PORTRAIT = [("300x600", 171, 100, 112), ("300x250", 385, 93, 225)]
 TWO_LANDSCAPE = [("300x250", 166, 100, 230), ("728x90", 450, 110, 290)]
 THREE = [("300x600", 120, 100, 122), ("300x250", 324, 87, 190),
          ("728x90", 467, 155, 255)]
+THREE_NARROW = [("160x600", 100, 100, 62), ("300x250", 305, 86, 190),
+                ("728x90", 466, 164, 255)]
+THREE_WIDE = [("300x600", 86, 100, 112), ("300x250", 268, 105, 180),
+              ("970x250", 477, 92, 220)]
 
 HEADERS = [
     ("blackberry/mtd", "#e0e9ee", "#7b9eaf", FIVE),
@@ -59,6 +63,10 @@ HEADERS = [
     ("qualcomm/multiply", "#b5d8df", "#536a8c", THREE),
     ("qualcomm/revolution", "#d6142c", "#590715", THREE),
     ("loreal/bambieye", "#e8c5b9", "#af887b", TWO_PORTRAIT),
+    ("hp/cadalyst", "#555860", "#1a1b1f", THREE_WIDE),
+    ("hp/carepackprogram", "#eaf5f9", "#9fcedd", THREE_NARROW),
+    ("hp/collaboration", "#fbe0ef", "#b13a83", THREE_NARROW),
+    ("hp/manageability", "#d9b4f9", "#7b3bb0", THREE_NARROW),
 ]
 
 

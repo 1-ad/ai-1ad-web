@@ -22,9 +22,10 @@ recommendations from the original “Update Website SEO” review.
   eight creative demos. Visibility callbacks skip frames that have not loaded yet.
 - Project titles and preview details come from each demo's `_info.xml`.
   Added metadata for the 172 gallery demos that were missing it, preserving
-  the 77 existing XML files. All 249 linked demos now use the original XML
+  the 77 existing XML files. The 12 new HP demos also include XML metadata.
+  All 261 linked demos now use the original XML
   loader; the separate JavaScript campaign-title map has been removed.
-- All 49 existing sitemap URLs converted to HTTPS, plus 18 new campaign previews
+- All 49 existing sitemap URLs converted to HTTPS, plus 22 new campaign previews
   and a sitemap declaration
   in `robots.txt`. The homepage records the latest copy update as `2026-11-20`;
   unverified historical modification dates on previews are omitted.
@@ -44,16 +45,21 @@ recommendations from the original “Update Website SEO” review.
   load, iframe load, scroll and resize. Non-icon demos retain `js/shared.js`.
 - Moved the four animated section illustrations into the root `sections/`
   directory and updated the homepage, regression tests and documentation paths.
-- Added 14 client campaign panels at the top of the banner gallery. Qualcomm
-  Big Ideas, Built-In AI, Levitate, Multiply and PC Revolution appear first,
-  followed by BlackBerry MTD, Box Bubbles and Cutting Costs, Databricks Zipline,
+- Imported 14 client campaigns. Qualcomm Big Ideas, Built-In AI, Levitate,
+  Multiply and PC Revolution appear first. The other imports are BlackBerry
+  MTD, Box Bubbles and Cutting Costs, Databricks Zipline,
   Klaviyo Intro, FLEX Holiday Rear Handle, and Jelmyto AUA 2021, Kidney and
   Patient Profiles. The 53 banner sizes and 632 creative files were copied
   from the owner's portfolio folders.
+- Added four HP campaigns together immediately after Qualcomm: Cadalyst —
+  Generative Design, Care Pack Program, Hybrid Collaboration and Device
+  Manageability. Copied 109 source files covering 12 banner sizes, added each
+  demo's `_info.xml`, and composed four headers from the original backup PNGs.
+  All 12 use GSAP 3.15.1 from cdnjs; collaboration and manageability also use
+  the matching SplitText plugin in place of six superseded local copies.
 - Restored five existing banner sets missing from the gallery: LEGO Level Up
   Your Ninja, LEGO Discover The Secrets, Citrix Workspace, AXE Carousel and
-  L'Oréal Bambi Eye. They follow the 14 recently imported campaigns, retaining
-  Qualcomm first. Reused four existing headers unchanged and composed Bambi
+  L'Oréal Bambi Eye. Reused four existing headers unchanged and composed Bambi
   Eye's header from its original two backup PNGs. Also restored Citrix
   Intelligence's 300 × 600 and Johnston & Murphy Spring 2018's 200 × 200 links.
 - Added superscript registration marks to the five Snapdragon product labels,
@@ -62,11 +68,11 @@ recommendations from the original “Update Website SEO” review.
 - Grouped client panels by brand within the existing banner, preroll and mobile
   galleries. Each brand keeps its first position relative to other brands, and
   projects within a brand retain their previous order. Qualcomm remains first.
-- All 182 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
+- All 194 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
   from cdnjs. This replaces the temporary local Qualcomm library and older
   CDN/embedded copies. Compatibility adjustments and verification are recorded
   in [GSAP upgrade notes](gsap-upgrade.md).
-- Created 15 matching 600 × 200 JPEG headers by arranging the original backup
+- Created 19 matching 600 × 200 JPEG headers by arranging the original backup
   PNGs with angled cards, soft shadows and complementary backgrounds. Every
   supplied size appears in its campaign header. Rebuild these assets with
   `python3 scripts/build-portfolio-headers.py` (requires ImageMagick);
@@ -107,7 +113,7 @@ Existing expansion and offset metadata remains in the original XML files.
 ## Verification
 
 - JavaScript syntax checks passed. Whitespace checks are clean for the gallery,
-  preview wrapper, title map, sitemap, documentation and header generator;
+  preview wrapper, XML metadata, sitemap, documentation and header generator;
   existing creative-file formatting is retained.
 - Initial portfolio-import checks verified all 647 sample/header/library URLs
   and the original copied file contents. The subsequent GSAP migration removes
@@ -115,12 +121,18 @@ Existing expansion and offset metadata remains in the original XML files.
 - Chrome checks confirmed a working animated preview and descriptive title
   for each of the 14 new campaigns, plus the static/animated toggle. The
   Qualcomm previews now use the same cdnjs library as the other GSAP projects.
-- Homepage preview links retain all 178 original creative paths, add 53
-  imported sizes and restore 18 previously unlisted sizes; all 249 creative
+- HP import checks confirm all 125 sample, XML and header URLs return HTTP 200
+  with the expected file contents. All 97 copied artwork assets are unchanged.
+  The 15 inline scripts parse, and all 12 banners pass Chrome playback checks
+  with GSAP 3.15.1 and no JavaScript errors, including the six SplitText variants.
+  Standalone previews for all four HP campaigns show the XML details and pass
+  the static/animated toggle checks.
+- Homepage preview links retain all 178 original creative paths, add 65
+  imported sizes and restore 18 previously unlisted sizes; all 261 creative
   entry files exist. Each linked demo has its own XML metadata for its title,
   brand, product, campaign, description, size and available static backup.
   New headers include every supplied size.
-- The gallery audit accounts for all 253 portfolio entry pages. Every HTML5
+- The gallery audit accounts for all 265 portfolio entry pages. Every HTML5
   banner variant is linked. The four unlisted entries are video-only previews:
   `aimovig/time2018/540x432`, `aws/redshift/540x304`,
   `imperva/cybercriminals/540x304` and `imperva/secure/540x304` under `portfolio/`.
@@ -129,11 +141,11 @@ Existing expansion and offset metadata remains in the original XML files.
   plus the two restored size previews. All seven previews render without
   console errors. All 167 quoted local asset references in the restored
   variants resolve; the four reused header files remain byte-identical.
-- The sitemap parses as XML and contains 67 distinct HTTPS URLs with existing
+- The sitemap parses as XML and contains 71 distinct HTTPS URLs with existing
   creative targets.
-- All 249 gallery metadata URLs return HTTP 200 with an XML content type and
+- All 261 gallery metadata URLs return HTTP 200 with an XML content type and
   parse successfully. Every referenced preview layout and static backup exists.
-  The 172 new records match the gallery labels; all 77 existing XML files are
+  The 184 added records match the gallery labels; all 77 existing XML files are
   byte-identical to their pre-migration versions.
 - Chrome checks cover XML details and titles, JPEG and PNG static previews,
   demos without backups, existing expandable dimensions and the generic
