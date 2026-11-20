@@ -1,0 +1,50 @@
+﻿<!doctype html><html lang=en><title>728x90</title><meta name=ad.size content="width=728,height=90"><meta name=format-detection content="telephone=no"><meta name=viewport 
+content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1"><meta http-equiv=X-UA-Compatible content="IE=10"><meta charset=UTF-8><script 
+src=https://s0.2mdn.net/ads/studio/cached_libs/gsap_3.2.4_min.js></script><script>
+var adTimeout,flexWidth,ctaWidth,canvasWidth,canvasHeight,canvasContext,renderMan,clickTag="https://www.flexpowertools.com/",startFrame=1,gotoNextFrame=!0;function adVisible(){startAdTimeout(),
+gsap.to("#banner",.25,{autoAlpha:1,onComplete:this["showFrame"+startFrame]})}function initMouseEvents(){bindEvent(gEL("#banner"),"click",onBannerClick),
+bindEvent(gEL("#banner"),"mouseover",onBannerOver),bindEvent(gEL("#banner"),"mouseout",onBannerOut)}function onBannerClick(e){window.open(clickTag)}function onBannerOver(e){cancelAdTimeout()}
+function onBannerOut(e){startAdTimeout()}function startAdTimeout(){adTimeout=gsap.delayedCall(15,(function(){renderOB.pause()}))}function cancelAdTimeout(){renderOB.resume(),adTimeout.kill()}
+function resetBanner(){gsap.set("#banner",{transformPerspective:"10000px",rotationX:.1}),gsap.set("#bkgrnd",{autoAlpha:0}),gsap.set("#product",{autoAlpha:.4,scale:2,transformOrigin:"-2% 50%"}),
+flexWidth=gsap.getProperty("#flex","width"),ctaWidth=gsap.getProperty("#cta","width");var e=174/flexWidth;gsap.set("#flex",{x:20,y:19,scale:e,autoAlpha:0,transformOrigin:"0px 0px"}),gsap.set("#tag",{
+autoAlpha:0}),gsap.set(".icon1_part, .icon2_part",{x:-44,transformOrigin:"50% 50%"}),gsap.set(".icon3_part",{y:44,transformOrigin:"50% 50%"}),gsap.set("#title",{x:600}),gsap.set("#cta",{x:150}),
+gsap.set(".txt",{y:90}),gsap.set("#cta1",{width:"0px"}),gsap.set("#cta2",{x:-114})}function showFrame1(){var e=.25;gsap.to("#flex, #tag",.5,{autoAlpha:1,delay:e,ease:Expo.easeOut}),e+=1
+;var a=100/flexWidth;gsap.to("#flex",.5,{x:20,y:28,scale:a,delay:e,ease:Power2.easeInOut}),gsap.to("#tag",.5,{x:-70,autoAlpha:0,delay:e,ease:Power2.easeInOut}),gsap.to("#bkgrnd",1,{autoAlpha:1,
+delay:e,ease:Power2.easeInOut}),gsap.to("#product",1,{scale:1,autoAlpha:1,delay:e,ease:Power2.easeInOut}),e+=.5,gsap.to("#title, #cta",.5,{x:0,y:0,delay:e,ease:Power2.easeOut,stagger:.25}),e+=.5,
+gsap.to("#cta1",.5,{width:"104px",delay:e+.1,ease:Quad.easeOut}),gsap.to("#cta2",.5,{x:0,delay:e,ease:Quad.easeOut}),e+=.5,gsap.to("#txt1",.5,{x:0,y:0,delay:e,ease:Power2.easeOut}),e+=.5,
+gsap.to(".icon1_part",.5,{x:0,y:0,delay:e,ease:Power2.easeOut,stagger:.1}),e+=.5,gsap.to("#txt2",.5,{x:0,y:0,delay:e,ease:Power2.easeOut}),e+=.25,gsap.to(".icon2_part",.5,{x:0,y:0,delay:e,
+ease:Power2.easeOut,stagger:.1}),e+=.5,gsap.to("#txt3",.5,{x:0,y:0,delay:e,ease:Power2.easeOut,delay:e,ease:Power2.easeOut}),e+=.25,gsap.to(".icon3_part",.5,{x:0,y:0,delay:e,ease:Power2.easeOut,
+stagger:.1}),e+=1,gsap.delayedCall(e,ctaLoop)}function ctaLoop(){gsap.to("#cta2",.5,{x:6,ease:Quad.easeInOut,repeat:3,repeatDelay:1.5}),gsap.to("#cta2",.5,{x:0,ease:Quad.easeInOut,delay:.5,repeat:3,
+repeatDelay:1.5})}window.onload=function(){initMouseEvents(),initParticles(),resetBanner(),adVisible()};var snowImg,renderAR=[],renderOB={},numOfImages=8,TO_RADIANS=Math.PI/180
+;function initParticles(){rEL(gEL("#particle")),canvasWidth=gsap.getProperty("#particles","width"),canvasHeight=gsap.getProperty("#particles","height"),renderOB.frameRate=24,
+renderOB.renderAR=[onUpdate,onRedraw],renderMan=renderEngine(renderOB),renderAR=[],(snowImg=new Image).onload=function(){snowLoaded()},snowImg.src="img_snow.png",
+canvasContext=gEL("#particles").getContext("2d"),renderOB.start()}function snowLoaded(){for(var e=1;e<=50;e++)buildParticle(2,8);for(e=1;e<=5;e++)buildParticle(8,16);renderMan.doRender()}
+function buildParticle(e,a){var t={};t.img=snowImg,t.size=randRange(e,a);var n=t.size/a;t.alpha=.4*(n+.4*(1-n)),t.speedX=.4*(1-n)-n,t.speedY=4*n+.4*(1-n),t.rotation=randRange(0,360),
+t.speedRotation=randRange(15,40)/10*ab();var r=.5*(t=resetParticle(t)).size;t.y=randRange(-r,canvasHeight+t.size),renderAR.push(t)}function resetParticle(e){var a=.5*e.size
+;return e.x=randRange(-a,canvasWidth+a),e.y=-e.size,e.rad=randRange(100,200)/100,e.amt=randRange(10,200)/100,e}function onUpdate(){var e;for(var a in renderAR)(e=renderAR[a]).rad+=e.amt/180*Math.PI*4,
+e.x-=Math.cos(e.rad)+e.speedX,e.y+=e.speedY,e.rotation+=e.speedRotation,e.x<0-e.size&&(e.x+=canvasWidth+2*e.size),e.y>canvasHeight+e.size&&(e=resetParticle(e))}function onRedraw(){var e,a
+;for(var t in canvasContext.clearRect(0,0,canvasWidth,canvasHeight),renderAR)a=(e=renderAR[t]).size,canvasContext.save(),canvasContext.globalAlpha=e.alpha,canvasContext.translate(e.x,e.y),
+canvasContext.rotate(e.rotation*TO_RADIANS),canvasContext.drawImage(e.img,-.5*a,-.5*a,a,a),canvasContext.restore()}function renderEngine(e){var a=e;return a.frameDelay=Math.round(1/a.frameRate*1e3),
+a.renderInt,a.renderStarted,a.start=function(){a.renderStarted=!0,a.doRender(),clearInterval(a.renderInt),a.renderInt=setInterval(a.doRender,a.frameDelay)},a.stop=function(){a.renderStarted=!1,
+clearInterval(a.renderInt)},a.pause=function(){clearInterval(a.renderInt)},a.resume=function(){1==a.renderStarted&&(clearInterval(a.renderInt),a.renderInt=setInterval(a.doRender,a.frameDelay))},
+a.doRender=function(){if(1!=a.isRendering){for(var e in a.isRendering=!0,a.renderAR)a.renderAR[e]();a.isRendering=!1}},a}function bindEvent(e,a,t){
+e.addEventListener?e.addEventListener(a,t,!1):e.attachEvent&&e.attachEvent("on"+a,t)}function gEL(e){return document.querySelector(e)}function rEL(e){e.parentElement.removeChild(e)}
+function randRange(e,a){return Math.floor(window.Math.seedRandom()*(a-e+1))+e}function ab(){return window.Math.seedRandom()<.5?-1:1}window.Math.seed=2,window.Math.seedRandom=function(e,a){
+return e=e||1,a=a||0,Math.seed=(9301*Math.seed+49297)%233280,a+Math.seed/233280*(e-a)}</script><style>
+body,html{width:100%;height:100%;margin:0;padding:0;background-color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent;text-shadow:1px 
+1px 1px rgba(0,0,0,.004);text-decoration:none!important}canvas,div,svg{position:absolute;background-position:0 0;background-size:cover;background-repeat:no-repeat;pointer-events:none;user-select:none;
+transform-origin:0 0}a[x-apple-data-detectors]{color:inherit!important;text-decoration:none!important;font-size:inherit!important;font-family:inherit!important;font-weight:inherit!important;
+line-height:inherit!important}#banner{overflow:hidden;visibility:hidden;pointer-events:all;cursor:pointer;background-color:#000}#border{box-sizing:border-box;border:1px solid #000}.adsize{width:728px;
+height:90px;left:0;top:0;transform-origin:50% 50%;overflow:hidden}.shadow{filter:drop-shadow(0 0 5px rgba(0, 0, 0, .4))}#bkgrnd{background-image:url(img_bkgrnd.png)}#product{background-image:
+url(img_product.png)}#flex{width:204px;height:61px;left:0;top:0;background-image:url(img_flex.svg)}#tag{background-image:url(img_tag.png)}#title{background-image:url(img_title.png)}#txt1{
+background-image:url(img_txt1.png)}#txt2{background-image:url(img_txt2.png)}#txt3{background-image:url(img_txt3.png)}.icon{width:18px;height:18px;top:46px;transform-origin:50% 50%;border-radius:50%;
+background-color:#0f0}.icon svg{fill:#000;stroke:none}#icon1{left:258px}#icon2{left:376px}#icon3{left:496px}#particle{width:1px;height:1px;left:-1000px;background-image:url(img_snow.png)}.cta{width:
+104px;height:32px;left:0;top:0;overflow:hidden}#cta{left:604px;top:30px;background-color:#0f0;pointer-events:all;cursor:pointer}#cta:hover{background-color:#fff}#cta1{background-image:
+url(img_cta1.png)}#cta2{background-image:url(img_cta2.png)}</style><div id=banner class=adsize><div id=bkgrnd class=adsize></div><div id=product class="adsize shadow"></div><div id=particle></div>
+<canvas id=particles width=728 height=90></canvas><div id=flex class=shadow></div><div id=tag class="adsize shadow"></div><div id=title class="adsize shadow"></div><div id=txt1 
+class="adsize txt shadow"><div id=icon1 class=icon><svg class=icon_svg preserveAspectRatio=none viewbox="0 0 44 44"><path class=icon1_part d="M20.7 34.1h6.9L37.3 22 27.6 9.9h-6.9L30.4 22l-9.7 12.1z"/>
+<path class=icon1_part d="M18.4 22L8.7 34.1h6.9L25.2 22 15.6 9.9H8.7L18.4 22z"/></svg></div></div><div id=txt2 class="adsize txt shadow"><div id=icon2 class=icon><svg class=icon_svg 
+preserveAspectRatio=none viewbox="0 0 44 44"><path class=icon2_part d="M20.7 34.1h6.9L37.3 22 27.6 9.9h-6.9L30.4 22l-9.7 12.1z"/><path class=icon2_part 
+d="M18.4 22L8.7 34.1h6.9L25.2 22 15.6 9.9H8.7L18.4 22z"/></svg></div></div><div id=txt3 class="adsize txt shadow"><div id=icon3 class=icon><svg class=icon_svg preserveAspectRatio=none 
+viewbox="0 0 44 44"><path class=icon3_part d="M30 14.25L22.3 6 14 14.25h4.6l-4.35 13h6.2L16.6 38h6.7l5.8-15.85h-5.9l2.75-7.9H30z"/></svg></div></div><div id=cta class=cta><div id=cta1 class=cta></div>
+<div id=cta2 class=cta></div></div></div><div id=border class=adsize></div>

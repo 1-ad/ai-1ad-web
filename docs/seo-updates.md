@@ -20,10 +20,11 @@ recommendations from the original “Update Website SEO” review.
   metadata URLs.
 - Accessible titles for all 12 homepage iframes and native lazy loading for the
   eight creative demos. Visibility callbacks skip frames that have not loaded yet.
-- Descriptive preview titles using existing XML metadata or the 60 campaign
+- Descriptive preview titles using existing XML metadata or the 74 campaign
   labels in `site/preview-titles.js`. Keep those labels aligned with the
   homepage when adding or renaming campaigns.
-- All 49 existing sitemap URLs converted to HTTPS, plus a sitemap declaration
+- All 49 existing sitemap URLs converted to HTTPS, plus 14 new campaign previews
+  and a sitemap declaration
   in `robots.txt`. The homepage records the latest copy update as `2026-11-20`;
   unverified historical modification dates on previews are omitted.
 - Updated the homepage, résumé, and legacy preview page to Google's current
@@ -42,6 +43,23 @@ recommendations from the original “Update Website SEO” review.
   load, iframe load, scroll and resize. Non-icon demos retain `js/shared.js`.
 - Moved the four animated section illustrations into the root `sections/`
   directory and updated the homepage, regression tests and documentation paths.
+- Added 14 client campaign panels at the top of the banner gallery. Qualcomm
+  Big Ideas, Built-In AI, Levitate, Multiply and PC Revolution appear first,
+  followed by BlackBerry MTD, Box Bubbles and Cutting Costs, Databricks Zipline,
+  Klaviyo Intro, FLEX Holiday Rear Handle, and Jelmyto AUA 2021, Kidney and
+  Patient Profiles. The 53 banner sizes and 632 creative files were copied
+  from the owner's portfolio folders.
+- Four Qualcomm sets could not load GSAP from jsDelivr in the browser. Their
+  12 entry files now reference a shared local copy of the exact GSAP 3.12.5
+  library at `portfolio/qualcomm/gsap-3.12.5.min.js`. The downloaded bytes
+  match the same release on cdnjs. The original animation code and artwork
+  are unchanged; no dependency version was upgraded.
+- Created 14 matching 600 × 200 JPEG headers by arranging the original backup
+  PNGs with angled cards, soft shadows and complementary backgrounds. Every
+  supplied size appears in its campaign header. Rebuild these assets with
+  `python3 scripts/build-portfolio-headers.py` (requires ImageMagick);
+  header generation adds no runtime dependency. New preview titles use
+  a versioned script URL so browsers receive the updated campaign labels.
 - Icon visibility follows the displayed artwork: animation starts when any
   portion enters the viewport and pauses once it is completely outside, or
   when the browser tab is hidden. Cropped containers and fractional positions
@@ -63,10 +81,22 @@ does not deploy the branch or change server settings.
 
 ## Verification
 
-- JavaScript syntax and Git whitespace checks passed.
-- Homepage preview links match the baseline, and all 178 creative entry files
-  exist. Each linked campaign has a descriptive fallback title.
-- The sitemap parses as XML and contains 49 distinct HTTPS URLs with existing
+- JavaScript syntax checks passed. Whitespace checks are clean for the gallery,
+  preview wrapper, title map, sitemap, documentation and header generator;
+  imported creative files and the vendor library retain their original whitespace.
+- All 647 new sample, header and shared-library URLs returned HTTP 200, and
+  every static asset reference resolves, including configured URLs in the
+  Qualcomm text effects.
+  All 175 copied inline and standalone scripts passed syntax checks, as did
+  the shared GSAP library. The 620 untouched files match their originals byte
+  for byte; the other 12 differ only in the GSAP script URL.
+- Chrome checks confirmed a working animated preview and descriptive title
+  for each of the 14 new campaigns, plus the static/animated toggle. The
+  Qualcomm previews run with the local library and no new console errors.
+- Homepage preview links retain all 178 original creative paths and add 53
+  new size variants; all 231 creative entry files exist. Each linked campaign
+  has a descriptive fallback title. New headers include every supplied size.
+- The sitemap parses as XML and contains 63 distinct HTTPS URLs with existing
   creative targets.
 - Browser layout checks passed at widths of 320, 390, 768, and 1440 pixels,
   without horizontal page overflow or clipped creative cards.
