@@ -34,6 +34,15 @@ recommendations from the original “Update Website SEO” review.
   contact endpoint reports success; contact field contents are not included.
 - Restored the three missing campaign thumbnails from the original project's
   `source/site/img/` folder and updated site footer dates to `2018–2026`.
+- Optimized the four icons with an isolated runtime in `icons/shared.js`.
+  Rendering uses animation frames with the original 42 ms update interval;
+  completed timers are released, and hidden icons pause reliably on initial
+  load, iframe load, scroll and resize. Non-icon demos retain `js/shared.js`.
+- The aquarium caches its static displacement map and reuses pixel buffers;
+  its steady-state canvas reads drop from four to one per frame. The rocket
+  caches its ship element and avoids redundant transform writes. Particle
+  calculations, image assets, canvas resolution and animation sequences remain
+  unchanged.
 
 All 178 distinct linked creative paths and existing preview query URLs are
 retained. Preview indexing policy and creative demos are unchanged. This round
@@ -57,6 +66,14 @@ does not deploy the branch or change server settings.
   neither. Demo controls and contact success feedback work without tracking.
 - All homepage thumbnail references resolve, and the restored JPEG files match
   their originals byte for byte.
+- `node --test tests/icon-performance.test.cjs` checks pixel equality against
+  the original displacement filter, rocket motion, frame cadence at 60/120/144 Hz,
+  timer cleanup, startup/hover/visibility behavior and iframe visibility updates.
+  Original filter and rocket code in `tests/fixtures/` are regression references
+  from commit `bfe191d`, not production scripts.
+- All 11 icon regression tests pass. Local browser checks confirm aquarium and
+  magic-hat motion, the tower's light sequence and the rocket's pointer response.
+  Visibility checks preserve the existing behavior of cropped icon containers.
 
 ## Follow-up work
 
@@ -81,3 +98,6 @@ Implementation references: [canonical URLs](https://developers.google.com/search
 [iframe loading](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe#loading),
 [current Google tag installation](https://developers.google.com/tag-platform/gtagjs),
 and [GA4 lead events](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#generate_lead).
+
+Icon performance references: [animation-frame scheduling](https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame)
+and [viewport observation](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
