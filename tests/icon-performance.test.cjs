@@ -85,7 +85,7 @@ function runtime(hidden = false, embedded = false) {
     const document = {hidden, visibilityState: hidden ? 'hidden' : 'visible', querySelector: get, querySelectorAll: () => assets,
         addEventListener(name, callback) { documentEvents.set(name, callback); }};
     const ctx = vm.createContext({window, document, performance: {now: () => now}, console, Event: class {constructor(type) { this.type = type; }}});
-    vm.runInContext(read('icons/shared.js'), ctx);
+    vm.runInContext(read('sections/shared.js'), ctx);
     const advance = milliseconds => {
         const end = now + milliseconds;
         while (true) {
@@ -146,7 +146,7 @@ test('office lights retain their original sequence without retaining completed t
         let current;
         Object.defineProperty(t.get(selector), 'className', {get: () => current, set(value) { current = value; changes.push([selector, value]); }});
     }
-    vm.runInContext(inline('icons/officetower/index.html'), t.ctx);
+    vm.runInContext(inline('sections/officetower/index.html'), t.ctx);
     t.ctx.doLights(); t.advance(750);
     assert.deepEqual(changes, [['#light1', 'light fadein trans250'], ['#light1', 'light fadeout trans250'], ['#light2', 'light fadein trans250'], ['#light2', 'light fadeout trans250']]);
     t.advance(59250);
@@ -157,7 +157,7 @@ test('icons pause offscreen or in hidden tabs and keep running while visible bey
     const t = runtime(true);
     let frames = 0;
     t.ctx.initEffects = () => t.ctx.renderEngine({frameRate: 24, renderAR: [() => frames++]}).start();
-    vm.runInContext(inline('icons/officetower/index.html'), t.ctx);
+    vm.runInContext(inline('sections/officetower/index.html'), t.ctx);
     t.window.dispatchEvent(new t.ctx.Event('load'));
     await new Promise(setImmediate);
     t.advance(1000); assert.equal(frames, 1); assert.equal(t.timers.size, 0); assert.equal(t.rafs.size, 0);
@@ -220,15 +220,15 @@ test('all four icons build every particle and draw decoded assets before enterin
         t.ctx.gct256 = {PerlinNoise: function () { this.reset = () => {}; this.fillBitmap = () => {}; }};
         t.ctx.filters = {Point: function (x, y) { this.x = x; this.y = y; },
             DisplacementMap: function (source, map, target, point) { this.point = point; this.draw = () => {}; }};
-        const html = read(`icons/${name}/index.html`);
+        const html = read(`sections/${name}/index.html`);
         for (const [, source] of html.matchAll(/data-icon-asset="([^"]+)"/g)) {
             const asset = {source, complete: true, naturalWidth: 320, decoded: false,
                 decode() { this.decoded = true; return Promise.resolve(); }};
             t.assets.push(asset);
             t.nodes.set(`img[data-icon-asset="${source}"]`, asset);
         }
-        vm.runInContext(read(`icons/${name}/banner.js`), t.ctx);
-        vm.runInContext(inline(`icons/${name}/index.html`), t.ctx);
+        vm.runInContext(read(`sections/${name}/banner.js`), t.ctx);
+        vm.runInContext(inline(`sections/${name}/index.html`), t.ctx);
         t.window.dispatchEvent(new t.ctx.Event('load'));
         await new Promise(setImmediate);
         assert.equal(t.ctx.adIsReady, true, name);
@@ -251,8 +251,8 @@ test('only icon iframes load eagerly and every icon image is included in its pre
     assert.equal(frames.filter(frame => /_icon_iframe\b/.test(frame)).length, 4);
     for (const frame of frames) assert.match(frame, /_icon_iframe\b/.test(frame) ? /loading=eager\b/ : /loading=lazy\b/);
     for (const name of ['aquarium', 'hatmagic', 'officetower', 'rocketship']) {
-        const preload = [...read(`icons/${name}/index.html`).matchAll(/data-icon-asset="([^"]+)"/g)].map(match => match[1]);
-        const files = fs.readdirSync(path.join(root, 'icons', name)).filter(file => /\.(png|jpg)$/.test(file));
+        const preload = [...read(`sections/${name}/index.html`).matchAll(/data-icon-asset="([^"]+)"/g)].map(match => match[1]);
+        const files = fs.readdirSync(path.join(root, 'sections', name)).filter(file => /\.(png|jpg)$/.test(file));
         assert.deepEqual(preload.sort(), files.sort(), name);
     }
 });
@@ -268,7 +268,7 @@ test('rocket easing and rendered rotation match the original, with one cached DO
         return {ctx, style, counts: () => ({lookups, writes})};
     }
     const old = rocket(read('tests/fixtures/rocket-original.js'));
-    const current = rocket(inline('icons/rocketship/index.html'));
+    const current = rocket(inline('sections/rocketship/index.html'));
     for (const target of [0, 0.5, -0.5, 0.1, 0]) {
         for (let i = 0; i < 120; i++) {
             for (const instance of [old, current]) { instance.ctx.onMouseUpdate({mouseRatioX: target}); instance.ctx.onUpdateShip(); }

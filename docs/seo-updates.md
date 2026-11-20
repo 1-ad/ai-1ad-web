@@ -36,10 +36,12 @@ recommendations from the original “Update Website SEO” review.
   contact endpoint reports success; contact field contents are not included.
 - Restored the three missing campaign thumbnails from the original project's
   `source/site/img/` folder and updated site footer dates to `2018–2026`.
-- Optimized the four icons with an isolated runtime in `icons/shared.js`.
+- Optimized the four icons with an isolated runtime in `sections/shared.js`.
   Rendering uses animation frames with the original 42 ms update interval;
   completed timers are released, and hidden icons pause reliably on initial
   load, iframe load, scroll and resize. Non-icon demos retain `js/shared.js`.
+- Moved the four animated section illustrations into the root `sections/`
+  directory and updated the homepage, regression tests and documentation paths.
 - Icon visibility follows the displayed artwork: animation starts when any
   portion enters the viewport and pauses once it is completely outside, or
   when the browser tab is hidden. Cropped containers and fractional positions
