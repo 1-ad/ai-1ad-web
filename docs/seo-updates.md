@@ -24,10 +24,20 @@ recommendations from the original “Update Website SEO” review.
 - All 49 existing sitemap URLs converted to HTTPS, plus a sitemap declaration
   in `robots.txt`. The homepage records the latest copy update as `2026-11-20`;
   unverified historical modification dates on previews are omitted.
+- Updated the homepage, résumé, and legacy preview page to Google's current
+  tag loader for the existing GA4 measurement ID `G-24L76YR0Q4`. This ID was
+  verified in the old tag's public connected-destination configuration.
+  The homepage retains the existing Google Ads destination `AW-798094696`
+  through its supported compatibility configuration.
+- Replaced legacy `ga()` calls with GA4 `creative_demo_play` and `generate_lead`
+  events. The lead event and existing Ads conversion now fire only after the
+  contact endpoint reports success; contact field contents are not included.
+- Restored the three missing campaign thumbnails from the original project's
+  `source/site/img/` folder and updated site footer dates to `2018–2026`.
 
 All 178 distinct linked creative paths and existing preview query URLs are
-retained. Preview indexing policy, creative assets, and analytics identifiers
-are unchanged. This round does not deploy the branch or change server settings.
+retained. Preview indexing policy and creative demos are unchanged. This round
+does not deploy the branch or change server settings.
 
 ## Verification
 
@@ -42,6 +52,11 @@ are unchanged. This round does not deploy the branch or change server settings.
   the 320px layout. XML-backed and fallback preview titles render correctly.
 - A callback check confirms unloaded lazy frames do not prevent loaded demos
   from receiving scroll and visibility updates.
+- Analytics checks confirm that successful contact responses emit one GA4 lead
+  and one Ads conversion, while failed responses and invalid submissions emit
+  neither. Demo controls and contact success feedback work without tracking.
+- All homepage thumbnail references resolve, and the restored JPEG files match
+  their originals byte for byte.
 
 ## Follow-up work
 
@@ -57,10 +72,12 @@ are unchanged. This round does not deploy the branch or change server settings.
   the local static preview; no contact delivery was tested.
 - Review Search Console data, preview indexing policy, and successful enquiry
   tracking before making broader indexing or analytics changes.
-- Supply the three thumbnail files already missing from the original import:
-  `site/img/aws_database.jpg`, `site/img/jm_video.jpg`, and
-  `site/img/loreal_magicrootcoverup.jpg`.
+- Verify GA4 reporting in Realtime after deployment and mark `generate_lead` as
+  a key event in Analytics if enquiries should appear in key-event reporting.
+  No Google account settings were changed by this branch.
 
 Implementation references: [canonical URLs](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls),
 [sitemap dates](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap),
-and [iframe loading](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe#loading).
+[iframe loading](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/iframe#loading),
+[current Google tag installation](https://developers.google.com/tag-platform/gtagjs),
+and [GA4 lead events](https://developers.google.com/analytics/devguides/collection/ga4/reference/events#generate_lead).
