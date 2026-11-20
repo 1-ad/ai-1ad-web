@@ -68,7 +68,7 @@ recommendations from the original “Update Website SEO” review.
 - Grouped client panels by brand within the existing banner, preroll and mobile
   galleries. Each brand keeps its first position relative to other brands, and
   projects within a brand retain their previous order. Qualcomm remains first.
-- Temporarily hid the SF SPCA and Qualcomm Multiply panels with inline
+- Temporarily hid the SF SPCA, Qualcomm Multiply and Tria Beauty panels with inline
   `display:none`. Remove that style to restore them; their markup and preview
   files are preserved.
 - All 194 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
@@ -137,7 +137,7 @@ Existing expansion and offset metadata remains in the original XML files.
   New headers include every supplied size.
 - The gallery audit accounts for all 265 portfolio entry pages. Every HTML5
   banner variant is represented in the gallery markup, including the temporarily
-  hidden SF SPCA and Qualcomm Multiply panels. The four unlisted entries are
+  hidden SF SPCA, Qualcomm Multiply and Tria Beauty panels. The four unlisted entries are
   video-only previews:
   `aimovig/time2018/540x432`, `aws/redshift/540x304`,
   `imperva/cybercriminals/540x304` and `imperva/secure/540x304` under `portfolio/`.
