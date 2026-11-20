@@ -20,9 +20,10 @@ recommendations from the original “Update Website SEO” review.
   metadata URLs.
 - Accessible titles for all 12 homepage iframes and native lazy loading for the
   eight creative demos. Visibility callbacks skip frames that have not loaded yet.
-- Descriptive preview titles using existing XML metadata or the 79 campaign
-  labels in `site/preview-titles.js`. Keep those labels aligned with the
-  homepage when adding or renaming campaigns.
+- Project titles and preview details come from each demo's `_info.xml`.
+  Added metadata for the 172 gallery demos that were missing it, preserving
+  the 77 existing XML files. All 249 linked demos now use the original XML
+  loader; the separate JavaScript campaign-title map has been removed.
 - All 49 existing sitemap URLs converted to HTTPS, plus 18 new campaign previews
   and a sitemap declaration
   in `robots.txt`. The homepage records the latest copy update as `2026-11-20`;
@@ -57,7 +58,10 @@ recommendations from the original “Update Website SEO” review.
   Intelligence's 300 × 600 and Johnston & Murphy Spring 2018's 200 × 200 links.
 - Added superscript registration marks to the five Snapdragon product labels,
   three JELMYTO product labels and the BlackBerry brand label. Matching preview
-  titles use the same spellings and marks, with a refreshed title-script URL.
+  metadata uses the same spellings and marks in each demo's XML file.
+- Grouped client panels by brand within the existing banner, preroll and mobile
+  galleries. Each brand keeps its first position relative to other brands, and
+  projects within a brand retain their previous order. Qualcomm remains first.
 - All 182 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
   from cdnjs. This replaces the temporary local Qualcomm library and older
   CDN/embedded copies. Compatibility adjustments and verification are recorded
@@ -66,8 +70,7 @@ recommendations from the original “Update Website SEO” review.
   PNGs with angled cards, soft shadows and complementary backgrounds. Every
   supplied size appears in its campaign header. Rebuild these assets with
   `python3 scripts/build-portfolio-headers.py` (requires ImageMagick);
-  header generation adds no runtime dependency. New preview titles use
-  a versioned script URL so browsers receive the updated campaign labels.
+  header generation adds no runtime dependency.
 - Icon visibility follows the displayed artwork: animation starts when any
   portion enters the viewport and pauses once it is completely outside, or
   when the browser tab is hidden. Cropped containers and fractional positions
@@ -87,6 +90,20 @@ All 178 distinct linked creative paths and existing preview query URLs are
 retained. Preview indexing policy and creative demos are unchanged. This round
 does not deploy the branch or change server settings.
 
+## Editing project metadata
+
+Edit `_info.xml` alongside the demo's `index.html`. The existing preview loader
+uses `brand`, `product`, `creative` and `type` for the visible details and page
+title. Keep these labels aligned with the corresponding homepage panel.
+The CDATA fields support the existing HTML markup, including `<sup>®</sup>`.
+
+`size` and `preview` select the dimensions and preview-page layout. `backup`
+names the existing JPEG or PNG shown by the Static control; leave it empty
+when no backup is supplied. A blank `clickTag` preserves the preview's existing
+behavior of reading the demo's click destination. `text` is optional extracted
+ad copy; the new records leave it empty instead of inventing a transcription.
+Existing expansion and offset metadata remains in the original XML files.
+
 ## Verification
 
 - JavaScript syntax checks passed. Whitespace checks are clean for the gallery,
@@ -100,8 +117,9 @@ does not deploy the branch or change server settings.
   Qualcomm previews now use the same cdnjs library as the other GSAP projects.
 - Homepage preview links retain all 178 original creative paths, add 53
   imported sizes and restore 18 previously unlisted sizes; all 249 creative
-  entry files exist. Each linked campaign
-  has a descriptive fallback title. New headers include every supplied size.
+  entry files exist. Each linked demo has its own XML metadata for its title,
+  brand, product, campaign, description, size and available static backup.
+  New headers include every supplied size.
 - The gallery audit accounts for all 253 portfolio entry pages. Every HTML5
   banner variant is linked. The four unlisted entries are video-only previews:
   `aimovig/time2018/540x432`, `aws/redshift/540x304`,
@@ -113,12 +131,20 @@ does not deploy the branch or change server settings.
   variants resolve; the four reused header files remain byte-identical.
 - The sitemap parses as XML and contains 67 distinct HTTPS URLs with existing
   creative targets.
+- All 249 gallery metadata URLs return HTTP 200 with an XML content type and
+  parse successfully. Every referenced preview layout and static backup exists.
+  The 172 new records match the gallery labels; all 77 existing XML files are
+  byte-identical to their pre-migration versions.
+- Chrome checks cover XML details and titles, JPEG and PNG static previews,
+  demos without backups, existing expandable dimensions and the generic
+  fallback for a demo outside the gallery. Each gallery groups brands
+  contiguously while preserving the first-seen brand order and project order.
 - Browser layout checks passed at widths of 320, 390, 768, and 1440 pixels,
   without horizontal page overflow or clipped creative cards.
 - Browser measurements confirm a 60px gap above each section icon, measured
   from the preceding paragraph or gallery edge.
 - The work and contact links navigate to their sections. The contact fields fit
-  the 320px layout. XML-backed and fallback preview titles render correctly.
+  the 320px layout. XML-backed titles and the generic fallback render correctly.
 - A callback check confirms unloaded lazy frames do not prevent loaded demos
   from receiving scroll and visibility updates.
 - Analytics checks confirm that successful contact responses emit one GA4 lead
