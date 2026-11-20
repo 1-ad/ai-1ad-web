@@ -55,6 +55,9 @@ recommendations from the original “Update Website SEO” review.
   Qualcomm first. Reused four existing headers unchanged and composed Bambi
   Eye's header from its original two backup PNGs. Also restored Citrix
   Intelligence's 300 × 600 and Johnston & Murphy Spring 2018's 200 × 200 links.
+- Added superscript registration marks to the five Snapdragon product labels,
+  three JELMYTO product labels and the BlackBerry brand label. Matching preview
+  titles use the same spellings and marks, with a refreshed title-script URL.
 - All 182 GSAP-loading projects now use GSAP 3.15.1 and matching plugins
   from cdnjs. This replaces the temporary local Qualcomm library and older
   CDN/embedded copies. Compatibility adjustments and verification are recorded
