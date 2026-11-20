@@ -9,8 +9,9 @@ recommendations from the original “Update Website SEO” review.
 
 - A service-focused homepage title, description, H1, section headings, and
   links to client work and the contact section.
-- Shorter introductory copy, a concrete quality promise, and client projects
-  placed before the animation experiments.
+- Introductory copy focused on development, animation, special effects, and
+  ongoing client relationships, with selective bolding for easier scanning.
+  Client projects remain before the animation experiments.
 - A device-width viewport and responsive sizing fixes, including the contact
   form and fixed-size creative cards at a 320px viewport.
 - Consistent `https://www.1-ad.com/` homepage canonical, alternate, and social
@@ -21,7 +22,7 @@ recommendations from the original “Update Website SEO” review.
   labels in `site/preview-titles.js`. Keep those labels aligned with the
   homepage when adding or renaming campaigns.
 - All 49 existing sitemap URLs converted to HTTPS, plus a sitemap declaration
-  in `robots.txt`. The homepage records this content update as `2026-11-19`;
+  in `robots.txt`. The homepage records the latest copy update as `2026-11-20`;
   unverified historical modification dates on previews are omitted.
 
 All 178 distinct linked creative paths and existing preview query URLs are
